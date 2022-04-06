@@ -25,18 +25,18 @@
                     <Border.Background>
                         <SolidColorBrush Color="White" Opacity="0.5"/>
                     </Border.Background>
-                    <Button x:Name="minButton" BorderThickness="0" Margin="10,10,10,10" 
+                    <Button x:Name="minButton" BorderThickness="0" Height="15" Width="15" 
                             Style="{StaticResource MinButton}" Click="minButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="minimize.png"/>
                         </Button.Background>
                     </Button>
                 </Border>
-                <Border CornerRadius="50" Margin="1,0,2,0">
+                <Border CornerRadius="50" Margin="2,0,2,0">
                     <Border.Background>
                         <SolidColorBrush Color="White" Opacity="0.5"/>
                     </Border.Background>
-                    <Button x:Name="maxButton" BorderThickness="0" Margin="10,10,10,10"
+                    <Button x:Name="maxButton" BorderThickness="0" Height="10" Width="10"
                             Style="{StaticResource MaxButton}" Click="maxButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="maximize.png"/>
@@ -47,7 +47,7 @@
                     <Border.Background>
                         <SolidColorBrush Color="White" Opacity="0.5"/>
                     </Border.Background>
-                    <Button x:Name="closeButton"  BorderThickness="0" Margin="7,7,7,7" 
+                    <Button x:Name="closeButton" BorderThickness="0" Height="20" Width="20" 
                             Style="{StaticResource CloseButton}" Click="closeButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="close.png"/>
