@@ -23,3 +23,28 @@ D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.pdb
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.genruntimeconfig.cache
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\ref\Project1_BookStore.dll
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.exe
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.deps.json
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.runtimeconfig.json
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.dll
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\ref\Project1_BookStore.dll
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.pdb
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.AssemblyReference.cache
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Styles.baml
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\LoginWindow.g.cs
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\MainWindow.g.cs
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\App.g.cs
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore_MarkupCompile.cache
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore_MarkupCompile.lref
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\App.baml
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\LoginWindow.baml
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\MainWindow.baml
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.g.resources
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.GeneratedMSBuildEditorConfig.editorconfig
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.AssemblyInfoInputs.cache
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.AssemblyInfo.cs
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.CoreCompileInputs.cache
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.dll
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\ref\Project1_BookStore.dll
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.pdb
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.genruntimeconfig.cache

@@ -18,13 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="close-pressed.png" />
-    <Resource Include="close.png" />
-    <Resource Include="maximize-pressed.png" />
-    <Resource Include="maximize.png" />
-    <Resource Include="minimize-pressed.png" />
-    <Resource Include="minimize.png" />
-    <Resource Include="restore-down.png" />
+    <Resource Include="Resource\Images\Icons\close-pressed.png" />
+    <Resource Include="Resource\Images\Icons\close.png" />
+    <Resource Include="Resource\Images\Icons\maximize-pressed.png" />
+    <Resource Include="Resource\Images\Icons\maximize.png" />
+    <Resource Include="Resource\Images\Icons\minimize-pressed.png" />
+    <Resource Include="Resource\Images\Icons\minimize.png" />
+    <Resource Include="Resource\Images\Icons\restore-down.png" />
   </ItemGroup>
 
 </Project>
