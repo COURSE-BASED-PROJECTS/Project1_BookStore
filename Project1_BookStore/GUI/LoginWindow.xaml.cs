@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +20,14 @@ namespace Project1_BookStore
     /// </summary>
     public class Icons
     {
-        public string pathClose { get; set; }
-        public string pathClosePressed { get; set; }
-
-        public Icons()
-        {
-            pathClose = "../Resource/Images/Icons/maximize.png";
-            pathClosePressed = "../Resource/Images/Icons/close-pressed.png";
-        }
+        public string pathCloseBtn { get; set; } = "/Resource/Images/Icons/close.png";
+        public string pathClosePressedBtn { get; set; } = "/Resource/Images/Icons/close-pressed.png";
+        public string pathMaxBtn { get; set; } = "/Resource/Images/Icons/maximize.png";
+        public string pathMaxPressedBtn { get; set; } = "/Resource/Images/Icons/maximize-pressed.png";
+        public string pathMinBtn { get; set; } = "/Resource/Images/Icons/minimize.png";
+        public string pathMinePressedBtn { get; set; } = "/Resource/Images/Icons/minimize-pressed.png";
     }
+
 
     public partial class LoginWindow : Window
     {

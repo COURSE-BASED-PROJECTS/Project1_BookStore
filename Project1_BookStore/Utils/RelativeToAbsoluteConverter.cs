@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,9 @@ namespace Project1_BookStore.Utils
         {
             String relativePath = (String)value;
             String folder = AppDomain.CurrentDomain.BaseDirectory;
-            String absolutePath = $"{folder}{relativePath}";
+            String absolutePath = $"{folder}/{relativePath}";
+
+            Debug.WriteLine(absolutePath);
             return absolutePath;
         }
 
