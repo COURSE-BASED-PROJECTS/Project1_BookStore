@@ -7,4 +7,24 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="close-pressed.png" />
+    <None Remove="close.png" />
+    <None Remove="maximize-pressed.png" />
+    <None Remove="maximize.png" />
+    <None Remove="minimize-pressed.png" />
+    <None Remove="minimize.png" />
+    <None Remove="restore-down.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="close-pressed.png" />
+    <Resource Include="close.png" />
+    <Resource Include="maximize-pressed.png" />
+    <Resource Include="maximize.png" />
+    <Resource Include="minimize-pressed.png" />
+    <Resource Include="minimize.png" />
+    <Resource Include="restore-down.png" />
+  </ItemGroup>
+
 </Project>
