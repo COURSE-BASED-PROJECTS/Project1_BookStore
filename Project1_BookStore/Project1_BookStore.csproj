@@ -18,13 +18,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resource\Images\Icons\close-pressed.png" />
-    <Resource Include="Resource\Images\Icons\close.png" />
-    <Resource Include="Resource\Images\Icons\maximize-pressed.png" />
-    <Resource Include="Resource\Images\Icons\maximize.png" />
-    <Resource Include="Resource\Images\Icons\minimize-pressed.png" />
-    <Resource Include="Resource\Images\Icons\minimize.png" />
-    <Resource Include="Resource\Images\Icons\restore-down.png" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resource\Images\Icons\close-pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resource\Images\Icons\close.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resource\Images\Icons\maximize-pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resource\Images\Icons\maximize.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resource\Images\Icons\minimize-pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resource\Images\Icons\minimize.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resource\Images\Icons\restore-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

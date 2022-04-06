@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project1_BookStore"
+        xmlns:utils="clr-namespace:Project1_BookStore.Utils"
         mc:Ignorable="d"
         Title="LoginWindow" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+    <Window.Resources>
+        <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+    </Window.Resources>
     <Border Background="#FAD49D" BorderBrush="Transparent" CornerRadius="35">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -25,10 +29,10 @@
                     <Border.Background>
                         <SolidColorBrush Color="White" Opacity="0.5"/>
                     </Border.Background>
-                    <Button x:Name="minButton" BorderThickness="0" Height="15" Width="15" 
-                            Style="{StaticResource MinButton}" Click="minButton_Click">
+                    <Button x:Name="minButton" BorderThickness="0" Height="15" Width="15"
+                             Click="minButton_Click">
                         <Button.Background>
-                            <ImageBrush ImageSource="minimize.png"/>
+                            <ImageBrush ImageSource="{Binding pathClosePressed, Converter={StaticResource absoluteConverter}}"/>
                         </Button.Background>
                     </Button>
                 </Border>
@@ -37,9 +41,9 @@
                         <SolidColorBrush Color="White" Opacity="0.5"/>
                     </Border.Background>
                     <Button x:Name="maxButton" BorderThickness="0" Height="10" Width="10"
-                            Style="{StaticResource MaxButton}" Click="maxButton_Click">
+                             Click="maxButton_Click">
                         <Button.Background>
-                            <ImageBrush ImageSource="maximize.png"/>
+                            <ImageBrush ImageSource="{Binding pathClose, Converter={StaticResource absoluteConverter}}"/>
                         </Button.Background>
                     </Button>
                 </Border>
@@ -48,9 +52,9 @@
                         <SolidColorBrush Color="White" Opacity="0.5"/>
                     </Border.Background>
                     <Button x:Name="closeButton" BorderThickness="0" Height="20" Width="20" 
-                            Style="{StaticResource CloseButton}" Click="closeButton_Click">
+                             Click="closeButton_Click">
                         <Button.Background>
-                            <ImageBrush ImageSource="close.png"/>
+                            <ImageBrush ImageSource="{Binding pathClose, Converter={StaticResource absoluteConverter}}"/>
                         </Button.Background>
                     </Button>
                 </Border>

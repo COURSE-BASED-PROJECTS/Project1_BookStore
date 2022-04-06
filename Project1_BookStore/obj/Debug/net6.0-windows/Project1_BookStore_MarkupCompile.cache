@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\
 Project1_BookStore
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\App.xaml
-3-836528144
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\App.xaml
+3329050511
 
-5-718559353
-1941142463650
-LoginWindow.xaml;MainWindow.xaml;Styles.xaml;
+9-315255137
+195880743476
+GUI\LoginWindow.xaml;GUI\MainWindow.xaml;Styles.xaml;
 
 False
 

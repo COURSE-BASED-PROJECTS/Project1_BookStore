@@ -17,6 +17,18 @@ namespace Project1_BookStore
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
+    public class Icons
+    {
+        public string pathClose { get; set; }
+        public string pathClosePressed { get; set; }
+
+        public Icons()
+        {
+            pathClose = "../Resource/Images/Icons/maximize.png";
+            pathClosePressed = "../Resource/Images/Icons/close-pressed.png";
+        }
+    }
+
     public partial class LoginWindow : Window
     {
         public LoginWindow()
@@ -44,6 +56,12 @@ namespace Project1_BookStore
         private void minButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        Icons _icons = new Icons();
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = _icons;
         }
     }
 }
