@@ -9,6 +9,21 @@
         Title="LoginWindow" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
+        <!--styte datepicker-->
+        <Style x:Key="resizedCalendarItem" TargetType="{x:Type Calendar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Calendar}">
+                        <Viewbox Height="240"
+                        Width="290">
+                            <CalendarItem x:Name="PART_CalendarItem"
+                                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" />
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
     </Window.Resources>
 
@@ -27,6 +42,10 @@
             <Border Background="#EBECF0" BorderBrush="#EBECF0"
                     BorderThickness="3,3,3,0"
                     CornerRadius="25" x:Name="border"/>
+
+            <Border Background="#FFFFFF" BorderBrush="#EBECF0"
+                    BorderThickness="3"
+                    CornerRadius="35" x:Name="border_1"/>
 
             <!--comlumn 1-->
             <Grid Grid.Column="0" Grid.Row="0"
@@ -275,7 +294,10 @@
                                         <Image Width="81" Height="121"
                                                Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                                         <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
-                                                TextWrapping="Wrap" TextAlignment="Center"></TextBlock>  
+                                                TextWrapping="Wrap" TextAlignment="Center"
+                                                   FontFamily="Inter"
+                                                   FontWeight="Medium"
+                                                   FontSize="13"></TextBlock>  
                                         
                                         <TextBlock Margin="5,0,0,0">
                                             <Label Content="Tác giả:" FontFamily="Inter"
@@ -308,8 +330,204 @@
                 <Grid.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=border}" />
                 </Grid.OpacityMask>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="56*"/>
+                    <RowDefinition Height="268*"/>
+                    <RowDefinition Height="144*"/>
+                    <RowDefinition Height="144*"/>
+                </Grid.RowDefinitions>
+
+                <!--Row - 1-->
+                <Grid Grid.Row="0" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal">
+                        <Border CornerRadius="50" Margin="0,0,10,0">
+                            <Border.Background>
+                                <SolidColorBrush Color="White" Opacity="0.6"/>
+                            </Border.Background>
+                            <Button x:Name="minButton" BorderThickness="0" Height="15" Width="15"
+                             Click="minButton_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="{Binding pathMinBtn, Converter={StaticResource absoluteConverter}}"/>
+
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                        <Border CornerRadius="50" Margin="10,0,10,0">
+                            <Border.Background>
+                                <SolidColorBrush Color="White" Opacity="0.6"/>
+                            </Border.Background>
+                            <Button x:Name="maxButton" BorderThickness="0" Height="10" Width="10"
+                             Click="maxButton_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="{Binding pathMaxBtn, Converter={StaticResource absoluteConverter}}"/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                        <Border CornerRadius="50" Margin="10,0,20,0">
+                            <Border.Background>
+                                <SolidColorBrush Color="White" Opacity="0.6"/>
+                            </Border.Background>
+                            <Button x:Name="closeButton" BorderThickness="0" Height="20" Width="20" 
+                             Click="closeButton_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="{Binding pathCloseBtn, Converter={StaticResource absoluteConverter}}"/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                    </StackPanel>
+                    
+                </Grid>
+
+                <!--Row - 2-->
+                <Grid Grid.Row="1">
+
+                    <Border CornerRadius="25">
+                        <Border.Effect>
+                            <DropShadowEffect/>
+                        </Border.Effect>
+                        
+                        
+                        <DatePicker Width="290" Height="266"
+                                    CalendarStyle="{StaticResource resizedCalendarItem}">
+                            <DatePicker.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="Blue" Offset="0.1" />
+                                    <GradientStop Color="Orange" Offset="0.25" />
+                                    <GradientStop Color="Green" Offset="0.75" />
+                                    <GradientStop Color="Red" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </DatePicker.Background>
+                            <DatePicker.Foreground>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="Black" Offset="0.25" />
+                                    <GradientStop Color="Green" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </DatePicker.Foreground>
+                        </DatePicker>
+                    </Border>
+                   
+                </Grid>
+                
+                <!--Row - 3-->
+                <Grid Grid.Row="2" Background="#ffffff"
+                      Width="290" Height="143">
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=border_1}" />
+                    </Grid.OpacityMask>
+                    
+                    <Label Content="Số lượng sản phẩm"
+                           Margin="15"
+                           FontFamily="Inter"
+                           FontSize="16"
+                           FontWeight="Medium"></Label>
+                    <StackPanel Orientation="Horizontal" 
+                                Width="218" Height="78"
+                                Margin="0,20,0,0">
+                        <StackPanel Orientation="Vertical"
+                                    Width="100" Height="70"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="LightBlue"
+                                    Margin="5"
+                                    >
+                            <StackPanel.OpacityMask>
+                                <VisualBrush Visual="{Binding ElementName=border_1}" />
+                            </StackPanel.OpacityMask>
+                            
+                            <TextBlock Text="Đã Bán"
+                                       TextAlignment="Center"
+                                       FontFamily="Inter"
+                                       FontWeight="Medium"
+                                       FontSize="16"
+                                       Margin="0,5,0,0"></TextBlock>
+                                <TextBlock  Text="44"
+                                        TextAlignment="Center"
+                                       FontFamily="Inter"
+                                       FontWeight="Medium"
+                                       FontSize="36"
+                                       Foreground="Red"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical"
+                                    Width="100" Height="70"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="LightBlue"
+                                    Margin="5"
+                                    >
+                            <StackPanel.OpacityMask>
+                                <VisualBrush Visual="{Binding ElementName=border_1}" />
+                            </StackPanel.OpacityMask>
+
+                            <TextBlock Text="Đã Bán"
+                                       TextAlignment="Center"
+                                       FontFamily="Inter"
+                                       FontWeight="Medium"
+                                       FontSize="16"
+                                       Margin="0,5,0,0"></TextBlock>
+                            <TextBlock  Text="44"
+                                        TextAlignment="Center"
+                                       FontFamily="Inter"
+                                       FontWeight="Medium"
+                                       FontSize="36"
+                                       Foreground="Red"></TextBlock>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+
+                <!--Row - 4-->
+                <Grid Grid.Row="3" Background="#ffffff"
+                      Width="290" Height="143">
+
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=border_1}" />
+                    </Grid.OpacityMask>
+
+                    <Label Content="Số lượng Đơn hàng"
+                           Margin="15"
+                           FontFamily="Inter"
+                           FontSize="16"
+                           FontWeight="Medium"></Label>
+                    <StackPanel Orientation="Horizontal" 
+                                Width="218" Height="78"
+                                Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="218" Height="70"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="LightBlue">
+                            <StackPanel.OpacityMask>
+                                <VisualBrush Visual="{Binding ElementName=border_1}" />
+                            </StackPanel.OpacityMask>
+
+                            <TextBlock Text="Đơn hàng mới"
+                                       TextAlignment="Center"
+                                       FontFamily="Inter"
+                                       FontWeight="Medium"
+                                       FontSize="16"
+                                       Margin="20,0,0,0"
+                                       VerticalAlignment="Center"></TextBlock>
+                            <TextBlock  Text="44"
+                                        TextAlignment="Center"
+                                       FontFamily="Inter"
+                                       FontWeight="Medium"
+                                       FontSize="36"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       Foreground="Red"></TextBlock>
+                        </StackPanel>
+
+                        
+
+                    </StackPanel>
+                </Grid>
+
             </Grid>
 
         </Grid>
     </Border>
+    
+    
 </Window>
