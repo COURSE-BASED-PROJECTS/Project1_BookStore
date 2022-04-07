@@ -18,11 +18,42 @@ namespace Project1_BookStore
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void maxButton_Click(object sender, RoutedEventArgs e)
+        {
+            switch (this.WindowState)
+            {
+                case WindowState.Normal:
+                    this.WindowState = WindowState.Maximized;
+                    break;
+                case WindowState.Maximized:
+                    this.WindowState = WindowState.Normal;
+                    break;
+            }
+        }
+
+        private void minButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        Icons _icons = new Icons();
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = _icons;
+            //this.WindowState = WindowState.Maximized;
         }
     }
 }

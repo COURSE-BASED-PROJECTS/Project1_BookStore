@@ -26,6 +26,10 @@ namespace Project1_BookStore
         public string pathMaxPressedBtn { get; set; } = "/Resource/Images/Icons/maximize-pressed.png";
         public string pathMinBtn { get; set; } = "/Resource/Images/Icons/minimize.png";
         public string pathMinePressedBtn { get; set; } = "/Resource/Images/Icons/minimize-pressed.png";
+        public string logo { get; set; } = "/Resource/Images/Icons/logo.png";
+
+
+
     }
 
 

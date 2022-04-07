@@ -78,7 +78,7 @@ namespace Project1_BookStore {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Project1_BookStore;V1.0.0.0;component/gui/loginwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Project1_BookStore;component/gui/loginwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\GUI\LoginWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

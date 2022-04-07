@@ -4,9 +4,219 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project1_BookStore"
+        xmlns:utils="clr-namespace:Project1_BookStore.Utils"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="LoginWindow" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+    <Window.Resources>
+        <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+    </Window.Resources>
+    
 
-    </Grid>
+    <Border Background="#EBECF0" BorderBrush="#EBECF0"
+        BorderThickness="3"
+        CornerRadius="35">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="214*"/>
+                <ColumnDefinition Width="705*"/>
+                <ColumnDefinition Width="315*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Border Background="#EBECF0" BorderBrush="#EBECF0"
+                    BorderThickness="3,3,3,0"
+                    CornerRadius="25" x:Name="border"/>
+            
+            <!--comlumn 1-->
+            <Grid Grid.Column="0" Grid.Row="0"
+                  Background="#F5F6F7">
+                
+                <!--using border element above for child-->
+                <Grid.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=border}" />
+                </Grid.OpacityMask>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="88*"/>
+                    <RowDefinition Height="274*"/>
+                    <RowDefinition Height="216*"/>
+                </Grid.RowDefinitions>
+
+                <!--row 1-->
+                <Grid Grid.Column="0" Grid.Row="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--comlumn 1 - Logo-->
+                    <Grid Grid.Column="0" Grid.Row="0"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Width="40"
+                          Height="40"
+                          Margin="35,0,0,15">
+                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <TextBlock Text="Book Up"
+                                   FontFamily="Inter"
+                                   FontSize="20"
+                                   Margin="20,0,0,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"></TextBlock>
+                    </Grid>
+                </Grid>
+                
+                <!--row 2-->
+                <Grid Grid.Column="0" Grid.Row="1" Background="#F5F6F7">
+                   
+                    <!--comlumn 1 - Categories-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="44*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!--row-1-->
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center">
+                            <Image Width="16" Height="16" Margin="20,0,0,0"
+                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                            <TextBlock Text="Tổng quan hệ thống"
+                                       FontFamily="Inter"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       FontSize="15"
+                                       FontWeight="Medium"
+                                       ></TextBlock>
+                        </TextBlock>
+                    </Grid>
+
+                    <!--row-2-->
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center">
+                            <Image Width="16" Height="16" Margin="20,0,0,0"
+                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                            <TextBlock Text="Quản lý sản phẩm"
+                                       FontFamily="Inter"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       FontSize="15"></TextBlock>
+                        </TextBlock>
+                    </Grid>
+
+                    <!--row-3-->
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center">
+                            <Image Width="16" Height="16" Margin="20,0,0,0"
+                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                            <TextBlock Text="Quản lý đơn hàng"
+                                       FontFamily="Inter"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       FontSize="15"></TextBlock>
+                        </TextBlock>
+                    </Grid>
+
+                    <!--row-4-->
+                    <Grid Grid.Column="0" Grid.Row="3">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center">
+                            <Image Width="16" Height="16" Margin="20,0,0,0"
+                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                            <TextBlock Text="Quản lý khuyến mãi"
+                                       FontFamily="Inter"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       FontSize="15"></TextBlock>
+                        </TextBlock>
+                    </Grid>
+
+                    <!--row-5-->
+                    <Grid Grid.Column="0" Grid.Row="4">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center">
+                            <Image Width="16" Height="16" Margin="20,0,0,0"
+                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                            <TextBlock Text="Thống kê doanh thu"
+                                       FontFamily="Inter"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       FontSize="15"></TextBlock>
+                        </TextBlock>
+                    </Grid>
+
+                    <!--row-6-->
+                    <Grid Grid.Column="0" Grid.Row="5">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center">
+                            <Image Width="16" Height="16" Margin="20,0,0,0"
+                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                            <TextBlock Text="Cấu hình hệ thống"
+                                       FontFamily="Inter"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       FontSize="15"></TextBlock>
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+
+                <!--row 3-->
+                <Grid Grid.Column="0" Grid.Row="2"
+                      VerticalAlignment="Bottom"
+                      HorizontalAlignment="Center"
+                      Width="214"
+                      Height="91" 
+                      Background="#FBFBFB">
+
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center">
+                        <Image Width="35" Height="35"
+                                Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                             
+                        <TextBlock Text="Quản lý DA"
+                                    FontFamily="Inter"
+                                    FontSize="15"
+                                    Margin="5,0,0,0"></TextBlock>
+                        <Image Width="17" Height="17"
+                                Margin="20,0,0,0"
+                                Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                    </TextBlock>
+                </Grid>
+                
+            </Grid>
+
+            <!--comlumn 2-->
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="131*"/>
+                    <RowDefinition Height="596*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Column="0" Grid.Row="0">
+                    
+                </Grid>
+                
+            </Grid>
+
+            <!--comlumn 3-->
+            <Grid Grid.Column="2" Grid.Row="0"
+                  Background="#F9FAFB">
+
+                <Grid.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=border}" />
+                </Grid.OpacityMask>
+            </Grid>
+
+        </Grid>
+    </Border>
 </Window>

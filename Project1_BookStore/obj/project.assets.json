@@ -88,36 +88,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\btram\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages": {}
+    "C:\\Users\\Admins\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
+      "projectUniqueName": "E:\\University\\Junior-year\\term 2\\Windows\\Project\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
       "projectName": "Project1_BookStore",
-      "projectPath": "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
-      "packagesPath": "C:\\Users\\btram\\.nuget\\packages\\",
-      "outputPath": "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\obj\\",
+      "projectPath": "E:\\University\\Junior-year\\term 2\\Windows\\Project\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
+      "packagesPath": "C:\\Users\\Admins\\.nuget\\packages\\",
+      "outputPath": "E:\\University\\Junior-year\\term 2\\Windows\\Project\\Project1_BookStore\\Project1_BookStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\btram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admins\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0-windows7.0": {
