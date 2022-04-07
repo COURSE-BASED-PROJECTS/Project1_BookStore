@@ -67,5 +67,10 @@ namespace Project1_BookStore
         {
             this.DataContext = _icons;
         }
+
+        private void loginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

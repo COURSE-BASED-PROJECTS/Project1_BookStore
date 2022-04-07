@@ -82,7 +82,7 @@
 
                     <Grid Grid.Column="1" Grid.Row="0">
                         <TextBlock Text="Book Up"
-                                   FontFamily="Inter"
+                                   FontWeight="SemiBold"
                                    FontSize="20"
                                    Margin="20,0,0,0"
                                    VerticalAlignment="Center"
@@ -110,7 +110,6 @@
                             <Image Width="16" Height="16" Margin="20,0,0,0"
                                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                             <TextBlock Text="Tổng quan hệ thống"
-                                       FontFamily="Inter"
                                        HorizontalAlignment="Left"
                                        Margin="5,0,0,0"
                                        FontSize="15"
@@ -126,7 +125,6 @@
                             <Image Width="16" Height="16" Margin="20,0,0,0"
                                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                             <TextBlock Text="Quản lý sản phẩm"
-                                       FontFamily="Inter"
                                        HorizontalAlignment="Left"
                                        Margin="5,0,0,0"
                                        FontSize="15"></TextBlock>
@@ -140,7 +138,6 @@
                             <Image Width="16" Height="16" Margin="20,0,0,0"
                                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                             <TextBlock Text="Quản lý đơn hàng"
-                                       FontFamily="Inter"
                                        HorizontalAlignment="Left"
                                        Margin="5,0,0,0"
                                        FontSize="15"></TextBlock>
@@ -154,7 +151,6 @@
                             <Image Width="16" Height="16" Margin="20,0,0,0"
                                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                             <TextBlock Text="Quản lý khuyến mãi"
-                                       FontFamily="Inter"
                                        HorizontalAlignment="Left"
                                        Margin="5,0,0,0"
                                        FontSize="15"></TextBlock>
@@ -168,7 +164,6 @@
                             <Image Width="16" Height="16" Margin="20,0,0,0"
                                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                             <TextBlock Text="Thống kê doanh thu"
-                                       FontFamily="Inter"
                                        HorizontalAlignment="Left"
                                        Margin="5,0,0,0"
                                        FontSize="15"></TextBlock>
@@ -182,7 +177,6 @@
                             <Image Width="16" Height="16" Margin="20,0,0,0"
                                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                             <TextBlock Text="Cấu hình hệ thống"
-                                       FontFamily="Inter"
                                        HorizontalAlignment="Left"
                                        Margin="5,0,0,0"
                                        FontSize="15"></TextBlock>
@@ -191,12 +185,12 @@
                 </Grid>
 
                 <!--row 3-->
-                <Grid Grid.Column="0" Grid.Row="2"
-                      VerticalAlignment="Bottom"
+                <Grid Grid.Row="2"
+                      VerticalAlignment="Top"
                       HorizontalAlignment="Center"
                       Width="214"
                       Height="91" 
-                      Background="#FBFBFB">
+                      Background="#FBFBFB" Margin="0,178,0,0">
 
                     <TextBlock HorizontalAlignment="Center"
                                VerticalAlignment="Center">
@@ -236,11 +230,9 @@
                         <StackPanel Orientation="Vertical"
                                     Margin="25,40,15,15">
                             <Label Content="Tổng quan hệ thống"
-                                   FontFamily="Inter"
                                    FontSize="25"
                                    FontWeight="DemiBold"></Label>
                             <Label Content="Chào quản lý DA!"
-                                   FontFamily="Inter"
                                    FontSize="15"></Label>
 
                         </StackPanel>
@@ -274,7 +266,6 @@
                         <StackPanel Orientation="Vertical">
                             <TextBlock>
                                 <Label Content="Sản phẩm sắp hết hàng"
-                                   FontFamily="Inter"
                                    FontSize="16"
                                    FontWeight="Medium"
                                    Margin="25"></Label>
@@ -295,21 +286,20 @@
                                                Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                                         <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
                                                 TextWrapping="Wrap" TextAlignment="Center"
-                                                   FontFamily="Inter"
                                                    FontWeight="Medium"
                                                    FontSize="13"></TextBlock>  
                                         
                                         <TextBlock Margin="5,0,0,0">
-                                            <Label Content="Tác giả:" FontFamily="Inter"
+                                            <Label Content="Tác giả:"
                                                    FontSize="10"></Label>
-                                            <Label Content="Napoleon Hill" FontFamily="Inter"
+                                            <Label Content="Napoleon Hill"
                                                    FontSize="10" FontWeight="Medium"></Label>
                                         </TextBlock>
                                         
                                         <TextBlock Margin="5,0,0,0">
-                                            <Label Content="Số lượng:" FontFamily="Inter"
+                                            <Label Content="Số lượng:"
                                                    FontSize="10"></Label>
-                                            <Label Content="1" FontFamily="Inter"
+                                            <Label Content="1"
                                                    FontSize="10" FontWeight="Medium"></Label>
                                         </TextBlock>
                                     </StackPanel>
@@ -325,7 +315,7 @@
 
             <!--comlumn 3-->
             <Grid Grid.Column="2" Grid.Row="0"
-                  Background="#F9FAFB">
+                  Background="#F9FAFB" Margin="0,-3,0,3">
 
                 <Grid.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=border}" />
@@ -340,8 +330,8 @@
 
                 <!--Row - 1-->
                 <Grid Grid.Row="0" HorizontalAlignment="Right">
-                    <StackPanel Orientation="Horizontal">
-                        <Border CornerRadius="50" Margin="0,0,10,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,20,42,18" Width="110" Height="28">
+                        <Border CornerRadius="50" Margin="0,0,5,0" Width="29">
                             <Border.Background>
                                 <SolidColorBrush Color="White" Opacity="0.6"/>
                             </Border.Background>
@@ -353,7 +343,7 @@
                                 </Button.Background>
                             </Button>
                         </Border>
-                        <Border CornerRadius="50" Margin="10,0,10,0">
+                        <Border CornerRadius="50" Margin="5,0,5,0" Width="29">
                             <Border.Background>
                                 <SolidColorBrush Color="White" Opacity="0.6"/>
                             </Border.Background>
@@ -364,7 +354,7 @@
                                 </Button.Background>
                             </Button>
                         </Border>
-                        <Border CornerRadius="50" Margin="10,0,20,0">
+                        <Border CornerRadius="50" Margin="5,0,0,0" Width="29">
                             <Border.Background>
                                 <SolidColorBrush Color="White" Opacity="0.6"/>
                             </Border.Background>
@@ -376,7 +366,7 @@
                             </Button>
                         </Border>
                     </StackPanel>
-                    
+
                 </Grid>
 
                 <!--Row - 2-->
@@ -386,8 +376,8 @@
                         <Border.Effect>
                             <DropShadowEffect/>
                         </Border.Effect>
-                        
-                        
+
+
                         <DatePicker Width="290" Height="266"
                                     CalendarStyle="{StaticResource resizedCalendarItem}">
                             <DatePicker.Background>
@@ -406,19 +396,18 @@
                             </DatePicker.Foreground>
                         </DatePicker>
                     </Border>
-                   
+
                 </Grid>
-                
+
                 <!--Row - 3-->
                 <Grid Grid.Row="2" Background="#ffffff"
                       Width="290" Height="143">
                     <Grid.OpacityMask>
                         <VisualBrush Visual="{Binding ElementName=border_1}" />
                     </Grid.OpacityMask>
-                    
+
                     <Label Content="Số lượng sản phẩm"
                            Margin="15"
-                           FontFamily="Inter"
                            FontSize="16"
                            FontWeight="Medium"></Label>
                     <StackPanel Orientation="Horizontal" 
@@ -434,16 +423,14 @@
                             <StackPanel.OpacityMask>
                                 <VisualBrush Visual="{Binding ElementName=border_1}" />
                             </StackPanel.OpacityMask>
-                            
+
                             <TextBlock Text="Đã Bán"
                                        TextAlignment="Center"
-                                       FontFamily="Inter"
                                        FontWeight="Medium"
                                        FontSize="16"
                                        Margin="0,5,0,0"></TextBlock>
-                                <TextBlock  Text="44"
+                            <TextBlock  Text="44"
                                         TextAlignment="Center"
-                                       FontFamily="Inter"
                                        FontWeight="Medium"
                                        FontSize="36"
                                        Foreground="Red"></TextBlock>
@@ -462,13 +449,11 @@
 
                             <TextBlock Text="Đang Bán"
                                        TextAlignment="Center"
-                                       FontFamily="Inter"
                                        FontWeight="Medium"
                                        FontSize="16"
                                        Margin="0,5,0,0"></TextBlock>
                             <TextBlock  Text="44"
                                         TextAlignment="Center"
-                                       FontFamily="Inter"
                                        FontWeight="Medium"
                                        FontSize="36"
                                        Foreground="Red"></TextBlock>
@@ -480,19 +465,22 @@
                 <!--Row - 4-->
                 <Grid Grid.Row="3" Background="#ffffff"
                       Width="290" Height="143">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="34*"/>
+                        <RowDefinition Height="109*"/>
+                    </Grid.RowDefinitions>
 
                     <Grid.OpacityMask>
                         <VisualBrush Visual="{Binding ElementName=border_1}" />
                     </Grid.OpacityMask>
 
                     <Label Content="Số lượng Đơn hàng"
-                           Margin="15"
-                           FontFamily="Inter"
+                           Margin="15,15,15,15"
                            FontSize="16"
-                           FontWeight="Medium"></Label>
+                           FontWeight="Medium" Grid.RowSpan="2"></Label>
                     <StackPanel Orientation="Horizontal" 
                                 Width="218" Height="78"
-                                Margin="0,20,0,0">
+                                Margin="36,8,36,23" Grid.Row="1">
                         <StackPanel Orientation="Horizontal"
                                     Width="218" Height="70"
                                     HorizontalAlignment="Center"
@@ -504,14 +492,12 @@
 
                             <TextBlock Text="Đơn hàng mới"
                                        TextAlignment="Center"
-                                       FontFamily="Inter"
                                        FontWeight="Medium"
                                        FontSize="16"
                                        Margin="20,0,0,0"
                                        VerticalAlignment="Center"></TextBlock>
                             <TextBlock  Text="44"
                                         TextAlignment="Center"
-                                       FontFamily="Inter"
                                        FontWeight="Medium"
                                        FontSize="36"
                                        VerticalAlignment="Center"
@@ -519,7 +505,7 @@
                                        Foreground="Red"></TextBlock>
                         </StackPanel>
 
-                        
+
 
                     </StackPanel>
                 </Grid>
@@ -528,6 +514,6 @@
 
         </Grid>
     </Border>
-    
-    
+
+
 </Window>

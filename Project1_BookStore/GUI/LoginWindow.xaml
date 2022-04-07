@@ -11,20 +11,82 @@
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
     </Window.Resources>
-    <Border Background="#FAD49D" BorderBrush="Transparent" CornerRadius="35">
+
+    <Border Background="#EBECF0" BorderBrush="#EBECF0"
+        BorderThickness="3"
+        CornerRadius="35">
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1106*"/>
                 <ColumnDefinition Width="103*"/>
                 <ColumnDefinition Width="25*"/>
             </Grid.ColumnDefinitions>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="30*"/>
                 <RowDefinition Height="697*"/>
             </Grid.RowDefinitions>
 
+            <!--comlumn 1-->
+            <Border Grid.Column="0" Grid.Row="2" Height="391" Width="456"
+                            Background="#FFFFFF" 
+                            CornerRadius="20" Margin="386,146,259,145">
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="391" Width="456">
+                    <Label Content="Đăng nhập"  
+                           FontSize="25" FontWeight="SemiBold"
+                           HorizontalAlignment="Center" Margin="25,55,25,0"></Label>
+
+                    <Label Content="Tên tài khoản"
+                           FontFamily="Inter" FontSize="15" FontWeight="Medium"
+                           HorizontalAlignment="Left" Margin="70,25,25,0" Width="104"></Label>
+
+                    <TextBox x:Name="userTextBox" 
+                             Height="40" Width="300"
+                             Background="#EBECF0"/>
+
+                    <Label Content="Mật khẩu"
+                           FontSize="15" FontWeight="Medium"
+                           HorizontalAlignment="Left" Margin="70,20,0,0"></Label>
+                    <TextBox x:Name="passTextBox" 
+                             Height="40" Width="300"
+                             Background="#EBECF0"/>
+
+                    <Border CornerRadius="15" Padding="2" Width="110" Height="40"
+                            VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,35,25,25">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FFE1B6" Offset="0" />
+                                <GradientStop Color="#C6A8F8" Offset="0.75" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Button Cursor="Hand" x:Name="loginButton" Click="loginButton_Click"
+                                Content="Đăng nhập" FontSize="15" FontWeight="Bold"
+                                BorderBrush="Transparent" Background="White" Foreground="Black">
+
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Border>
+
+                </StackPanel>
+            </Border>
+
+            <Grid Grid.Row="2" Margin="60,0,912,642" >
+                <Image  Width="40" Height="40" Margin="0,0,89,0"
+                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                <TextBlock Margin="50,8,0,8" Width="80" Height="24" 
+                       Text="Book Up" FontSize="20" FontWeight="SemiBold"/>
+            </Grid>
+
+            <!--comlumn 2-->
             <UniformGrid Grid.Column="1" Grid.Row="1" Rows="1">
+
                 <Border CornerRadius="50" Margin="0,0,4,0">
                     <Border.Background>
                         <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -33,10 +95,11 @@
                              Click="minButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="{Binding pathMinBtn, Converter={StaticResource absoluteConverter}}"/>
-                    
+
                         </Button.Background>
                     </Button>
                 </Border>
+
                 <Border CornerRadius="50" Margin="2,0,2,0">
                     <Border.Background>
                         <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -48,6 +111,7 @@
                         </Button.Background>
                     </Button>
                 </Border>
+
                 <Border CornerRadius="50" Margin="3,0,0,0">
                     <Border.Background>
                         <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -60,6 +124,7 @@
                     </Button>
                 </Border>
             </UniformGrid>
+
         </Grid>
     </Border>
 </Window>

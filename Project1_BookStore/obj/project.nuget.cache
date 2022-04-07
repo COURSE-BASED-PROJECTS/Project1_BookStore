@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "BPLvcK2yo1XiHYhV1KRPqZrklqBRTMs2HWkL4um7qihIrWwf54rxeMVWNBITLAFUN5UkzqWFhUH8JVN9XOhkiQ==",
+  "dgSpecHash": "gbHRGeMVD6vJfpkwK8WlJCl512hPtUOc0iewRRa3bsii57XAABI5rphwL3oJLLsAdJzzJz2s4fLQNtWJk+pJdg==",
   "success": true,
-  "projectFilePath": "E:\\University\\Junior-year\\term 2\\Windows\\Project\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
+  "projectFilePath": "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admins\\.nuget\\packages\\fody\\6.5.1\\fody.6.5.1.nupkg.sha512",
-    "C:\\Users\\Admins\\.nuget\\packages\\propertychanged.fody\\3.4.0\\propertychanged.fody.3.4.0.nupkg.sha512"
+    "C:\\Users\\btram\\.nuget\\packages\\fody\\6.5.1\\fody.6.5.1.nupkg.sha512",
+    "C:\\Users\\btram\\.nuget\\packages\\propertychanged.fody\\3.4.0\\propertychanged.fody.3.4.0.nupkg.sha512"
   ],
   "logs": []
 }
