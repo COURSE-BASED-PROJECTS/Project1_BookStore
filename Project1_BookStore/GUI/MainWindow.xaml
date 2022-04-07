@@ -460,7 +460,7 @@
                                 <VisualBrush Visual="{Binding ElementName=border_1}" />
                             </StackPanel.OpacityMask>
 
-                            <TextBlock Text="Đã Bán"
+                            <TextBlock Text="Đang Bán"
                                        TextAlignment="Center"
                                        FontFamily="Inter"
                                        FontWeight="Medium"
