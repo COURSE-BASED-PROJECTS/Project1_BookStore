@@ -11,31 +11,32 @@
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
     </Window.Resources>
-    
+
 
     <Border Background="#EBECF0" BorderBrush="#EBECF0"
         BorderThickness="3"
         CornerRadius="35">
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="214*"/>
                 <ColumnDefinition Width="705*"/>
                 <ColumnDefinition Width="315*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Border Background="#EBECF0" BorderBrush="#EBECF0"
                     BorderThickness="3,3,3,0"
                     CornerRadius="25" x:Name="border"/>
-            
+
             <!--comlumn 1-->
             <Grid Grid.Column="0" Grid.Row="0"
                   Background="#F5F6F7">
-                
+
                 <!--using border element above for child-->
                 <Grid.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=border}" />
                 </Grid.OpacityMask>
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="88*"/>
                     <RowDefinition Height="274*"/>
@@ -69,10 +70,10 @@
                                    HorizontalAlignment="Left"></TextBlock>
                     </Grid>
                 </Grid>
-                
+
                 <!--row 2-->
                 <Grid Grid.Column="0" Grid.Row="1" Background="#F5F6F7">
-                   
+
                     <!--comlumn 1 - Categories-->
                     <Grid.RowDefinitions>
                         <RowDefinition Height="44*"/>
@@ -82,7 +83,7 @@
                         <RowDefinition Height="44*"/>
                         <RowDefinition Height="44*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <!--row-1-->
                     <Grid Grid.Column="0" Grid.Row="0">
                         <TextBlock HorizontalAlignment="Left"
@@ -192,8 +193,10 @@
                                 Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                     </TextBlock>
                 </Grid>
-                
+
             </Grid>
+
+
 
             <!--comlumn 2-->
             <Grid Grid.Column="1" Grid.Row="0">
@@ -202,10 +205,100 @@
                     <RowDefinition Height="596*"/>
                 </Grid.RowDefinitions>
 
+                <!--Row-1-->
                 <Grid Grid.Column="0" Grid.Row="0">
-                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="420*"/>
+                        <ColumnDefinition Width="52*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Column-1-->
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <StackPanel Orientation="Vertical"
+                                    Margin="25,40,15,15">
+                            <Label Content="Tổng quan hệ thống"
+                                   FontFamily="Inter"
+                                   FontSize="25"
+                                   FontWeight="DemiBold"></Label>
+                            <Label Content="Chào quản lý DA!"
+                                   FontFamily="Inter"
+                                   FontSize="15"></Label>
+
+                        </StackPanel>
+                    </Grid>
+
+
+                    <!--Column-2-->
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Button Width="35" Height="35" Background="#F9FAFB">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="0"/>
+                            </Button.Effect>
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+
+                            <Image Width="20" Height="20" 
+                        Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                        </Button>
+                    </Grid>
                 </Grid>
-                
+
+
+                <!--Row-2-->
+                <Grid Grid.Row="1" >
+                    <Border Width="670" Height="550"
+                            Background="#F9FAFB" 
+                            CornerRadius="25">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock>
+                                <Label Content="Sản phẩm sắp hết hàng"
+                                   FontFamily="Inter"
+                                   FontSize="16"
+                                   FontWeight="Medium"
+                                   Margin="25"></Label>
+                            </TextBlock>
+
+                            <TextBlock Width="610" Height="461" >
+                                
+                                <Border Background="#FFFFFF" 
+                                        BorderThickness="1"
+                                        CornerRadius="15">  
+                                    <Border.Effect>
+                                        <DropShadowEffect></DropShadowEffect>
+                                    </Border.Effect>
+                                    
+                                    <StackPanel Orientation="Vertical"
+                                        Width="180" Height="215">
+                                        <Image Width="81" Height="121"
+                                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                TextWrapping="Wrap" TextAlignment="Center"></TextBlock>  
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Tác giả:" FontFamily="Inter"
+                                                   FontSize="10"></Label>
+                                            <Label Content="Napoleon Hill" FontFamily="Inter"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Số lượng:" FontFamily="Inter"
+                                                   FontSize="10"></Label>
+                                            <Label Content="1" FontFamily="Inter"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    
+                                </Border>
+                                
+                            </TextBlock>
+                        </StackPanel>
+
+                    </Border>
+                </Grid>
             </Grid>
 
             <!--comlumn 3-->
