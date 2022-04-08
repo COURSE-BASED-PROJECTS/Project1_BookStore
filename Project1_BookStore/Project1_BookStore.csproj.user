@@ -10,6 +10,9 @@
     <Compile Update="GUI\addNewBookScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\addNewCouponScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\DetailBookScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="GUI\addNewBookScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\addNewCouponScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\DetailBookScreen.xaml">
