@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\
 Project1_BookStore
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\App.xaml
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\App.xaml
 8-574396811
 1-1606303973
-141989281601
-195-368644346
+20-931029146
+196-1005986565
 GUI\addNewBookScreen.xaml;GUI\addNewCouponScreen.xaml;GUI\DetailBookScreen.xaml;GUI\LoginWindow.xaml;GUI\MainWindow.xaml;GUI\settingScreen.xaml;GUI\uploadDataScreen.xaml;Styles.xaml;
 
 False

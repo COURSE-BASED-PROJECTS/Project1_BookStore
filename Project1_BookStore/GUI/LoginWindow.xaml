@@ -43,14 +43,16 @@
                            FontFamily="Inter" FontSize="15" FontWeight="Medium"
                            HorizontalAlignment="Left" Margin="70,25,25,0" Width="104"></Label>
 
-                    <TextBox x:Name="userTextBox" 
+                    <TextBox x:Name="userTextBox"
+                             Padding="5 10 0 0"
                              Height="40" Width="300"
                              Background="#EBECF0"/>
 
-                    <Label Content="Mật khẩu"
+                    <Label Content="Mật khẩu"                       
                            FontSize="15" FontWeight="Medium"
                            HorizontalAlignment="Left" Margin="70,20,0,0"></Label>
-                    <TextBox x:Name="passTextBox" 
+                    <PasswordBox x:Name="passTextBox" 
+                             Padding="5 10 0 0"
                              Height="40" Width="300"
                              Background="#EBECF0"/>
 

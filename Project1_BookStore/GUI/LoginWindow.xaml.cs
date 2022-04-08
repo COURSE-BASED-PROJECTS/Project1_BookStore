@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.Utils;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -72,6 +75,50 @@ namespace Project1_BookStore
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
+            var username = (userTextBox.Text).Trim();
+
+            var password = passTextBox.Password;
+
+            var user = UserBUS.findUser(username);
+
+            if (user == null)
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
+                    "Lỗi đăng nhập",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            } else
+            {
+                /*var passwordInBytes = Encoding.UTF8.GetBytes(password);
+
+                var entropy = new byte[20];
+                using (var rng = new RNGCryptoServiceProvider())
+                {
+                    rng.GetBytes(entropy);
+                }
+                var entropyBase64 = Convert.ToBase64String(entropy);
+
+                var cypherText = ProtectedData.Protect(passwordInBytes, entropy,
+                    DataProtectionScope.CurrentUser);
+                var cypherTextBase64 = Convert.ToBase64String(cypherText);
+
+                AppConfig.SetValue(AppConfig.Username, username);
+                AppConfig.SetValue(AppConfig.Password, cypherTextBase64);
+                AppConfig.SetValue(AppConfig.Entropy, entropyBase64);*/
+                if (password.Equals(user.password))
+                {
+                    var screen = new MainWindow();
+                    screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    screen.Show();
+                    this.Close();
+                } else
+                {
+                    MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
+                    "Lỗi đăng nhập",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                }
+            }
 
         }
     }
