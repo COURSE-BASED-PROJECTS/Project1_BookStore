@@ -13,9 +13,15 @@
     <Compile Update="GUI\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\uploadDataScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="GUI\addNewBookScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\uploadDataScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles.xaml">

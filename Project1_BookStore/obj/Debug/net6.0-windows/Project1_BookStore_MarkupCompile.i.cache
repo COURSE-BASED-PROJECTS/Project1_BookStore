@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\App.xaml
-41505877797
+51413558744
 1-1606303973
-121150238910
+13-1519783238
 195-368644346
-GUI\addNewBookScreen.xaml;GUI\LoginWindow.xaml;GUI\MainWindow.xaml;Styles.xaml;
+GUI\addNewBookScreen.xaml;GUI\LoginWindow.xaml;GUI\MainWindow.xaml;GUI\uploadDataScreen.xaml;Styles.xaml;
 
 False
 
