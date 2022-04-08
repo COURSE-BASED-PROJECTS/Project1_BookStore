@@ -287,7 +287,7 @@
                                            Margin="30,80,25,0">
                             </Label>
 
-                            <TextBlock Width="220" Height="100" Margin="59,134,615,361">
+                            <TextBlock Width="220" Height="100" Margin="59,120,615,361">
                                 <StackPanel Orientation="Vertical">
                                     <RadioButton Height="18" Margin="0,5,0,5" Content="Mở trang tổng quan hệ thống"/>
 		                            <RadioButton Height="18" Margin="0,5,0,5" Content="Tiếp tục ở nơi bạn dừng lại"/> 

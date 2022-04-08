@@ -101,3 +101,7 @@ E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_Boo
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\uploadDataScreen.baml
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\settingScreen.g.cs
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\settingScreen.baml
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailBookScreen.g.cs
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailBookScreen.baml
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify.png
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\upload.png
