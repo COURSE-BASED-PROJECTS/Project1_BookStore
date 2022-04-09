@@ -1,0 +1,654 @@
+﻿<Window x:Class="Project1_BookStore.GUI.addNewOrderScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project1_BookStore.GUI"
+        xmlns:utils="clr-namespace:Project1_BookStore.Utils"
+        mc:Ignorable="d"
+        Title="NewBook" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+    <Window.Resources>
+        <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Border Background="#FFFFFF" BorderBrush="#EBECF0"
+                    BorderThickness="3"
+                    CornerRadius="20" x:Name="border"/>
+
+        <Border Background="#EBECF0" BorderBrush="#EBECF0"
+        BorderThickness="3"
+        CornerRadius="35">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="38*"/>
+                    <RowDefinition Height="450*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <TextBlock Text="Quản lý sản phầm > Thêm đơn hàng mới"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               Margin="20,25,0,0"
+                               HorizontalAlignment="Left">
+                    </TextBlock>
+
+
+                    <StackPanel Orientation="Horizontal"
+                                Width="110" Height="28"
+                                HorizontalAlignment="Right"
+                                Margin="0,10,20,0">
+                        <Border CornerRadius="50" Margin="0,0,5,0" Width="29">
+                            <Border.Background>
+                                <SolidColorBrush Color="White" Opacity="0.6"/>
+                            </Border.Background>
+                            <Button x:Name="minButton" BorderThickness="0" Height="20" Width="20"
+                                 Click="minButton_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="{Binding pathMinBtn, Converter={StaticResource absoluteConverter}}"/>
+
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                        <Border CornerRadius="50" Margin="5,0,5,0" Width="29">
+                            <Border.Background>
+                                <SolidColorBrush Color="White" Opacity="0.6"/>
+                            </Border.Background>
+                            <Button x:Name="maxButton" BorderThickness="0" Height="15" Width="15"
+                                 Click="maxButton_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="{Binding pathMaxBtn, Converter={StaticResource absoluteConverter}}"/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                        <Border CornerRadius="50" Margin="5,0,0,0" Width="29">
+                            <Border.Background>
+                                <SolidColorBrush Color="White" Opacity="0.6"/>
+                            </Border.Background>
+                            <Button x:Name="closeButton" BorderThickness="0" Height="25" Width="25" 
+                                 Click="closeButton_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="{Binding pathCloseBtn, Converter={StaticResource absoluteConverter}}"/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid Height="617" Width="1000"
+                          Background="#F9FAFB">
+
+                        <!--using border element above for child-->
+                        <Grid.OpacityMask>
+                            <VisualBrush Visual="{Binding ElementName=border}" />
+                        </Grid.OpacityMask>
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20"
+                              Color="#877b77"
+                              Opacity="100"
+                              ShadowDepth="0"
+                              Direction="0" />
+                        </Grid.Effect>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="6*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Row - 1-->
+                        <Grid Grid.Row="0">
+                            <Label Content="Mã đơn hàng: "
+                                   FontSize="20"
+                                   FontWeight="Medium"
+                                   Margin="15">
+
+                            </Label>
+
+                            <TextBox Height="30"
+                                         Margin="158,15,594,24"
+                                     Background="#EBECF0"
+                                     TextWrapping="Wrap"
+                                     FontSize="20"
+                                     VerticalContentAlignment="Center">
+                                <TextBox.Effect>
+                                    <DropShadowEffect BlurRadius="5"
+                                                  Color="#877b77"
+                                                  Opacity="100"
+                                                  ShadowDepth="0"
+                                                  Direction="0" />
+                                </TextBox.Effect>
+                            </TextBox>
+                            <Line  
+                                X1="20" Y1="60"  
+                                X2="970" Y2="60"  
+                                Stroke="#9D9D9D"  
+                                StrokeThickness="0.5" />
+                        </Grid>
+
+                        <!--Row - 2-->
+                        <Grid Grid.Row="1" HorizontalAlignment="Center"
+                              VerticalAlignment="Center" Width="886">
+                            <Label Content="Thêm sản phẩm:"
+                                       FontSize="16"
+                                       FontWeight="Medium"
+                                       Margin="0,10,758,6"></Label>
+
+                            <TextBox Height="50"
+                                         Margin="133,2,0,-2"
+                                     Background="#EBECF0"
+                                     TextWrapping="Wrap"
+                                     FontSize="20"
+                                     VerticalContentAlignment="Center">
+                                <TextBox.Effect>
+                                    <DropShadowEffect BlurRadius="5"
+                                                  Color="#877b77"
+                                                  Opacity="100"
+                                                  ShadowDepth="0"
+                                                  Direction="0" />
+                                </TextBox.Effect>
+                            </TextBox>
+                        </Grid>
+
+                        <!--Row - 3-->
+                        <Grid Grid.Row="2">
+                            <Grid Width="992" Height="358">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="8*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <!--Row - 1-->
+                                <Grid Grid.Row="0">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Sản phẩm"
+                                               FontSize="14"
+                                               FontWeight="SemiBold"
+                                               Margin="15,5,0,0"></Label>
+
+                                        <Label Content="Giá tiền"
+                                               FontSize="14"
+                                               FontWeight="SemiBold"
+                                               Margin="315,5,0,0"></Label>
+
+                                        <Label Content="Số lượng"
+                                               FontSize="14"
+                                               FontWeight="SemiBold"
+                                               Margin="65,5,0,0"></Label>
+
+                                        <Label Content="Giảm giá"
+                                               FontSize="14"
+                                               FontWeight="SemiBold"
+                                               Margin="65,5,0,0"></Label>
+
+                                        <Label Content="Tạm tính"
+                                               FontSize="14"
+                                               FontWeight="SemiBold"
+                                               Margin="56,5,0,0"></Label>
+                                    </StackPanel>
+                                </Grid>
+
+                                <!--Row - 2-->
+                                <Grid Grid.Row="1">
+                                    <Line  
+                                        X1="20" Y1="10"  
+                                        X2="960" Y2="10"  
+                                        Stroke="Gray"  
+                                        StrokeThickness="1" />
+
+                                    <Grid Name="GridContent" Height="250">
+                                        <ScrollViewer  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                                    ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                                                    ScrollViewer.CanContentScroll="True">
+                                            <StackPanel Height="250">
+                                                <!--Item - 1-->
+                                                <Grid Height="62" Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="408*"/>
+                                                        <ColumnDefinition Width="117*"/>
+                                                        <ColumnDefinition Width="159*"/>
+                                                        <ColumnDefinition Width="120*"/>
+                                                        <ColumnDefinition Width="188*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!--Column - 1-->
+                                                    <Grid Grid.Column="0">
+                                                        <StackPanel Orientation="Horizontal"
+                                                            Margin="15,0,0,0"
+                                                            Width="300">
+                                                            <Grid Width="55" Height="48">
+                                                                <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <StackPanel Orientation="Vertical"
+                                                                Width="330">
+                                                                <TextBlock Text="Giết con chim nhại (Bìa cứng)"
+                                                               FontSize="12"
+                                                               FontWeight="Medium"
+                                                               TextWrapping="Wrap"></TextBlock>
+                                                                <Label Content="Tác giả: Harper Lee"
+                                                               FontSize="10">
+
+                                                                </Label>
+                                                            </StackPanel>
+
+
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 2-->
+                                                    <Grid Grid.Column="1">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 3-->
+                                                    <Grid Grid.Column="2">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding plus,Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <Label Content="1"
+                                                           FontSize="12"
+                                                           FontWeight="SemiBold"></Label>
+
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding minus, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 4-->
+                                                    <Grid Grid.Column="3">
+                                                        <Label Content="0đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 5-->
+                                                    <Grid Grid.Column="4">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+
+                                                </Grid>
+
+                                                <!--Item - 1-->
+                                                <Grid Height="62" Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="408*"/>
+                                                        <ColumnDefinition Width="117*"/>
+                                                        <ColumnDefinition Width="159*"/>
+                                                        <ColumnDefinition Width="120*"/>
+                                                        <ColumnDefinition Width="188*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!--Column - 1-->
+                                                    <Grid Grid.Column="0">
+                                                        <StackPanel Orientation="Horizontal"
+                                                            Margin="15,0,0,0"
+                                                            Width="300">
+                                                            <Grid Width="55" Height="48">
+                                                                <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <StackPanel Orientation="Vertical"
+                                                                Width="330">
+                                                                <TextBlock Text="Giết con chim nhại (Bìa cứng)"
+                                                               FontSize="12"
+                                                               FontWeight="Medium"
+                                                               TextWrapping="Wrap"></TextBlock>
+                                                                <Label Content="Tác giả: Harper Lee"
+                                                               FontSize="10">
+
+                                                                </Label>
+                                                            </StackPanel>
+
+
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 2-->
+                                                    <Grid Grid.Column="1">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 3-->
+                                                    <Grid Grid.Column="2">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding plus,Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <Label Content="1"
+                                                           FontSize="12"
+                                                           FontWeight="SemiBold"></Label>
+
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding minus, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 4-->
+                                                    <Grid Grid.Column="3">
+                                                        <Label Content="0đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 5-->
+                                                    <Grid Grid.Column="4">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+
+                                                </Grid>
+
+                                                <!--Item - 1-->
+                                                <Grid Height="62" Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="408*"/>
+                                                        <ColumnDefinition Width="117*"/>
+                                                        <ColumnDefinition Width="159*"/>
+                                                        <ColumnDefinition Width="120*"/>
+                                                        <ColumnDefinition Width="188*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!--Column - 1-->
+                                                    <Grid Grid.Column="0">
+                                                        <StackPanel Orientation="Horizontal"
+                                                            Margin="15,0,0,0"
+                                                            Width="300">
+                                                            <Grid Width="55" Height="48">
+                                                                <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <StackPanel Orientation="Vertical"
+                                                                Width="330">
+                                                                <TextBlock Text="Giết con chim nhại (Bìa cứng)"
+                                                               FontSize="12"
+                                                               FontWeight="Medium"
+                                                               TextWrapping="Wrap"></TextBlock>
+                                                                <Label Content="Tác giả: Harper Lee"
+                                                               FontSize="10">
+
+                                                                </Label>
+                                                            </StackPanel>
+
+
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 2-->
+                                                    <Grid Grid.Column="1">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 3-->
+                                                    <Grid Grid.Column="2">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding plus,Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <Label Content="1"
+                                                           FontSize="12"
+                                                           FontWeight="SemiBold"></Label>
+
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding minus, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 4-->
+                                                    <Grid Grid.Column="3">
+                                                        <Label Content="0đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 5-->
+                                                    <Grid Grid.Column="4">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+
+                                                </Grid>
+
+                                                <!--Item - 1-->
+                                                <Grid Height="62" Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="408*"/>
+                                                        <ColumnDefinition Width="117*"/>
+                                                        <ColumnDefinition Width="159*"/>
+                                                        <ColumnDefinition Width="120*"/>
+                                                        <ColumnDefinition Width="188*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!--Column - 1-->
+                                                    <Grid Grid.Column="0">
+                                                        <StackPanel Orientation="Horizontal"
+                                                            Margin="15,0,0,0"
+                                                            Width="300">
+                                                            <Grid Width="55" Height="48">
+                                                                <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <StackPanel Orientation="Vertical"
+                                                                Width="330">
+                                                                <TextBlock Text="Giết con chim nhại (Bìa cứng)"
+                                                               FontSize="12"
+                                                               FontWeight="Medium"
+                                                               TextWrapping="Wrap"></TextBlock>
+                                                                <Label Content="Tác giả: Harper Lee"
+                                                               FontSize="10">
+
+                                                                </Label>
+                                                            </StackPanel>
+
+
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 2-->
+                                                    <Grid Grid.Column="1">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 3-->
+                                                    <Grid Grid.Column="2">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding plus,Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <Label Content="1"
+                                                           FontSize="12"
+                                                           FontWeight="SemiBold"></Label>
+
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding minus, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 4-->
+                                                    <Grid Grid.Column="3">
+                                                        <Label Content="0đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 5-->
+                                                    <Grid Grid.Column="4">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+
+                                                </Grid>
+
+                                                <!--Item - 1-->
+                                                <Grid Height="62" Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="408*"/>
+                                                        <ColumnDefinition Width="117*"/>
+                                                        <ColumnDefinition Width="159*"/>
+                                                        <ColumnDefinition Width="120*"/>
+                                                        <ColumnDefinition Width="188*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!--Column - 1-->
+                                                    <Grid Grid.Column="0">
+                                                        <StackPanel Orientation="Horizontal"
+                                                            Margin="15,0,0,0"
+                                                            Width="300">
+                                                            <Grid Width="55" Height="48">
+                                                                <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <StackPanel Orientation="Vertical"
+                                                                Width="330">
+                                                                <TextBlock Text="Giết con chim nhại (Bìa cứng)"
+                                                               FontSize="12"
+                                                               FontWeight="Medium"
+                                                               TextWrapping="Wrap"></TextBlock>
+                                                                <Label Content="Tác giả: Harper Lee"
+                                                               FontSize="10">
+
+                                                                </Label>
+                                                            </StackPanel>
+
+
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 2-->
+                                                    <Grid Grid.Column="1">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 3-->
+                                                    <Grid Grid.Column="2">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding plus,Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+
+                                                            <Label Content="1"
+                                                           FontSize="12"
+                                                           FontWeight="SemiBold"></Label>
+
+                                                            <Grid Width="17" Height="17"
+                                                          Margin="10,0,10,35"
+                                                          Cursor="Hand">
+                                                                <Image Source="{Binding minus, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 4-->
+                                                    <Grid Grid.Column="3">
+                                                        <Label Content="0đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 5-->
+                                                    <Grid Grid.Column="4">
+                                                        <Label Content="127,000đ"
+                                                       FontSize="12"></Label>
+                                                    </Grid>
+
+
+                                                </Grid>
+
+
+                                            </StackPanel>
+                                        </ScrollViewer>
+                                    </Grid>
+                                    
+                                    <Line  
+                                        X1="20" Y1="280"  
+                                        X2="960" Y2="280"  
+                                        Stroke="Gray"  
+                                        StrokeThickness="1" />
+                                </Grid>
+
+                                <!--Row - 3-->
+                                <Grid Grid.Row="2">
+                                    <TextBlock HorizontalAlignment="Right"
+                                               Margin="0,5,130,0">
+                                        <Label Content="Tổng tiền: "
+                                               FontSize="14"
+                                               FontWeight="SemiBold"></Label>
+                                        <Label Content="640,000đ"
+                                               FontSize="14"
+                                               FontWeight="SemiBold"
+                                               Foreground="Red"></Label>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                        <!--Row - 4-->
+                        <Grid Grid.Row="3">
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <Border CornerRadius="20">
+                                    <Button Width="100" Height="35"  Background="Green">
+                                        <Label Foreground="White">Lưu</Label>
+                                        <Button.Resources>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="CornerRadius" Value="5"/>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                </Border>
+
+                                <Border CornerRadius="20" Margin="20,0,0,0">
+                                    <Button Width="100" Height="35" Background="#F5C038">
+                                        <Label Foreground="White">Hủy bỏ</Label>
+                                        <Button.Resources>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="CornerRadius" Value="5"/>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
