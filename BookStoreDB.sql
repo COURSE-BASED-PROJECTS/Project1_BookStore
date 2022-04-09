@@ -81,17 +81,6 @@ CREATE TABLE ACCOUNT
 	PRIMARY KEY(accUsername)
 )
 
-CREATE TABLE REPORT
-(
-    reportID CHAR(10),
-    reportName NVARCHAR(100),
-    reportStatus NVARCHAR(50),  -- Status: Daily/Weekly/Monthly/Annual Report
-    reportType NVARCHAR(50),    -- Type: Product/Sale Report
-    reportTime TIMESTAMP
-
-	PRIMARY KEY(reportID)
-)
-
 ALTER TABLE BOOK ADD 
 	CONSTRAINT FK_BOOK_TYPEOFBOOK FOREIGN KEY (tobID) REFERENCES TYPEOFBOOK(tobID)
 GO
@@ -276,13 +265,6 @@ INSERT INTO ORDERSDETAIL(ordersID, bookID, odCurrentPrice, odQuantity)
             ('220404UYD', 'A0016', 85000, 1),
             ('220404UYD', 'A0026', 90000, 1),
             ('220404UYD', 'A0036', 120000, 1)
-
-GO
-INSERT INTO REPORT(reportID, reportName, reportStatus, reportType)
-    VALUES  ('RP004', N'Báo cáo doanh thu Tháng 3/2022', N'Monthly', N'Sales Report'),
-            ('RP003', N'Báo cáo số lượng sản phẩm đã bán Tháng 3/2022', N'Monthly', N'Products Report'),
-            ('RP002', N'Báo cáo doanh thu Ngày 01/01/2022', N'Daily', N'Sales Report'),
-            ('RP001', N'Báo cáo Tổng kết số lượng sản phẩm đã bán năm 2021', N'Annual', N'Products Report')
 
 ------------------------------------------------------------------------------------------------
 GO
