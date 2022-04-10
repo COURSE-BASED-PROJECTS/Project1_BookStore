@@ -53,5 +53,12 @@ namespace Project1_BookStore.GUI
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
         }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var manageOrdersScreen = new manageOrdersScreen();
+            manageOrdersScreen.Show();
+            this.Close();
+        }
     }
 }

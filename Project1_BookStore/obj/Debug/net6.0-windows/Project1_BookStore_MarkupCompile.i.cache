@@ -16,5 +16,5 @@ E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_Boo
 1961111417431
 GUI\addNewBookScreen.xaml;GUI\addNewCouponScreen.xaml;GUI\addNewOrderScreen.xaml;GUI\DetailBookScreen.xaml;GUI\DetailOrderScreen.xaml;GUI\LoginWindow.xaml;GUI\MainWindow.xaml;GUI\manageBooksScreen.xaml;GUI\manageCouponScreen.xaml;GUI\manageOrdersScreen.xaml;GUI\modifyCouponScreen.xaml;GUI\settingScreen.xaml;GUI\uploadDataScreen.xaml;Styles.xaml;
 
-False
+True
 

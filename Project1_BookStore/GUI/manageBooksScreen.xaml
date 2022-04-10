@@ -75,7 +75,6 @@
 
                 <!--row 2-->
                 <Grid Grid.Column="0" Grid.Row="1" Background="#F5F6F7">
-
                     <!--comlumn 1 - Categories-->
                     <Grid.RowDefinitions>
                         <RowDefinition Height="44*"/>
@@ -116,7 +115,8 @@
                     </Grid>
 
                     <!--row-3-->
-                    <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid Grid.Column="0" Grid.Row="2" MouseDown="Grid_MouseDown"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
