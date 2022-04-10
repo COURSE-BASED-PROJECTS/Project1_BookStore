@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project1_BookStore.DTO
 {
-    internal class UserDTO
+    internal class PromotionDetailDTO
     {
-        public string accUsername  { get; set; }
-        public string accPassword { get; set; }
-
-        
+        public string promoID { get; set; }
+        public string tobID { get; set; }
     }
 }

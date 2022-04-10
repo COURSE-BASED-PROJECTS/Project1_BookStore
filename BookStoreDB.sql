@@ -29,7 +29,7 @@ CREATE TABLE PROMOTION
     promoID CHAR(15),
     promoName NVARCHAR(100),
     promoDiscount FLOAT(2),
-    promoDiscription NVARCHAR(500),
+    promoDescription NVARCHAR(500),
     promoStartTime DATE,
     promoEndTime DATE
 
@@ -47,8 +47,8 @@ CREATE TABLE PROMOTIONDETAIL
 CREATE TABLE ORDERS
 (
     ordersID CHAR(10),
-    cusPhone CHAR(10),
-    accUsername CHAR(25),
+    cusPhoneNumber CHAR(10),
+    accUsername VARCHAR(25),
     ordersPrice MONEY,
     ordersTime TIMESTAMP 
 
@@ -67,16 +67,16 @@ CREATE TABLE ORDERSDETAIL
 
 CREATE TABLE CUSTOMER
 (
-    cusPhone CHAR(10),
+    cusPhoneNumber CHAR(10),
     cusName CHAR(25)
 
-	PRIMARY KEY(cusPhone)
+	PRIMARY KEY(cusPhoneNumber)
 )
 
 CREATE TABLE ACCOUNT
 (
-    accUsername CHAR(25),
-    accPassword CHAR(25)
+    accUsername varchar(25),
+    accPassword varchar(250)
 
 	PRIMARY KEY(accUsername)
 )
@@ -93,7 +93,7 @@ ALTER TABLE PROMOTIONDETAIL ADD
 GO
 
 ALTER TABLE ORDERS ADD 
-	CONSTRAINT FK_ORDERS_CUSTOMER FOREIGN KEY (cusPhone) REFERENCES CUSTOMER(cusPhone)
+	CONSTRAINT FK_ORDERS_CUSTOMER FOREIGN KEY (cusPhoneNumber) REFERENCES CUSTOMER(cusPhoneNumber)
 GO
 ALTER TABLE ORDERS ADD 
 	CONSTRAINT FK_ORDERS_ACCOUNT FOREIGN KEY (accUsername) REFERENCES ACCOUNT(accUsername)
@@ -113,7 +113,7 @@ INSERT INTO ACCOUNT(accUsername, accPassword)
             ('quanlyDA', 'quanlyDA')
 
 GO
-INSERT INTO CUSTOMER(cusPhone, cusName)
+INSERT INTO CUSTOMER(cusPhoneNumber, cusName)
     VALUES  ('0912001222', N'Trương Mạnh'),
             ('0912712723', N'Khải My'),
             ('0798181991', N'Trần Lê Hồng Nhi'),
@@ -179,7 +179,7 @@ INSERT INTO BOOK(bookID, tobID, bookName, bookAuthor, bookPrice, bookPublishedYe
             ('A0039', 'TB007', N'Từ Bi - Trên Cả Trắc Ẩn Và Yêu Thương', N'Osho', 183000, 2020, 4)
 
 GO
-INSERT INTO PROMOTION(promoID, promoName,promoDiscount, promoDiscription, promoStartTime, promoEndTime)
+INSERT INTO PROMOTION(promoID, promoName,promoDiscount, promoDescription, promoStartTime, promoEndTime)
     VALUES  ('KM-GIAM50K', N'KM Giảm 50K', 0.15, N'Khuyến mãi Giảm 15% tổng giá trị hóa đơn tối đa 50K', '2022/04/08', '2022/04/18'),
             ('KM-GIAM30%', N'KM Giảm 30%', 0.3, N'Khuyến mãi Giảm 30% cho những sách thuộc danh mục Tiểu thuyết, Truyện ngắn', '2022/02/08', '2022/03/08'),
             ('KM-DACBIET', N'KM Đặc biệt', 0.75, N'Khuyến mãi Giảm 75% tổng giá trị hóa đơn tối đa 500K', '2021/12/31', '2021/12/27'),
@@ -268,14 +268,14 @@ INSERT INTO ORDERSDETAIL(ordersID, bookID, odCurrentPrice, odQuantity)
 
 ------------------------------------------------------------------------------------------------
 GO
-UPDATE ORDERS SET cusPhone = '0912001222', accUsername = 'quanlyDA' WHERE ordersID = '220409JQK'
-UPDATE ORDERS SET cusPhone = '0912712723', accUsername = 'quanlyDA' WHERE ordersID = '220409MNI'
-UPDATE ORDERS SET cusPhone = '0798181991', accUsername = 'quanlyDA' WHERE ordersID = '220408SLL'
-UPDATE ORDERS SET cusPhone = '0866901801', accUsername = 'quanlyDA' WHERE ordersID = '220408QWE'
-UPDATE ORDERS SET cusPhone = '0783450303', accUsername = 'quanlyDA' WHERE ordersID = '220408IBM'
-UPDATE ORDERS SET cusPhone = '0328373723', accUsername = 'quanlyDA' WHERE ordersID = '220407EGN'
-UPDATE ORDERS SET cusPhone = '0911111222', accUsername = 'quanlyDA' WHERE ordersID = '220406IGH'
-UPDATE ORDERS SET cusPhone = '0769696982', accUsername = 'quanlyDA' WHERE ordersID = '220405LKH'
-UPDATE ORDERS SET cusPhone = '0369634889', accUsername = 'quanlyDA' WHERE ordersID = '220404HYY'
-UPDATE ORDERS SET cusPhone = '0866923401', accUsername = 'quanlyDA' WHERE ordersID = '220404UYU'
-UPDATE ORDERS SET cusPhone = '0375812786', accUsername = 'quanlyDA' WHERE ordersID = '220404UYD'
+UPDATE ORDERS SET cusPhoneNumber = '0912001222', accUsername = 'quanlyDA' WHERE ordersID = '220409JQK'
+UPDATE ORDERS SET cusPhoneNumber = '0912712723', accUsername = 'quanlyDA' WHERE ordersID = '220409MNI'
+UPDATE ORDERS SET cusPhoneNumber = '0798181991', accUsername = 'quanlyDA' WHERE ordersID = '220408SLL'
+UPDATE ORDERS SET cusPhoneNumber = '0866901801', accUsername = 'quanlyDA' WHERE ordersID = '220408QWE'
+UPDATE ORDERS SET cusPhoneNumber = '0783450303', accUsername = 'quanlyDA' WHERE ordersID = '220408IBM'
+UPDATE ORDERS SET cusPhoneNumber = '0328373723', accUsername = 'quanlyDA' WHERE ordersID = '220407EGN'
+UPDATE ORDERS SET cusPhoneNumber = '0911111222', accUsername = 'quanlyDA' WHERE ordersID = '220406IGH'
+UPDATE ORDERS SET cusPhoneNumber = '0769696982', accUsername = 'quanlyDA' WHERE ordersID = '220405LKH'
+UPDATE ORDERS SET cusPhoneNumber = '0369634889', accUsername = 'quanlyDA' WHERE ordersID = '220404HYY'
+UPDATE ORDERS SET cusPhoneNumber = '0866923401', accUsername = 'quanlyDA' WHERE ordersID = '220404UYU'
+UPDATE ORDERS SET cusPhoneNumber = '0375812786', accUsername = 'quanlyDA' WHERE ordersID = '220404UYD'

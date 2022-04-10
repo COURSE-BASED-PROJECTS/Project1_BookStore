@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Project1_BookStore.DTO
+{
+    internal class OrderDTO
+    {
+        public string ordersID { get; set; }
+        public string cusPhoneNumber { get; set; }
+        public string accUsername { get; set; }
+        public int ordersPrices { get; set; }
+        public DateTime ordersTime { get; set; }
+    }
+}

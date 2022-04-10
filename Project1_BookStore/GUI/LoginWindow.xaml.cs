@@ -84,45 +84,21 @@ namespace Project1_BookStore
 
             var password = passTextBox.Password;
 
-            var user = UserBUS.findUser(username);
+            var check = UserBUS.findUser(username, password);
 
-            if (user == null)
+            if (check == false)
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
                     "Lỗi đăng nhập",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
-            } else
+            }
+            else
             {
-                /*var passwordInBytes = Encoding.UTF8.GetBytes(password);
-
-                var entropy = new byte[20];
-                using (var rng = new RNGCryptoServiceProvider())
-                {
-                    rng.GetBytes(entropy);
-                }
-                var entropyBase64 = Convert.ToBase64String(entropy);
-
-                var cypherText = ProtectedData.Protect(passwordInBytes, entropy,
-                    DataProtectionScope.CurrentUser);
-                var cypherTextBase64 = Convert.ToBase64String(cypherText);
-
-                AppConfig.SetValue(AppConfig.Username, username);
-                AppConfig.SetValue(AppConfig.Password, cypherTextBase64);
-                AppConfig.SetValue(AppConfig.Entropy, entropyBase64);*/
-                if (password.Equals(user.password))
-                {
-                    var screen = new MainWindow();
-                    screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                    screen.Show();
-                    this.Close();
-                } else
-                {
-                    MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
-                    "Lỗi đăng nhập",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-                }
+                var screen = new MainWindow();
+                screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                screen.Show();
+                this.Close();
             }
 
         }

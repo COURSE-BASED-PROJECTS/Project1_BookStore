@@ -10,13 +10,13 @@ namespace Project1_BookStore.BUS
 {
     internal class UserBUS
     {
-        public static UserDTO findUser(string username)
+        public static bool findUser(string username, string password)
         {
-            if (username == null || username == "")
+            if (username == null || username == "" || password == null || password == "")
             {
-                return null;
+                return false;
             }
-            return UserDAO.findUser(username);  
+            return UserDAO.findUser(username, password);  
         }
     }
 }

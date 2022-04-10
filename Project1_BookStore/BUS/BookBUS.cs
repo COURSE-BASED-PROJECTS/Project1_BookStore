@@ -1,4 +1,5 @@
-﻿using Project1_BookStore.DTO;
+﻿using Project1_BookStore.DAO;
+using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +10,34 @@ namespace Project1_BookStore.BUS
 {
     internal class BookBUS
     {
-        /*public static bool InsertBook(Book b)
+        public static BookDTO findBookByID(string bookID)
         {
-            if (Book.CheckBookByID(b.bookID) == true)
+            if (bookID == null || bookID.Equals(""))
+            {
+                return null;
+            }
+            return BookDAO.findBookByID(bookID);
+        }
+        public static List<BookDTO> findAllBook()
+        {
+            return BookDAO.findAllBook();
+        }
+        public static bool InsertBook(BookDTO book)
+        {
+            if (BookBUS.findBookByID(book.bookID) != null)
             {
                 return false;
             }
-            return BookDAO.InsertBook(b);
-        }*/
-        /*
-         public static bool InsertEmployee(EmployeeDTO emp)
-        {
-            if (EmployeeDAO.CheckEmployeeByID(emp.EmployeeID)==true
-                &amp;&amp;EmployeeStyleDAO.CheckEmployeeStyleByID(emp.EmployeeStyle)==false)
-            {
-                return false;               
-            }
-            return EmployeeDAO.InsertEmployee(emp);
+            return BookDAO.InsertBook(book);
         }
-         */
+
+        public static bool UpdateBook(BookDTO book)
+        {
+            if (BookBUS.findBookByID(book.bookID) == null)
+            {
+                return false;
+            }
+            return BookDAO.UpdateBook(book);
+        }
     }
 }

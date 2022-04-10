@@ -11,27 +11,26 @@ namespace Project1_BookStore.DAO
 {
     internal class UserDAO
     {
-        internal static UserDTO findUser(string username)
+        internal static bool findUser(string username, string password)
         {
             var con = ConnectDB.openConnection();
           
-            var sql = $"Select * From Account Where username = '{username}'";
+            var sql = $"Select * From Account Where accUsername = '{username}'";
 
             var command = new SqlCommand(sql, con);
             var reader = command.ExecuteReader();
             
             while (reader.Read())
             {
-                string password = (string) reader["password"];
-                UserDTO user = new UserDTO()
+                string accPassword = (string) reader["accPassword"];
+                if (accPassword.Equals(password))
                 {
-                    username = username,
-                    password = password
-                };
-                return user;
+                    return true;
+                }
+                return false;
             }
             reader.Close();
-            return null;
+            return false;
         }
     }
 }
