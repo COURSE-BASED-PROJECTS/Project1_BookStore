@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Project1_BookStore.GUI
 {
     /// <summary>
-    /// Interaction logic for addNewOrderScreen.xaml
+    /// Interaction logic for manageOrdersScreen.xaml
     /// </summary>
-    public partial class addNewOrderScreen : Window
+    public partial class manageOrdersScreen : Window
     {
-        public addNewOrderScreen()
+        public manageOrdersScreen()
         {
             InitializeComponent();
         }
@@ -52,11 +52,6 @@ namespace Project1_BookStore.GUI
         {
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

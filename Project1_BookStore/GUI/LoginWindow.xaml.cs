@@ -34,6 +34,9 @@ namespace Project1_BookStore
         public string modify { get; set; } = "/Resource/Images/Icons/modify.png";
         public string plus { get; set; } = "/Resource/Images/Icons/plus-square.png";
         public string minus { get; set; } = "/Resource/Images/Icons/minus.png";
+        public string arrow_left { get; set; } = "/Resource/Images/Icons/left-arrow.png";
+        public string arrow_right { get; set; } = "/Resource/Images/Icons/right-arrow.png";
+        public string setting { get; set; } = "/Resource/Images/Icons/info.png";
 
 
 

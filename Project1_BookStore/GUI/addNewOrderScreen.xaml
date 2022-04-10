@@ -624,13 +624,14 @@
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center">
                                 <Border CornerRadius="20">
-                                    <Button Width="100" Height="35"  Background="Green">
+                                    <Button Width="100" Height="35"  Background="Green" Click="Button_Click">
                                         <Label Foreground="White">Lưu</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">
                                                 <Setter Property="CornerRadius" Value="5"/>
                                             </Style>
                                         </Button.Resources>
+                                        
                                     </Button>
                                 </Border>
 

@@ -177,3 +177,8 @@ E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_Boo
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyCouponScreen.baml
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailOrderScreen.g.cs
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailOrderScreen.baml
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageOrdersScreen.g.cs
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageOrdersScreen.baml
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\left-arrow.png
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\right-arrow.png
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\info.png
