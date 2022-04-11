@@ -111,6 +111,7 @@
                                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                             <TextBlock Text="Tổng quan hệ thống"
                                        HorizontalAlignment="Left"
+                                       Foreground="#6B34C3"
                                        Margin="5,0,0,0"
                                        FontSize="15"
                                        FontWeight="Medium"
@@ -119,7 +120,8 @@
                     </Grid>
 
                     <!--row-2-->
-                    <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid Grid.Column="0" Grid.Row="1" MouseDown="Grid_MouseDown_ManageProduct"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -132,7 +134,8 @@
                     </Grid>
 
                     <!--row-3-->
-                    <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid Grid.Column="0" Grid.Row="2" MouseDown="Grid_MouseDown_ManageOrder"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -145,7 +148,8 @@
                     </Grid>
 
                     <!--row-4-->
-                    <Grid Grid.Column="0" Grid.Row="3">
+                    <Grid Grid.Column="0" Grid.Row="3" MouseDown="Grid_MouseDown_ManageCoupon"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -171,7 +175,8 @@
                     </Grid>
 
                     <!--row-6-->
-                    <Grid Grid.Column="0" Grid.Row="5">
+                    <Grid Grid.Column="0" Grid.Row="5" MouseDown="Grid_MouseDown_Setting"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -271,11 +276,13 @@
                                    Margin="25"></Label>
                             </TextBlock>
 
-                            <TextBlock Width="610" Height="461" >
+                            <TextBlock Width="610" Height="461" 
+                                       TextWrapping="Wrap">
                                 
                                 <Border Background="#FFFFFF" 
                                         BorderThickness="1"
-                                        CornerRadius="15">  
+                                        CornerRadius="15"
+                                        Margin="5">  
                                     <Border.Effect>
                                         <DropShadowEffect></DropShadowEffect>
                                     </Border.Effect>
@@ -306,6 +313,175 @@
                                     
                                 </Border>
                                 
+                                <Border Background="#FFFFFF" 
+                                        BorderThickness="1"
+                                        CornerRadius="15"
+                                        Margin="5">  
+                                    <Border.Effect>
+                                        <DropShadowEffect></DropShadowEffect>
+                                    </Border.Effect>
+                                    
+                                    <StackPanel Orientation="Vertical"
+                                        Width="180" Height="215">
+                                        <Image Width="81" Height="121"
+                                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                TextWrapping="Wrap" TextAlignment="Center"
+                                                   FontWeight="Medium"
+                                                   FontSize="13"></TextBlock>  
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Tác giả:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="Napoleon Hill"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Số lượng:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="1"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    
+                                </Border>
+                                
+                                <Border Background="#FFFFFF" 
+                                        BorderThickness="1"
+                                        CornerRadius="15"
+                                        Margin="5">  
+                                    <Border.Effect>
+                                        <DropShadowEffect></DropShadowEffect>
+                                    </Border.Effect>
+                                    
+                                    <StackPanel Orientation="Vertical"
+                                        Width="180" Height="215">
+                                        <Image Width="81" Height="121"
+                                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                TextWrapping="Wrap" TextAlignment="Center"
+                                                   FontWeight="Medium"
+                                                   FontSize="13"></TextBlock>  
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Tác giả:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="Napoleon Hill"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Số lượng:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="1"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    
+                                </Border>
+                                
+                                <Border Background="#FFFFFF" 
+                                        BorderThickness="1"
+                                        CornerRadius="15"
+                                        Margin="5">  
+                                    <Border.Effect>
+                                        <DropShadowEffect></DropShadowEffect>
+                                    </Border.Effect>
+                                    
+                                    <StackPanel Orientation="Vertical"
+                                        Width="180" Height="215">
+                                        <Image Width="81" Height="121"
+                                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                TextWrapping="Wrap" TextAlignment="Center"
+                                                   FontWeight="Medium"
+                                                   FontSize="13"></TextBlock>  
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Tác giả:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="Napoleon Hill"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Số lượng:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="1"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    
+                                </Border>
+                                
+                                <Border Background="#FFFFFF" 
+                                        BorderThickness="1"
+                                        CornerRadius="15"
+                                        Margin="5">  
+                                    <Border.Effect>
+                                        <DropShadowEffect></DropShadowEffect>
+                                    </Border.Effect>
+                                    
+                                    <StackPanel Orientation="Vertical"
+                                        Width="180" Height="215">
+                                        <Image Width="81" Height="121"
+                                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                TextWrapping="Wrap" TextAlignment="Center"
+                                                   FontWeight="Medium"
+                                                   FontSize="13"></TextBlock>  
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Tác giả:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="Napoleon Hill"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Số lượng:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="1"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    
+                                </Border>
+                                
+                                <Border Background="#FFFFFF" 
+                                        BorderThickness="1"
+                                        CornerRadius="15"
+                                        Margin="5">  
+                                    <Border.Effect>
+                                        <DropShadowEffect></DropShadowEffect>
+                                    </Border.Effect>
+                                    
+                                    <StackPanel Orientation="Vertical"
+                                        Width="180" Height="215">
+                                        <Image Width="81" Height="121"
+                                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                TextWrapping="Wrap" TextAlignment="Center"
+                                                   FontWeight="Medium"
+                                                   FontSize="13"></TextBlock>  
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Tác giả:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="Napoleon Hill"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                        
+                                        <TextBlock Margin="5,0,0,0">
+                                            <Label Content="Số lượng:"
+                                                   FontSize="10"></Label>
+                                            <Label Content="1"
+                                                   FontSize="10" FontWeight="Medium"></Label>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    
+                                </Border>
                             </TextBlock>
                         </StackPanel>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1_BookStore.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,34 @@ namespace Project1_BookStore
         {
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
+        }
+
+        private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageBooksScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_ManageOrder(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageOrdersScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_ManageCoupon(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageCouponScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_Setting(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new settingScreen();
+            screen.Show();
+            this.Close();
         }
     }
 }
