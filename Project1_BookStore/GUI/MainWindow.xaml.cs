@@ -1,6 +1,9 @@
-﻿using Project1_BookStore.GUI;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.GUI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,10 +54,12 @@ namespace Project1_BookStore
         }
 
         Icons _icons = new Icons();
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = _icons;
-            //this.WindowState = WindowState.Maximized;
+            Debug.WriteLine(BookBUS.findAllBook().Count());
+            listDataDated.ItemsSource = BookBUS.findAllBook();
         }
 
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)

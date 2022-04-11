@@ -59,7 +59,8 @@ namespace Project1_BookStore.DAO
                 string bookName = (string)reader["bookName"];
                 string bookAuthor = (string)reader["bookAuthor"];
                 string tobID = (string)reader["tobID"];
-                int bookPrice = (int)reader["bookPrice"];
+                //int bookPrice = (int)reader["bookPrice"];
+                int bookPrice = 0;
                 int bookQuantity = (int)reader["bookQuantity"];
                 int bookPublishedYear = (int)reader["bookPublishedYear"];
                 var book = new BookDTO()
