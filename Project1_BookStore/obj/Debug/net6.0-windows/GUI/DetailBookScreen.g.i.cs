@@ -86,7 +86,7 @@ namespace Project1_BookStore.GUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Project1_BookStore;V1.0.0.0;component/gui/detailbookscreen.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Project1_BookStore;component/gui/detailbookscreen.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\GUI\DetailBookScreen.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

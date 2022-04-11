@@ -80,7 +80,7 @@ namespace Project1_BookStore.DAO
             var con = ConnectDB.openConnection();
 
             var sql = "INSERT INTO ORDERS(ordersID, cusPhoneNumber, accUsername, ordersPrice, ordersTime)" +
-                $"VALUES('{order.ordersID}', '{order.cusPhoneNumber}', '{order.accUsername}', {order.ordersPrices}, '{order.ordersTime}')"
+                $"VALUES('{order.ordersID}', '{order.cusPhoneNumber}', '{order.accUsername}', {order.ordersPrices}, '{order.ordersTime}')";
             var command = new SqlCommand(sql, con);
             try
             {
