@@ -37,6 +37,8 @@ namespace Project1_BookStore
         public string arrow_left { get; set; } = "/Resource/Images/Icons/left-arrow.png";
         public string arrow_right { get; set; } = "/Resource/Images/Icons/right-arrow.png";
         public string setting { get; set; } = "/Resource/Images/Icons/info.png";
+        public string bell { get; set; } = "/Resource/Images/Icons/bell.png";
+        public string sign_out { get; set; } = "/Resource/Images/Icons/sign-out.png";
 
 
 
@@ -101,6 +103,33 @@ namespace Project1_BookStore
                 this.Close();
             }
 
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                var username = (userTextBox.Text).Trim();
+
+                var password = passTextBox.Password;
+
+                var check = UserBUS.findUser(username, password);
+
+                if (check == false)
+                {
+                    MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
+                        "Lỗi đăng nhập",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                }
+                else
+                {
+                    var screen = new MainWindow();
+                    screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    screen.Show();
+                    this.Close();
+                }
+            }
         }
     }
 }

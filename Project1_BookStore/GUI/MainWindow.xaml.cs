@@ -1,5 +1,6 @@
 ﻿using Project1_BookStore.BUS;
 using Project1_BookStore.GUI;
+using Project1_BookStore.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +26,15 @@ namespace Project1_BookStore
     /// 
     public partial class MainWindow : Window
     {
+
+        public class MainWindowContext
+        {
+            public int soldBooks { get; set; } = 0;
+            public int ongoingBooks { get; set; } = 0;
+            public int newOrders { get; set; } = 0;
+
+            public Icons _icons { get; set; } = new Icons();
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -53,13 +63,17 @@ namespace Project1_BookStore
             this.WindowState = WindowState.Minimized;
         }
 
-        Icons _icons = new Icons();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = _icons;
-            Debug.WriteLine(BookBUS.findAllBook().Count());
-            listDataDated.ItemsSource = BookBUS.findAllBook();
+            listDataDated.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findTop5()); 
+
+            var itemMainWindow = new MainWindowContext();
+            itemMainWindow.soldBooks = BookBUS.countBookSold();
+            itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count - itemMainWindow.soldBooks;
+            itemMainWindow.newOrders = OrderBUS.findAllOrder().Count;
+
+            this.DataContext = itemMainWindow;
         }
 
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)

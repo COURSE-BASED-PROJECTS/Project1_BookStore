@@ -49,7 +49,8 @@
 
             <!--comlumn 1-->
             <Grid Grid.Column="0" Grid.Row="0"
-                  Background="#F5F6F7">
+                  Background="#F5F6F7"
+                  DataContext="{Binding _icons}">
 
                 <!--using border element above for child-->
                 <Grid.OpacityMask>
@@ -187,6 +188,7 @@
                                        FontSize="15"></TextBlock>
                         </TextBlock>
                     </Grid>
+                
                 </Grid>
 
                 <!--row 3-->
@@ -206,9 +208,10 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     Margin="5,0,0,0"></TextBlock>
-                        <Image Width="17" Height="17"
+                        <Image  Width="24" Height="24"
                                 Margin="20,0,0,0"
-                                Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                Cursor="Hand"
+                                Source="{Binding sign_out, Converter={StaticResource absoluteConverter}}"></Image>
                     </TextBlock>
                 </Grid>
 
@@ -224,7 +227,8 @@
                 </Grid.RowDefinitions>
 
                 <!--Row-1-->
-                <Grid Grid.Column="0" Grid.Row="0">
+                <Grid Grid.Column="0" Grid.Row="0"
+                      DataContext="{Binding _icons}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="420*"/>
                         <ColumnDefinition Width="52*"/>
@@ -246,7 +250,7 @@
 
                     <!--Column-2-->
                     <Grid Grid.Row="0" Grid.Column="1">
-                        <Button Width="35" Height="35" Background="#F9FAFB">
+                        <Button Width="35" Height="35" Background="#F9FAFB" Cursor="Hand">
                             <Button.Effect>
                                 <DropShadowEffect BlurRadius="5" ShadowDepth="0"/>
                             </Button.Effect>
@@ -257,7 +261,7 @@
                             </Button.Resources>
 
                             <Image Width="20" Height="20" 
-                        Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                        Source="{Binding bell, Converter={StaticResource absoluteConverter}}"></Image>
                         </Button>
                     </Grid>
                 </Grid>
@@ -296,11 +300,11 @@
                                             </Border.Effect>
 
                                             <StackPanel Orientation="Vertical"
-                                        Width="180" Height="215">
+                                                        Width="180" Height="215">
                                                 <Image Width="81" Height="121"
-                                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                       Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                                 <TextBlock Height="49" Text="{Binding bookName}"
-                                                TextWrapping="Wrap" TextAlignment="Center"
+                                                   TextWrapping="Wrap" TextAlignment="Center"
                                                    FontWeight="Medium"
                                                    FontSize="13"></TextBlock>
 
@@ -348,7 +352,8 @@
                 </Grid.RowDefinitions>
 
                 <!--Row - 1-->
-                <Grid Grid.Row="0" HorizontalAlignment="Right">
+                <Grid Grid.Row="0" HorizontalAlignment="Right"
+                      DataContext="{Binding _icons}">
                     <StackPanel Orientation="Horizontal" Margin="0,20,42,18" Width="110" Height="28">
                         <Border CornerRadius="50" Margin="0,0,5,0" Width="29">
                             <Border.Background>
@@ -447,12 +452,14 @@
                                        TextAlignment="Center"
                                        FontWeight="Medium"
                                        FontSize="16"
-                                       Margin="0,5,0,0"></TextBlock>
-                            <TextBlock  Text="44"
+                                       Margin="0,5,0,0"
+                                       ></TextBlock>
+                            <TextBlock  Text="{Binding soldBooks}"
                                         TextAlignment="Center"
                                        FontWeight="Medium"
                                        FontSize="36"
-                                       Foreground="Red"></TextBlock>
+                                       Foreground="Red"
+                                       x:Name="soldItems"></TextBlock>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical"
@@ -471,11 +478,12 @@
                                        FontWeight="Medium"
                                        FontSize="16"
                                        Margin="0,5,0,0"></TextBlock>
-                            <TextBlock  Text="44"
+                            <TextBlock  Text="{Binding ongoingBooks}"
                                         TextAlignment="Center"
                                        FontWeight="Medium"
                                        FontSize="36"
-                                       Foreground="Red"></TextBlock>
+                                       Foreground="Red"
+                                       x:Name="ongoingItems"></TextBlock>
                         </StackPanel>
 
                     </StackPanel>
@@ -515,13 +523,14 @@
                                        FontSize="16"
                                        Margin="20,0,0,0"
                                        VerticalAlignment="Center"></TextBlock>
-                            <TextBlock  Text="44"
+                            <TextBlock  Text="{Binding newOrders}"
                                         TextAlignment="Center"
                                        FontWeight="Medium"
                                        FontSize="36"
                                        VerticalAlignment="Center"
                                        Margin="10,0,0,0"
-                                       Foreground="Red"></TextBlock>
+                                       Foreground="Red"
+                                       x:Name="newOrdes"></TextBlock>
                         </StackPanel>
 
 

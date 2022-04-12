@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +26,12 @@ namespace Project1_BookStore.GUI
             InitializeComponent();
         }
 
+        public class manageBooksContext
+        { 
+            public Icons _icons { get; set; } = new Icons();
+            public int countBook { get; set; } =  0;
+        }
+
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -47,17 +55,40 @@ namespace Project1_BookStore.GUI
             this.WindowState = WindowState.Minimized;
         }
 
-        Icons _icons = new Icons();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = _icons;
-            //this.WindowState = WindowState.Maximized;
+            var Context = new manageBooksContext();
+            Context.countBook = BookBUS.findAllBook().Count;
+
+            this.DataContext = Context;
+            allBooks.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findAllBook());
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
-            var manageOrdersScreen = new manageOrdersScreen();
-            manageOrdersScreen.Show();
+            var screen = new manageBooksScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_ManageOrder(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageOrdersScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_ManageCoupon(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageCouponScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_Setting(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new settingScreen();
+            screen.Show();
             this.Close();
         }
     }

@@ -15,5 +15,7 @@ namespace Project1_BookStore.DTO
         public decimal bookPrice { get; set; }
         public int bookQuantity { get; set; }
         public int bookPublishedYear { get; set; }
+
+        public string linkImg { get; set; }
     }
 }

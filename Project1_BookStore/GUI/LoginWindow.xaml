@@ -7,7 +7,8 @@
         xmlns:utils="clr-namespace:Project1_BookStore.Utils"
         mc:Ignorable="d"
         Title="LoginWindow" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
     </Window.Resources>
@@ -43,18 +44,41 @@
                            FontFamily="Inter" FontSize="15" FontWeight="Medium"
                            HorizontalAlignment="Left" Margin="70,25,25,0" Width="104"></Label>
 
-                    <TextBox x:Name="userTextBox"
+                    <Grid Height="40" Width="300">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="10"
+                              Color="#877b77"
+                              Opacity="100"
+                              ShadowDepth="3"
+                              Direction="350" />
+                        </Grid.Effect>
+
+                        <TextBox x:Name="userTextBox"
                              Padding="5 10 0 0"
                              Height="40" Width="300"
                              Background="#EBECF0"/>
+                    </Grid>
+                    
 
                     <Label Content="Mật khẩu"                       
                            FontSize="15" FontWeight="Medium"
                            HorizontalAlignment="Left" Margin="70,20,0,0"></Label>
-                    <PasswordBox x:Name="passTextBox" 
+
+                    <Grid Height="40" Width="300">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="10"
+                              Color="#877b77"
+                              Opacity="100"
+                              ShadowDepth="3"
+                              Direction="350" />
+                        </Grid.Effect>
+
+                        <PasswordBox x:Name="passTextBox" 
                              Padding="5 10 0 0"
                              Height="40" Width="300"
                              Background="#EBECF0"/>
+                    </Grid>
+                    
 
                     <Border CornerRadius="15" Padding="2" Width="110" Height="40"
                             VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,35,25,25">
@@ -68,6 +92,13 @@
                                 Content="Đăng nhập" FontSize="15" FontWeight="Bold"
                                 BorderBrush="Transparent" Background="White" Foreground="Black">
 
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="20"
+                                      Color="#877b77"
+                                      Opacity="100"
+                                      ShadowDepth="3"
+                                      Direction="350" />
+                            </Button.Effect>
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="15"/>

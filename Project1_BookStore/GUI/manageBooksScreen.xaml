@@ -32,7 +32,8 @@
 
             <!--comlumn 1-->
             <Grid Grid.Column="0" Grid.Row="0"
-                  Background="#F5F6F7">
+                  Background="#F5F6F7"
+                  DataContext="{Binding _icons}">
 
                 <!--using border element above for child-->
                 <Grid.OpacityMask>
@@ -100,22 +101,23 @@
                     </Grid>
 
                     <!--row-2-->
-                    <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid Grid.Column="0" Grid.Row="1" MouseDown="Grid_MouseDown_ManageProduct"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
                                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                             <TextBlock Text="Quản lý sản phẩm"
                                        HorizontalAlignment="Left"
-                                       Foreground="#6B34C3"
-                                       FontWeight="SemiBold"
                                        Margin="5,0,0,0"
+                                       Foreground="#6B34C3"
+                                       FontWeight="Medium"
                                        FontSize="15"></TextBlock>
                         </TextBlock>
                     </Grid>
 
                     <!--row-3-->
-                    <Grid Grid.Column="0" Grid.Row="2" MouseDown="Grid_MouseDown"
+                    <Grid Grid.Column="0" Grid.Row="2" MouseDown="Grid_MouseDown_ManageOrder"
                           Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
@@ -129,7 +131,8 @@
                     </Grid>
 
                     <!--row-4-->
-                    <Grid Grid.Column="0" Grid.Row="3">
+                    <Grid Grid.Column="0" Grid.Row="3" MouseDown="Grid_MouseDown_ManageCoupon"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -155,7 +158,8 @@
                     </Grid>
 
                     <!--row-6-->
-                    <Grid Grid.Column="0" Grid.Row="5">
+                    <Grid Grid.Column="0" Grid.Row="5" MouseDown="Grid_MouseDown_Setting"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -166,6 +170,7 @@
                                        FontSize="15"></TextBlock>
                         </TextBlock>
                     </Grid>
+
                 </Grid>
 
                 <!--row 3-->
@@ -179,15 +184,16 @@
                     <TextBlock HorizontalAlignment="Center"
                                VerticalAlignment="Center">
                         <Image Width="35" Height="35"
-                                Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                              
                         <TextBlock Text="Quản lý DA"
                                     FontFamily="Inter"
                                     FontSize="15"
                                     Margin="5,0,0,0"></TextBlock>
-                        <Image Width="17" Height="17"
+                        <Image  Width="24" Height="24"
                                 Margin="20,0,0,0"
-                                Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                Cursor="Hand"
+                                Source="{Binding sign_out, Converter={StaticResource absoluteConverter}}"></Image>
                     </TextBlock>
                 </Grid>
 
@@ -222,7 +228,8 @@
 
 
                     <!--Column-2-->
-                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="860,0,0,0">
+                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="860,0,0,0"
+                          DataContext="{Binding _icons}">
                         <StackPanel Orientation="Horizontal"
                                 Width="110" Height="28"
                                 HorizontalAlignment="Center"
@@ -305,7 +312,7 @@
                                     <Button Width="120" Height="35"  Background="Blue"
                                 HorizontalAlignment="Right"
                                             Margin="15">
-                                        <Grid>
+                                        <Grid DataContext="{Binding _icons}">
                                             <Image Width="16" Height="16"
                                                    HorizontalAlignment="Left"
                                                    Margin="0,0,15,0"
@@ -344,7 +351,8 @@
                                     <TabItem Header="Tất cả"
                                              FontSize="14"
                                              Foreground="#6B34C3">
-                                        <!--<ListView Height="380">
+                                        <ListView Height="380" x:Name="allBooks"
+                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                             <ListView.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel/>
@@ -353,71 +361,226 @@
                                             
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
-                                                   
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>-->
-                                        
-                                        <Grid Width="143" Height="207" 
-                                              HorizontalAlignment="Left"
-                                              VerticalAlignment="Top"
-                                              Background="White"
-                                              Margin="5">
-                                            <Grid.Effect>
-                                                <DropShadowEffect BlurRadius="20"
+                                                    <Grid Width="143" Height="207" 
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          Background="White"
+                                                          Margin="5">       
+                                                        <Grid.Effect>
+                                                            <DropShadowEffect BlurRadius="20"
                                                                   Color="#877b77"
                                                                   Opacity="100"
                                                                   ShadowDepth="5"
                                                                   Direction="0" />
-                                            </Grid.Effect>
-                                            <StackPanel Orientation="Vertical">
-                                                <Image Width="70" Height="116"
-                                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                                                <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
-                                                    TextWrapping="Wrap" TextAlignment="Center"
-                                                    FontWeight="Medium"
-                                                    FontSize="13">
+                                                        </Grid.Effect>
+                                                        <StackPanel Orientation="Vertical">
+                                                            <Image Width="70" Height="116"
+                                                                   Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                                    TextWrapping="Wrap" TextAlignment="Center"
+                                                                    FontWeight="Medium"
+                                                                    FontSize="13">
+                                                            </TextBlock>
+
+                                                <TextBlock Margin="5,0,0,0">
+                                                    <Label Content="Tác giả:"
+                                                           FontSize="10">
+                                                    </Label>
+                                                    <Label Content="Napoleon Hill"
+                                                           FontSize="10" FontWeight="Medium">
+                                                    </Label>    
                                                 </TextBlock>
 
                                                 <TextBlock Margin="5,0,0,0">
-                                                <Label Content="Tác giả:"
-                                                       FontSize="10">
-                                                </Label>
-                                                <Label Content="Napoleon Hill"
-                                                       FontSize="10" FontWeight="Medium">
-                                                </Label>
-                                                </TextBlock>
-
-                                                <TextBlock Margin="5,0,0,0">
-                                                <Label Content="Số lượng:"
-                                                       FontSize="10"></Label>
-                                                <Label Content="1"
-                                                       FontSize="10" FontWeight="Medium"></Label>
+                                                    <Label Content="Số lượng:"
+                                                           FontSize="10"></Label>
+                                                    <Label Content="1"
+                                                           FontSize="10" FontWeight="Medium"></Label>
                                                 </TextBlock>
                                             </StackPanel>
                                         </Grid>
+                                            </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                        </ListView>
                                         
                                     </TabItem>
                                     <TabItem Header="Bán chạy"
                                              FontSize="14"
-                                             Foreground="#6B34C3"></TabItem>
+                                             Foreground="#6B34C3">
+                                        <ListView Height="380" 
+                                                  x:Name="bestSellerBooks">
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Width="143" Height="207" 
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          Background="White"
+                                                          Margin="5">
+                                                        <Grid.Effect>
+                                                            <DropShadowEffect BlurRadius="20"
+                                                                  Color="#877b77"
+                                                                  Opacity="100"
+                                                                  ShadowDepth="5"
+                                                                  Direction="0" />
+                                                        </Grid.Effect>
+                                                        <StackPanel Orientation="Vertical">
+                                                            <Image Width="70" Height="116"
+                                                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                                    TextWrapping="Wrap" TextAlignment="Center"
+                                                                    FontWeight="Medium"
+                                                                    FontSize="13">
+                                                            </TextBlock>
+
+                                                            <TextBlock Margin="5,0,0,0">
+                                                    <Label Content="Tác giả:"
+                                                           FontSize="10">
+                                                    </Label>
+                                                    <Label Content="Napoleon Hill"
+                                                           FontSize="10" FontWeight="Medium">
+                                                    </Label>
+                                                            </TextBlock>
+
+                                                            <TextBlock Margin="5,0,0,0">
+                                                    <Label Content="Số lượng:"
+                                                           FontSize="10"></Label>
+                                                    <Label Content="1"
+                                                           FontSize="10" FontWeight="Medium"></Label>
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </TabItem>
                                     <TabItem Header="Hàng mới"
                                              FontSize="14"
-                                             Foreground="#6B34C3"></TabItem>
+                                             Foreground="#6B34C3">
+                                        <ListView Height="380" 
+                                                  x:Name="newBooks">
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Width="143" Height="207" 
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          Background="White"
+                                                          Margin="5">
+                                                        <Grid.Effect>
+                                                            <DropShadowEffect BlurRadius="20"
+                                                                  Color="#877b77"
+                                                                  Opacity="100"
+                                                                  ShadowDepth="5"
+                                                                  Direction="0" />
+                                                        </Grid.Effect>
+                                                        <StackPanel Orientation="Vertical">
+                                                            <Image Width="70" Height="116"
+                                                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                                    TextWrapping="Wrap" TextAlignment="Center"
+                                                                    FontWeight="Medium"
+                                                                    FontSize="13">
+                                                            </TextBlock>
+
+                                                            <TextBlock Margin="5,0,0,0">
+                                                    <Label Content="Tác giả:"
+                                                           FontSize="10">
+                                                    </Label>
+                                                    <Label Content="Napoleon Hill"
+                                                           FontSize="10" FontWeight="Medium">
+                                                    </Label>
+                                                            </TextBlock>
+
+                                                            <TextBlock Margin="5,0,0,0">
+                                                    <Label Content="Số lượng:"
+                                                           FontSize="10"></Label>
+                                                    <Label Content="1"
+                                                           FontSize="10" FontWeight="Medium"></Label>
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </TabItem>
                                     <TabItem Header="Sắp hết hàng"
                                               FontSize="14"
-                                             Foreground="#6B34C3"></TabItem>
+                                             Foreground="#6B34C3">
+                                        <ListView Height="380" 
+                                                  x:Name="nearOutOfBooks">
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Width="143" Height="207" 
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          Background="White"
+                                                          Margin="5">
+                                                        <Grid.Effect>
+                                                            <DropShadowEffect BlurRadius="20"
+                                                                  Color="#877b77"
+                                                                  Opacity="100"
+                                                                  ShadowDepth="5"
+                                                                  Direction="0" />
+                                                        </Grid.Effect>
+                                                        <StackPanel Orientation="Vertical">
+                                                            <Image Width="70" Height="116"
+                                                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
+                                                                    TextWrapping="Wrap" TextAlignment="Center"
+                                                                    FontWeight="Medium"
+                                                                    FontSize="13">
+                                                            </TextBlock>
+
+                                                            <TextBlock Margin="5,0,0,0">
+                                                    <Label Content="Tác giả:"
+                                                           FontSize="10">
+                                                    </Label>
+                                                    <Label Content="Napoleon Hill"
+                                                           FontSize="10" FontWeight="Medium">
+                                                    </Label>
+                                                            </TextBlock>
+
+                                                            <TextBlock Margin="5,0,0,0">
+                                                    <Label Content="Số lượng:"
+                                                           FontSize="10"></Label>
+                                                    <Label Content="1"
+                                                           FontSize="10" FontWeight="Medium"></Label>
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </TabItem>
                                 </TabControl>
                             
                             </Grid>
 
                             <!--Row - 4-->
-                            <Grid Grid.Row="3">
+                            <Grid Grid.Row="3" >
                                 <StackPanel Width="136" Height="50"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Orientation="Horizontal"
-                                            Margin="10">
+                                            Margin="10"
+                                            DataContext="{Binding _icons}">
                                     <Grid Width="32" Height="32"
                                           Background="LightGray"
                                           HorizontalAlignment="Left"
@@ -454,7 +617,7 @@
 
                                     </Label>
 
-                                    <Label Content="76"
+                                    <Label Content="{Binding countBook}"
                                            FontSize="18"
                                            FontWeight="Medium"
                                            Margin="230,0,25,0"
