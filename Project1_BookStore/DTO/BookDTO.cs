@@ -12,7 +12,7 @@ namespace Project1_BookStore.DTO
         public string bookName { get; set; }
         public string bookAuthor { get; set; }
         public string tobID { get; set; }
-        public int bookPrice { get; set; }
+        public decimal bookPrice { get; set; }
         public int bookQuantity { get; set; }
         public int bookPublishedYear { get; set; }
     }

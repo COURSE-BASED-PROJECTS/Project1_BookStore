@@ -39,5 +39,26 @@ namespace Project1_BookStore.BUS
             }
             return BookDAO.UpdateBook(book);
         }
+        public static List<BookDTO> findTop5()
+        {
+            return BookDAO.findTop5();
+        }
+        public static List<BookDTO> findBookByTypeOfBook(string tob)
+        {
+            return BookDAO.findBookByTypeOfBook(tob);
+        }
+        public static List<BookDTO> findBookByName(string bookName)
+        {
+            return BookDAO.findBookByName(bookName);
+        }
+        public static List<BookDTO> findBookByRangePrice(int min, int max)
+        {
+            return BookDAO.findBookByRangePrice(min, max);
+        }
+
+        public static int countBookSold()
+        {
+            return BookDAO.countBookSold();
+        }
     }
 }

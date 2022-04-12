@@ -9,9 +9,9 @@ namespace Project1_BookStore.DTO
     internal class OrderDetailDTO
     {
         public string ordersID { get; set; }
-        public string bookId { get; set; }
-        public int odCurrentPrice { get; set; }
-        public int odQuatity { get; set; }
+        public string bookID { get; set; }
+        public decimal odCurrentPrice { get; set; }
+        public int odQuantity { get; set; }
 
     }
 }

@@ -22,6 +22,10 @@ namespace Project1_BookStore.BUS
         {
             return OrderDAO.findAllOrder();
         }
+        public static List<OrderDTO> findOrderByRangeDate(DateTime start, DateTime end)
+        {
+            return OrderDAO.findOrderByRangeDate(start, end);
+        }
         public static bool InsertOrder(OrderDTO order)
         {
             if (OrderBUS.findOrderByID(order.ordersID) != null)

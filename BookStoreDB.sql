@@ -59,7 +59,7 @@ CREATE TABLE ORDERSDETAIL
 (
     ordersID CHAR(10),
     bookID CHAR(5),
-    odCurrentPrice INT,
+    odCurrentPrice MONEY,
     odQuantity INT
 
 	PRIMARY KEY(ordersID, bookID)

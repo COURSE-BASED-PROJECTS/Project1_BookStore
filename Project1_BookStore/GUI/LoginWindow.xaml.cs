@@ -83,7 +83,7 @@ namespace Project1_BookStore
             var username = (userTextBox.Text).Trim();
 
             var password = passTextBox.Password;
-
+            
             var check = UserBUS.findUser(username, password);
 
             if (check == false)

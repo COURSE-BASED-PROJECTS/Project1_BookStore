@@ -25,7 +25,7 @@ namespace Project1_BookStore.DAO
                 string cusPhoneNumber = (string)reader["cusPhoneNumber"];
                 string accUsername = (string)reader["accUsername"];
                 string tobID = (string)reader["tobID"];
-                int ordersPrice = (int)reader["ordersPrice"];
+                decimal ordersPrice = (decimal)reader["ordersPrice"];
                 var ordersTime = (DateTime)reader["ordersTime"];
                 
                 var order = new OrderDTO()
@@ -40,6 +40,39 @@ namespace Project1_BookStore.DAO
             }
             reader.Close();
             return null;
+        }
+
+        internal static List<OrderDTO> findOrderByRangeDate(DateTime start, DateTime end)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = $"SELECT * FROM ORDERS WHERE ordersTime BETWEEN '{start}' AND '{end}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteReader();
+            List<OrderDTO> orders = new List<OrderDTO>();
+
+            while (reader.Read())
+            {
+                string ordersID = (string)reader["ordersID"];
+                string cusPhoneNumber = (string)reader["cusPhoneNumber"];
+                string accUsername = (string)reader["accUsername"];
+                string tobID = (string)reader["tobID"];
+                int ordersPrice = (int)reader["ordersPrice"];
+                var ordersTime = (DateTime)reader["ordersTime"];
+
+                var order = new OrderDTO()
+                {
+                    ordersID = ordersID,
+                    cusPhoneNumber = cusPhoneNumber,
+                    accUsername = accUsername,
+                    ordersPrices = ordersPrice,
+                    ordersTime = ordersTime
+                };
+                orders.Add(order);
+            }
+            reader.Close();
+            return orders;
         }
 
         internal static List<OrderDTO> findAllOrder()

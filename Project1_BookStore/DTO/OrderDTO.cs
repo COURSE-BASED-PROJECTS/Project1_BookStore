@@ -11,7 +11,7 @@ namespace Project1_BookStore.DTO
         public string ordersID { get; set; }
         public string cusPhoneNumber { get; set; }
         public string accUsername { get; set; }
-        public int ordersPrices { get; set; }
+        public decimal ordersPrices { get; set; }
         public DateTime ordersTime { get; set; }
     }
 }
