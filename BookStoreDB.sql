@@ -49,8 +49,8 @@ CREATE TABLE ORDERS
     ordersID CHAR(10),
     cusPhoneNumber CHAR(10),
     accUsername VARCHAR(25),
-    ordersPrice MONEY,
-    ordersTime TIMESTAMP 
+    ordersPrice MONEY DEFAULT 0,
+    ordersTime DATETIME
 
 	PRIMARY KEY(ordersID)
 )
@@ -68,15 +68,15 @@ CREATE TABLE ORDERSDETAIL
 CREATE TABLE CUSTOMER
 (
     cusPhoneNumber CHAR(10),
-    cusName CHAR(25)
+    cusName NVARCHAR(100)
 
 	PRIMARY KEY(cusPhoneNumber)
 )
 
 CREATE TABLE ACCOUNT
 (
-    accUsername varchar(25),
-    accPassword varchar(250)
+    accUsername VARCHAR(25),
+    accPassword VARCHAR(250)
 
 	PRIMARY KEY(accUsername)
 )
@@ -211,18 +211,18 @@ INSERT INTO PROMOTIONDETAIL(promoID, tobID)
             ('KM-GIAM50%','TB007')
 
 GO
-INSERT INTO ORDERS(ordersID)
-    VALUES  ('220409JQK'),
-            ('220409MNI'),
-            ('220408SLL'),
-            ('220408QWE'),
-            ('220408IBM'),
-            ('220407EGN'),
-            ('220406IGH'),
-            ('220405LKH'),
-            ('220404HYY'),
-            ('220404UYU'),
-            ('220404UYD')
+INSERT INTO ORDERS(ordersID, ordersTime)
+    VALUES  ('220409JQK', '2022-04-09 07:21:35'),
+            ('220409MNI', '2022-04-09 10:20:34'),
+            ('220408SLL', '2022-04-08 11:19:33'),
+            ('220408QWE', '2022-04-08 12:18:32'),
+            ('220408IBM', '2022-04-08 13:17:31'),
+            ('220407EGN', '2022-04-07 15:16:30'),
+            ('220406IGH', '2022-04-06 17:15:29'),
+            ('220405LKH', '2022-04-05 18:14:28'),
+            ('220404HYY', '2022-04-04 19:13:27'),
+            ('220404UYU', '2022-04-04 20:12:26'),
+            ('220404UYD', '2022-04-04 11:11:11')
 
 GO
 INSERT INTO ORDERSDETAIL(ordersID, bookID, odCurrentPrice, odQuantity)

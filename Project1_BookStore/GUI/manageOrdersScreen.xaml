@@ -220,7 +220,7 @@
 
                         <Button Width="100" Height="35"  Background="White"
                                 HorizontalAlignment="Right"
-                                Margin="0,66,-45,29">
+                                Margin="0,66,-45,0">
                             <Label Foreground="Blue">Lưu</Label>
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -240,7 +240,7 @@
 
 
                     <!--Column-2-->
-                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="860,0,0,0">
+                    <Grid Grid.Row="0" Grid.Column="1">
                         <StackPanel Orientation="Horizontal"
                                 Width="110" Height="28"
                                 HorizontalAlignment="Center"

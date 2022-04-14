@@ -93,18 +93,18 @@ namespace Project1_BookStore.DAO
                 //string tobID = (string)reader["tobID"];
 
                 //uncomment when data is completed
-                //decimal ordersPrice = (decimal)reader["ordersPrice"];
+                decimal ordersPrice = (decimal)reader["ordersPrice"];
 
                 //uncomment when data is completed
-                //var ordersTime = (DateTime)reader["ordersTime"];
+                var ordersTime = (DateTime)reader["ordersTime"];
 
                 var order = new OrderDTO()
                 {
                     ordersID = ordersID,
                     cusPhoneNumber = cusPhoneNumber,
                     accUsername = accUsername,
-                    //ordersPrices = ordersPrice,
-                    //ordersTime = ordersTime
+                    ordersPrices = ordersPrice,
+                    ordersTime = ordersTime
                 };
                 orders.Add(order);
             }

@@ -203,30 +203,33 @@
                 <!--Row-1-->
                 <Grid Grid.Column="0" Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="420*"/>
+                        <ColumnDefinition Width="289*"/>
                         <ColumnDefinition Width="52*"/>
                     </Grid.ColumnDefinitions>
 
                     <!--Column-1-->
-                    <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,112,0">
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="878*"/>
+                            <ColumnDefinition Width="33*"/>
+                        </Grid.ColumnDefinitions>
                         <Label Content="Quản lý đơn hàng"
                                    FontSize="25"
                                    FontWeight="DemiBold"
-                               Margin="60,60,20,0"></Label>
+                               Margin="60,60,0,0"></Label>
                         <Label Content="Quản lý DA, Chào mừng bạn quay lại!"
                                    FontSize="15"
-                               Margin="60,95,20,0">
-                        </Label>
+                               Margin="60,95,31,0" Grid.ColumnSpan="2"/>
 
                     </Grid>
 
 
                     <!--Column-2-->
-                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="860,0,0,0">
+                    <Grid Grid.Row="0" Grid.Column="1">
                         <StackPanel Orientation="Horizontal"
                                 Width="110" Height="28"
                                 HorizontalAlignment="Center"
-                                Margin="0,22,0,80">
+                                Margin="0,37,0,65">
                             <Border CornerRadius="50" Margin="0,0,5,0" Width="29">
                                 <Border.Background>
                                     <SolidColorBrush Color="White" Opacity="0.6"/>
