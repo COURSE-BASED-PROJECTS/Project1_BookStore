@@ -30,6 +30,8 @@ namespace Project1_BookStore
         public string pathMaxPressedBtn { get; set; } = "/Resource/Images/Icons/maximize-pressed.png";
         public string pathMinBtn { get; set; } = "/Resource/Images/Icons/minimize.png";
         public string pathMinePressedBtn { get; set; } = "/Resource/Images/Icons/minimize-pressed.png";
+        public string pathReDownBtn { get; set; } = "/Resource/Images/Icons/reDown.png";
+        public string pathReDownPressedBtn { get; set; } = "/Resource/Images/Icons/reDown-pressed.png";
         public string logo { get; set; } = "/Resource/Images/Icons/logo.png";
         public string upload { get; set; } = "/Resource/Images/Icons/upload.png";
         public string modify { get; set; } = "/Resource/Images/Icons/modify.png";
@@ -51,6 +53,7 @@ namespace Project1_BookStore
         public LoginWindow()
         {
             InitializeComponent();
+            reDownButton.Visibility = Visibility.Collapsed;
         }
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -62,9 +65,13 @@ namespace Project1_BookStore
             switch (this.WindowState)
             {
                 case WindowState.Normal:
+                    reDownButton.Visibility = Visibility.Visible;
+                    maxButton.Visibility = Visibility.Collapsed;
                     this.WindowState = WindowState.Maximized;
                     break;
                 case WindowState.Maximized:
+                    maxButton.Visibility = Visibility.Visible;
+                    reDownButton.Visibility = Visibility.Collapsed;
                     this.WindowState = WindowState.Normal;
                     break;
             }

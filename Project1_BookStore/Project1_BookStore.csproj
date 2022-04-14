@@ -187,6 +187,12 @@
     <None Update="Resource\Images\Icons\plus-square.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Resource\Images\Icons\reDown-pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resource\Images\Icons\reDown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Resource\Images\Icons\restore-down.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
