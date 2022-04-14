@@ -79,6 +79,44 @@ namespace Project1_BookStore.DAO
             return books;
         }
 
+        internal static List<BookDTO> findBestSellerBook()
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "SELECT * FROM BOOK WHERE bookID = (" +
+                "SELECT bookID FROM ORDERSDETAIL" +
+                "GROUP BY bookID" +
+                "HAVING SUM(odQuantity) > 5)";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteReader();
+            List<BookDTO> books = new List<BookDTO>();
+            while (reader.Read())
+            {
+                string bookID = (string)reader["bookID"];
+                string name = (string)reader["bookName"];
+                string bookAuthor = (string)reader["bookAuthor"];
+                string tobID = (string)reader["tobID"];
+                decimal bookPrice = (decimal)reader["bookPrice"];
+                //int bookPrice = 0;
+                int bookQuantity = (int)reader["bookQuantity"];
+                int bookPublishedYear = (int)reader["bookPublishedYear"];
+                var book = new BookDTO()
+                {
+                    bookID = bookID,
+                    bookName = name,
+                    tobID = tobID,
+                    bookAuthor = bookAuthor,
+                    bookPrice = bookPrice,
+                    bookQuantity = bookQuantity,
+                    bookPublishedYear = bookPublishedYear
+                };
+                books.Add(book);
+            }
+            reader.Close();
+            return books;
+        }
+
         internal static int countBookSold()
         {
             var con = ConnectDB.openConnection();
@@ -167,7 +205,7 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = "SELECT * FROM BOOK WHERE bookQuantity < 5";
+            var sql = "SELECT TOP 5 * FROM BOOK WHERE bookQuantity < 5 ORDER BY bookQuantity ASC";
 
             var command = new SqlCommand(sql, con);
             var reader = command.ExecuteReader();
