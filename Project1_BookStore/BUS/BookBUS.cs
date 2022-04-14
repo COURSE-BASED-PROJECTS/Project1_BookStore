@@ -60,5 +60,10 @@ namespace Project1_BookStore.BUS
         {
             return BookDAO.countBookSold();
         }
+
+        public static List<BookDTO> findBestSellerBook()
+        {
+            return BookDAO.findBestSellerBook();
+        }
     }
 }

@@ -1,5 +1,11 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using Project1_BookStore.BUS;
+using Project1_BookStore.DTO;
+using Project1_BookStore.Utils;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +58,49 @@ namespace Project1_BookStore.GUI
         {
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
+        }
+
+        private void save(object sender, RoutedEventArgs e)
+        {
+            var book = new BookDTO()
+            {
+                bookName = nameBook.Text,
+                bookAuthor = authorBook.Text,
+                bookPrice = int.Parse(priceBook.Text),
+                bookPublishedYear = int.Parse(yearPublishBook.Text),
+                bookQuantity = 10
+            };
+
+            MessageBox.Show("Thêm mới thành công");
+        }
+
+        private void cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+
+        private void uploadImg(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Chọn hình ảnh";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+            if (op.ShowDialog() == true)
+            {
+                string workingDirectory = Environment.CurrentDirectory;
+                string prjUri = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+                string binPath = AppDomain.CurrentDomain.BaseDirectory;
+                string des = $"{prjUri}\\Resource\\Images\\BookCovers\\";
+                string desBinPath = $"{binPath}\\Resource\\Images\\BookCovers\\";
+
+                CopyImage.Copy(op.FileName, des,"A00"+ $"{BookBUS.findAllBook().Count + 1}" + ".jpg");
+                CopyImage.Copy(op.FileName, desBinPath, "A00"+ $"{BookBUS.findAllBook().Count + 1}" + ".jpg");
+
+                _icons.test = "\\Resource\\Images\\BookCovers\\A0040.jpg";
+            }
         }
     }
 }

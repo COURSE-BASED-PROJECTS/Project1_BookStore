@@ -1,5 +1,16 @@
-﻿D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Release\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+﻿E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Release\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 
-FD:\Sources\GitHub\Project1_BookStore\Project1_BookStore\GUI\LoginWindow.xaml;;
-FD:\Sources\GitHub\Project1_BookStore\Project1_BookStore\GUI\MainWindow.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\addNewBookScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\addNewCouponScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\addNewOrderScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\DetailBookScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\DetailOrderScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\LoginWindow.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\MainWindow.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\manageBooksScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\manageCouponScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\manageOrdersScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\modifyCouponScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\settingScreen.xaml;;
+FE:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\GUI\uploadDataScreen.xaml;;
 

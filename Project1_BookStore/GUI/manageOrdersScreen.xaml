@@ -32,7 +32,8 @@
 
             <!--comlumn 1-->
             <Grid Grid.Column="0" Grid.Row="0"
-                  Background="#F5F6F7">
+                  Background="#F5F6F7"
+                  DataContext="{Binding _icons}">
 
                 <!--using border element above for child-->
                 <Grid.OpacityMask>
@@ -87,7 +88,8 @@
                     </Grid.RowDefinitions>
 
                     <!--row-1-->
-                    <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid Grid.Column="0" Grid.Row="0" MouseDown="Grid_MouseDown_MainWindow"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -101,7 +103,8 @@
                     </Grid>
 
                     <!--row-2-->
-                    <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid Grid.Column="0" Grid.Row="1" MouseDown="Grid_MouseDown_ManageProduct"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -114,7 +117,8 @@
                     </Grid>
 
                     <!--row-3-->
-                    <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid Grid.Column="0" Grid.Row="2" MouseDown="Grid_MouseDown_ManageOrder"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -123,13 +127,14 @@
                                        HorizontalAlignment="Left"
                                        Margin="5,0,0,0"
                                        Foreground="#6B34C3"
-                                       FontWeight="SemiBold"
+                                       FontWeight="Medium"
                                        FontSize="15"></TextBlock>
                         </TextBlock>
                     </Grid>
 
                     <!--row-4-->
-                    <Grid Grid.Column="0" Grid.Row="3">
+                    <Grid Grid.Column="0" Grid.Row="3" MouseDown="Grid_MouseDown_ManageCoupon"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -155,7 +160,8 @@
                     </Grid>
 
                     <!--row-6-->
-                    <Grid Grid.Column="0" Grid.Row="5">
+                    <Grid Grid.Column="0" Grid.Row="5" MouseDown="Grid_MouseDown_Setting"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -166,6 +172,7 @@
                                        FontSize="15"></TextBlock>
                         </TextBlock>
                     </Grid>
+
                 </Grid>
 
                 <!--row 3-->
@@ -220,8 +227,9 @@
 
                         <Button Width="100" Height="35"  Background="White"
                                 HorizontalAlignment="Right"
-                                Margin="0,66,-45,0">
-                            <Label Foreground="Blue">Lưu</Label>
+                                Margin="0,66,-45,0" Cursor="Hand" Click="addNewOrder"
+                                >
+                            <Label Foreground="Blue">Thêm đơn hàng</Label>
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="5"/>
@@ -240,7 +248,7 @@
 
 
                     <!--Column-2-->
-                    <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid Grid.Row="0" Grid.Column="1" DataContext="{Binding _icons}">
                         <StackPanel Orientation="Horizontal"
                                 Width="110" Height="28"
                                 HorizontalAlignment="Center"
@@ -306,7 +314,7 @@
 
                                 </Label>
 
-                                <Label Content="76"
+                                <Label Content="{Binding countOrder}"
                                            FontSize="18"
                                            FontWeight="Medium"
                                            Margin="170,25,25,0"
@@ -363,452 +371,118 @@
                                         X2="850" Y2="0"  
                                         Stroke="Gray"  
                                         StrokeThickness="1" />
-                                <ScrollViewer  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                                                    ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                                                    ScrollViewer.CanContentScroll="True">
-                                    <StackPanel Height="350">
-                                        
-                                        <!--Item - 1-->
-                                        <Grid Height="62" Margin="5">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="36*"/>
-                                                <ColumnDefinition Width="225*"/>
-                                                <ColumnDefinition Width="100*"/>
-                                                <ColumnDefinition Width="131*"/>
-                                                <ColumnDefinition Width="72*"/>
-                                                <ColumnDefinition Width="180*"/>
-                                                <ColumnDefinition Width="123*"/>
-                                            </Grid.ColumnDefinitions>
+                                
+                                <ListView Height="350" 
+                                          x:Name="orderList"
+                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <!--Item - 1-->
+                                            <Grid Height="62" Margin="5" Width="850">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="36*"/>
+                                                    <ColumnDefinition Width="225*"/>
+                                                    <ColumnDefinition Width="100*"/>
+                                                    <ColumnDefinition Width="131*"/>
+                                                    <ColumnDefinition Width="72*"/>
+                                                    <ColumnDefinition Width="180*"/>
+                                                    <ColumnDefinition Width="123*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <!--Column - 1-->
+                                                <Grid Grid.Column="0">
+                                                    <CheckBox Width="18" Height="18"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    Margin="20,10,0,0">
+                                                    </CheckBox>
+                                                </Grid>
+
+                                                <!--Column - 2-->
+                                                <Grid Grid.Column="1">
+                                                    <StackPanel Orientation="Horizontal"
+                                                    Margin="15,0,0,0"
+                                                    Width="300">
+                                                        <Grid Width="48" Height="57">
+                                                            <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                        </Grid>
+
+
+                                                        <Label Content="{Binding ordersID}"
+                                                    FontSize="12"
+                                                    FontWeight="Medium"
+                                                    VerticalContentAlignment="Center"></Label>
+
+
+                                                    </StackPanel>
+                                                </Grid>
+
+                                                <!--Column - 3-->
+                                                <Grid Grid.Column="2" Margin="77,0,0,0">
+                                                    <Label Content="12"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                HorizontalAlignment="Left"
+                                                FontSize="12" Margin="-29,1,0,-1"></Label>
+                                                </Grid>
+
+                                                <!--Column - 4-->
+                                                <Grid Grid.Column="3" Margin="3,0,0,0">
+                                                    <Label Content="{Binding cusPhoneNumber}"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                HorizontalAlignment="Left"
+                                                FontSize="12" Margin="28,0,0,0"></Label>
+                                                </Grid>
+
+                                                <!--Column - 5-->
+                                                <Grid Grid.Column="4" Grid.ColumnSpan="2" Margin="76,0,0,0">
+                                                    <Label Content="{Binding ordersPrices}"
+                                                FontSize="12" Margin="-35,0,88,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"></Label>
+                                                </Grid>
+
+                                                <!--Column - 6-->
+                                                <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
+                                                    <Label Content="{Binding accUsername}"
+                                                FontSize="12" Margin="-3,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"></Label>
+                                                </Grid>
+
+                                                <!--Column - 7-->
+                                                <Grid Grid.Column="6" Margin="80,0,0,0">
+                                                    <Image Width="24" Height="24"
+                                                Cursor="Hand"
+                                                Source="{Binding setting, Converter={StaticResource absoluteConverter}}" RenderTransformOrigin="-0.13,0.627" Margin="-2,19,19,19">
+                                                    </Image>
+                                                </Grid>
+
+                                            </Grid >
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                        </ListView>
 
-                                            <!--Column - 1-->
-                                            <Grid Grid.Column="0">
-                                                <CheckBox Width="18" Height="18"
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"
-                                                          Margin="20,10,0,0">
-                                                </CheckBox>
-                                            </Grid>
-
-                                            <!--Column - 2-->
-                                            <Grid Grid.Column="1">
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="15,0,0,0"
-                                                            Width="300">
-                                                    <Grid Width="48" Height="57">
-                                                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                                                    </Grid>
-
-
-                                                    <Label Content="220406JOQ"
-                                                            FontSize="12"
-                                                            FontWeight="Medium"
-                                                            VerticalContentAlignment="Center"></Label>
-
-
-                                                </StackPanel>
-                                            </Grid>
-
-                                            <!--Column - 3-->
-                                            <Grid Grid.Column="2" Margin="77,0,0,0">
-                                                <Label Content="12"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="-29,1,0,-1"></Label>
-                                            </Grid>
-
-                                            <!--Column - 4-->
-                                            <Grid Grid.Column="3" Margin="3,0,0,0">
-                                                <Label Content="Bravo"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="28,0,0,0"></Label>
-                                            </Grid>
-
-                                            <!--Column - 5-->
-                                            <Grid Grid.Column="4" Grid.ColumnSpan="2" Margin="76,0,0,0">
-                                                <Label Content="127,000đ"
-                                                       FontSize="12" Margin="-35,0,88,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 6-->
-                                            <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
-                                                <Label Content="Evan Flores"
-                                                       FontSize="12" Margin="-3,0,0,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 7-->
-                                            <Grid Grid.Column="6" Margin="82,0,0,0">
-                                                <Image Width="24" Height="24"
-                                                       Cursor="Hand"
-                                                       Source="{Binding setting, Converter={StaticResource absoluteConverter}}" RenderTransformOrigin="-0.13,0.627" Margin="-2,19,19,19">
-                                                </Image>
-                                            </Grid>
-
-                                        </Grid>
-
-                                        <!--Item - 1-->
-                                        <Grid Height="62" Margin="5">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="36*"/>
-                                                <ColumnDefinition Width="225*"/>
-                                                <ColumnDefinition Width="100*"/>
-                                                <ColumnDefinition Width="131*"/>
-                                                <ColumnDefinition Width="72*"/>
-                                                <ColumnDefinition Width="180*"/>
-                                                <ColumnDefinition Width="123*"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <!--Column - 1-->
-                                            <Grid Grid.Column="0">
-                                                <CheckBox Width="18" Height="18"
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"
-                                                          Margin="20,10,0,0">
-                                                </CheckBox>
-                                            </Grid>
-
-                                            <!--Column - 2-->
-                                            <Grid Grid.Column="1">
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="15,0,0,0"
-                                                            Width="300">
-                                                    <Grid Width="48" Height="57">
-                                                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                                                    </Grid>
-
-
-                                                    <Label Content="220406JOQ"
-                                                            FontSize="12"
-                                                            FontWeight="Medium"
-                                                            VerticalContentAlignment="Center"></Label>
-
-
-                                                </StackPanel>
-                                            </Grid>
-
-                                            <!--Column - 3-->
-                                            <Grid Grid.Column="2" Margin="77,0,0,0">
-                                                <Label Content="12"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="-29,1,0,-1"></Label>
-                                            </Grid>
-
-                                            <!--Column - 4-->
-                                            <Grid Grid.Column="3" Margin="3,0,0,0">
-                                                <Label Content="Bravo"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="28,0,0,0"></Label>
-                                            </Grid>
-
-                                            <!--Column - 5-->
-                                            <Grid Grid.Column="4" Grid.ColumnSpan="2" Margin="76,0,0,0">
-                                                <Label Content="127,000đ"
-                                                       FontSize="12" Margin="-35,0,88,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 6-->
-                                            <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
-                                                <Label Content="Evan Flores"
-                                                       FontSize="12" Margin="-3,0,0,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 7-->
-                                            <Grid Grid.Column="6" Margin="82,0,0,0">
-                                                <Image Width="24" Height="24"
-                                                       Cursor="Hand"
-                                                       Source="{Binding setting, Converter={StaticResource absoluteConverter}}" RenderTransformOrigin="-0.13,0.627" Margin="-2,19,19,19">
-                                                </Image>
-                                            </Grid>
-
-                                        </Grid>
-
-                                        <!--Item - 1-->
-                                        <Grid Height="62" Margin="5">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="36*"/>
-                                                <ColumnDefinition Width="225*"/>
-                                                <ColumnDefinition Width="100*"/>
-                                                <ColumnDefinition Width="131*"/>
-                                                <ColumnDefinition Width="72*"/>
-                                                <ColumnDefinition Width="180*"/>
-                                                <ColumnDefinition Width="123*"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <!--Column - 1-->
-                                            <Grid Grid.Column="0">
-                                                <CheckBox Width="18" Height="18"
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"
-                                                          Margin="20,10,0,0">
-                                                </CheckBox>
-                                            </Grid>
-
-                                            <!--Column - 2-->
-                                            <Grid Grid.Column="1">
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="15,0,0,0"
-                                                            Width="300">
-                                                    <Grid Width="48" Height="57">
-                                                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                                                    </Grid>
-
-
-                                                    <Label Content="220406JOQ"
-                                                            FontSize="12"
-                                                            FontWeight="Medium"
-                                                            VerticalContentAlignment="Center"></Label>
-
-
-                                                </StackPanel>
-                                            </Grid>
-
-                                            <!--Column - 3-->
-                                            <Grid Grid.Column="2" Margin="77,0,0,0">
-                                                <Label Content="12"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="-29,1,0,-1"></Label>
-                                            </Grid>
-
-                                            <!--Column - 4-->
-                                            <Grid Grid.Column="3" Margin="3,0,0,0">
-                                                <Label Content="Bravo"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="28,0,0,0"></Label>
-                                            </Grid>
-
-                                            <!--Column - 5-->
-                                            <Grid Grid.Column="4" Grid.ColumnSpan="2" Margin="76,0,0,0">
-                                                <Label Content="127,000đ"
-                                                       FontSize="12" Margin="-35,0,88,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 6-->
-                                            <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
-                                                <Label Content="Evan Flores"
-                                                       FontSize="12" Margin="-3,0,0,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 7-->
-                                            <Grid Grid.Column="6" Margin="82,0,0,0">
-                                                <Image Width="24" Height="24"
-                                                       Cursor="Hand"
-                                                       Source="{Binding setting, Converter={StaticResource absoluteConverter}}" RenderTransformOrigin="-0.13,0.627" Margin="-2,19,19,19">
-                                                </Image>
-                                            </Grid>
-
-                                        </Grid>
-
-                                        <!--Item - 1-->
-                                        <Grid Height="62" Margin="5">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="36*"/>
-                                                <ColumnDefinition Width="225*"/>
-                                                <ColumnDefinition Width="100*"/>
-                                                <ColumnDefinition Width="131*"/>
-                                                <ColumnDefinition Width="72*"/>
-                                                <ColumnDefinition Width="180*"/>
-                                                <ColumnDefinition Width="123*"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <!--Column - 1-->
-                                            <Grid Grid.Column="0">
-                                                <CheckBox Width="18" Height="18"
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"
-                                                          Margin="20,10,0,0">
-                                                </CheckBox>
-                                            </Grid>
-
-                                            <!--Column - 2-->
-                                            <Grid Grid.Column="1">
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="15,0,0,0"
-                                                            Width="300">
-                                                    <Grid Width="48" Height="57">
-                                                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                                                    </Grid>
-
-
-                                                    <Label Content="220406JOQ"
-                                                            FontSize="12"
-                                                            FontWeight="Medium"
-                                                            VerticalContentAlignment="Center"></Label>
-
-
-                                                </StackPanel>
-                                            </Grid>
-
-                                            <!--Column - 3-->
-                                            <Grid Grid.Column="2" Margin="77,0,0,0">
-                                                <Label Content="12"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="-29,1,0,-1"></Label>
-                                            </Grid>
-
-                                            <!--Column - 4-->
-                                            <Grid Grid.Column="3" Margin="3,0,0,0">
-                                                <Label Content="Bravo"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="28,0,0,0"></Label>
-                                            </Grid>
-
-                                            <!--Column - 5-->
-                                            <Grid Grid.Column="4" Grid.ColumnSpan="2" Margin="76,0,0,0">
-                                                <Label Content="127,000đ"
-                                                       FontSize="12" Margin="-35,0,88,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 6-->
-                                            <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
-                                                <Label Content="Evan Flores"
-                                                       FontSize="12" Margin="-3,0,0,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 7-->
-                                            <Grid Grid.Column="6" Margin="82,0,0,0">
-                                                <Image Width="24" Height="24"
-                                                       Cursor="Hand"
-                                                       Source="{Binding setting, Converter={StaticResource absoluteConverter}}" RenderTransformOrigin="-0.13,0.627" Margin="-2,19,19,19">
-                                                </Image>
-                                            </Grid>
-
-                                        </Grid>
-
-                                        <!--Item - 1-->
-                                        <Grid Height="62" Margin="5">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="36*"/>
-                                                <ColumnDefinition Width="225*"/>
-                                                <ColumnDefinition Width="100*"/>
-                                                <ColumnDefinition Width="131*"/>
-                                                <ColumnDefinition Width="72*"/>
-                                                <ColumnDefinition Width="180*"/>
-                                                <ColumnDefinition Width="123*"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <!--Column - 1-->
-                                            <Grid Grid.Column="0">
-                                                <CheckBox Width="18" Height="18"
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"
-                                                          Margin="20,10,0,0">
-                                                </CheckBox>
-                                            </Grid>
-
-                                            <!--Column - 2-->
-                                            <Grid Grid.Column="1">
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="15,0,0,0"
-                                                            Width="300">
-                                                    <Grid Width="48" Height="57">
-                                                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                                                    </Grid>
-
-
-                                                    <Label Content="220406JOQ"
-                                                            FontSize="12"
-                                                            FontWeight="Medium"
-                                                            VerticalContentAlignment="Center"></Label>
-
-
-                                                </StackPanel>
-                                            </Grid>
-
-                                            <!--Column - 3-->
-                                            <Grid Grid.Column="2" Margin="77,0,0,0">
-                                                <Label Content="12"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="-29,1,0,-1"></Label>
-                                            </Grid>
-
-                                            <!--Column - 4-->
-                                            <Grid Grid.Column="3" Margin="3,0,0,0">
-                                                <Label Content="Bravo"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"
-                                                       HorizontalAlignment="Left"
-                                                       FontSize="12" Margin="28,0,0,0"></Label>
-                                            </Grid>
-
-                                            <!--Column - 5-->
-                                            <Grid Grid.Column="4" Grid.ColumnSpan="2" Margin="76,0,0,0">
-                                                <Label Content="127,000đ"
-                                                       FontSize="12" Margin="-35,0,88,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 6-->
-                                            <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
-                                                <Label Content="Evan Flores"
-                                                       FontSize="12" Margin="-3,0,0,0"
-                                                       HorizontalAlignment="Left"
-                                                       HorizontalContentAlignment="Center"
-                                                       VerticalContentAlignment="Center"></Label>
-                                            </Grid>
-
-                                            <!--Column - 7-->
-                                            <Grid Grid.Column="6" Margin="82,0,0,0">
-                                                <Image Width="24" Height="24"
-                                                       Cursor="Hand"
-                                                       Source="{Binding setting, Converter={StaticResource absoluteConverter}}" RenderTransformOrigin="-0.13,0.627" Margin="-2,19,19,19">
-                                                </Image>
-                                            </Grid>
-
-                                        </Grid>
-
-                                    </StackPanel>
-                                </ScrollViewer>
                             </Grid>
 
                             <!--Row - 4-->
-                            <Grid Grid.Row="3">
+                            <Grid Grid.Row="3" >
                                 <StackPanel Width="136" Height="50"
                                             HorizontalAlignment="Left"
                                             VerticalAlignment="Center"
                                             Orientation="Horizontal"
-                                            Margin="10">
+                                            Margin="10"
+                                            DataContext="{Binding _icons}">
                                     <Grid Width="32" Height="32"
                                           Background="LightGray"
                                           HorizontalAlignment="Left"
@@ -840,6 +514,7 @@
                                             Margin="0,0,15,0"
                                             Orientation="Horizontal">
                                     <Grid Width="16" Height="16"
+                                          DataContext="{Binding _icons}"
                                           Cursor="Hand">
                                         <Image Width="16" Height="16"
                                            HorizontalAlignment="Left"

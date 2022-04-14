@@ -2,6 +2,8 @@
 using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +28,16 @@ namespace Project1_BookStore.GUI
             InitializeComponent();
         }
 
-        public class manageBooksContext
+        public class manageBooksContext:INotifyPropertyChanged
         { 
             public Icons _icons { get; set; } = new Icons();
             public int countBook { get; set; } =  0;
+
+            public event PropertyChangedEventHandler? PropertyChanged;
         }
+
+        manageBooksContext Context = new manageBooksContext();
+
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -54,14 +61,15 @@ namespace Project1_BookStore.GUI
         {
             this.WindowState = WindowState.Minimized;
         }
-
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var Context = new manageBooksContext();
             Context.countBook = BookBUS.findAllBook().Count;
 
             this.DataContext = Context;
             allBooks.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findAllBook());
+            nearOutOfBooks.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findTop5());
+            bestSellerBooks.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBook());
         }
 
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
@@ -90,6 +98,25 @@ namespace Project1_BookStore.GUI
             var screen = new settingScreen();
             screen.Show();
             this.Close();
+        }
+
+        private void Grid_MouseDown_MainWindow(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new MainWindow();
+            screen.Show();
+            this.Close();
+        }
+
+        private void addNewBook(object sender, RoutedEventArgs e)
+        {
+            var screen = new addNewBookScreen();
+            screen.Show();
+        }
+
+        private void uploadDataScreen(object sender, RoutedEventArgs e)
+        {
+            var screen = new uploadDataScreen();
+            screen.ShowDialog();
         }
     }
 }

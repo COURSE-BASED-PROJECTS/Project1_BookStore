@@ -84,8 +84,8 @@ namespace Project1_BookStore.DAO
             var con = ConnectDB.openConnection();
 
             var sql = "SELECT * FROM BOOK WHERE bookID = (" +
-                "SELECT bookID FROM ORDERSDETAIL" +
-                "GROUP BY bookID" +
+                "SELECT bookID FROM ORDERSDETAIL " +
+                "GROUP BY bookID " +
                 "HAVING SUM(odQuantity) > 5)";
 
             var command = new SqlCommand(sql, con);

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Project1_BookStore.BUS;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,16 @@ namespace Project1_BookStore.GUI
             InitializeComponent();
         }
 
+        public class manageOrderContext : INotifyPropertyChanged
+        {
+            public Icons _icons { get; set; } = new Icons();
+            public int countOrder { get; set; } = 0;
+
+            public event PropertyChangedEventHandler? PropertyChanged;
+        }
+
+        manageOrderContext Context = new manageOrderContext();
+
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -47,11 +59,52 @@ namespace Project1_BookStore.GUI
             this.WindowState = WindowState.Minimized;
         }
 
-        Icons _icons = new Icons();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = _icons;
-            //this.WindowState = WindowState.Maximized;
+            this.DataContext = Context;
+            Context.countOrder = OrderBUS.findAllOrder().Count;
+            orderList.ItemsSource = OrderBUS.findAllOrder();
+        }
+
+        private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageBooksScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_ManageOrder(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageOrdersScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_ManageCoupon(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageCouponScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_Setting(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new settingScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_MainWindow(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new MainWindow();
+            screen.Show();
+            this.Close();
+        }
+
+        private void addNewOrder(object sender, RoutedEventArgs e)
+        {
+            var screen = new addNewOrderScreen();
+            screen.Show();
         }
     }
 }

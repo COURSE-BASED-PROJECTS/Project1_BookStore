@@ -87,7 +87,8 @@
                     </Grid.RowDefinitions>
 
                     <!--row-1-->
-                    <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid Grid.Column="0" Grid.Row="0" MouseDown="Grid_MouseDown_MainWindow"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -291,6 +292,7 @@
                                 <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Right">
                                     <Button Width="100" Height="35"  Background="White"
+                                            Cursor="Hand" Click="addNewBook"
                                 HorizontalAlignment="Right"
                                             Margin="15">
                                         <Label Foreground="Blue">Thêm sản phẩm</Label>
@@ -310,7 +312,7 @@
                                     </Button>
 
                                     <Button Width="120" Height="35"  Background="Blue"
-                                HorizontalAlignment="Right"
+                                            HorizontalAlignment="Right" Cursor="Hand" Click="uploadDataScreen"
                                             Margin="15">
                                         <Grid DataContext="{Binding _icons}">
                                             <Image Width="16" Height="16"
@@ -404,6 +406,7 @@
                                         </ListView>
 
                                     </TabItem>
+                                    
                                     <TabItem Header="Bán chạy"
                                              FontSize="14"
                                              Foreground="#6B34C3">
@@ -431,7 +434,7 @@
                                                         </Grid.Effect>
                                                         <StackPanel Orientation="Vertical">
                                                             <Image Width="70" Height="116"
-                                                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                                   Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                                             <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
                                                                     TextWrapping="Wrap" TextAlignment="Center"
                                                                     FontWeight="Medium"
@@ -486,7 +489,7 @@
                                                         </Grid.Effect>
                                                         <StackPanel Orientation="Vertical">
                                                             <Image Width="70" Height="116"
-                                                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                                   Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                                             <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
                                                                     TextWrapping="Wrap" TextAlignment="Center"
                                                                     FontWeight="Medium"
@@ -514,11 +517,13 @@
                                             </ListView.ItemTemplate>
                                         </ListView>
                                     </TabItem>
+                                    
                                     <TabItem Header="Sắp hết hàng"
                                               FontSize="14"
                                              Foreground="#6B34C3">
                                         <ListView Height="380" 
-                                                  x:Name="nearOutOfBooks">
+                                                  x:Name="nearOutOfBooks"
+                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                             <ListView.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel/>
@@ -541,7 +546,7 @@
                                                         </Grid.Effect>
                                                         <StackPanel Orientation="Vertical">
                                                             <Image Width="70" Height="116"
-                                                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                                   Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                                             <TextBlock Height="49" Text="Chiến thắng của con quỷ trong bạn"
                                                                     TextWrapping="Wrap" TextAlignment="Center"
                                                                     FontWeight="Medium"
@@ -621,7 +626,8 @@
                                            FontSize="18"
                                            FontWeight="Medium"
                                            Margin="230,0,25,0"
-                                           Foreground="Purple">
+                                           Foreground="Purple"
+                                           x:Name="sumProducts">
 
                                     </Label>
                                 </Grid>

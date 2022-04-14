@@ -2,6 +2,7 @@
 using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
@@ -21,7 +22,7 @@ namespace Project1_BookStore
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public class Icons
+    public class Icons: INotifyPropertyChanged
     {
         public string pathCloseBtn { get; set; } = "/Resource/Images/Icons/close.png";
         public string pathClosePressedBtn { get; set; } = "/Resource/Images/Icons/close-pressed.png";
@@ -39,9 +40,9 @@ namespace Project1_BookStore
         public string setting { get; set; } = "/Resource/Images/Icons/info.png";
         public string bell { get; set; } = "/Resource/Images/Icons/bell.png";
         public string sign_out { get; set; } = "/Resource/Images/Icons/sign-out.png";
+        public string test { get; set; } = "";
 
-
-
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 
 
