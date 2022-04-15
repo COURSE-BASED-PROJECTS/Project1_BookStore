@@ -15,6 +15,8 @@
     <None Remove="maximize.png" />
     <None Remove="minimize-pressed.png" />
     <None Remove="minimize.png" />
+    <None Remove="Resource\Images\Icons\edit.png" />
+    <None Remove="Resource\Images\Icons\modify.png" />
     <None Remove="restore-down.png" />
   </ItemGroup>
 
@@ -25,6 +27,13 @@
   <ItemGroup>
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Images\Icons\edit.png" />
+    <Resource Include="Resource\Images\Icons\modify.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -179,9 +188,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resource\Images\Icons\minus.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resource\Images\Icons\modify.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resource\Images\Icons\plus-square.png">

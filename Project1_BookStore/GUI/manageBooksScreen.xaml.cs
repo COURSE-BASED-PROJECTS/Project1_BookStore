@@ -39,7 +39,9 @@ namespace Project1_BookStore.GUI
         }
 
         manageBooksContext Context = new manageBooksContext();
-
+        BindingList<BookDTO> allBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findAllBook()));
+        BindingList<BookDTO> nearOutOfBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findTop5()));
+        BindingList<BookDTO> bestSellerBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBook()));
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -67,17 +69,16 @@ namespace Project1_BookStore.GUI
         {
             this.WindowState = WindowState.Minimized;
         }
-        
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Context.countBook = BookBUS.findAllBook().Count;
 
             this.DataContext = Context;
-            allBooks.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findAllBook());
-            nearOutOfBooks.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findTop5());
-            bestSellerBooks.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBook());
+            allBooks.ItemsSource = allBookContext;
+            nearOutOfBooks.ItemsSource = nearOutOfBookContext;
+            bestSellerBooks.ItemsSource = bestSellerBookContext;
         }
-
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
             var screen = new manageBooksScreen();
@@ -116,7 +117,25 @@ namespace Project1_BookStore.GUI
         private void addNewBook(object sender, RoutedEventArgs e)
         {
             var screen = new addNewBookScreen();
-            screen.Show();
+            if(screen.ShowDialog() == true)
+            {
+                var book = screen._newBook;
+
+                //Add new book to temporary system
+                allBookContext.Add(book);
+
+                if(book.bookQuantity < 5)
+                {
+                    nearOutOfBookContext.Add(book);
+                }
+                Context.countBook = allBookContext.Count;
+
+
+                //Add new book to database
+                BookBUS.InsertBook(book);
+                MessageBox.Show("Thêm mới thành công!");
+            }
+
         }
 
         private void uploadDataScreen(object sender, RoutedEventArgs e)

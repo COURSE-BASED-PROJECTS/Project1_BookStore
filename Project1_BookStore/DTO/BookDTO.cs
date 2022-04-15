@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1_BookStore.DTO
 {
-    internal class BookDTO
+    public class BookDTO
     {
         public string bookID { get; set; }
         public string bookName { get; set; }
