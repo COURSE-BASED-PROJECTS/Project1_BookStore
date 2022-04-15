@@ -124,5 +124,19 @@ namespace Project1_BookStore.GUI
             var screen = new uploadDataScreen();
             screen.ShowDialog();
         }
+
+        private void signOut_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var result = MessageBox.Show("Bạn muốn đăng xuất khỏi hệ thống?",
+                    "Xác Nhận Đăng Xuất",
+                    MessageBoxButton.YesNoCancel,
+                    MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                var screen = new LoginWindow();
+                screen.Show();
+                this.Close();
+            }
+        }
     }
 }

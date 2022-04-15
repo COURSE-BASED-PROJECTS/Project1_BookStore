@@ -18,5 +18,13 @@ namespace Project1_BookStore.BUS
             }
             return OrderDetailDAO.findOrderDetailByOrderID(orderID);
         }
+        public static int findTotalBookByOrderID(string orderID)
+        {
+            if (orderID == null || orderID.Equals(""))
+            {
+                return 0;
+            }
+            return OrderDetailDAO.findTotalBookByOrderID(orderID);
+        }
     }
 }

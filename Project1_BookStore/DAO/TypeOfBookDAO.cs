@@ -60,6 +60,7 @@ namespace Project1_BookStore.DAO
             return tobs;
         }
 
+
         internal static bool InsertTypeOfBook(TypeOfBookDTO tob)
         {
             var con = ConnectDB.openConnection();
@@ -85,6 +86,30 @@ namespace Project1_BookStore.DAO
 
             var sql = $"UPDATE TYPEOFBOOK SET tobName = '{tob.tobName}'" +
                 $"WHERE tobID = {tob.tobID}";
+
+            var command = new SqlCommand(sql, con);
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        internal static bool DeleteTypeOfBook(string tobID)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "alter table TYPEOFBOOK nocheck constraint all\n" +
+                "alter table BOOK nocheck constraint all\n" +
+                "alter table PROMOTIONDETAIL nocheck constraint all\n" +
+                $"delete from TYPEOFBOOK where tobID = '{tobID}'\n" +
+                "alter table TYPEOFBOOK check constraint all\n" +
+                "alter table BOOK check constraint all\n" +
+                "alter table PROMOTIONDETAIL check constraint all\n";
 
             var command = new SqlCommand(sql, con);
             try

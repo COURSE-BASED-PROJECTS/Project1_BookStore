@@ -313,7 +313,9 @@
                         <Image  Width="24" Height="24"
                                 Margin="20,0,0,0"
                                 Cursor="Hand"
-                                Source="{Binding sign_out, Converter={StaticResource absoluteConverter}}"></Image>
+                                Source="{Binding sign_out, Converter={StaticResource absoluteConverter}}"
+                                MouseDown="signOut_MouseDown"
+                                ></Image>
                     </TextBlock>
                 </Grid>
 

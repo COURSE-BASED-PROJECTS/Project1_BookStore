@@ -2,6 +2,7 @@
 using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,18 @@ namespace Project1_BookStore.BUS
             }
             return BookDAO.UpdateBook(book);
         }
+        public static bool DeleteBook(string bookID)
+        {
+            if (bookID == null || bookID.Equals(""))
+            {
+                return false;
+            }
+            if (BookBUS.findBookByID(bookID) == null)
+            {
+                return false;
+            }
+            return BookDAO.DeleteBook(bookID);
+        }
         public static List<BookDTO> findTop5()
         {
             return BookDAO.findTop5();
@@ -61,9 +74,39 @@ namespace Project1_BookStore.BUS
             return BookDAO.countBookSold();
         }
 
+        public static int countBookOnSell()
+        {
+            return BookDAO.countBookOnSell();
+        }
+
+        //date có định dạng yyyy-MM-dd
+        public static int countBookSoldInDate(string date)
+        {
+            if (date == null || date.Equals(""))
+            {
+                return -1;
+            }
+
+            DateTime d;
+            string dateFormat = "yyyy-MM-dd";
+            bool checkDateFormat = DateTime.TryParseExact(
+                date,
+                dateFormat,
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out d
+            );
+            if (!checkDateFormat)
+            {
+                return -1;
+            }
+            return BookDAO.countBookSoldInDate(date);
+        }
+
         public static List<BookDTO> findBestSellerBook()
         {
             return BookDAO.findBestSellerBook();
         }
+        
     }
 }

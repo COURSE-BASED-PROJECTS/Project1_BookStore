@@ -44,5 +44,17 @@ namespace Project1_BookStore.BUS
             }
             return TypeOfBookDAO.UpdateTypeOfBook(tob);
         }
+        public static bool DeleteTypeOfBook(string tobID)
+        {
+            if (tobID == null || tobID.Equals(""))
+            {
+                return false;
+            }
+            if (TypeOfBookBUS.findTypeOfBookByID(tobID) == null)
+            {
+                return false;
+            }
+            return TypeOfBookDAO.DeleteTypeOfBook(tobID);
+        }
     }
 }

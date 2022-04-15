@@ -39,5 +39,19 @@ namespace Project1_BookStore.DAO
             reader.Close();
             return list;
         }
+
+        internal static int findTotalBookByOrderID(string orderID)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = $"SELECT SUM(odQuantity) FROM ORDERSDETAIL WHERE ordersID = '{orderID}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteScalar();
+
+            Int32 result = (Int32)reader;
+
+            return (int)result;
+        }
     }
 }

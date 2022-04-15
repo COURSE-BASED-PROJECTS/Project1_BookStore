@@ -42,6 +42,23 @@ namespace Project1_BookStore.DAO
             return null;
         }
 
+        internal static int countOrderInDate(string date)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "SELECT Count(*) FROM ORDERSDETAIL OD, ORDERS O" +
+                "WHERE OD.ordersID = O.ordersID" +
+                $"AND FORMAT(O.ordersTime, 'yyyy-MM-dd')  = '{date}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteScalar();
+
+            Int32 result = (Int32)reader;
+
+            return (int)result;
+        }
+
+
         internal static List<OrderDTO> findOrderByRangeDate(DateTime start, DateTime end)
         {
             var con = ConnectDB.openConnection();
@@ -137,6 +154,35 @@ namespace Project1_BookStore.DAO
 
             var sql = $"UPDATE ORDERS SET cusPhoneNumber = '{order.cusPhoneNumber}', accUsername = '{order.accUsername}', ordersPrices = {order.ordersPrices}, ordersTime = '{order.ordersTime}' "
                 + $"WHERE ordersID = {order.ordersID}";
+
+            var command = new SqlCommand(sql, con);
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        internal static bool DeleteOrder(string orderID)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "alter table ORDERS nocheck constraint all\n" +
+                "alter table ORDERSDETAIL nocheck constraint all\n" +
+                "alter table BOOK nocheck constraint all\n" +
+                "alter table ACCOUNT nocheck constraint all\n" +
+                "alter table CUSTOMER nocheck constraint all\n" +
+                $"delete from ORDERS where ordersID = '{orderID}'\n" +
+                $"delete from ORDERSDETAIL where ordersID = '{orderID}'\n" +
+                "alter table ORDERS check constraint all\n" +
+                "alter table ORDERSDETAIL check constraint all\n" +
+                "alter table BOOK check constraint all\n" +
+                "alter table ACCOUNT check constraint all\n" +
+                "alter table CUSTOMER check constraint all\n";
 
             var command = new SqlCommand(sql, con);
             try

@@ -44,6 +44,7 @@ namespace Project1_BookStore.DAO
             return null;
         }
 
+
         internal static List<BookDTO> findBookByName(string bookName)
         {
             var con = ConnectDB.openConnection();
@@ -78,6 +79,7 @@ namespace Project1_BookStore.DAO
             reader.Close();
             return books;
         }
+
 
         internal static List<BookDTO> findBestSellerBook()
         {
@@ -116,6 +118,19 @@ namespace Project1_BookStore.DAO
             reader.Close();
             return books;
         }
+        internal static int countBookOnSell()
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "SELECT COUNT(bookQuantity) FROM BOOK";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteScalar();
+
+            Int32 result = (Int32)reader;
+
+            return (int)result;
+        }
 
         internal static int countBookSold()
         {
@@ -131,6 +146,21 @@ namespace Project1_BookStore.DAO
             return (int) result;
         }
 
+        internal static int countBookSoldInDate(string date)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "SELECT SUM(odQuantity) FROM ORDERSDETAIL OD, ORDERS O" +
+                "WHERE OD.ordersID = O.ordersID" +
+                $"AND FORMAT(O.ordersTime, 'yyyy-MM-dd')  = '{date}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteScalar();
+
+            Int32 result = (Int32)reader;
+
+            return (int)result;
+        }
         internal static List<BookDTO> findBookByRangePrice(int min, int max)
         {
             var con = ConnectDB.openConnection();
@@ -296,6 +326,28 @@ namespace Project1_BookStore.DAO
             var sql = $"UPDATE BOOK SET tobID = '{book.tobID}', bookName = '{book.bookName}', bookAuthor = '{book.bookAuthor}', " +
                 $"bookPrice = {book.bookPrice}, bookPublishedYear = {book.bookPublishedYear}, bookQuantity = {book.bookQuantity}" +
                 $"WHERE bookID = {book.bookID}";
+
+            var command = new SqlCommand(sql, con);
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        internal static bool DeleteBook(string bookID)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "alter table Book nocheck constraint all\n" +
+                "alter table Ordersdetail nocheck constraint all\n" +
+                $"delete from Book where bookID = '{bookID}'\n" +
+                "alter table Book check constraint all\n" +
+                "alter table Ordersdetail check constraint all\n";
 
             var command = new SqlCommand(sql, con);
             try
