@@ -109,6 +109,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+ 
     </Window.Resources>
 
     <Border Background="#EBECF0" BorderBrush="#EBECF0"
@@ -171,6 +172,7 @@
                             </Button.Background>
                         </Button>
                     </Border>
+
                 </StackPanel>
             </Grid>
 

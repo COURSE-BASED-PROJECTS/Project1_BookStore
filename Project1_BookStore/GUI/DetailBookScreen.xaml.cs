@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1_BookStore.DTO;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Project1_BookStore.GUI
         public DetailBookScreen()
         {
             InitializeComponent();
+            reDownButton.Visibility = Visibility.Collapsed;
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -35,9 +37,13 @@ namespace Project1_BookStore.GUI
             switch (this.WindowState)
             {
                 case WindowState.Normal:
+                    reDownButton.Visibility = Visibility.Visible;
+                    maxButton.Visibility = Visibility.Collapsed;
                     this.WindowState = WindowState.Maximized;
                     break;
                 case WindowState.Maximized:
+                    maxButton.Visibility = Visibility.Visible;
+                    reDownButton.Visibility = Visibility.Collapsed;
                     this.WindowState = WindowState.Normal;
                     break;
             }

@@ -1,4 +1,5 @@
-﻿using Project1_BookStore.BUS;
+﻿using Project1_BookStore.DTO;
+using Project1_BookStore.BUS;
 using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
@@ -22,31 +23,6 @@ namespace Project1_BookStore
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public class Icons: INotifyPropertyChanged
-    {
-        public string pathCloseBtn { get; set; } = "/Resource/Images/Icons/close.png";
-        public string pathClosePressedBtn { get; set; } = "/Resource/Images/Icons/close-pressed.png";
-        public string pathMaxBtn { get; set; } = "/Resource/Images/Icons/maximize.png";
-        public string pathMaxPressedBtn { get; set; } = "/Resource/Images/Icons/maximize-pressed.png";
-        public string pathMinBtn { get; set; } = "/Resource/Images/Icons/minimize.png";
-        public string pathMinePressedBtn { get; set; } = "/Resource/Images/Icons/minimize-pressed.png";
-        public string pathReDownBtn { get; set; } = "/Resource/Images/Icons/reDown.png";
-        public string pathReDownPressedBtn { get; set; } = "/Resource/Images/Icons/reDown-pressed.png";
-        public string logo { get; set; } = "/Resource/Images/Icons/logo.png";
-        public string upload { get; set; } = "/Resource/Images/Icons/upload.png";
-        public string modify { get; set; } = "/Resource/Images/Icons/modify.png";
-        public string plus { get; set; } = "/Resource/Images/Icons/plus-square.png";
-        public string minus { get; set; } = "/Resource/Images/Icons/minus.png";
-        public string arrow_left { get; set; } = "/Resource/Images/Icons/left-arrow.png";
-        public string arrow_right { get; set; } = "/Resource/Images/Icons/right-arrow.png";
-        public string setting { get; set; } = "/Resource/Images/Icons/info.png";
-        public string bell { get; set; } = "/Resource/Images/Icons/bell.png";
-        public string sign_out { get; set; } = "/Resource/Images/Icons/sign-out.png";
-        public string test { get; set; } = "";
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-    }
-
 
     public partial class LoginWindow : Window
     {

@@ -10,6 +10,106 @@
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+        <!--styte control buttons: maximize, minimize, close, restore-->
+        <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding pathClosePressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding pathMaxPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding pathReDownBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="ReDownButton.Pressed.Background" ImageSource="{Binding pathReDownPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="MinButton.Pressed.Background" ImageSource="{Binding pathMinPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+
+        <Style x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource CloseButton.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource CloseButton.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MaxButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MaxButton.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MaxButton.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ReDownButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="False">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource ReDownButton.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource ReDownButton.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource ReDownButton.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MinButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MinButton.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MinButton.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
 
     <Border Background="#EBECF0" BorderBrush="#EBECF0"
@@ -227,43 +327,50 @@
                     <!--Column-2-->
                     <Grid Grid.Row="0" Grid.Column="1">
                         <StackPanel Orientation="Horizontal"
-                                Width="110" Height="28"
-                                HorizontalAlignment="Center"
-                                Margin="0,37,0,65">
-                            <Border CornerRadius="50" Margin="0,0,5,0" Width="29">
+                                Width="117" Height="36"
+                                HorizontalAlignment="Left"
+                                Margin="10,23,0,71">
+                            <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                                 <Border.Background>
                                     <SolidColorBrush Color="White" Opacity="0.6"/>
                                 </Border.Background>
-                                <Button x:Name="minButton" BorderThickness="0" Height="20" Width="20"
-                                 Click="minButton_Click">
+                                <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
+                             Click="minButton_Click">
                                     <Button.Background>
                                         <ImageBrush ImageSource="{Binding pathMinBtn, Converter={StaticResource absoluteConverter}}"/>
 
                                     </Button.Background>
                                 </Button>
                             </Border>
-                            <Border CornerRadius="50" Margin="5,0,5,0" Width="29">
+
+                            <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                                 <Border.Background>
                                     <SolidColorBrush Color="White" Opacity="0.6"/>
                                 </Border.Background>
-                                <Button x:Name="maxButton" BorderThickness="0" Height="15" Width="15"
-                                 Click="maxButton_Click">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="{Binding pathMaxBtn, Converter={StaticResource absoluteConverter}}"/>
-                                    </Button.Background>
-                                </Button>
+                                <Canvas>
+                                    <Button Style="{DynamicResource MaxButton}" x:Name="maxButton" BorderThickness="0" Height="18" Width="18"
+                                            Click="maxButton_Click" Canvas.Left="9" Canvas.Top="9">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="{Binding pathMaxBtn, Converter={StaticResource absoluteConverter}}"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button Style="{DynamicResource ReDownButton}" x:Name="reDownButton" BorderThickness="0" Height="24" Width="24"
+                                            Click="maxButton_Click" Canvas.Left="6" Canvas.Top="6"/>
+                                </Canvas>
                             </Border>
-                            <Border CornerRadius="50" Margin="5,0,0,0" Width="29">
+
+                            <Border CornerRadius="50" Width="36">
                                 <Border.Background>
                                     <SolidColorBrush Color="White" Opacity="0.6"/>
                                 </Border.Background>
-                                <Button x:Name="closeButton" BorderThickness="0" Height="25" Width="25" 
-                                 Click="closeButton_Click">
+                                <Button Style="{DynamicResource CloseButton}" x:Name="closeButton" BorderThickness="0" Height="24" Width="24"
+                             Click="closeButton_Click">
                                     <Button.Background>
                                         <ImageBrush ImageSource="{Binding pathCloseBtn, Converter={StaticResource absoluteConverter}}"/>
                                     </Button.Background>
                                 </Button>
                             </Border>
+
                         </StackPanel>
                     </Grid>
                 </Grid>

@@ -1,4 +1,5 @@
-﻿using Project1_BookStore.BUS;
+﻿using Project1_BookStore.DTO;
+using Project1_BookStore.BUS;
 using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace Project1_BookStore.GUI
         public manageBooksScreen()
         {
             InitializeComponent();
+            reDownButton.Visibility = Visibility.Collapsed;
         }
 
         public class manageBooksContext:INotifyPropertyChanged
@@ -49,9 +51,13 @@ namespace Project1_BookStore.GUI
             switch (this.WindowState)
             {
                 case WindowState.Normal:
+                    reDownButton.Visibility = Visibility.Visible;
+                    maxButton.Visibility = Visibility.Collapsed;
                     this.WindowState = WindowState.Maximized;
                     break;
                 case WindowState.Maximized:
+                    maxButton.Visibility = Visibility.Visible;
+                    reDownButton.Visibility = Visibility.Collapsed;
                     this.WindowState = WindowState.Normal;
                     break;
             }

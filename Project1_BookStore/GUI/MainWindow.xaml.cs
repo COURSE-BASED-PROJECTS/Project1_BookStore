@@ -1,4 +1,5 @@
-﻿using Project1_BookStore.BUS;
+﻿using Project1_BookStore.DTO;
+using Project1_BookStore.BUS;
 using Project1_BookStore.GUI;
 using Project1_BookStore.Utils;
 using System;
@@ -38,6 +39,7 @@ namespace Project1_BookStore
         public MainWindow()
         {
             InitializeComponent();
+            reDownButton.Visibility = Visibility.Collapsed;
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -50,9 +52,13 @@ namespace Project1_BookStore
             switch (this.WindowState)
             {
                 case WindowState.Normal:
+                    reDownButton.Visibility = Visibility.Visible;
+                    maxButton.Visibility = Visibility.Collapsed;
                     this.WindowState = WindowState.Maximized;
                     break;
                 case WindowState.Maximized:
+                    maxButton.Visibility = Visibility.Visible;
+                    reDownButton.Visibility = Visibility.Collapsed;
                     this.WindowState = WindowState.Normal;
                     break;
             }
