@@ -177,31 +177,33 @@
             </Grid>
 
             <!--comlumn 1-->
-            <Grid Grid.Row="2" Margin="60,0,998,568" >
-                <Image  Width="40" Height="40" Margin="0,0,89,0"
-                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                <TextBlock Margin="50,8,0,8" Width="80" Height="24" 
-                       Text="Book Up" FontSize="20" FontWeight="SemiBold"/>
+            <Grid Grid.Row="2" Height="50" Width="190" Margin="60,10,978,609">
+                <Image Height="50" Margin="0,0,140,0"
+                    Source="{Binding logo, Converter={StaticResource absoluteConverter}}" />
+                <TextBlock Height="36" Margin="60,14,0,0" 
+                       Text="Book Up" FontSize="30" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="#8346fb" Offset="1.0"/>
+                            <GradientStop Color="#fac382" Offset="0.5"/>
+                            <GradientStop Color="#7543c7" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
             </Grid>
 
-            <Ellipse Grid.Row="2" Height="115" Width="115" Margin="620,44,492,510">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="{Binding avatar, Converter={StaticResource absoluteConverter}}"/>
-                </Ellipse.Fill>
-            </Ellipse>
-
-            <Border Grid.Row="2"
+            <Border Grid.Row="2" Height="390" Width="456"
                             Background="#FFFFFF" 
-                            CornerRadius="20" Margin="386,146,259,145">
+                            CornerRadius="20">
 
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="391" Width="456">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label Content="Đăng nhập"  
                            FontSize="25" FontWeight="SemiBold"
                            HorizontalAlignment="Center" Margin="25,55,25,0"></Label>
 
                     <Label Content="Tên tài khoản"
                            FontFamily="Inter" FontSize="15" FontWeight="Medium"
-                           HorizontalAlignment="Left" Margin="70,25,25,0" Width="104"></Label>
+                           HorizontalAlignment="Left" Margin="10,25,25,0" Width="104"></Label>
 
                     <Grid Height="40" Width="300">
                         <Grid.Effect>
@@ -215,13 +217,13 @@
                         <TextBox x:Name="userTextBox"
                              Padding="5 10 0 0"
                              Height="40" Width="300"
-                             Background="#EBECF0"/>
+                             Background="#EBECF0" BorderThickness="0"/>
                     </Grid>
 
 
                     <Label Content="Mật khẩu"                       
                            FontSize="15" FontWeight="Medium"
-                           HorizontalAlignment="Left" Margin="70,20,0,0"></Label>
+                           HorizontalAlignment="Left" Margin="10,20,0,0"></Label>
 
                     <Grid Height="40" Width="300">
                         <Grid.Effect>
@@ -235,39 +237,37 @@
                         <PasswordBox x:Name="passTextBox" 
                              Padding="5 10 0 0"
                              Height="40" Width="300"
-                             Background="#EBECF0"/>
+                             Background="#EBECF0" BorderThickness="0"/>
                     </Grid>
 
 
                     <Border CornerRadius="15" Padding="2" Width="110" Height="40"
-                            VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,35,25,25">
+                            VerticalAlignment="Top" HorizontalAlignment="Center" Margin="15,35,25,25">
                         <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="#FFE1B6" Offset="0" />
-                                <GradientStop Color="#C6A8F8" Offset="0.75" />
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                <GradientStop Color="#fac382" Offset="0.5" />
+                                <GradientStop Color="#7543c7" Offset="0.75" />
                             </LinearGradientBrush>
                         </Border.Background>
-                        <Button Cursor="Hand" x:Name="loginButton" Click="loginButton_Click"
+                        <Button Cursor="Hand" x:Name="loginButton" Click="loginButton_Click" IsDefault="True"
                                 Content="Đăng nhập" FontSize="15" FontWeight="Bold"
                                 BorderBrush="Transparent" Background="White" Foreground="Black">
 
-                            <Button.Effect>
-                                <DropShadowEffect BlurRadius="20"
-                                      Color="#877b77"
-                                      Opacity="100"
-                                      ShadowDepth="3"
-                                      Direction="350" />
-                            </Button.Effect>
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="15"/>
+                                    <Setter Property="CornerRadius" Value="13"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
                     </Border>
                 </StackPanel>
-
             </Border>
+
+            <Ellipse Grid.Row="2" Height="115" Width="115" Margin="556,82,556,472">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding avatar, Converter={StaticResource absoluteConverter}}"/>
+                </Ellipse.Fill>
+            </Ellipse>
 
         </Grid>
     </Border>

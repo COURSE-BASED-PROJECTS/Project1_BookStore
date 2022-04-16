@@ -168,37 +168,53 @@ namespace Project1_BookStore.GUI
                         try
                         {
                             //creating iTextSharp Table from the DataTable data
-                            PdfPTable pdfPTable = new PdfPTable(5);
-                            pdfPTable.DefaultCell.Padding = 5;
+                            PdfPTable pdfPTable = new PdfPTable(6);
+                            pdfPTable.DefaultCell.Padding = 20;
                             pdfPTable.WidthPercentage = 100;
                             pdfPTable.DefaultCell.BorderWidth = 1;
                             pdfPTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
                             //adding header columns
-                            PdfPCell cell = new PdfPCell(new Phrase("Mã đơn hàng"));
-                            pdfPTable.AddCell(cell);
-                            pdfPTable.AddCell(new PdfPCell(new Phrase("Số lượng SP")));
+                            pdfPTable.AddCell(new PdfPCell(new Phrase("STT")));
+                            pdfPTable.AddCell(new PdfPCell(new Phrase("Mã đơn hàng")));
                             pdfPTable.AddCell(new PdfPCell(new Phrase("Khách hàng")));
                             pdfPTable.AddCell(new PdfPCell(new Phrase("Tổng tiền")));
-                            pdfPTable.AddCell(new PdfPCell(new Phrase("Người tạo")));
+                            pdfPTable.AddCell(new PdfPCell(new Phrase("Ngày tạo")));
+                            pdfPTable.AddCell(new PdfPCell(new Phrase("Người lập HĐ")));
 
                             // adding all rows
+                            int i = 1;
+                            foreach (var item in listOrders)
+                            {
+                                OrderDTO order = (OrderDTO)item;
+                                pdfPTable.AddCell(new PdfPCell(new Phrase((i++).ToString())));
+                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.ordersID)));
+                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.cusPhoneNumber)));
+                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.ordersPrices.ToString())));
+                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.ordersTime.ToString())));
+                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.accUsername)));
+                            }
 
                             //Exporting to PDF
                             using (FileStream fileStream = new FileStream(save.FileName, FileMode.Create))
                             {
-                                Document pdfDocument = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
-                                PdfWriter.GetInstance(pdfDocument, fileStream);
-                                pdfDocument.Open();
-                                pdfDocument.AddHeader("Title", "Danh sách đơn hàng");
-                                pdfDocument.AddLanguage("vi-VN");
-                                pdfDocument.AddTitle("Title");
-                                pdfDocument.AddCreationDate();
+                                Document document = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+                                PdfWriter.GetInstance(document, fileStream);
+                                document.Open();
+                                document.AddHeader("Title", "Danh sách đơn hàng");
+                                document.AddLanguage("vi-VN");
+                                document.AddTitle("Title");
+                                document.AddCreationDate();
 
-                                pdfDocument.Add(new Phrase("DANH SÁCH ĐƠN HÀNG"));
+                                BaseFont viFont = BaseFont.CreateFont();
+                                Font head = new Font(viFont, 12f, Font.NORMAL, BaseColor.BLUE);
+                                Font normal = new Font(viFont, 10f, Font.NORMAL, BaseColor.BLACK);
+                                Font underline = new Font(viFont, 10f, Font.UNDERLINE, BaseColor.BLACK);
 
-                                pdfDocument.Add(pdfPTable);
-                                pdfDocument.Close();
+                                document.Add(new Phrase("\t\t\t\t\t\t\t\t\t\t\t\tDANH SÁCH ĐƠN HÀNG\n\n\n", head));
+
+                                document.Add(pdfPTable);
+                                document.Close();
                                 fileStream.Close();
                             }
 

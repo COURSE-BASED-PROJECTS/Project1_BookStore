@@ -17,7 +17,7 @@ namespace Project1_BookStore.DTO
         public string pathMinPressedBtn { get; set; } = "/Resource/Images/Icons/minimize-pressed.png";
         public string pathReDownBtn { get; set; } = "/Resource/Images/Icons/reDown.png";
         public string pathReDownPressedBtn { get; set; } = "/Resource/Images/Icons/reDown-pressed.png";
-        public string logo { get; set; } = "/Resource/Images/Icons/logo.png";
+        public string logo { get; set; } = "/Resource/Images/Icons/logo_v2.png";
         public string upload { get; set; } = "/Resource/Images/Icons/upload.png";
         public string modify { get; set; } = "/Resource/Images/Icons/modify.png";
         public string plus { get; set; } = "/Resource/Images/Icons/plus-square.png";
@@ -28,6 +28,7 @@ namespace Project1_BookStore.DTO
         public string bell { get; set; } = "/Resource/Images/Icons/bell.png";
         public string sign_out { get; set; } = "/Resource/Images/Icons/sign-out.png";
         public string export { get; set; } = "/Resource/Images/Icons/export.png";
+        public string avatar { get; set; } = "/Resource/Images/Icons/avatar.png";
         public string test { get; set; } = "";
 
         public event PropertyChangedEventHandler? PropertyChanged;
