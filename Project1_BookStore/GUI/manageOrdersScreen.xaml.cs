@@ -19,6 +19,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Data;
+using System.Diagnostics;
 
 namespace Project1_BookStore.GUI
 {
@@ -274,6 +275,20 @@ namespace Project1_BookStore.GUI
             else
             {
                 _currentPage++;
+            }
+        }
+
+        private void infoOrder(object sender, MouseButtonEventArgs e)
+        {
+            if (orderList.SelectedIndex < 0)
+                orderList.SelectedIndex = 0;
+
+            var order = orderList.SelectedItem as OrderDTO;
+            var screen = new DetailOrderScreen();
+
+            if(screen.ShowDialog() == true)
+            {
+
             }
         }
     }

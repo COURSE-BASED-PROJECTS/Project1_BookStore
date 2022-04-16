@@ -47,11 +47,12 @@ namespace Project1_BookStore.DAO
             var con = ConnectDB.openConnection();
 
             var sql = "SELECT Count(*) FROM ORDERSDETAIL OD, ORDERS O" +
-                "WHERE OD.ordersID = O.ordersID" +
-                $"AND FORMAT(O.ordersTime, 'yyyy-MM-dd')  = '{date}'";
+                " WHERE OD.ordersID = O.ordersID" +
+                $" AND FORMAT(O.ordersTime, 'yyyy-MM-dd')  = '{date}'";
 
             var command = new SqlCommand(sql, con);
             var reader = command.ExecuteScalar();
+            reader = (reader == DBNull.Value) ? 0 : reader;
 
             Int32 result = (Int32)reader;
 

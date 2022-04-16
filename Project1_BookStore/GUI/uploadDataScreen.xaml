@@ -126,7 +126,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock Text="Quản lý sản phầm > Nhập dữ liệu sản phẩm"
+                    <TextBlock Text="Quản lý sản phẩm > Nhập dữ liệu sản phẩm"
                                FontSize="15"
                                FontWeight="Medium"
                                Margin="20,25,0,0"
@@ -231,7 +231,8 @@
                                        FontWeight="Medium"
                                        Margin="0,10,804,6"></Label>
                             <Button Width="182" Margin="87,2,617,-2"
-                                    Height="40" Background="DarkBlue">
+                                    Height="40" Background="DarkBlue"
+                                    Cursor="Hand" Click="uploadData">
                                 <TextBlock>
                                      <Grid Width="20" Height="20" Margin="0,0,0,5">
                                            <Image Source="{Binding upload,Converter={StaticResource absoluteConverter}}" />
@@ -253,9 +254,11 @@
                             <Label Content="Xem trước dữ liệu:"
                                        FontSize="16"
                                        FontWeight="Medium"
-                                       Margin="0,10,721,6"/>
-                            <DataGrid Width="auto" Margin="170,-156,0,-166"
+                                       HorizontalAlignment="Left"
+                                       Width="153"/>
+                            <DataGrid Width="auto" Margin="158,-156,-41,-166"
                                       AutoGenerateColumns="True"
+                                      x:Name="reviewData"
                                      />
                         </Grid>
 
@@ -265,7 +268,8 @@
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center">
                                 <Border CornerRadius="20">
-                                    <Button Width="100" Height="35"  Background="Green">
+                                    <Button Width="100" Height="35"  Background="Green" 
+                                            Click="save" Cursor="Hand">
                                         <Label Foreground="White">Lưu</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">
@@ -276,7 +280,8 @@
                                 </Border>
 
                                 <Border CornerRadius="20" Margin="20,0,0,0">
-                                    <Button Width="100" Height="35" Background="#F5C038">
+                                    <Button Width="100" Height="35" Background="#F5C038" 
+                                            Click="cancel" Cursor="Hand">
                                         <Label Foreground="White">Hủy bỏ</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">

@@ -1,6 +1,8 @@
-﻿using Project1_BookStore.DTO;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,23 @@ namespace Project1_BookStore.GUI
             reDownButton.Visibility = Visibility.Collapsed;
         }
 
+        public class manageCouponContext : INotifyPropertyChanged
+        {
+            public Icons _icons { get; set; } = new Icons();
+            public int countCoupon { get; set; } = 0;
+
+            public event PropertyChangedEventHandler? PropertyChanged;
+        }
+
+        manageCouponContext Context = new manageCouponContext();
+        List<PromotionDTO> listPromotions = PromotionBUS.findAllPromotion();
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.countCoupon = listPromotions.Count;
+            this.DataContext = Context;
+            couponList.ItemsSource = listPromotions;
+        }
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -53,11 +72,49 @@ namespace Project1_BookStore.GUI
             this.WindowState = WindowState.Minimized;
         }
 
-        Icons _icons = new Icons();
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
-            this.DataContext = _icons;
-            //this.WindowState = WindowState.Maximized;
+            var screen = new manageBooksScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_ManageOrder(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageOrdersScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_ManageCoupon(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new manageCouponScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_Setting(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new settingScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_MainWindow(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new MainWindow();
+            screen.Show();
+            this.Close();
+        }
+
+        private void addNewCoupon(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void modifyItem(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

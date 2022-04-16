@@ -514,6 +514,8 @@
 
 
                         <DatePicker Width="290" Height="266"
+                                    x:Name="datePicker"
+                                    SelectedDateChanged="datePicker_SelectedDateChanged"
                                     CalendarStyle="{StaticResource resizedCalendarItem}">
                             <DatePicker.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">

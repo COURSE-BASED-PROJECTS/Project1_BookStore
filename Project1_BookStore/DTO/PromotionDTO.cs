@@ -10,7 +10,7 @@ namespace Project1_BookStore.DTO
     {
         public string promoID { get; set; }
         public string promoName { get; set; }
-        public double promoDiscount { get; set; }
+        public float promoDiscount { get; set; }
         public string promoDesciption { get; set; }
         public DateTime promoStartTime { get; set; }
         public DateTime promoEndTime { get; set; }

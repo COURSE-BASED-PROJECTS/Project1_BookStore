@@ -409,6 +409,27 @@
 
                                 <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Right">
+                                    <Button Width="120" Height="35"  Background="White"
+                                            Cursor="Hand" Click="modifyTypeOfBook"
+                                            HorizontalAlignment="Right"
+                                            Margin="15">
+                                        <Label Foreground="Blue">Quản lý thể loại</Label>
+                                        <Button.Resources>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="CornerRadius" Value="5"/>
+                                            </Style>
+                                        </Button.Resources>
+
+                                        <Button.Effect>
+                                            <DropShadowEffect BlurRadius="20"
+                                                  Color="#877b77"
+                                                  Opacity="100"
+                                                  ShadowDepth="5"
+                                                  Direction="0" />
+                                        </Button.Effect>
+                                    </Button>
+
+
                                     <Button Width="100" Height="35"  Background="White"
                                             Cursor="Hand" Click="addNewBook"
                                 HorizontalAlignment="Right"
@@ -524,6 +545,21 @@
                                                     </Grid>
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>
+
+                                            <ListView.Resources>
+                                                <ContextMenu x:Key="typeOfBooksContextMenu">
+                                                    <MenuItem Header="Sửa" Click="modifyItem">
+                                                        <MenuItem.Icon>
+                                                            <Image Source="https://cdn-icons-png.flaticon.com/512/3597/3597075.png"></Image>
+                                                        </MenuItem.Icon>
+                                                    </MenuItem>
+                                                </ContextMenu>
+                                            </ListView.Resources>
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="{x:Type ListViewItem}">
+                                                    <Setter Property="ContextMenu" Value="{StaticResource typeOfBooksContextMenu}"/>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
                                         </ListView>
 
                                     </TabItem>

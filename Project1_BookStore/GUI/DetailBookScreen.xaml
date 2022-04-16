@@ -126,10 +126,17 @@
 
                 <!--Row - 1-->
                 <Grid Grid.Row="0">
-                    <TextBlock Text="Quản lý sản phầm > Nói chuyện là bản năng, Giữ miệng là tu dưỡng, Im lặng là trí tuệ"
+                    <TextBlock Text="Quản lý sản phẩm > "
                                FontSize="15"
                                FontWeight="Medium"
                                Margin="20,25,0,0"
+                               HorizontalAlignment="Left">
+                    </TextBlock>
+                    <TextBlock DataContext="{Binding _book}"
+                        Text="{Binding bookName}"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               Margin="170,25,0,0"
                                HorizontalAlignment="Left">
                     </TextBlock>
 
@@ -137,7 +144,8 @@
                     <StackPanel Orientation="Horizontal"
                                 Width="117" Height="36"
                                 HorizontalAlignment="Right"
-                                Margin="0,10,20,0">
+                                Margin="0,10,20,0"
+                                DataContext="{Binding _icons}">
                         <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                             <Border.Background>
                                 <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -215,34 +223,35 @@
                             <Grid Grid.Row="0" Width="308"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
-                                  Height="400">
-                                <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}" Margin="0,7,0,0"></Image>
+                                  Height="400"
+                                  DataContext="{Binding _book}">
+                                <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}" Margin="0,7,0,0"></Image>
                             </Grid>
 
-                            <Grid Grid.Row="1">
+                            <Grid Grid.Row="1" DataContext="{Binding _book}">
                                 <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center">
                                     <Grid Width="64" Height="72" 
                                           Margin="5,0,5,0">
-                                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                     </Grid>
 
                                     <Grid Width="64" Height="72"
                                            Margin="5,0,5,0">
-                                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                     </Grid>
 
                                     <Grid Width="64" Height="72"
                                            Margin="5,0,5,0">
-                                        <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                        <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                     </Grid>
                                 </StackPanel>
                             </Grid>
                         </Grid>
 
                         <!--Column - 2-->
-                        <Grid Grid.Column="1">
+                        <Grid Grid.Column="1" DataContext="{Binding _book}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="2*"/>
                                 <RowDefinition Height="5*"/>
@@ -251,7 +260,7 @@
 
                             <!--Row - 1-->
                             <Grid Grid.Row="0">
-                                <TextBlock Text="Nói chuyện là bản năng, Giữ miệng là tu dưỡng, Im lặng là trí tuệ"
+                                <TextBlock Text="{Binding bookName}"
                                        FontSize="25"
                                        FontWeight="Medium"
                                        Foreground="#6B34C3"
@@ -287,41 +296,41 @@
                                             <TextBlock Margin="15">
                                                 <Label Content="Mã sách:"
                                                        FontSize="14"/>
-                                                <Label Content="B005"
+                                                <TextBox Text="{Binding bookID}"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></Label>
+                                                       FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
 
                                             <TextBlock Margin="15">
                                                 <Label Content="Tác giả:"
                                                        FontSize="14"/>
-                                                <Label Content="Trương Tiểu Hằng"
+                                                <TextBox Text="{Binding bookAuthor}"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></Label>
+                                                       FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
 
                                             <TextBlock Margin="15">
                                                 <Label Content="Năm phát hành:"
                                                        FontSize="14"/>
-                                                <Label Content="2019"
+                                                <TextBox Text="{Binding bookPublishedYear}"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></Label>
+                                                       FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
 
                                             <TextBlock Margin="15">
                                                 <Label Content="Giá tiền:"
                                                        FontSize="14"/>
-                                                <Label Content="127.000đ"
+                                                <TextBox Text="{Binding bookPrice}"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></Label>
+                                                       FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
 
                                             <TextBlock Margin="15">
                                                 <Label Content="Số lượng:"
                                                        FontSize="14"/>
-                                                <Label Content="12"
+                                                <TextBox Text="{Binding bookQuantity}"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></Label>
+                                                       FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
                                         </StackPanel>
                                     </Grid>
@@ -330,8 +339,7 @@
                                     <Grid Grid.Column="1"
                                           Width="20" Height="20"
                                           VerticalAlignment="Top"
-                                          Margin="10"
-                                          Cursor="Hand">
+                                          Margin="10">
                                         <Image Source="{Binding modify, Converter={StaticResource absoluteConverter}}"></Image>
                                     </Grid>
                                 </Grid>

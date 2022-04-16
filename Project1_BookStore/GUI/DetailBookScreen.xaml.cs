@@ -21,10 +21,19 @@ namespace Project1_BookStore.GUI
     /// </summary>
     public partial class DetailBookScreen : Window
     {
-        public DetailBookScreen()
+        DetailBookScreenContext Context = new DetailBookScreenContext();
+        public DetailBookScreen(BookDTO book)
         {
             InitializeComponent();
             reDownButton.Visibility = Visibility.Collapsed;
+            Context._book = (BookDTO) book.Clone();
+            Context._book.linkImg = $"/Resource/Images/BookCovers/{Context._book.bookID}.jpg";
+        }
+
+        class DetailBookScreenContext
+        {
+            public Icons _icons { get; set; } = new Icons();
+            public BookDTO _book { get; set; }
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -54,12 +63,9 @@ namespace Project1_BookStore.GUI
             this.WindowState = WindowState.Minimized;
         }
 
-        Icons _icons = new Icons();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = _icons;
-            Debug.WriteLine(_icons.modify);
-            //this.WindowState = WindowState.Maximized;
+            this.DataContext = Context;
         }
     }
 }

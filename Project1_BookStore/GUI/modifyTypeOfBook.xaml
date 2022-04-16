@@ -308,14 +308,14 @@
 
                                         <ListView.Resources>
                                             <ContextMenu x:Key="typeOfBooksContextMenu">
-                                                <MenuItem Header="Xóa">
+                                                <MenuItem Header="Xóa" Click="delete">
                                                     <MenuItem.Icon>
-                                                        <Image Source="../Resource/Images/Icons/delete.png"></Image>
+                                                        <Image Source="https://cdn-icons-png.flaticon.com/512/3221/3221897.png"></Image>
                                                     </MenuItem.Icon>
                                                 </MenuItem>
                                                 <MenuItem Header="Sửa" Click="modify">
                                                     <MenuItem.Icon>
-                                                        <Image Source="../Resource/Images/Icons/edit.png"></Image>
+                                                        <Image Source="https://cdn-icons-png.flaticon.com/512/3597/3597075.png"></Image>
                                                     </MenuItem.Icon>
                                                 </MenuItem>
                                             </ContextMenu>

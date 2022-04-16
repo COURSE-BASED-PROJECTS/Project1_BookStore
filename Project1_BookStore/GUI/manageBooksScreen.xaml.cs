@@ -238,8 +238,10 @@ namespace Project1_BookStore.GUI
 
 
                 // ép cập nhật giao diện
-                tabs[i].Name.ItemsSource = _vm.SelectedBooks; 
-                
+                tabs[i].Name.ItemsSource = _vm.SelectedBooks;
+
+                // cập nhật tổng sản phẩm từng tab
+                Context.countBook = _totalItems;
             }
         }
 
@@ -283,6 +285,23 @@ namespace Project1_BookStore.GUI
             else
             {
                 _currentPage++;
+            }
+        }
+
+        private void modifyTypeOfBook(object sender, RoutedEventArgs e)
+        {
+            var screen = new modifyTypeOfBook();
+            screen.ShowDialog();
+        }
+
+        private void modifyItem(object sender, RoutedEventArgs e)
+        {
+            var book = (BookDTO)allBooks.SelectedItem;
+            var screen = new DetailBookScreen(book);
+
+            if (screen.ShowDialog() == true)
+            {
+                // write changed things here!
             }
         }
     }

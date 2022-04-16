@@ -151,11 +151,12 @@ namespace Project1_BookStore.DAO
             var con = ConnectDB.openConnection();
 
             var sql = "SELECT SUM(odQuantity) FROM ORDERSDETAIL OD, ORDERS O" +
-                "WHERE OD.ordersID = O.ordersID" +
-                $"AND FORMAT(O.ordersTime, 'yyyy-MM-dd')  = '{date}'";
+                " WHERE OD.ordersID = O.ordersID" +
+                $" AND FORMAT(O.ordersTime, 'yyyy-MM-dd')  = '{date}'";
 
             var command = new SqlCommand(sql, con);
             var reader = command.ExecuteScalar();
+            reader = (reader == DBNull.Value) ? 0 : reader;
 
             Int32 result = (Int32)reader;
 
@@ -305,7 +306,7 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = "INSERT INTO BOOK(bookID, tobID, bookName, bookAuthor, bookPrice, bookPublishedYear, bookQuantity)" +
+            var sql = "INSERT INTO BOOK(bookID, tobID, bookName, bookAuthor, bookPrice, bookPublishedYear, bookQuantity) " +
                 $"VALUES('{book.bookID}', '{book.tobID}', N'{book.bookName}', N'{book.bookAuthor}', {book.bookPrice}, {book.bookPublishedYear}, {book.bookQuantity})";
 
             var command = new SqlCommand(sql, con);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1_BookStore.DTO
 {
-    public class BookDTO
+    public class BookDTO:ICloneable
     {
         public string bookID { get; set; }
         public string bookName { get; set; }
@@ -17,5 +17,10 @@ namespace Project1_BookStore.DTO
         public int bookPublishedYear { get; set; }
 
         public string linkImg { get; set; }
+
+        public object Clone()
+        {
+            return MemberwiseClone() as BookDTO;
+        }
     }
 }

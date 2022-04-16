@@ -310,7 +310,6 @@ E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_Boo
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.AssemblyReference.cache
-E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Styles.baml
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewBookScreen.g.cs
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewCouponScreen.g.cs
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewOrderScreen.g.cs
@@ -377,3 +376,12 @@ D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\edit.png
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\logo_v2.png
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify.png
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\avatar.png
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\export.png
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\logo_v2.png
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify.png
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\itextsharp.dll
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.g.cs
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.baml
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Aspose.Cells.dll

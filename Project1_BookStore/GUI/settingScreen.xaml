@@ -187,7 +187,8 @@
                     </Grid.RowDefinitions>
 
                     <!--row-1-->
-                    <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid Grid.Column="0" Grid.Row="0" MouseDown="Grid_MouseDown_MainWindow"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -201,7 +202,8 @@
                     </Grid>
 
                     <!--row-2-->
-                    <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid Grid.Column="0" Grid.Row="1" MouseDown="Grid_MouseDown_ManageProduct"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -214,7 +216,8 @@
                     </Grid>
 
                     <!--row-3-->
-                    <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid Grid.Column="0" Grid.Row="2" MouseDown="Grid_MouseDown_ManageOrder"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -227,7 +230,8 @@
                     </Grid>
 
                     <!--row-4-->
-                    <Grid Grid.Column="0" Grid.Row="3">
+                    <Grid Grid.Column="0" Grid.Row="3" MouseDown="Grid_MouseDown_ManageCoupon"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -253,7 +257,8 @@
                     </Grid>
 
                     <!--row-6-->
-                    <Grid Grid.Column="0" Grid.Row="5">
+                    <Grid Grid.Column="0" Grid.Row="5" MouseDown="Grid_MouseDown_Setting"
+                          Cursor="Hand">
                         <TextBlock HorizontalAlignment="Left"
                                    VerticalAlignment="Center">
                             <Image Width="16" Height="16" Margin="20,0,0,0"
@@ -266,6 +271,7 @@
                                        FontSize="15"></TextBlock>
                         </TextBlock>
                     </Grid>
+
                 </Grid>
 
                 <!--row 3-->
@@ -396,7 +402,7 @@
 
                             <TextBlock Width="220" Height="100" Margin="59,120,615,361">
                                 <StackPanel Orientation="Vertical">
-                                    <RadioButton Height="18" Margin="0,5,0,5" Content="Mở trang tổng quan hệ thống"/>
+                                    <RadioButton Height="18" Margin="0,5,0,5" Content="Mở trang tổng quan hệ thống" IsChecked="True"/>
 		                            <RadioButton Height="18" Margin="0,5,0,5" Content="Tiếp tục ở nơi bạn dừng lại"/> 
                                 </StackPanel>
 

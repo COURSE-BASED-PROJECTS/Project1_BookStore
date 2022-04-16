@@ -23,7 +23,7 @@ namespace Project1_BookStore.DAO
             while (reader.Read())
             {
                 string promoName = (string)reader["promoName"];
-                double promoDiscount = (double)reader["promoDiscount"];
+                float promoDiscount = (float)reader["promoDiscount"];
                 string promoDesciption = (string)reader["promoDesciption"];
                 var promoStartTime = (DateTime)reader["promoStartTime"];
                 var promoEndTime = (DateTime)reader["promoEndTime"];
@@ -58,8 +58,8 @@ namespace Project1_BookStore.DAO
             {
                 string promoID = (string)reader["promoID"];         
                 string promoName = (string)reader["promoName"];
-                double promoDiscount = (double)reader["promoDiscount"];
-                string promoDesciption = (string)reader["promoDesciption"];
+                float promoDiscount = (float)reader["promoDiscount"];
+                string promoDesciption = (string)reader["promoDescription"];
                 var promoStartTime = (DateTime)reader["promoStartTime"];
                 var promoEndTime = (DateTime)reader["promoEndTime"];
 

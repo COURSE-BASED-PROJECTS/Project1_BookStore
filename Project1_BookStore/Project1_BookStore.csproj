@@ -15,6 +15,8 @@
     <None Remove="maximize.png" />
     <None Remove="minimize-pressed.png" />
     <None Remove="minimize.png" />
+    <None Remove="Resource\Images\Icons\delete.png" />
+    <None Remove="Resource\Images\Icons\edit.png" />
     <None Remove="restore-down.png" />
   </ItemGroup>
 
@@ -26,6 +28,21 @@
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>libs\Aspose.Cells.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Images\Icons\delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Images\Icons\edit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -159,12 +176,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resource\Images\Icons\close.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resource\Images\Icons\delete.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resource\Images\Icons\edit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resource\Images\Icons\export.png">

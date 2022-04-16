@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Project1_BookStore
 {
@@ -28,13 +29,15 @@ namespace Project1_BookStore
     public partial class MainWindow : Window
     {
 
-        public class MainWindowContext
+        public class MainWindowContext:INotifyPropertyChanged
         {
             public int soldBooks { get; set; } = 0;
             public int ongoingBooks { get; set; } = 0;
             public int newOrders { get; set; } = 0;
 
             public Icons _icons { get; set; } = new Icons();
+
+            public event PropertyChangedEventHandler? PropertyChanged;
         }
         public MainWindow()
         {
@@ -69,12 +72,11 @@ namespace Project1_BookStore
             this.WindowState = WindowState.Minimized;
         }
 
-
+        MainWindowContext itemMainWindow = new MainWindowContext();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             listDataDated.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findTop5()); 
 
-            var itemMainWindow = new MainWindowContext();
             itemMainWindow.soldBooks = BookBUS.countBookSold();
             itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count - itemMainWindow.soldBooks;
             itemMainWindow.newOrders = OrderBUS.findAllOrder().Count;
@@ -122,6 +124,20 @@ namespace Project1_BookStore
                 screen.Show();
                 this.Close();
             }
+        }
+
+        private void datePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime? selectedDate = datePicker.SelectedDate;
+            string formatted = "";
+            if (selectedDate.HasValue)
+            {
+                formatted = selectedDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            }
+            itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count;
+            itemMainWindow.soldBooks = BookBUS.countBookSoldInDate(formatted);
+            itemMainWindow.newOrders = OrderBUS.countOrderInDate(formatted);
+
         }
     }
 }

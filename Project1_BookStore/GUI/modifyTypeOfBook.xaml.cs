@@ -61,7 +61,13 @@ namespace Project1_BookStore.GUI
 
         private void modify(object sender, RoutedEventArgs e)
         {
-            
+            var screen = new modifyItem();
+            screen.ShowDialog();
+        }
+
+        private void delete(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
