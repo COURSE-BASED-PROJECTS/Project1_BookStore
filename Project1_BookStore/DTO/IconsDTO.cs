@@ -27,6 +27,7 @@ namespace Project1_BookStore.DTO
         public string setting { get; set; } = "/Resource/Images/Icons/info.png";
         public string bell { get; set; } = "/Resource/Images/Icons/bell.png";
         public string sign_out { get; set; } = "/Resource/Images/Icons/sign-out.png";
+        public string export { get; set; } = "/Resource/Images/Icons/export.png";
         public string test { get; set; } = "";
 
         public event PropertyChangedEventHandler? PropertyChanged;

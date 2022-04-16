@@ -14,6 +14,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Data;
 
 namespace Project1_BookStore.GUI
 {
@@ -111,6 +116,99 @@ namespace Project1_BookStore.GUI
         {
             var screen = new addNewOrderScreen();
             screen.Show();
+        }
+
+        private void exportData_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(orderList.Items.Count > 0)
+            {
+                SaveFileDialog save = new SaveFileDialog();
+                save.Filter = "Tệp PDF (*.pdf)|*.pdf";
+                save.FileName = "Danh sách đơn hàng";
+
+                bool errMessage = false;
+                if (save.ShowDialog() == true)
+                {
+                    if (File.Exists(save.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(save.FileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            errMessage = true;
+                            MessageBox.Show("Không thể lưu tập tin vào ổ đĩa " + ex.Message);
+                        }
+                    }
+                    else
+                    {
+                        //do nothing
+                    }
+
+                    if (!errMessage)
+                    {
+                        try
+                        {
+                            //creating iTextSharp Table from the DataTable data
+                            PdfPTable pdfPTable = new PdfPTable(5);
+                            pdfPTable.DefaultCell.Padding = 5;
+                            pdfPTable.WidthPercentage = 100;
+                            pdfPTable.DefaultCell.BorderWidth = 1;
+                            pdfPTable.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                            //adding header columns
+                            PdfPCell cell = new PdfPCell(new Phrase("Mã đơn hàng"));
+                            pdfPTable.AddCell(cell);
+                            pdfPTable.AddCell(new PdfPCell(new Phrase("Số lượng SP")));
+                            pdfPTable.AddCell(new PdfPCell(new Phrase("Khách hàng")));
+                            pdfPTable.AddCell(new PdfPCell(new Phrase("Tổng tiền")));
+                            pdfPTable.AddCell(new PdfPCell(new Phrase("Người tạo")));
+
+                            // adding all rows
+
+                            //Exporting to PDF
+                            using (FileStream fileStream = new FileStream(save.FileName, FileMode.Create))
+                            {
+                                Document pdfDocument = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+                                PdfWriter.GetInstance(pdfDocument, fileStream);
+                                pdfDocument.Open();
+                                pdfDocument.AddHeader("Title", "Danh sách đơn hàng");
+                                pdfDocument.AddLanguage("vi-VN");
+                                pdfDocument.AddTitle("Title");
+                                pdfDocument.AddCreationDate();
+
+                                pdfDocument.Add(new Phrase("DANH SÁCH ĐƠN HÀNG"));
+
+                                pdfDocument.Add(pdfPTable);
+                                pdfDocument.Close();
+                                fileStream.Close();
+                            }
+
+                            MessageBox.Show("Xuất dữ liệu thành công!",
+                                            "Xuất dữ liệu", 
+                                            MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi xuất dữ liệu!", 
+                                            "Xuất dữ liệu", 
+                                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    //do nothing
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu!", 
+                                "Xuất dữ liệu", 
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
         }
     }
 }
