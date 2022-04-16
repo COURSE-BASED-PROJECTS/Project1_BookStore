@@ -467,7 +467,10 @@
 
                             <!--Row - 2-->
                             <Grid Grid.Row="1">
-                                <TabControl  Height="450">
+                                <TabControl  Height="450"
+                                             Name="tabControl"
+                                             SelectionChanged ="TabControl_SelectionChanged"
+                                             >
                                     <TabItem Header="Tất cả"
                                              FontSize="14"
                                              Foreground="#6B34C3">
@@ -524,7 +527,6 @@
                                         </ListView>
 
                                     </TabItem>
-
                                     <TabItem Header="Bán chạy"
                                              FontSize="14"
                                              Foreground="#6B34C3">
@@ -702,6 +704,7 @@
                                             </Slider>
                                         </Grid>
                                     </TabItem>
+                                   
                                 </TabControl>
 
                             </Grid>
@@ -718,7 +721,8 @@
                                           Background="LightGray"
                                           HorizontalAlignment="Left"
                                           Margin="10"
-                                          Cursor="Hand">
+                                          Cursor="Hand"
+                                          MouseDown="previousPage_MouseDown">
                                         <Image Source="{Binding arrow_left,Converter={StaticResource absoluteConverter}}">
                                         </Image>
                                     </Grid>
@@ -726,7 +730,8 @@
                                     <Grid Width="32" Height="32"
                                           Background="WhiteSmoke"
                                           HorizontalAlignment="Center">
-                                        <Label Content="1"
+                                        <Label Name="currentPagingText"
+                                               Content="1"
                                                HorizontalContentAlignment="Center"
                                                VerticalContentAlignment="Center"></Label>
                                     </Grid>
@@ -735,7 +740,8 @@
                                           Background="LightGray"
                                           HorizontalAlignment="Right"
                                           Margin="10"
-                                          Cursor="Hand">
+                                          Cursor="Hand"
+                                          MouseDown="nextPage_MouseDown">
                                         <Image Source="{Binding arrow_right,Converter={StaticResource absoluteConverter}}">
                                         </Image>
                                     </Grid>

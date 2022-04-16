@@ -39,9 +39,9 @@ namespace Project1_BookStore.GUI
         }
 
         manageBooksContext Context = new manageBooksContext();
-        BindingList<BookDTO> allBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findAllBook()));
-        BindingList<BookDTO> nearOutOfBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findTop5()));
-        BindingList<BookDTO> bestSellerBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBook()));
+        List<BookDTO> allBookContext = new List<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findAllBook()));
+        List<BookDTO> nearOutOfBookContext = new List<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findTop5()));
+        List<BookDTO> bestSellerBookContext = new List<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBook()));
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -69,15 +69,46 @@ namespace Project1_BookStore.GUI
         {
             this.WindowState = WindowState.Minimized;
         }
+        class Tab
+        {
+            public ListView Name { get; set; }
+            public List<BookDTO> Books { get; set; }
+        }
 
+        List<Tab> tabs = new List<Tab>();
+
+        class ViewModel : INotifyPropertyChanged
+        {
+            public List<BookDTO> Books { get; set; } = new List<BookDTO>();
+            public List<BookDTO> SelectedBooks { get; set; } = new List<BookDTO>();
+
+            public event PropertyChangedEventHandler PropertyChanged;
+        }
+
+
+        ViewModel _vm = new ViewModel();
+
+        int _totalItems = 0;
+        int _currentPage = 1;
+        int _totalPages = 0;
+        int _rowsPerPage = 10;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Context.countBook = BookBUS.findAllBook().Count;
 
             this.DataContext = Context;
-            allBooks.ItemsSource = allBookContext;
-            nearOutOfBooks.ItemsSource = nearOutOfBookContext;
-            bestSellerBooks.ItemsSource = bestSellerBookContext;
+            //_totalItems = allBookContext.Count;
+            //_totalPages = _totalItems / _rowsPerPage +
+            //        (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+            //allBooks.ItemsSource = allBookContext
+            //                       .Skip((_currentPage - 1) * _rowsPerPage)
+            //                       .Take(_rowsPerPage)
+            //                       .ToList();
+            //
+            //currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+            //nearOutOfBooks.ItemsSource = nearOutOfBookContext;
+            //bestSellerBooks.ItemsSource = bestSellerBookContext;
         }
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
@@ -155,6 +186,103 @@ namespace Project1_BookStore.GUI
                 var screen = new LoginWindow();
                 screen.Show();
                 this.Close();
+            }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var Tab1 = new Tab()
+            {
+                Name = allBooks,
+                Books = allBookContext
+            };
+            var Tab2 = new Tab()
+            {
+                Name = bestSellerBooks,
+                Books = bestSellerBookContext
+            };
+            var Tab3 = new Tab()
+            {
+                Name = nearOutOfBooks,
+                Books = nearOutOfBookContext
+            };
+            var Tab4 = new Tab()
+            {
+                Name = searchResult,
+                Books = new List<BookDTO>()
+            };
+            tabs.Add(Tab1);
+            tabs.Add(Tab2);
+            tabs.Add(Tab3);
+            tabs.Add(Tab4);
+            int i = tabControl.SelectedIndex;
+            if (i >= 0)
+            {
+                // Thay đổi view model
+                _vm.Books = tabs[i].Books;
+
+                _currentPage = 1; // Quay lại trang đầu tiên
+
+                _vm.SelectedBooks = _vm.Books
+                    .Skip((_currentPage - 1) * _rowsPerPage)
+                    .Take(_rowsPerPage)
+                    .ToList();
+
+
+                // Tính toán lại thông số phân trang
+                _totalItems = _vm.Books.Count;
+                _totalPages = _totalItems / _rowsPerPage +
+                    (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+
+                // ép cập nhật giao diện
+                tabs[i].Name.ItemsSource = _vm.SelectedBooks; 
+                
+            }
+        }
+
+        private void nextPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            int i = tabControl.SelectedIndex;
+            _currentPage++;
+            if (_currentPage <= _totalPages)
+            {
+                _vm.SelectedBooks = _vm.Books
+                    .Skip((_currentPage - 1) * _rowsPerPage)
+                    .Take(_rowsPerPage)
+                    .Take(_rowsPerPage)
+                    .ToList();
+
+                // ép cập nhật giao diện
+                tabs[i].Name.ItemsSource = _vm.SelectedBooks;
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+            }
+            else
+            {
+                _currentPage--;
+            }
+        }
+
+        private void previousPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            int i = tabControl.SelectedIndex;
+            _currentPage--;
+            if (_currentPage > 0)
+            {
+                _vm.SelectedBooks = _vm.Books
+                        .Skip((_currentPage - 1) * _rowsPerPage)
+                        .Take(_rowsPerPage)
+                        .ToList();
+
+                // ép cập nhật giao diện
+                tabs[i].Name.ItemsSource = _vm.SelectedBooks;
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+            }
+            else
+            {
+                _currentPage++;
             }
         }
     }
