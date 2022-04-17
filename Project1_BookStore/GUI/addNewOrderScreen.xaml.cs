@@ -1,4 +1,5 @@
-﻿using Project1_BookStore.DTO;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,13 +57,19 @@ namespace Project1_BookStore.GUI
         Icons _icons = new Icons();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            listOfBook.ItemsSource = BookBUS.findAllBook();
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void save(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

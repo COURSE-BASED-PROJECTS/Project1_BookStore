@@ -12,7 +12,7 @@ namespace Project1_BookStore.Utils
     {
         public static SqlConnection openConnection()
         {
-            var connectionString = "Server=.\\SQLSERVER;Database=BookStoreDB;Trusted_Connection=True;";
+            var connectionString = "Server=.\\SQLEXPRESS;Database=BookStoreDB;Trusted_Connection=True;";
             var connection = new SqlConnection(connectionString);
             try
             {

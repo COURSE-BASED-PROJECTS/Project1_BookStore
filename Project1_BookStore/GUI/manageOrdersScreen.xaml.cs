@@ -138,7 +138,7 @@ namespace Project1_BookStore.GUI
 
         private void exportData_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(orderList.Items.Count > 0)
+            if(listOrders.Count > 0)
             {
                 SaveFileDialog save = new SaveFileDialog();
                 save.Filter = "Tệp PDF (*.pdf)|*.pdf";
@@ -168,32 +168,78 @@ namespace Project1_BookStore.GUI
                     {
                         try
                         {
+                            //define base font for PDF document
+                            string vifontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\times.ttf";
+                            BaseFont viFont = BaseFont.CreateFont(vifontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                            Font title = new Font(viFont, 20f, Font.NORMAL, BaseColor.BLUE);
+                            Font header = new Font(viFont, 12f, Font.BOLD, BaseColor.BLACK);
+                            Font normal = new Font(viFont, 10f, Font.NORMAL, BaseColor.BLACK);
+                            Font underline = new Font(viFont, 10f, Font.UNDERLINE, BaseColor.BLACK);
+
                             //creating iTextSharp Table from the DataTable data
                             PdfPTable pdfPTable = new PdfPTable(6);
-                            pdfPTable.DefaultCell.Padding = 20;
+                            int[] intTblWidth = { 7, 15, 18, 20, 25, 15 };
+                            pdfPTable.SetWidths(intTblWidth);
                             pdfPTable.WidthPercentage = 100;
                             pdfPTable.DefaultCell.BorderWidth = 1;
                             pdfPTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
                             //adding header columns
-                            pdfPTable.AddCell(new PdfPCell(new Phrase("STT")));
-                            pdfPTable.AddCell(new PdfPCell(new Phrase("Mã đơn hàng")));
-                            pdfPTable.AddCell(new PdfPCell(new Phrase("Khách hàng")));
-                            pdfPTable.AddCell(new PdfPCell(new Phrase("Tổng tiền")));
-                            pdfPTable.AddCell(new PdfPCell(new Phrase("Ngày tạo")));
-                            pdfPTable.AddCell(new PdfPCell(new Phrase("Người lập HĐ")));
+                            PdfPCell pdfPCell = new PdfPCell(new Phrase("STT", header));
+                            pdfPCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            pdfPTable.AddCell(pdfPCell);
+
+                            PdfPCell pdfPCell2 = new PdfPCell(new Phrase("Mã đơn hàng", header));
+                            pdfPCell2.HorizontalAlignment = Element.ALIGN_CENTER;
+                            pdfPTable.AddCell(pdfPCell2);
+                            
+                            PdfPCell pdfPCell3 = new PdfPCell(new Phrase("Mã đơn hàng", header));
+                            pdfPCell3.HorizontalAlignment = Element.ALIGN_CENTER;
+                            pdfPTable.AddCell(pdfPCell3);
+                            
+                            PdfPCell pdfPCell4 = new PdfPCell(new Phrase("Tổng tiền", header));
+                            pdfPCell4.HorizontalAlignment = Element.ALIGN_CENTER;
+                            pdfPTable.AddCell(pdfPCell4);
+
+                            PdfPCell pdfPCell5 = new PdfPCell(new Phrase("Ngày tạo", header));
+                            pdfPCell5.HorizontalAlignment = Element.ALIGN_CENTER;
+                            pdfPTable.AddCell(pdfPCell5);
+
+                            PdfPCell pdfPCell6 = new PdfPCell(new Phrase("Người lập HĐ", header));
+                            pdfPCell6.HorizontalAlignment = Element.ALIGN_CENTER;
+                            pdfPTable.AddCell(pdfPCell6);
+
+                            //pdfPTable.AddCell(new PdfPCell(new Phrase("Mã đơn hàng", header)));
 
                             // adding all rows
                             int i = 1;
                             foreach (var item in listOrders)
                             {
                                 OrderDTO order = (OrderDTO)item;
-                                pdfPTable.AddCell(new PdfPCell(new Phrase((i++).ToString())));
-                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.ordersID)));
-                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.cusPhoneNumber)));
-                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.ordersPrices.ToString())));
-                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.ordersTime.ToString())));
-                                pdfPTable.AddCell(new PdfPCell(new Phrase(order.accUsername)));
+
+                                PdfPCell pdfPCell7 = new PdfPCell(new Phrase((i++).ToString(), normal));
+                                pdfPCell7.HorizontalAlignment = Element.ALIGN_CENTER;
+                                pdfPTable.AddCell(pdfPCell7);
+
+                                PdfPCell pdfPCell8 = new PdfPCell(new Phrase(order.ordersID, normal));
+                                pdfPCell8.HorizontalAlignment = Element.ALIGN_CENTER;
+                                pdfPTable.AddCell(pdfPCell8);
+
+                                PdfPCell pdfPCell9 = new PdfPCell(new Phrase(order.cusPhoneNumber, normal));
+                                pdfPCell9.HorizontalAlignment = Element.ALIGN_CENTER;
+                                pdfPTable.AddCell(pdfPCell9);
+
+                                PdfPCell pdfPCell10 = new PdfPCell(new Phrase(order.ordersPrices.ToString(), normal));
+                                pdfPCell10.HorizontalAlignment = Element.ALIGN_CENTER;
+                                pdfPTable.AddCell(pdfPCell10);
+
+                                PdfPCell pdfPCell11 = new PdfPCell(new Phrase(order.ordersTime.ToString(), normal));
+                                pdfPCell11.HorizontalAlignment = Element.ALIGN_CENTER;
+                                pdfPTable.AddCell(pdfPCell11);
+
+                                PdfPCell pdfPCell12 = new PdfPCell(new Phrase(order.accUsername, normal));
+                                pdfPCell12.HorizontalAlignment = Element.ALIGN_CENTER;
+                                pdfPTable.AddCell(pdfPCell12);
                             }
 
                             //Exporting to PDF
@@ -201,18 +247,16 @@ namespace Project1_BookStore.GUI
                             {
                                 Document document = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
                                 PdfWriter.GetInstance(document, fileStream);
+                                
                                 document.Open();
                                 document.AddHeader("Title", "Danh sách đơn hàng");
                                 document.AddLanguage("vi-VN");
-                                document.AddTitle("Title");
+                                document.AddTitle("Danh sách đơn hàng");
                                 document.AddCreationDate();
 
-                                BaseFont viFont = BaseFont.CreateFont();
-                                Font head = new Font(viFont, 12f, Font.NORMAL, BaseColor.BLUE);
-                                Font normal = new Font(viFont, 10f, Font.NORMAL, BaseColor.BLACK);
-                                Font underline = new Font(viFont, 10f, Font.UNDERLINE, BaseColor.BLACK);
-
-                                document.Add(new Phrase("\t\t\t\t\t\t\t\t\t\t\t\tDANH SÁCH ĐƠN HÀNG\n\n\n", head));
+                                var titleDoc = new Phrase("DANH SÁCH ĐƠN HÀNG", title);
+                                
+                                document.Add(titleDoc);
 
                                 document.Add(pdfPTable);
                                 document.Close();

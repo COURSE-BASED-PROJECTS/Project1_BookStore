@@ -275,8 +275,8 @@
                                     FontWeight="Medium"
                                     Margin="456,10,354,6"></Label>
 
-                            <TextBox Width="287" Height="50"
-                                     Margin="599,0,0,0"
+                            <TextBox Width="285" Height="50"
+                                     Margin="591,0,0,0"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
@@ -335,7 +335,7 @@
                                        Margin="0,25,0,0"></Label>
 
                                     <TextBox Height="50"
-                                         Margin="144,16,0,11"
+                                         Margin="138,17,10,10"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
@@ -379,10 +379,12 @@
                                    Margin="280,15,451,0"></Label>
 
                             <Label Content="Thể loại: " Width="100" 
-                                   Margin="453,15,333,-15"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Margin="476,0,310,0"
                                    FontSize="16"
-                                       FontWeight="Medium"></Label>
-                            <ComboBox Margin="598,2,185,-3"
+                                   FontWeight="Medium"/>
+                            
+                            <ComboBox Margin="590,0,10,0"
                                       x:Name="typeOfBook"
                                       IsSynchronizedWithCurrentItem="True"
                                       VerticalContentAlignment="Center">
@@ -392,7 +394,7 @@
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
-                            
+
 
                         </Grid>
 
