@@ -23,7 +23,7 @@ namespace Project1_BookStore.DAO
             while (reader.Read())
             {
                 string accPassword = (string) reader["accPassword"];
-                if (accPassword.Equals(password))
+                if (BCrypt.Net.BCrypt.EnhancedVerify(password, accPassword))
                 {
                     return true;
                 }

@@ -109,8 +109,8 @@ GO
 ------------------------------------------------------------------------------------------------
 GO
 INSERT INTO ACCOUNT(accUsername, accPassword)
-    VALUES  ('admin', 'password'),
-            ('quanlyDA', 'quanlyDA')
+    VALUES  ('admin', '$2a$11$cONPep1srXy.2xtBG4EhjerAo0asLvLlLIJW3e9500wkArQ4N4Fe.'),
+            ('quanlyDA', '$2a$11$VbsQyZ6E3SFj8PnOBDypvu2ADenGlZQ1PltV0..JFZ8nSHURllphC')
 
 GO
 INSERT INTO CUSTOMER(cusPhoneNumber, cusName)

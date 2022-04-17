@@ -102,7 +102,7 @@ namespace Project1_BookStore.GUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Project1_BookStore;V1.0.0.0;component/gui/settingscreen.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Project1_BookStore;component/gui/settingscreen.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\GUI\settingScreen.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

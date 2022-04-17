@@ -17,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BCrypt.Net;
 
 namespace Project1_BookStore
 {
@@ -62,15 +63,24 @@ namespace Project1_BookStore
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = _icons;
+            // Check username password trong Appconfig với DB
+            // Nếu đúng mới làm tiếp, sai thì ở lại màn hình Login
+
+            var lastsScreen = AppConfig.GetValue(AppConfig.LastScreen);
+            // Lấy dữ liệu trongAppConfig xem ngta chọn gì -> xử lí
+            if (!lastsScreen.Equals("LoginScreen"))
+            {
+                //xử lí màn hình
+            }
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             var username = (userTextBox.Text).Trim();
 
-            var password = passTextBox.Password;
-            
-            var check = UserBUS.findUser(username, password);
+            var rawpassword = passTextBox.Password;
+
+            var check = UserBUS.findUser(username, rawpassword);
 
             if (check == false)
             {
@@ -81,10 +91,9 @@ namespace Project1_BookStore
             }
             else
             {
-                var entropy = "123";
                 AppConfig.SetValue(AppConfig.Username, username);
-                AppConfig.SetValue(AppConfig.Password, password);
-                AppConfig.SetValue(AppConfig.Entropy, entropy);
+                AppConfig.SetValue(AppConfig.Password, rawpassword);
+                
                 var screen = new MainWindow();
                 screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 screen.Show();
@@ -99,9 +108,9 @@ namespace Project1_BookStore
             {
                 var username = (userTextBox.Text).Trim();
 
-                var password = passTextBox.Password;
+                var rawpassword = passTextBox.Password;
 
-                var check = UserBUS.findUser(username, password);
+                var check = UserBUS.findUser(username, rawpassword);
 
                 if (check == false)
                 {
@@ -112,10 +121,9 @@ namespace Project1_BookStore
                 }
                 else
                 {
-                    var entropy = "123";
                     AppConfig.SetValue(AppConfig.Username, username);
-                    AppConfig.SetValue(AppConfig.Password, password);
-                    AppConfig.SetValue(AppConfig.Entropy, entropy);
+                    AppConfig.SetValue(AppConfig.Password, rawpassword);
+                    
                     var screen = new MainWindow();
                     screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     screen.Show();

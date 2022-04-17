@@ -392,3 +392,4 @@ D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Aspose.Cells.dll
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.g.cs
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.baml
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\BCrypt.Net-Next.dll
