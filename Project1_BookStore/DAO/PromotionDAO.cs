@@ -24,9 +24,10 @@ namespace Project1_BookStore.DAO
             {
                 string promoName = (string)reader["promoName"];
                 float promoDiscount = (float)reader["promoDiscount"];
-                string promoDesciption = (string)reader["promoDesciption"];
+                string promoDesciption = (string)reader["promoDescription"];
                 var promoStartTime = (DateTime)reader["promoStartTime"];
                 var promoEndTime = (DateTime)reader["promoEndTime"];
+                bool promoStatus = (bool)reader["promoStatus"];
                 
                 var promo = new PromotionDTO()
                 {
@@ -35,8 +36,8 @@ namespace Project1_BookStore.DAO
                     promoDiscount = promoDiscount,
                     promoDesciption = promoDesciption,
                     promoStartTime = promoStartTime,
-                    promoEndTime = promoEndTime
-                    
+                    promoEndTime = promoEndTime,
+                    promoStatus = promoStatus,
                 };
                 return promo;
             }
@@ -62,6 +63,7 @@ namespace Project1_BookStore.DAO
                 string promoDesciption = (string)reader["promoDescription"];
                 var promoStartTime = (DateTime)reader["promoStartTime"];
                 var promoEndTime = (DateTime)reader["promoEndTime"];
+                bool promoStatus = (bool)reader["promoStatus"];
 
                 var promo = new PromotionDTO()
                 {
@@ -70,8 +72,8 @@ namespace Project1_BookStore.DAO
                     promoDiscount = promoDiscount,
                     promoDesciption = promoDesciption,
                     promoStartTime = promoStartTime,
-                    promoEndTime = promoEndTime
-
+                    promoEndTime = promoEndTime,
+                    promoStatus = promoStatus
                 };
                 promos.Add(promo);
             }
@@ -83,9 +85,9 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = "INSERT INTO PROMOTION(promoID, promoName,promoDiscount, promoDescription, promoStartTime, promoEndTime) " +
+            var sql = "INSERT INTO PROMOTION(promoID, promoName,promoDiscount, promoDescription, promoStartTime, promoEndTime, promoStatus) " +
                 $"VALUES('{promo.promoID}', N'{promo.promoName}', {promo.promoDiscount}, " +
-                $"N'{promo.promoDesciption}', '{promo.promoStartTime}', '{promo.promoEndTime}')";
+                $"N'{promo.promoDesciption}', '{promo.promoStartTime}', '{promo.promoEndTime}', '{promo.promoStatus}')";
             var command = new SqlCommand(sql, con);
             try
             {
@@ -103,9 +105,9 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = $"UPDATE PROMOTION SET promoName = '{promo.promoName}', promoDiscount = {promo.promoDiscount}, promoDesciption = '{promo.promoDesciption}', " +
-                $"promoStartTime = '{promo.promoStartTime}', promoEndTime = '{promo.promoEndTime}'" +
-                $"WHERE promoID = {promo.promoID}";
+            var sql = $"UPDATE PROMOTION SET promoName = '{promo.promoName}', promoDiscount = {promo.promoDiscount}, promoDescription = '{promo.promoDesciption}', " +
+                $"promoStartTime = '{promo.promoStartTime}', promoEndTime = '{promo.promoEndTime}', promoStatus = '{promo.promoStatus}'" +
+                $"WHERE promoID = '{promo.promoID}'";
 
             var command = new SqlCommand(sql, con);
             try

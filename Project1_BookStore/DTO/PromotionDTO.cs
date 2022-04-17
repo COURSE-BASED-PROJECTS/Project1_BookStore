@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1_BookStore.DTO
 {
-    internal class PromotionDTO
+    public class PromotionDTO
     {
         public string promoID { get; set; }
         public string promoName { get; set; }
@@ -14,6 +14,7 @@ namespace Project1_BookStore.DTO
         public string promoDesciption { get; set; }
         public DateTime promoStartTime { get; set; }
         public DateTime promoEndTime { get; set; }
+        public bool promoStatus { get; set; } = true;
 
     }
 }

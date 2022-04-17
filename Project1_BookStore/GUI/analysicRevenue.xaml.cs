@@ -1,11 +1,6 @@
 ﻿using Project1_BookStore.DTO;
-using Project1_BookStore.BUS;
-using Project1_BookStore.GUI;
-using Project1_BookStore.Utils;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,34 +11,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ComponentModel;
 
-namespace Project1_BookStore
+namespace Project1_BookStore.GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for analysicRevenue.xaml
     /// </summary>
-    /// 
-    public partial class MainWindow : Window
+    public partial class analysicRevenue : Window
     {
-
-        public class MainWindowContext:INotifyPropertyChanged
-        {
-            public int soldBooks { get; set; } = 0;
-            public int ongoingBooks { get; set; } = 0;
-            public int newOrders { get; set; } = 0;
-
-            public string username { get; set; } = "QuanLyDA";
-            public Icons _icons { get; set; } = new Icons();
-
-            public event PropertyChangedEventHandler? PropertyChanged;
-        }
-        public MainWindow()
+        public analysicRevenue()
         {
             InitializeComponent();
-            reDownButton.Visibility = Visibility.Collapsed;
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -73,20 +52,6 @@ namespace Project1_BookStore
             this.WindowState = WindowState.Minimized;
         }
 
-        MainWindowContext itemMainWindow = new MainWindowContext();
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            listDataDated.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findTop5()); 
-
-            itemMainWindow.soldBooks = BookBUS.countBookSold();
-            itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count - itemMainWindow.soldBooks;
-            itemMainWindow.newOrders = OrderBUS.findAllOrder().Count;
-
-            //itemMainWindow.username = AppConfig.GetValue(AppConfig.Username);
-
-            this.DataContext = itemMainWindow;
-        }
-
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
             var screen = new manageBooksScreen();
@@ -108,15 +73,16 @@ namespace Project1_BookStore
             this.Close();
         }
 
-        private void Grid_MouseDown_AnalysicRevenue(object sender, MouseButtonEventArgs e)
-        {
-            var screen = new analysicRevenue();
-            screen.Show();
-            this.Close();
-        }
         private void Grid_MouseDown_Setting(object sender, MouseButtonEventArgs e)
         {
             var screen = new settingScreen();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_MainWindow(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new MainWindow();
             screen.Show();
             this.Close();
         }
@@ -135,19 +101,11 @@ namespace Project1_BookStore
             }
         }
 
-        private void datePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        Icons _icons = new Icons();
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DateTime? selectedDate = datePicker.SelectedDate;
-            string formatted = "";
-            if (selectedDate.HasValue)
-            {
-                formatted = selectedDate.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-            }
-            itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count;
-            itemMainWindow.soldBooks = BookBUS.countBookSoldInDate(formatted);
-            itemMainWindow.newOrders = OrderBUS.countOrderInDate(formatted);
-
+            this.DataContext = _icons;
+            //this.WindowState = WindowState.Maximized;
         }
-
     }
 }

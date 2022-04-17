@@ -21,7 +21,7 @@ namespace Project1_BookStore.GUI
     /// <summary>
     /// Interaction logic for manageCouponScreen.xaml
     /// </summary>
-    public partial class manageCouponScreen : Window
+    public partial class manageCouponScreen : Window, INotifyPropertyChanged
     {
         public manageCouponScreen()
         {
@@ -38,12 +38,15 @@ namespace Project1_BookStore.GUI
         }
 
         manageCouponContext Context = new manageCouponContext();
-        List<PromotionDTO> listPromotions = PromotionBUS.findAllPromotion();
+        BindingList<PromotionDTO> listPromotions = new BindingList<PromotionDTO>(PromotionBUS.findAllPromotion());
 
         int _totalItems = 0;
         int _currentPage = 1;
         int _totalPages = 0;
         int _rowsPerPage = 3;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Context.countCoupon = listPromotions.Count;
@@ -125,12 +128,29 @@ namespace Project1_BookStore.GUI
 
         private void addNewCoupon(object sender, RoutedEventArgs e)
         {
+            var screen = new addNewCouponScreen();
 
+            if (screen.ShowDialog() == true)
+            {
+                var promotion = screen._promotion;
+                listPromotions.Add(promotion);
+
+                Context.countCoupon = listPromotions.Count;
+                couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
+                                    .Take(_rowsPerPage)
+                                    .ToList();
+            }
         }
 
         private void modifyItem(object sender, RoutedEventArgs e)
         {
+            var screen = new modifyCouponScreen();
+            screen._promotion = (PromotionDTO)couponList.SelectedItem;
 
+            if(screen.ShowDialog() == true)
+            {
+                listPromotions[couponList.SelectedIndex] = screen._promotion;
+            }
         }
 
         private void nextPage_MouseDown(object sender, MouseButtonEventArgs e)
@@ -178,6 +198,27 @@ namespace Project1_BookStore.GUI
                 screen.Show();
                 this.Close();
             }
+        }
+
+        private void deleteItem(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Bạn thật sự có muốn tắt khuyến mãi","Xác nhận", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                // Do not close the window    
+                PromotionDTO item = (PromotionDTO)couponList.SelectedItem;
+
+                item.promoStatus = false;
+                listPromotions.Remove(item);
+                PromotionBUS.UpdatePromotion(item);
+
+                MessageBox.Show($"Tắt khuyến mãi {item.promoID}: {item.promoName} thành công!!!");
+            }
+            else
+            {
+                // do nothing
+            }
+
+            
         }
     }
 }

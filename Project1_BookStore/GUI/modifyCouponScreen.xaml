@@ -10,7 +10,6 @@
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
-        <!--styte control buttons: maximize, minimize, close, restore-->
         <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding restore, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
@@ -125,8 +124,8 @@
                     <RowDefinition Height="450*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
-                    <TextBlock Text="Quản lý sản phầm > Chỉnh sửa khuyến mãi"
+                <Grid Grid.Row="0" DataContext="{Binding _icons}">
+                    <TextBlock Text="Quản lý khuyến mãi > Sửa khuyến mãi "
                                FontSize="15"
                                FontWeight="Medium"
                                Margin="20,25,0,0"
@@ -183,7 +182,7 @@
 
                 </Grid>
 
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" DataContext="{Binding _promotionDTO}">
                     <Grid Height="617" Width="1000"
                           Background="#F9FAFB">
 
@@ -219,11 +218,13 @@
                             </Label>
 
                             <TextBox Height="30"
-                                         Margin="183,15,569,32"
+                                     Margin="183,15,569,32"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
-                                     VerticalContentAlignment="Center">
+                                     VerticalContentAlignment="Center"
+                                     x:Name="idCoupon" IsEnabled="False"
+                                     Text="{Binding promoID}">
                                 <TextBox.Effect>
                                     <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -248,11 +249,13 @@
                                        Margin="0,10,764,6"></Label>
 
                             <TextBox Height="50"
-                                         Margin="133,2,0,-2"
+                                     Margin="133,2,0,-2"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
-                                     VerticalContentAlignment="Center">
+                                     VerticalContentAlignment="Center"
+                                     x:Name="nameCoupon"
+                                     Text="{Binding promoName}">
                                 <TextBox.Effect>
                                     <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -272,11 +275,12 @@
                                        Margin="0,10,806,6"></Label>
 
                             <TextBox Height="50"
-                                         Margin="134,2,461,-2"
+                                     Margin="134,2,461,-2"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
-                                     FontSize="20"
-                                     VerticalContentAlignment="Center">
+                                     FontSize="20" Text="{Binding promoDiscount}"
+                                     VerticalContentAlignment="Center"
+                                     x:Name="coupon" SelectionChanged="coupon_SelectionChanged">
                                 <TextBox.Effect>
                                     <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -286,12 +290,12 @@
                                 </TextBox.Effect>
                             </TextBox>
 
-                            <Label Content="*Vui lòng nhập đúng theo cú pháp:"
-                                       FontSize="16"
-                                       FontWeight="Light"
-                                       Foreground="Red"
-                                       FontStyle="Italic"
-                                       Margin="443,10,175,6"></Label>
+                            <Label  Content="*Vui lòng nhập đúng theo cú pháp: 50 (tức là 50%)"
+                                    FontSize="16"
+                                    FontWeight="Light"
+                                    Foreground="Red"
+                                    FontStyle="Italic"
+                                    Margin="443,10,79,6"></Label>
                         </Grid>
 
                         <!--Row - 4-->
@@ -310,10 +314,11 @@
                                        Margin="0,25,0,0"></Label>
 
                                     <DatePicker Height="50"
-                                         Margin="134,16,19,11"
+                                     Margin="134,16,19,11"
                                      Background="#EBECF0"
-                                     FontSize="20"
-                                     VerticalContentAlignment="Center">
+                                     FontSize="15"
+                                     VerticalContentAlignment="Center"
+                                     x:Name="dateStart" Text="{Binding promoStartTime}">
                                         <DatePicker.Effect>
                                             <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -332,10 +337,12 @@
                                        Margin="0,25,0,0"></Label>
 
                                     <DatePicker Height="50"
-                                         Margin="144,16,0,11"
+                                     Margin="144,16,0,11"
                                      Background="#EBECF0"
-                                     FontSize="20"
-                                     VerticalContentAlignment="Center">
+                                     FontSize="15"
+                                     VerticalContentAlignment="Center"
+                                     x:Name="dateEnd"
+                                                Text="{Binding promoEndTime}">
                                         <DatePicker.Effect>
                                             <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -357,11 +364,13 @@
                                        FontWeight="Medium"
                                        Margin="0,10,804,6"></Label>
                             <TextBox Height="100"
-                                         Margin="135,16,0,11"
+                                     Margin="135,16,0,11"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
-                                     VerticalContentAlignment="Top">
+                                     VerticalContentAlignment="Top"
+                                     x:Name="description"
+                                     Text="{Binding promoDesciption}">
                                 <TextBox.Effect>
                                     <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -373,27 +382,14 @@
 
                         </Grid>
 
-                        <!--Row - 6-->
-                        <Grid Grid.Row="5" HorizontalAlignment="Center"
-                              VerticalAlignment="Center" Width="886">
-                            <Label Content="Thể loại:"
-                                       FontSize="16"
-                                       FontWeight="Medium"
-                                       Margin="0,10,721,6"></Label>
-                            <ComboBox Margin="138,14,664,10">
-                                <ComboBox.Effect>
-                                    <DropShadowEffect BlurRadius="5" />
-                                </ComboBox.Effect>
-                            </ComboBox>
-                        </Grid>
 
-                        <!--Row - 7-->
-                        <Grid Grid.Row="6">
+                        <!--Row - 6-->
+                        <Grid Grid.Row="5">
                             <StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center">
                                 <Border CornerRadius="20">
-                                    <Button Width="100" Height="35"  Background="Green">
+                                    <Button Cursor="Hand" Width="100" Height="35"  Background="Green" Click="saveBtn">
                                         <Label Foreground="White">Lưu</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">
@@ -404,7 +400,7 @@
                                 </Border>
 
                                 <Border CornerRadius="20" Margin="20,0,0,0">
-                                    <Button Width="100" Height="35" Background="#F5C038">
+                                    <Button Cursor="Hand" Width="100" Height="35" Background="#F5C038" Click="cancelBtn">
                                         <Label Foreground="White">Hủy bỏ</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">

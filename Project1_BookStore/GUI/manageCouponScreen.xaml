@@ -456,10 +456,10 @@
                                                FontWeight="SemiBold"
                                                Margin="26,5,0,0"></Label>
 
-                                    <Label Content="Trạng thái"
+                                    <Label Content="Tên khuyến mãi"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="150,5,0,0"></Label>
+                                               Margin="130,5,0,0"></Label>
 
                                     <Label Content="Ngày bắt đầu"
                                                FontSize="14"
@@ -570,7 +570,7 @@
                                                 </Grid>
 
                                                 <!--Column - 6-->
-                                                <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
+                                                <Grid Grid.Column="5" Margin="120,0,61,0" Grid.ColumnSpan="2">
                                                     <Label Content="{Binding promoDiscount}"
                                                        FontSize="12" Margin="-10,0,0,0"
                                                        HorizontalAlignment="Left"
@@ -587,6 +587,12 @@
                                             <MenuItem Header="Sửa" Click="modifyItem">
                                                 <MenuItem.Icon>
                                                     <Image Source="https://cdn-icons-png.flaticon.com/512/3597/3597075.png"></Image>
+                                                </MenuItem.Icon>
+                                            </MenuItem>
+
+                                            <MenuItem Header="Tắt khuyến mãi" Click="deleteItem">
+                                                <MenuItem.Icon>
+                                                    <Image Source="https://cdn-icons-png.flaticon.com/512/3221/3221897.png"></Image>
                                                 </MenuItem.Icon>
                                             </MenuItem>
                                         </ContextMenu>

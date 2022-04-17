@@ -125,7 +125,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock Text="Quản lý sản phầm > Thêm khuyến mãi mới"
+                    <TextBlock Text="Quản lý khuyến mãi > Thêm khuyến mãi mới"
                                FontSize="15"
                                FontWeight="Medium"
                                Margin="20,25,0,0"
@@ -218,11 +218,12 @@
                             </Label>
 
                             <TextBox Height="30"
-                                         Margin="183,15,569,32"
+                                     Margin="183,15,569,32"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
-                                     VerticalContentAlignment="Center">
+                                     VerticalContentAlignment="Center"
+                                     x:Name="idCoupon">
                                 <TextBox.Effect>
                                     <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -247,11 +248,12 @@
                                        Margin="0,10,764,6"></Label>
 
                             <TextBox Height="50"
-                                         Margin="133,2,0,-2"
+                                     Margin="133,2,0,-2"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
-                                     VerticalContentAlignment="Center">
+                                     VerticalContentAlignment="Center"
+                                     x:Name="nameCoupon">
                                 <TextBox.Effect>
                                     <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -271,11 +273,12 @@
                                        Margin="0,10,806,6"></Label>
 
                             <TextBox Height="50"
-                                         Margin="134,2,461,-2"
+                                     Margin="134,2,461,-2"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
-                                     VerticalContentAlignment="Center">
+                                     VerticalContentAlignment="Center"
+                                     x:Name="coupon" SelectionChanged="coupon_SelectionChanged">
                                 <TextBox.Effect>
                                     <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -285,12 +288,12 @@
                                 </TextBox.Effect>
                             </TextBox>
 
-                            <Label Content="*Vui lòng nhập đúng theo cú pháp:"
-                                       FontSize="16"
-                                       FontWeight="Light"
-                                       Foreground="Red"
-                                       FontStyle="Italic"
-                                       Margin="443,10,175,6"></Label>
+                            <Label  Content="*Vui lòng nhập đúng theo cú pháp: 50 (tức là 50%)"
+                                    FontSize="16"
+                                    FontWeight="Light"
+                                    Foreground="Red"
+                                    FontStyle="Italic"
+                                    Margin="443,10,79,6"></Label>
                         </Grid>
 
                         <!--Row - 4-->
@@ -309,10 +312,11 @@
                                        Margin="0,25,0,0"></Label>
 
                                     <DatePicker Height="50"
-                                         Margin="134,16,19,11"
+                                     Margin="134,16,19,11"
                                      Background="#EBECF0"
                                      FontSize="15"
-                                     VerticalContentAlignment="Center">
+                                     VerticalContentAlignment="Center"
+                                     x:Name="dateStart">
                                         <DatePicker.Effect>
                                             <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -331,10 +335,11 @@
                                        Margin="0,25,0,0"></Label>
 
                                     <DatePicker Height="50"
-                                         Margin="144,16,0,11"
+                                     Margin="144,16,0,11"
                                      Background="#EBECF0"
                                      FontSize="15"
-                                     VerticalContentAlignment="Center">
+                                     VerticalContentAlignment="Center"
+                                     x:Name="dateEnd">
                                         <DatePicker.Effect>
                                             <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -356,11 +361,12 @@
                                        FontWeight="Medium"
                                        Margin="0,10,804,6"></Label>
                             <TextBox Height="100"
-                                         Margin="135,16,0,11"
+                                     Margin="135,16,0,11"
                                      Background="#EBECF0"
                                      TextWrapping="Wrap"
                                      FontSize="20"
-                                     VerticalContentAlignment="Top">
+                                     VerticalContentAlignment="Top"
+                                     x:Name="description">
                                 <TextBox.Effect>
                                     <DropShadowEffect BlurRadius="5"
                                                   Color="#877b77"
@@ -379,11 +385,18 @@
                                        FontSize="16"
                                        FontWeight="Medium"
                                        Margin="0,10,721,6"></Label>
-                            <ComboBox Margin="138,14,664,10">
-                                <ComboBox.Effect>
+                            <ListBox Margin="135,0,561,6" 
+                                     x:Name="typeOfBookCombobox"
+                                     SelectionMode="Multiple">
+                                <ListBox.Effect>
                                     <DropShadowEffect BlurRadius="5" />
-                                </ComboBox.Effect>
-                            </ComboBox>
+                                </ListBox.Effect>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding tobName}"></TextBlock>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
                         </Grid>
 
                         <!--Row - 7-->
@@ -392,8 +405,8 @@
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center">
                                 <Border CornerRadius="20">
-                                    <Button Width="100" Height="35"  Background="Green">
-                                        <Label Foreground="White">Lưu</Label>
+                                    <Button Cursor="Hand" Width="100" Height="35"  Background="Green" Click="addNewBtn">
+                                        <Label Foreground="White">Thêm</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">
                                                 <Setter Property="CornerRadius" Value="5"/>
@@ -403,7 +416,7 @@
                                 </Border>
 
                                 <Border CornerRadius="20" Margin="20,0,0,0">
-                                    <Button Width="100" Height="35" Background="#F5C038">
+                                    <Button Cursor="Hand" Width="100" Height="35" Background="#F5C038" Click="Button_Click">
                                         <Label Foreground="White">Hủy bỏ</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">

@@ -31,7 +31,8 @@ CREATE TABLE PROMOTION
     promoDiscount FLOAT(2),
     promoDescription NVARCHAR(500),
     promoStartTime DATE,
-    promoEndTime DATE
+    promoEndTime DATE,
+	promoStatus BIT,
 
 	PRIMARY KEY(promoID)
 )
@@ -179,13 +180,13 @@ INSERT INTO BOOK(bookID, tobID, bookName, bookAuthor, bookPrice, bookPublishedYe
             ('A0039', 'TB007', N'Từ Bi - Trên Cả Trắc Ẩn Và Yêu Thương', N'Osho', 183000, 2020, 4)
 
 GO
-INSERT INTO PROMOTION(promoID, promoName,promoDiscount, promoDescription, promoStartTime, promoEndTime)
-    VALUES  ('KM-GIAM50K', N'KM Giảm 50K', 0.15, N'Khuyến mãi Giảm 15% tổng giá trị hóa đơn tối đa 50K', '2022/04/08', '2022/04/18'),
-            ('KM-GIAM30%', N'KM Giảm 30%', 0.3, N'Khuyến mãi Giảm 30% cho những sách thuộc danh mục Tiểu thuyết, Truyện ngắn', '2022/02/08', '2022/03/08'),
-            ('KM-DACBIET', N'KM Đặc biệt', 0.75, N'Khuyến mãi Giảm 75% tổng giá trị hóa đơn tối đa 500K', '2021/12/31', '2021/12/27'),
-            ('KM-GIAM100K', N'KM Giảm 100K', 0.3, N'Khuyến mãi Giảm 30% tối đa 100K cho những sách thuộc danh mục Sách Nghệ thuật sống đẹp, Sách Kỹ năng sống', '2021/08/08', '2021/09/09'),
-            ('KM-GIAM70%', N'KM Giảm 70%', 0.7, N'Khuyến mãi Giảm 70% cho những sách thuộc danh mục Sách Thiếu nhi', '2021/06/06', '2021/05/27'),
-            ('KM-GIAM50%', N'KM Giảm 50%', 0.5, N'Khuyến mãi Giảm 50% cho những sách thuộc danh mục Sách Tôn giáo - Tâm linh', '2021/04/08', '2021/04/18')
+INSERT INTO PROMOTION(promoID, promoName,promoDiscount, promoDescription, promoStartTime, promoEndTime, promoStatus)
+    VALUES  ('KM-GIAM50K', N'KM Giảm 50K', 0.15, N'Khuyến mãi Giảm 15% tổng giá trị hóa đơn tối đa 50K', '2022/04/08', '2022/04/18',1),
+            ('KM-GIAM30%', N'KM Giảm 30%', 0.3, N'Khuyến mãi Giảm 30% cho những sách thuộc danh mục Tiểu thuyết, Truyện ngắn', '2022/02/08', '2022/03/08',1),
+            ('KM-DACBIET', N'KM Đặc biệt', 0.75, N'Khuyến mãi Giảm 75% tổng giá trị hóa đơn tối đa 500K', '2021/12/31', '2021/12/27',1),
+            ('KM-GIAM100K', N'KM Giảm 100K', 0.3, N'Khuyến mãi Giảm 30% tối đa 100K cho những sách thuộc danh mục Sách Nghệ thuật sống đẹp, Sách Kỹ năng sống', '2021/08/08', '2021/09/09',1),
+            ('KM-GIAM70%', N'KM Giảm 70%', 0.7, N'Khuyến mãi Giảm 70% cho những sách thuộc danh mục Sách Thiếu nhi', '2021/06/06', '2021/05/27',1),
+            ('KM-GIAM50%', N'KM Giảm 50%', 0.5, N'Khuyến mãi Giảm 50% cho những sách thuộc danh mục Sách Tôn giáo - Tâm linh', '2021/04/08', '2021/04/18',1)
 
 GO
 INSERT INTO PROMOTIONDETAIL(promoID, tobID)

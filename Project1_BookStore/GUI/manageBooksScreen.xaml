@@ -745,7 +745,7 @@
                                             <Slider Width="200" Height="20"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Bottom"
-                                                    Margin="0,0,112,30">
+                                                    Margin="0,0,112,30" AutoToolTipPlacement="BottomRight">
 
                                             </Slider>
                                         </Grid>

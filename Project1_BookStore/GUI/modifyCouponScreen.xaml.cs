@@ -1,6 +1,9 @@
-﻿using Project1_BookStore.DTO;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +23,22 @@ namespace Project1_BookStore.GUI
     /// </summary>
     public partial class modifyCouponScreen : Window
     {
+        public PromotionDTO _promotion { get; set; }
         public modifyCouponScreen()
         {
             InitializeComponent();
             reDownButton.Visibility = Visibility.Collapsed;
         }
+
+        class modifyCounponContext:INotifyPropertyChanged
+        {
+            public Icons _icons { get; set; } = new Icons();
+            public PromotionDTO _promotionDTO { get; set; }
+
+            public event PropertyChangedEventHandler? PropertyChanged;
+        }
+
+        modifyCounponContext context = new modifyCounponContext();
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -53,11 +67,86 @@ namespace Project1_BookStore.GUI
             this.WindowState = WindowState.Minimized;
         }
 
-        Icons _icons = new Icons();
+       
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = _icons;
+            context._promotionDTO = this._promotion;
+            this.DataContext = context;
             //this.WindowState = WindowState.Maximized;
+        }
+
+        private void cancelBtn(object sender, RoutedEventArgs e)
+        {
+            // close dialog
+            this.Close();
+        }
+
+        private bool check()
+        {
+            if (String.IsNullOrEmpty(nameCoupon.Text) || String.IsNullOrEmpty(coupon.Text) 
+                || String.IsNullOrEmpty(description.Text) || !dateStart.SelectedDate.HasValue 
+                || !dateEnd.SelectedDate.HasValue)
+                return false;
+            return true;
+        }
+
+        private void saveBtn(object sender, RoutedEventArgs e)
+        {
+            if (!check())
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ vào ô cần sửa!!!");
+                return;
+            }
+
+            DateTime? start = dateStart.SelectedDate;
+            DateTime? end = dateEnd.SelectedDate;
+
+            var newCoupon = new PromotionDTO()
+            {
+                promoID = _promotion.promoID,
+                promoName = nameCoupon.Text,
+                promoDiscount = (float)(1.0 * float.Parse(coupon.Text) / 100),
+                promoDesciption = description.Text,
+                promoStartTime = (DateTime)start,
+                promoEndTime = (DateTime)end,
+                promoStatus = true
+            };
+
+            PromotionBUS.UpdatePromotion(newCoupon);
+            _promotion = newCoupon;
+            
+
+            MessageBox.Show("Sửa thành công khuyến mãi!!!");
+            DialogResult = true;
+        }
+
+        private void coupon_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            bool enteredLetter = false;
+            Queue<char> text = new Queue<char>();
+            foreach (var ch in this.coupon.Text)
+            {
+                if (char.IsDigit(ch))
+                {
+                    text.Enqueue(ch);
+                }
+                else
+                {
+                    enteredLetter = true;
+                }
+            }
+
+            if (enteredLetter)
+            {
+                StringBuilder sb = new StringBuilder();
+                while (text.Count > 0)
+                {
+                    sb.Append(text.Dequeue());
+                }
+
+                this.coupon.Text = sb.ToString();
+                this.coupon.SelectionStart = this.coupon.Text.Length;
+            }
         }
     }
 }
