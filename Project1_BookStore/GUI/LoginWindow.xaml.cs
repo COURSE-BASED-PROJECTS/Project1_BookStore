@@ -64,6 +64,9 @@ namespace Project1_BookStore
         {
             this.DataContext = _icons;
             // Check username password trong Appconfig với DB
+            // AppConfig lưu password đã hash. 
+            // kiểm tra password trong AppConfig có bằng với password lấy lên từ DB
+            // Gọi hàm getHashedPasswordByUsername trong UserBUS
             // Nếu đúng mới làm tiếp, sai thì ở lại màn hình Login
 
             var lastsScreen = AppConfig.GetValue(AppConfig.LastScreen);
@@ -92,7 +95,6 @@ namespace Project1_BookStore
             else
             {
                 AppConfig.SetValue(AppConfig.Username, username);
-                AppConfig.SetValue(AppConfig.Password, rawpassword);
                 
                 var screen = new MainWindow();
                 screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -122,7 +124,6 @@ namespace Project1_BookStore
                 else
                 {
                     AppConfig.SetValue(AppConfig.Username, username);
-                    AppConfig.SetValue(AppConfig.Password, rawpassword);
                     
                     var screen = new MainWindow();
                     screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;

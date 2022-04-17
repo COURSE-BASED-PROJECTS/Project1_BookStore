@@ -18,5 +18,13 @@ namespace Project1_BookStore.BUS
             }
             return UserDAO.findUser(username, password);  
         }
+        public static string getHashedPasswordByUsername(string username)
+        {
+            if (username == null || username == "")
+            {
+                return null;
+            }
+            return UserDAO.getHashedPasswordByUsername(username);
+        }
     }
 }
