@@ -7,7 +7,8 @@
         xmlns:utils="clr-namespace:Project1_BookStore.Utils"
         mc:Ignorable="d"
         Title="manageOrder" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
         <!--styte control buttons: maximize, minimize, close, restore-->
@@ -331,7 +332,8 @@
                               HorizontalAlignment="Right" Margin="0,25,200,0">
                             <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                         </Grid>
-                        <TextBox Width="200" Height="24" 
+                        <TextBox Width="200" Height="24"
+                                 Name="searchBox"
                                  HorizontalAlignment="Right"
                                  Margin="0,25,0,0" VerticalContentAlignment="Center"
                                  FontSize="14"></TextBox>

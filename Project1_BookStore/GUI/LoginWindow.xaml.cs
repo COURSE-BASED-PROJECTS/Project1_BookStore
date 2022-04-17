@@ -81,6 +81,10 @@ namespace Project1_BookStore
             }
             else
             {
+                var entropy = "123";
+                AppConfig.SetValue(AppConfig.Username, username);
+                AppConfig.SetValue(AppConfig.Password, password);
+                AppConfig.SetValue(AppConfig.Entropy, entropy);
                 var screen = new MainWindow();
                 screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 screen.Show();
@@ -108,6 +112,10 @@ namespace Project1_BookStore
                 }
                 else
                 {
+                    var entropy = "123";
+                    AppConfig.SetValue(AppConfig.Username, username);
+                    AppConfig.SetValue(AppConfig.Password, password);
+                    AppConfig.SetValue(AppConfig.Entropy, entropy);
                     var screen = new MainWindow();
                     screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     screen.Show();

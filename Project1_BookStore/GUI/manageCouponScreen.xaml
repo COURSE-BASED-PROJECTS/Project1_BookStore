@@ -478,8 +478,8 @@
                                         Stroke="Gray"  
                                         StrokeThickness="1" />
                                 <ListView Height="350" 
-                                          x:Name="couponList"
-                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,10,0,123">
+                                          x:Name="couponList"                                          
+                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,10,0,0">
                                     <ListView.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel/>
@@ -603,7 +603,8 @@
                                           Background="LightGray"
                                           HorizontalAlignment="Left"
                                           Margin="10"
-                                          Cursor="Hand">
+                                          Cursor="Hand"
+                                          MouseDown="previousPage_MouseDown">
                                         <Image Source="{Binding arrow_left,Converter={StaticResource absoluteConverter}}">
                                         </Image>
                                     </Grid>
@@ -611,7 +612,7 @@
                                     <Grid Width="32" Height="32"
                                           Background="WhiteSmoke"
                                           HorizontalAlignment="Center">
-                                        <Label Content="1"
+                                        <Label Name="currentPagingText"
                                                HorizontalContentAlignment="Center"
                                                VerticalContentAlignment="Center"></Label>
                                     </Grid>
@@ -620,7 +621,8 @@
                                           Background="LightGray"
                                           HorizontalAlignment="Right"
                                           Margin="10"
-                                          Cursor="Hand">
+                                          Cursor="Hand"
+                                          MouseDown="nextPage_MouseDown">
                                         <Image Source="{Binding arrow_right,Converter={StaticResource absoluteConverter}}">
                                         </Image>
                                     </Grid>

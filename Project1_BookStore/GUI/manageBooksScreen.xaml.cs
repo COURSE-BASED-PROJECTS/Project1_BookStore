@@ -97,18 +97,6 @@ namespace Project1_BookStore.GUI
             Context.countBook = BookBUS.findAllBook().Count;
 
             this.DataContext = Context;
-            //_totalItems = allBookContext.Count;
-            //_totalPages = _totalItems / _rowsPerPage +
-            //        (_totalItems % _rowsPerPage == 0 ? 0 : 1);
-
-            //allBooks.ItemsSource = allBookContext
-            //                       .Skip((_currentPage - 1) * _rowsPerPage)
-            //                       .Take(_rowsPerPage)
-            //                       .ToList();
-            //
-            //currentPagingText.Content = $"{_currentPage}/{_totalPages}";
-            //nearOutOfBooks.ItemsSource = nearOutOfBookContext;
-            //bestSellerBooks.ItemsSource = bestSellerBookContext;
         }
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
@@ -221,6 +209,7 @@ namespace Project1_BookStore.GUI
                 // Thay đổi view model
                 _vm.Books = tabs[i].Books;
 
+                _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageBookScreen));
                 _currentPage = 1; // Quay lại trang đầu tiên
 
                 _vm.SelectedBooks = _vm.Books
@@ -303,6 +292,42 @@ namespace Project1_BookStore.GUI
             {
                 // write changed things here!
             }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string keyword = searchBox.Text;
+                tabControl.SelectedIndex = 3;
+
+                tabs[3].Books = new List<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBookByName(keyword)));
+                _vm.Books = tabs[3].Books;
+
+                _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageBookScreen));
+                _currentPage = 1; // Quay lại trang đầu tiên
+
+                _vm.SelectedBooks = _vm.Books
+                    .Skip((_currentPage - 1) * _rowsPerPage)
+                    .Take(_rowsPerPage)
+                    .ToList();
+
+
+                // Tính toán lại thông số phân trang
+                _totalItems = _vm.Books.Count;
+                _totalPages = _totalItems / _rowsPerPage +
+                    (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+
+                // ép cập nhật giao diện
+                tabs[3].Name.ItemsSource = _vm.SelectedBooks;
+
+                // cập nhật tổng sản phẩm từng tab
+                Context.countBook = _totalItems;
+            }
+
         }
     }
 }

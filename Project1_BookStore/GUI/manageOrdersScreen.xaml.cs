@@ -20,6 +20,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Data;
 using System.Diagnostics;
+using Project1_BookStore.Utils;
 
 namespace Project1_BookStore.GUI
 {
@@ -82,7 +83,8 @@ namespace Project1_BookStore.GUI
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = Context;
-            
+
+            _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageOrderScreen));
             _totalItems = listOrders.Count;
             Context.countOrder = _totalItems;
             _totalPages = _totalItems / _rowsPerPage +

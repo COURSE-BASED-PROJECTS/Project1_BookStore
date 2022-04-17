@@ -1,35 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj": {}
+    "D:\\UNIVERSITY\\3.THE THIRD YEAR\\HK2\\Windows Programing\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj": {}
   },
   "projects": {
-    "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj": {
+    "D:\\UNIVERSITY\\3.THE THIRD YEAR\\HK2\\Windows Programing\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
+        "projectUniqueName": "D:\\UNIVERSITY\\3.THE THIRD YEAR\\HK2\\Windows Programing\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
         "projectName": "Project1_BookStore",
-        "projectPath": "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
-        "packagesPath": "C:\\Users\\btram\\.nuget\\packages\\",
-        "outputPath": "D:\\Sources\\GitHub\\Project1_BookStore\\Project1_BookStore\\obj\\",
+        "projectPath": "D:\\UNIVERSITY\\3.THE THIRD YEAR\\HK2\\Windows Programing\\Project1_BookStore\\Project1_BookStore\\Project1_BookStore.csproj",
+        "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
+        "outputPath": "D:\\UNIVERSITY\\3.THE THIRD YEAR\\HK2\\Windows Programing\\Project1_BookStore\\Project1_BookStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\btram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LEGION\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0-windows7.0": {
@@ -47,6 +44,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "PropertyChanged.Fody": {
               "target": "Package",
               "version": "[3.4.0, )"

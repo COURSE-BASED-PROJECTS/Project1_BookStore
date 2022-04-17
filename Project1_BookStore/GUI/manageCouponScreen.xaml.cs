@@ -1,5 +1,6 @@
 ﻿using Project1_BookStore.BUS;
 using Project1_BookStore.DTO;
+using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,11 +40,26 @@ namespace Project1_BookStore.GUI
         manageCouponContext Context = new manageCouponContext();
         List<PromotionDTO> listPromotions = PromotionBUS.findAllPromotion();
 
+        int _totalItems = 0;
+        int _currentPage = 1;
+        int _totalPages = 0;
+        int _rowsPerPage = 3;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Context.countCoupon = listPromotions.Count;
             this.DataContext = Context;
-            couponList.ItemsSource = listPromotions;
+
+            _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageCouponScreen)); 
+            _totalItems = listPromotions.Count;
+            _totalPages = _totalItems / _rowsPerPage +
+                    (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+            currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+            couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
+                                    .Take(_rowsPerPage)
+                                    .ToList();
+            //couponList.ItemsSource = listPromotions;
         }
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -116,5 +132,40 @@ namespace Project1_BookStore.GUI
         {
 
         }
+
+        private void nextPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            _currentPage++;
+            if (_currentPage <= _totalPages)
+            {
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+                couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
+                                        .Take(_rowsPerPage)
+                                        .ToList();
+            }
+            else
+            {
+                _currentPage--;
+            }
+        }
+
+        private void previousPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            _currentPage--;
+            if (_currentPage > 0)
+            {
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+                couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
+                                        .Take(_rowsPerPage)
+                                        .ToList();
+            }
+            else
+            {
+                _currentPage++;
+            }
+        }
+
     }
 }

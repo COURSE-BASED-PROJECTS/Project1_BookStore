@@ -15,7 +15,12 @@ namespace Project1_BookStore.Utils
         public static string Database = "Database";
         public static string Username = "Username";
         public static string Password = "Password";
+        public static string LastScreen = "LastScreen";
+        public static string OnStart = "OnStart";
         public static string Entropy = "Entropy";
+        public static string RowPerPageManageCouponScreen = "RowPerPageManageCouponScreen";
+        public static string RowPerPageManageBookScreen = "RowPerPageManageBookScreen";
+        public static string RowPerPageManageOrderScreen = "RowPerPageManageOrderScreen";
 
         public static string? GetValue(string key)
         {
