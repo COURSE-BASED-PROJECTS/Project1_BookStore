@@ -10,11 +10,11 @@
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
-        <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding pathClosePressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
-        <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding pathMaxPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
-        <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding pathReDownBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
-        <ImageBrush x:Key="ReDownButton.Pressed.Background" ImageSource="{Binding pathReDownPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
-        <ImageBrush x:Key="MinButton.Pressed.Background" ImageSource="{Binding pathMinPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding restore, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="ReDownButton.Pressed.Background" ImageSource="{Binding restorePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="MinButton.Pressed.Background" ImageSource="{Binding minimizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
 
         <Style x:Key="CloseButton" TargetType="{x:Type Button}">
             <Setter Property="Template">
@@ -153,7 +153,7 @@
                             <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
                              Click="minButton_Click">
                                 <Button.Background>
-                                    <ImageBrush ImageSource="{Binding pathMinBtn, Converter={StaticResource absoluteConverter}}"/>
+                                    <ImageBrush ImageSource="{Binding minimize, Converter={StaticResource absoluteConverter}}"/>
 
                                 </Button.Background>
                             </Button>
@@ -167,7 +167,7 @@
                                 <Button Style="{DynamicResource MaxButton}" x:Name="maxButton" BorderThickness="0" Height="18" Width="18"
                              Click="maxButton_Click" Canvas.Left="9" Canvas.Top="9">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="{Binding pathMaxBtn, Converter={StaticResource absoluteConverter}}"/>
+                                        <ImageBrush ImageSource="{Binding maximize, Converter={StaticResource absoluteConverter}}"/>
                                     </Button.Background>
                                 </Button>
                                 <Button Style="{DynamicResource ReDownButton}" x:Name="reDownButton" BorderThickness="0" Height="24" Width="24"
@@ -182,7 +182,7 @@
                             <Button Style="{DynamicResource CloseButton}" x:Name="closeButton" BorderThickness="0" Height="24" Width="24"
                              Click="closeButton_Click">
                                 <Button.Background>
-                                    <ImageBrush ImageSource="{Binding pathCloseBtn, Converter={StaticResource absoluteConverter}}"/>
+                                    <ImageBrush ImageSource="{Binding close, Converter={StaticResource absoluteConverter}}"/>
                                 </Button.Background>
                             </Button>
                         </Border>

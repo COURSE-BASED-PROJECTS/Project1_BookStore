@@ -71,5 +71,10 @@ namespace Project1_BookStore.GUI
         {
             this.Close();
         }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

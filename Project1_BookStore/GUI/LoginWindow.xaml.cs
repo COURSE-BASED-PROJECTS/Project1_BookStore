@@ -69,12 +69,12 @@ namespace Project1_BookStore
             // Gọi hàm getHashedPasswordByUsername trong UserBUS
             // Nếu đúng mới làm tiếp, sai thì ở lại màn hình Login
 
-            var lastsScreen = AppConfig.GetValue(AppConfig.LastScreen);
-            // Lấy dữ liệu trongAppConfig xem ngta chọn gì -> xử lí
-            if (!lastsScreen.Equals("LoginScreen"))
-            {
-                //xử lí màn hình
-            }
+            //var lastsScreen = AppConfig.GetValue(AppConfig.LastScreen);
+            //// Lấy dữ liệu trongAppConfig xem ngta chọn gì -> xử lí
+            //if (!lastsScreen.Equals("LoginScreen"))
+            //{
+            //    //xử lí màn hình
+            //}
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)

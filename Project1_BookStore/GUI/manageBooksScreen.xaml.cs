@@ -35,6 +35,8 @@ namespace Project1_BookStore.GUI
             public Icons _icons { get; set; } = new Icons();
             public int countBook { get; set; } =  0;
 
+            public int maxPrice { get; set; } = 10000000;
+
             public event PropertyChangedEventHandler? PropertyChanged;
         }
 

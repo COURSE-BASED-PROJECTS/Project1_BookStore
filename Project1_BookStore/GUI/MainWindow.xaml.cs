@@ -35,6 +35,7 @@ namespace Project1_BookStore
             public int ongoingBooks { get; set; } = 0;
             public int newOrders { get; set; } = 0;
 
+            public string username { get; set; } = "QuanLyDA";
             public Icons _icons { get; set; } = new Icons();
 
             public event PropertyChangedEventHandler? PropertyChanged;
@@ -80,6 +81,8 @@ namespace Project1_BookStore
             itemMainWindow.soldBooks = BookBUS.countBookSold();
             itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count - itemMainWindow.soldBooks;
             itemMainWindow.newOrders = OrderBUS.findAllOrder().Count;
+
+            //itemMainWindow.username = AppConfig.GetValue(AppConfig.Username);
 
             this.DataContext = itemMainWindow;
         }

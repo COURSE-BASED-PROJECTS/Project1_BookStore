@@ -12,11 +12,11 @@
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
         <!--styte control buttons: maximize, minimize, close, restore-->
-        <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding pathClosePressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
-        <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding pathMaxPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
-        <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding pathReDownBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
-        <ImageBrush x:Key="ReDownButton.Pressed.Background" ImageSource="{Binding pathReDownPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
-        <ImageBrush x:Key="MinButton.Pressed.Background" ImageSource="{Binding pathMinPressedBtn, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding restore, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="ReDownButton.Pressed.Background" ImageSource="{Binding restorePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="MinButton.Pressed.Background" ImageSource="{Binding minimizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
 
         <Style x:Key="CloseButton" TargetType="{x:Type Button}">
             <Setter Property="Template">
@@ -190,87 +190,90 @@
                     <!--row-1-->
                     <Grid Grid.Column="0" Grid.Row="0" MouseDown="Grid_MouseDown_MainWindow"
                           Cursor="Hand">
-                        <TextBlock HorizontalAlignment="Left"
-                                   VerticalAlignment="Center">
-                            <Image Width="16" Height="16" Margin="20,0,0,0"
-                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                            <TextBlock Text="Tổng quan hệ thống"
-                                       HorizontalAlignment="Left"
-                                       Margin="5,0,0,0"
-                                       FontSize="15"
-                                       ></TextBlock>
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
+                            <Image Height="25" Width="25" 
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               Source="{Binding dashboard, Converter={StaticResource absoluteConverter}}"/>
+                            <Label Content="Tổng quan hệ thống" Padding="10 0 0 0"
+                               Height="20" Width="159"
+                               FontSize="15"
+                               FontWeight="Medium"/>
+                        </StackPanel>
                     </Grid>
 
                     <!--row-2-->
                     <Grid Grid.Column="0" Grid.Row="1" MouseDown="Grid_MouseDown_ManageProduct"
                           Cursor="Hand">
-                        <TextBlock HorizontalAlignment="Left"
-                                   VerticalAlignment="Center">
-                            <Image Width="16" Height="16" Margin="20,0,0,0"
-                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                            <TextBlock Text="Quản lý sản phẩm"
-                                       HorizontalAlignment="Left"
-                                       Margin="5,0,0,0"
-                                       Foreground="#6B34C3"
-                                       FontWeight="Medium"
-                                       FontSize="15"></TextBlock>
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
+                            <Image Height="25" Width="25" 
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               Source="{Binding boxesPressed, Converter={StaticResource absoluteConverter}}"/>
+                            <Label Content="Quản lý sản phẩm" Padding="10 0 0 0"
+                               HorizontalAlignment="Left"
+                               Foreground="#6B34C3"
+                               Height="20" Width="159"
+                               FontSize="15"
+                               FontWeight="Medium"/>
+                        </StackPanel>
                     </Grid>
 
                     <!--row-3-->
                     <Grid Grid.Column="0" Grid.Row="2" MouseDown="Grid_MouseDown_ManageOrder"
                           Cursor="Hand">
-                        <TextBlock HorizontalAlignment="Left"
-                                   VerticalAlignment="Center">
-                            <Image Width="16" Height="16" Margin="20,0,0,0"
-                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                            <TextBlock Text="Quản lý đơn hàng"
-                                       HorizontalAlignment="Left"
-                                       Margin="5,0,0,0"
-                                       FontSize="15"></TextBlock>
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
+                            <Image Height="25" Width="25" 
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               Source="{Binding order, Converter={StaticResource absoluteConverter}}"/>
+                            <Label Content="Quản lý đơn hàng" Padding="10 0 0 0"
+                               HorizontalAlignment="Left"
+                               Height="20" Width="159"
+                               FontSize="15"
+                               FontWeight="Medium"/>
+                        </StackPanel>
                     </Grid>
 
                     <!--row-4-->
                     <Grid Grid.Column="0" Grid.Row="3" MouseDown="Grid_MouseDown_ManageCoupon"
                           Cursor="Hand">
-                        <TextBlock HorizontalAlignment="Left"
-                                   VerticalAlignment="Center">
-                            <Image Width="16" Height="16" Margin="20,0,0,0"
-                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                            <TextBlock Text="Quản lý khuyến mãi"
-                                       HorizontalAlignment="Left"
-                                       Margin="5,0,0,0"
-                                       FontSize="15"></TextBlock>
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
+                            <Image Height="25" Width="25" 
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               Source="{Binding promotion, Converter={StaticResource absoluteConverter}}"/>
+                            <Label Content="Quản lý khuyến mãi" Padding="10 0 0 0"
+                               HorizontalAlignment="Left"
+                               Height="20" Width="159"
+                               FontSize="15"
+                               FontWeight="Medium"/>
+                        </StackPanel>
                     </Grid>
 
                     <!--row-5-->
                     <Grid Grid.Column="0" Grid.Row="4">
-                        <TextBlock HorizontalAlignment="Left"
-                                   VerticalAlignment="Center">
-                            <Image Width="16" Height="16" Margin="20,0,0,0"
-                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                            <TextBlock Text="Thống kê doanh thu"
-                                       HorizontalAlignment="Left"
-                                       Margin="5,0,0,0"
-                                       FontSize="15"></TextBlock>
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
+                            <Image Height="25" Width="25" 
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               Source="{Binding statistics, Converter={StaticResource absoluteConverter}}"/>
+                            <Label Content="Thống kê doanh thu" Padding="10 0 0 0"
+                               HorizontalAlignment="Left"
+                               Height="20" Width="159"
+                               FontSize="15"
+                               FontWeight="Medium"/>
+                        </StackPanel>
                     </Grid>
 
                     <!--row-6-->
                     <Grid Grid.Column="0" Grid.Row="5" MouseDown="Grid_MouseDown_Setting"
                           Cursor="Hand">
-                        <TextBlock HorizontalAlignment="Left"
-                                   VerticalAlignment="Center">
-                            <Image Width="16" Height="16" Margin="20,0,0,0"
-                                   Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                            <TextBlock Text="Cấu hình hệ thống"
-                                       HorizontalAlignment="Left"
-                                       Margin="5,0,0,0"
-                                       FontSize="15"></TextBlock>
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
+                            <Image Height="25" Width="25" 
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               Source="{Binding setting, Converter={StaticResource absoluteConverter}}"/>
+                            <Label Content="Cấu hình hệ thống" Padding="10 0 0 0"
+                               HorizontalAlignment="Left"
+                               Height="20" Width="159"
+                               FontSize="15"
+                               FontWeight="Medium"/>
+                        </StackPanel>
                     </Grid>
 
                 </Grid>
@@ -283,21 +286,20 @@
                       Height="91" 
                       Background="#FBFBFB" Margin="0,178,0,0">
 
-                    <TextBlock HorizontalAlignment="Center"
+                    <Grid HorizontalAlignment="Center" Height="35"
                                VerticalAlignment="Center">
-                        <Image Width="35" Height="35"
-                               Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                             
-                        <TextBlock Text="Quản lý DA"
-                                    FontFamily="Inter"
-                                    FontSize="15"
-                                    Margin="5,0,0,0"></TextBlock>
-                        <Image  Width="24" Height="24"
-                                Margin="20,0,0,0"
+                        <Image  Height="35" Width="35" Margin="0,0,124,0"
+                                Source="{Binding avatar, Converter={StaticResource absoluteConverter}}"/>
+
+                        <Label FontFamily="Inter" Content="{Binding username}"
+                               FontSize="15" Margin="35,0,24,0"/>
+
+                        <Image  Height="24" Width="24" Margin="135,5,0,6" 
                                 Cursor="Hand"
-                                MouseDown="signOut_MouseDown"
-                                Source="{Binding sign_out, Converter={StaticResource absoluteConverter}}"></Image>
-                    </TextBlock>
+                                Source="{Binding sign_out, Converter={StaticResource absoluteConverter}}"
+                                MouseDown="signOut_MouseDown"/>
+
+                    </Grid>
                 </Grid>
 
             </Grid>
@@ -355,7 +357,7 @@
                                 <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
                                         Click="minButton_Click">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="{Binding pathMinBtn, Converter={StaticResource absoluteConverter}}"/>
+                                        <ImageBrush ImageSource="{Binding minimize, Converter={StaticResource absoluteConverter}}"/>
 
                                     </Button.Background>
                                 </Button>
@@ -369,7 +371,7 @@
                                     <Button Style="{DynamicResource MaxButton}" x:Name="maxButton" BorderThickness="0" Height="18" Width="18"
                                             Click="maxButton_Click" Canvas.Left="9" Canvas.Top="9">
                                         <Button.Background>
-                                            <ImageBrush ImageSource="{Binding pathMaxBtn, Converter={StaticResource absoluteConverter}}"/>
+                                            <ImageBrush ImageSource="{Binding maximize, Converter={StaticResource absoluteConverter}}"/>
                                         </Button.Background>
                                     </Button>
                                     <Button Style="{DynamicResource ReDownButton}" x:Name="reDownButton" BorderThickness="0" Height="24" Width="24"
@@ -384,7 +386,7 @@
                                 <Button Style="{DynamicResource CloseButton}" x:Name="closeButton" BorderThickness="0" Height="24" Width="24"
                                         Click="closeButton_Click">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="{Binding pathCloseBtn, Converter={StaticResource absoluteConverter}}"/>
+                                        <ImageBrush ImageSource="{Binding close, Converter={StaticResource absoluteConverter}}"/>
                                     </Button.Background>
                                 </Button>
                             </Border>
@@ -734,15 +736,21 @@
                                                     </DataTemplate>
                                                 </ListView.ItemTemplate>
                                             </ListView>
+
+                                            <Label Content="0 đ" Margin="543,369,312,30"
+                                                   FontSize="12" FontWeight="Medium"/>
+                                            <Label Content="{Binding maxPrice}" Margin="776,369,10,30"
+                                                   FontSize="12" FontWeight="Medium"/>
+
                                             <Slider Width="200" Height="20"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Bottom"
-                                                    Margin="30">
+                                                    Margin="0,0,112,30">
 
                                             </Slider>
                                         </Grid>
                                     </TabItem>
-                                   
+
                                 </TabControl>
 
                             </Grid>
