@@ -22,8 +22,9 @@ namespace Project1_BookStore.GUI
     /// <summary>
     /// Interaction logic for manageBooksScreen.xaml
     /// </summary>
-    public partial class manageBooksScreen : Window
+    public partial class manageBooksScreen : Window, INotifyPropertyChanged
     {
+        public int tabIndex { get; set; } = -1;
         public manageBooksScreen()
         {
             InitializeComponent();
@@ -35,15 +36,15 @@ namespace Project1_BookStore.GUI
             public Icons _icons { get; set; } = new Icons();
             public int countBook { get; set; } =  0;
 
-            public decimal maxPrice { get; set; } = 10000000;
+            public decimal maxPrice { get; set; } = 0;
 
             public event PropertyChangedEventHandler? PropertyChanged;
         }
 
         manageBooksContext Context = new manageBooksContext();
-        List<BookDTO> allBookContext = new List<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findAllBook()));
-        List<BookDTO> nearOutOfBookContext = new List<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findTop5()));
-        List<BookDTO> bestSellerBookContext = new List<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBook()));
+        BindingList<BookDTO> allBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findAllBook()));
+        BindingList<BookDTO> nearOutOfBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findTop5()));
+        BindingList<BookDTO> bestSellerBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBook()));
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -74,15 +75,15 @@ namespace Project1_BookStore.GUI
         class Tab
         {
             public ListView Name { get; set; }
-            public List<BookDTO> Books { get; set; }
+            public BindingList<BookDTO> Books { get; set; }
         }
 
-        List<Tab> tabs = new List<Tab>();
+        BindingList<Tab> tabs = new BindingList<Tab>();
 
         class ViewModel : INotifyPropertyChanged
         {
-            public List<BookDTO> Books { get; set; } = new List<BookDTO>();
-            public List<BookDTO> SelectedBooks { get; set; } = new List<BookDTO>();
+            public BindingList<BookDTO> Books { get; set; } = new BindingList<BookDTO>();
+            public BindingList<BookDTO> SelectedBooks { get; set; } = new BindingList<BookDTO>();
 
             public event PropertyChangedEventHandler PropertyChanged;
         }
@@ -94,6 +95,9 @@ namespace Project1_BookStore.GUI
         int _currentPage = 1;
         int _totalPages = 0;
         int _rowsPerPage = 10;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Context.countBook = BookBUS.findAllBook().Count;
@@ -208,25 +212,26 @@ namespace Project1_BookStore.GUI
             var Tab4 = new Tab()
             {
                 Name = searchResult,
-                Books = new List<BookDTO>()
+                Books = new BindingList<BookDTO>()
             };
             tabs.Add(Tab1);
             tabs.Add(Tab2);
             tabs.Add(Tab3);
             tabs.Add(Tab4);
             int i = tabControl.SelectedIndex;
-            if (i >= 0)
+            if (i >= 0 && i != this.tabIndex)
             {
+                this.tabIndex = tabControl.SelectedIndex;
                 // Thay đổi view model
                 _vm.Books = tabs[i].Books;
 
                 _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageBookScreen));
                 _currentPage = 1; // Quay lại trang đầu tiên
 
-                _vm.SelectedBooks = _vm.Books
+                _vm.SelectedBooks = new BindingList<BookDTO> (_vm.Books
                     .Skip((_currentPage - 1) * _rowsPerPage)
                     .Take(_rowsPerPage)
-                    .ToList();
+                    .ToList());
 
 
                 // Tính toán lại thông số phân trang
@@ -251,11 +256,11 @@ namespace Project1_BookStore.GUI
             _currentPage++;
             if (_currentPage <= _totalPages)
             {
-                _vm.SelectedBooks = _vm.Books
+                _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
                     .Skip((_currentPage - 1) * _rowsPerPage)
                     .Take(_rowsPerPage)
                     .Take(_rowsPerPage)
-                    .ToList();
+                    .ToList());
 
                 // ép cập nhật giao diện
                 tabs[i].Name.ItemsSource = _vm.SelectedBooks;
@@ -273,10 +278,11 @@ namespace Project1_BookStore.GUI
             _currentPage--;
             if (_currentPage > 0)
             {
-                _vm.SelectedBooks = _vm.Books
-                        .Skip((_currentPage - 1) * _rowsPerPage)
-                        .Take(_rowsPerPage)
-                        .ToList();
+                _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
+                    .Skip((_currentPage - 1) * _rowsPerPage)
+                    .Take(_rowsPerPage)
+                    .Take(_rowsPerPage)
+                    .ToList());
 
                 // ép cập nhật giao diện
                 tabs[i].Name.ItemsSource = _vm.SelectedBooks;
@@ -301,27 +307,56 @@ namespace Project1_BookStore.GUI
 
             if (screen.ShowDialog() == true)
             {
-                // write changed things here!
+                if (screen.isDeleted == false)
+                {
+                    _vm.Books[allBooks.SelectedIndex + _rowsPerPage * (_currentPage - 1)] = screen._book;
+                    _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
+                        .Skip((_currentPage - 1) * _rowsPerPage)
+                        .Take(_rowsPerPage)
+                        .Take(_rowsPerPage)
+                        .ToList());
+
+                    // ép cập nhật giao diện
+                    tabs[0].Name.ItemsSource = _vm.SelectedBooks;
+                }
+                else
+                {
+
+                    _vm.Books.Remove(_vm.Books[allBooks.SelectedIndex + _rowsPerPage * (_currentPage - 1)]);
+                    _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
+                        .Skip((_currentPage - 1) * _rowsPerPage)
+                        .Take(_rowsPerPage)
+                        .Take(_rowsPerPage)
+                        .ToList());
+
+                    // ép cập nhật giao diện
+                    tabs[0].Name.ItemsSource = _vm.SelectedBooks;
+                }
+
+                
             }
+            
         }
+        
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            string keyword = searchBox.Text;
+            if (e.Key == Key.Enter && !keyword.Equals(""))
             {
-                string keyword = searchBox.Text;
                 tabControl.SelectedIndex = 3;
 
-                tabs[3].Books = new List<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBookByName(keyword)));
+                tabs[3].Books = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBookByName(keyword)));
                 _vm.Books = tabs[3].Books;
 
                 _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageBookScreen));
                 _currentPage = 1; // Quay lại trang đầu tiên
 
-                _vm.SelectedBooks = _vm.Books
+                _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
                     .Skip((_currentPage - 1) * _rowsPerPage)
                     .Take(_rowsPerPage)
-                    .ToList();
+                    .Take(_rowsPerPage)
+                    .ToList());
 
 
                 // Tính toán lại thông số phân trang
@@ -337,8 +372,78 @@ namespace Project1_BookStore.GUI
 
                 // cập nhật tổng sản phẩm từng tab
                 Context.countBook = _totalItems;
+
+                Context.maxPrice = findMaxPrice(tabs[3].Books);
+                slider.Value = Decimal.ToInt32(Context.maxPrice);
             }
 
+        }
+
+        private decimal findMaxPrice(BindingList<BookDTO> books)
+        {
+            var max = books[0].bookPrice;
+            for (int i = 1; i < books.Count; i++)
+            {
+                if (books[i].bookPrice > max)
+                {
+                    max = books[i].bookPrice;
+                }
+            }
+            return max;
+        }
+
+        private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            double price = slider.Value;
+
+            _vm.Books = filterBookByPrice(tabs[3].Books, price);
+
+            
+
+            _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageBookScreen));
+
+            _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
+                .Skip((_currentPage - 1) * _rowsPerPage)
+                .Take(_rowsPerPage)
+                .Take(_rowsPerPage)
+                .ToList());
+
+
+            // Tính toán lại thông số phân trang
+            _totalItems = _vm.Books.Count;
+            _totalPages = _totalItems / _rowsPerPage +
+                (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+            if (_currentPage > _totalPages)
+            {
+                _currentPage--;
+            }
+
+            if (_currentPage == 0 && _totalPages > 0)
+            {
+                _currentPage = 1;
+            }
+            currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+
+            // ép cập nhật giao diện
+            tabs[3].Name.ItemsSource = _vm.SelectedBooks;
+
+            // cập nhật tổng sản phẩm từng tab
+            Context.countBook = _totalItems;
+        }
+
+        private BindingList<BookDTO> filterBookByPrice(BindingList<BookDTO> books, double price)
+        {
+            var result = new BindingList<BookDTO>();
+            for(int i = 0; i < books.Count; i++)
+            {
+                if (Decimal.ToDouble(books[i].bookPrice) <= price)
+                {
+                    result.Add(books[i]);
+                }
+            }
+            return result;
         }
     }
 }

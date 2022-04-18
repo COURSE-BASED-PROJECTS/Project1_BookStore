@@ -748,15 +748,18 @@
                                                 </ListView.ItemTemplate>
                                             </ListView>
 
-                                            <Label Content="0 đ" Margin="543,369,312,30"
-                                                   FontSize="12" FontWeight="Medium"/>
-                                            <Label Content="{Binding maxPrice, Converter={StaticResource currencyConverter}}" Margin="776,369,10,30"
+                                            <Label Content="0 đ" Margin="603,369,317,30"
+                                                   FontSize="12" FontWeight="Medium" RenderTransformOrigin="1.322,0.563"/>
+                                            <Label Name="maxPriceText" Content="{Binding maxPrice, Converter={StaticResource currencyConverter}}" Margin="796,369,24,30"
                                                    FontSize="12" FontWeight="Medium"/>
 
-                                            <Slider Width="200" Height="20"
+                                            <Slider Width="161" Height="20"
+                                                    Name="slider"
+                                                    ValueChanged="slider_ValueChanged"
+                                                    Maximum="{Binding maxPrice}"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Bottom"
-                                                    Margin="0,0,112,30" AutoToolTipPlacement="BottomRight">
+                                                    Margin="0,0,151,30" AutoToolTipPlacement="BottomRight">
 
                                             </Slider>
                                         </Grid>

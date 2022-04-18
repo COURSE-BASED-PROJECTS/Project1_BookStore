@@ -27,6 +27,7 @@ namespace Project1_BookStore
 
     public partial class LoginWindow : Window
     {
+        public int countWrongPass { get; set; } = 0;
         public LoginWindow()
         {
             InitializeComponent();
@@ -87,13 +88,25 @@ namespace Project1_BookStore
 
             if (check == false)
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
-                    "Lỗi đăng nhập",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                this.countWrongPass += 1;
+                if (this.countWrongPass <= 2)
+                {
+                    MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
+                        "Lỗi đăng nhập",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"Bạn đã nhập sai {this.countWrongPass} lần !!!",
+                        "Lỗi đăng nhập",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                }
             }
             else
             {
+                this.countWrongPass = 0;
                 AppConfig.SetValue(AppConfig.Username, username);
                 
                 var screen = new MainWindow();
@@ -116,13 +129,25 @@ namespace Project1_BookStore
 
                 if (check == false)
                 {
-                    MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
-                        "Lỗi đăng nhập",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error);
+                    this.countWrongPass += 1;
+                    if (this.countWrongPass <= 2)
+                    {
+                        MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
+                            "Lỗi đăng nhập",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Bạn đã nhập sai {this.countWrongPass} lần !!!",
+                            "Lỗi đăng nhập",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
+                    }
                 }
                 else
                 {
+                    this.countWrongPass = 0;
                     AppConfig.SetValue(AppConfig.Username, username);
                     
                     var screen = new MainWindow();

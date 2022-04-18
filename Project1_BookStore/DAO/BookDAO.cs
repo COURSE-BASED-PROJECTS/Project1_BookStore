@@ -25,7 +25,7 @@ namespace Project1_BookStore.DAO
                 string bookName = (string)reader["bookName"];
                 string bookAuthor = (string)reader["bookAuthor"];
                 string tobID = (string)reader["tobID"];
-                int bookPrice = (int)reader["bookPrice"];
+                decimal bookPrice = (decimal)reader["bookPrice"];
                 int bookQuantity = (int)reader["bookQuantity"];
                 int bookPublishedYear = (int)reader["bookPublishedYear"];
                 var  book = new BookDTO()
@@ -324,9 +324,9 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = $"UPDATE BOOK SET tobID = '{book.tobID}', bookName = '{book.bookName}', bookAuthor = '{book.bookAuthor}', " +
-                $"bookPrice = {book.bookPrice}, bookPublishedYear = {book.bookPublishedYear}, bookQuantity = {book.bookQuantity}" +
-                $"WHERE bookID = {book.bookID}";
+            var sql = $"UPDATE BOOK SET tobID = '{book.tobID}', bookName = N'{book.bookName}', bookAuthor = '{book.bookAuthor}', " +
+                $"bookPrice = {(int)book.bookPrice}, bookPublishedYear = {book.bookPublishedYear}, bookQuantity = {book.bookQuantity} " +
+                $"WHERE bookID = '{book.bookID}'";
 
             var command = new SqlCommand(sql, con);
             try

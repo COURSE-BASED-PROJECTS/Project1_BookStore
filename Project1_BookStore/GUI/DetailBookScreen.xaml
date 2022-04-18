@@ -264,7 +264,8 @@
 
                             <!--Row - 1-->
                             <Grid Grid.Row="0">
-                                <TextBlock Text="{Binding bookName}"
+                                <TextBox Text="{Binding bookName}"
+                                       Name="bookNameText"
                                        FontSize="25"
                                        FontWeight="Medium"
                                        Foreground="#6B34C3"
@@ -273,7 +274,7 @@
                                        TextAlignment="Center"
                                        TextWrapping="Wrap"
                                        Margin="109,60,0,0" Height="60"
-                                           Width="450"></TextBlock>
+                                           Width="450"></TextBox>
                             </Grid>
 
                             <!--Row - 2-->
@@ -301,6 +302,8 @@
                                                 <Label Content="Mã sách:"
                                                        FontSize="14"/>
                                                 <TextBox Text="{Binding bookID}"
+                                                       Name="bookIDText"
+                                                       IsReadOnly="True"
                                                        FontSize="16"
                                                        FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
@@ -309,6 +312,7 @@
                                                 <Label Content="Tác giả:"
                                                        FontSize="14"/>
                                                 <TextBox Text="{Binding bookAuthor}"
+                                                       Name="bookAuthorText"
                                                        FontSize="16"
                                                        FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
@@ -317,6 +321,7 @@
                                                 <Label Content="Năm phát hành:"
                                                        FontSize="14"/>
                                                 <TextBox Text="{Binding bookPublishedYear}"
+                                                       Name="bookPublishedYearText"
                                                        FontSize="16"
                                                        FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
@@ -324,7 +329,9 @@
                                             <TextBlock Margin="15">
                                                 <Label Content="Giá tiền:"
                                                        FontSize="14"/>
-                                                <TextBox Text="{Binding bookPrice, Converter={StaticResource currencyConverter}}"
+                                                <TextBox
+                                                       Text="{Binding bookPrice}"
+                                                       Name="bookPriceText"
                                                        FontSize="16"
                                                        FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
@@ -333,6 +340,7 @@
                                                 <Label Content="Số lượng:"
                                                        FontSize="14"/>
                                                 <TextBox Text="{Binding bookQuantity}"
+                                                       Name="bookQuantityText"
                                                        FontSize="16"
                                                        FontWeight="Medium" Height="29"></TextBox>
                                             </TextBlock>
@@ -356,7 +364,8 @@
                                         VerticalAlignment="Center"
                                             Margin="110,0,0,0">
                                     <Border CornerRadius="20">
-                                        <Button Width="100" Height="35"  Background="Green">
+                                        <Button Width="100" Height="35"  Background="Green"
+                                                Click="SaveBtn_Click">                                           
                                             <Label Foreground="White">Lưu</Label>
                                             <Button.Resources>
                                                 <Style TargetType="{x:Type Border}">
@@ -367,7 +376,8 @@
                                     </Border>
 
                                     <Border CornerRadius="20" Margin="20,0,0,0">
-                                        <Button Width="150" Height="35" Background="Red">
+                                        <Button Width="150" Height="35" Background="Red"
+                                                Click="DelButton_Click">
                                             <Label Foreground="White">Xóa sản phẩm</Label>
                                             <Button.Resources>
                                                 <Style TargetType="{x:Type Border}">
