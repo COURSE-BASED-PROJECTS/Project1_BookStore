@@ -1,4 +1,5 @@
-﻿using Project1_BookStore.DTO;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Project1_BookStore.GUI
     /// </summary>
     public partial class DetailOrderScreen : Window
     {
+        public OrderDTO _detail { get; set; }
         public DetailOrderScreen()
         {
             InitializeComponent();
@@ -56,8 +58,29 @@ namespace Project1_BookStore.GUI
         Icons _icons = new Icons();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            idOrder.DataContext = _detail;
+            total.DataContext = _detail;
+            id.DataContext = _detail;
+            customer.DataContext = CustomerBUS.findCustomerByID(_detail.cusPhoneNumber);
+            infoOrderBasic.DataContext = _detail;
+            GridContent.ItemsSource = OrderDetailBUS.findOrderDetailByOrderID(_detail.ordersID);
+
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
+        }
+
+        private void deleteOrder(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show($"Bạn có chắc chắn muốn xóa đơn hàng {_detail.ordersID}", "Xác nhận", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                OrderBUS.DeleteOrder(_detail.ordersID);
+
+                MessageBox.Show("Xóa thành công");
+                DialogResult = true;
+            }
+            else
+            {
+            }
         }
     }
 }

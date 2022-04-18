@@ -15,7 +15,7 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = $"SELECT * FROM ORDERSDETAILS WHERE ordersID = '{orderID}'";
+            var sql = $"SELECT * FROM ORDERSDETAIL WHERE ordersID = '{orderID}'";
 
             var command = new SqlCommand(sql, con);
             var reader = command.ExecuteReader();

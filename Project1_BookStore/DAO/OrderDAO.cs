@@ -24,7 +24,7 @@ namespace Project1_BookStore.DAO
             {
                 string cusPhoneNumber = (string)reader["cusPhoneNumber"];
                 string accUsername = (string)reader["accUsername"];
-                string tobID = (string)reader["tobID"];
+                //string tobID = (string)reader["tobID"];
                 decimal ordersPrice = (decimal)reader["ordersPrice"];
                 var ordersTime = (DateTime)reader["ordersTime"];
                 
@@ -59,6 +59,39 @@ namespace Project1_BookStore.DAO
             return (int)result;
         }
 
+        internal static double countBooksSoldByDate(string date)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "SELECT SUM(ODT.odQuantity) FROM ORDERS OD, ORDERSDETAIL ODT " +
+                $"WHERE OD.ordersID = ODT.ordersID AND FORMAT(OD.ordersTime, 'dd/MM/yyyy') = '{date}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteScalar();
+            reader = (reader == DBNull.Value) ? 0 : reader;
+
+            double result = (Int32)reader;
+
+            return (double)result;
+        }
+
+        internal static double RevenueByMonth(string month)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "SELECT SUM(OD.ordersPrice) FROM ORDERS OD " +
+                $"WHERE FORMAT(OD.ordersTime, 'MM') = '{month}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteScalar();
+
+            if (reader == DBNull.Value)
+                return 0.0;
+
+            decimal result = (decimal)reader;
+
+            return (double)result;
+        }
 
         internal static List<OrderDTO> findOrderByRangeDate(DateTime start, DateTime end)
         {

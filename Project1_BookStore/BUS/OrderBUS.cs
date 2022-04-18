@@ -79,5 +79,14 @@ namespace Project1_BookStore.BUS
             }
             return OrderDAO.countOrderInDate(date);
         }
+
+        public static double countBookSold(string date)
+        {
+            return OrderDAO.countBooksSoldByDate(date);
+        }
+        public static double countRevenueByMonth(string month)
+        {
+            return (double)OrderDAO.RevenueByMonth(month);
+        }
     }
 }

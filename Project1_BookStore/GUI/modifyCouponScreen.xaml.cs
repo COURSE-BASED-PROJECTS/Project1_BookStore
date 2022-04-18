@@ -70,7 +70,8 @@ namespace Project1_BookStore.GUI
        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            context._promotionDTO = this._promotion;
+            context._promotionDTO = (PromotionDTO)this._promotion.Clone();
+            context._promotionDTO.promoDiscount *= 100;
             this.DataContext = context;
             //this.WindowState = WindowState.Maximized;
         }
@@ -78,6 +79,7 @@ namespace Project1_BookStore.GUI
         private void cancelBtn(object sender, RoutedEventArgs e)
         {
             // close dialog
+            DialogResult = false;
             this.Close();
         }
 
@@ -113,8 +115,7 @@ namespace Project1_BookStore.GUI
             };
 
             PromotionBUS.UpdatePromotion(newCoupon);
-            _promotion = newCoupon;
-            
+            _promotion = (PromotionDTO)newCoupon.Clone();
 
             MessageBox.Show("Sửa thành công khuyến mãi!!!");
             DialogResult = true;

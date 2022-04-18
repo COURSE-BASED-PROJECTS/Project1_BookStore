@@ -7,6 +7,7 @@ using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -158,11 +159,22 @@ namespace Project1_BookStore.GUI
         private void modifyItem(object sender, RoutedEventArgs e)
         {
             var screen = new modifyCouponScreen();
-            screen._promotion = (PromotionDTO)couponList.SelectedItem;
+            var selected = (PromotionDTO)couponList.SelectedItem;
+            screen._promotion = (PromotionDTO)selected.Clone();
 
             if(screen.ShowDialog() == true)
             {
-                listPromotions[couponList.SelectedIndex] = screen._promotion;
+                listPromotions[(_currentPage-1)*_rowsPerPage + couponList.SelectedIndex] = (PromotionDTO)screen._promotion.Clone();
+
+                _totalItems = listPromotions.Count;
+                _totalPages = _totalItems / _rowsPerPage +
+                        (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+                couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
+                                        .Take(_rowsPerPage)
+                                        .ToList();
             }
         }
 

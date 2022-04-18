@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project1_BookStore.GUI"
         xmlns:utils="clr-namespace:Project1_BookStore.Utils"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="Setting" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
@@ -266,11 +267,12 @@
                         <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
                             <Image Height="25" Width="25" 
                                RenderOptions.BitmapScalingMode="HighQuality"
-                               Source="{Binding settingPressed, Converter={StaticResource absoluteConverter}}"/>
+                               Source="{Binding setting, Converter={StaticResource absoluteConverter}}"/>
                             <Label Content="Cấu hình hệ thống" Padding="10 0 0 0"
                                HorizontalAlignment="Left"
                                Height="20" Width="159"
                                FontSize="15"
+                               FontWeight="DemiBold"
                               />
                         </StackPanel>
                     </Grid>
@@ -290,10 +292,8 @@
                         <Image  Height="35" Width="35" Margin="0,0,124,0"
                                 Source="{Binding avatar, Converter={StaticResource absoluteConverter}}"/>
 
-                        <Label x:Name="user" Content="{Binding username}" 
-                               HorizontalAlignment="Center" VerticalAlignment="Center"
-                               FontSize="15" FontWeight="Medium"
-                               Margin="35,0,24,0"/>
+                        <Label FontFamily="Inter" Content="{Binding username}"
+                               FontSize="15" Margin="35,0,24,0"/>
 
                         <Image  Height="24" Width="24" Margin="135,5,0,6" 
                                 Cursor="Hand"
@@ -308,9 +308,9 @@
             <!--comlumn 2-->
             <Grid Grid.Column="1" Grid.Row="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="133*"/>
-                    <RowDefinition Height="297*"/>
-                    <RowDefinition Height="291*"/>
+                    <RowDefinition Height="107*"/>
+                    <RowDefinition Height="313*"/>
+                    <RowDefinition Height="301*"/>
                 </Grid.RowDefinitions>
 
                 <!--Row-1-->
@@ -325,16 +325,27 @@
                         <Label Content="Thống kê doanh thu"
                                    FontSize="25"
                                    FontWeight="DemiBold"
-                               Margin="60,40,0,40"></Label>
+                               Margin="60,25,0,39"></Label>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Width="200" Height="30"
+                                    HorizontalAlignment="Left"
+                                    Margin="65,40,0,0">
+                            <Label Content="Hôm nay là ngày: " Width="102"
+                                   FontStyle="Italic"></Label>
+                            <Label x:Name="today"
+                                   FontStyle="Italic"
+                                   FontWeight="SemiBold"></Label>
+                        </StackPanel>
                     </Grid>
 
 
                     <!--Column-2-->
                     <Grid Grid.Row="0" Grid.Column="1">
                         <StackPanel Orientation="Horizontal"
-                                Width="117" Height="36"
+                                Width="117"
                                 HorizontalAlignment="Center"
-                                Margin="0,22,0,65">
+                                Margin="0,22,0,48">
                             <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                                 <Border.Background>
                                     <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -381,19 +392,89 @@
                 </Grid>
 
                 <!--Row-2-->
-                <Grid Grid.Row="1" >
-                    <Border Width="894" Height="550"
+                <Grid Grid.Row="1" Margin="0,14,0,0">
+                    <Border Width="894" 
                             Background="#F9FAFB" 
-                            CornerRadius="25" Margin="65,10,64,31">
-                    </Border>
+                            CornerRadius="25" Margin="65,0,64,15" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="9*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <!--Row-1-->
+                        <Grid Grid.Row="0">
+                            <StackPanel Orientation="Vertical" Width="850"
+                                        Margin="0,5,0,0">
+                                <Label Content="Báo cáo doanh thu"
+                                       FontSize="16" FontWeight="DemiBold"></Label>
+                            </StackPanel>
+                        </Grid>
+
+                        <!--Row-2-->
+                        <Grid Grid.Row="1" Width="890">
+                            <lvc:CartesianChart Name="revenueChart" Series="{Binding SeriesCollection}" LegendLocation="Right" >
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Triệu đồng" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Tháng" Labels="{Binding Labels}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+                            </lvc:CartesianChart>
+                        </Grid>
+                    </Grid>
                 </Grid>
 
                 <!--Row-3-->
-                <Grid Grid.Row="2" >
-                    <Border Width="894" Height="550"
+                <Grid Grid.Row="2" Margin="0,0,0,11" >
+                    <Border Width="894" Height="270"
                             Background="#F9FAFB" 
-                            CornerRadius="25" Margin="65,10,64,31">
+                            CornerRadius="25" >
                     </Border>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3.2*"/>
+                            <RowDefinition Height="9*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <!--Row-1-->
+                        <Grid Grid.Row="0">
+                            <StackPanel Orientation="Vertical" Width="850"
+                                        Margin="0,15,0,0">
+                                <Label Content="Báo cáo doanh số"
+                                       FontSize="16" FontWeight="DemiBold"></Label>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Thời gian"></Label>
+                                    <ComboBox Width="120" Height="20" Name="daysSelection" SelectionChanged="daysSelection_SelectionChanged">
+                                        <ComboBoxItem >
+                                            <TextBlock Text="5 ngày gần nhất"></TextBlock>
+                                        </ComboBoxItem>
+                                        <ComboBoxItem IsSelected="True">
+                                            <TextBlock Text="10 ngày gần nhất"></TextBlock>
+                                        </ComboBoxItem>
+
+                                        <ComboBox.Effect>
+                                            <DropShadowEffect/>
+                                        </ComboBox.Effect>
+                                    </ComboBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Row="1" Width="890" DataContext="{Binding quantity}">
+                            <lvc:CartesianChart Name="quantityChart" Series="{Binding SeriesCollection}" LegendLocation="Right" >
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Quyển sách" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Ngày" Labels="{Binding Labels}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+                            </lvc:CartesianChart>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

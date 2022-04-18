@@ -246,7 +246,8 @@
                     </Grid>
 
                     <!--row-5-->
-                    <Grid Grid.Column="0" Grid.Row="4" MouseDown="Grid_MouseDown_AnalysicRevenue">
+                    <Grid Grid.Column="0" Grid.Row="4" MouseDown="Grid_MouseDown_AnalysicRevenue"
+                          Cursor="Hand">
                         <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
                             <Image Height="25" Width="25" 
                                RenderOptions.BitmapScalingMode="HighQuality"

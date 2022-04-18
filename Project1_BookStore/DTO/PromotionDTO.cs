@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1_BookStore.DTO
 {
-    public class PromotionDTO
+    public class PromotionDTO:ICloneable
     {
         public string promoID { get; set; }
         public string promoName { get; set; }
@@ -16,5 +16,9 @@ namespace Project1_BookStore.DTO
         public DateTime promoEndTime { get; set; }
         public bool promoStatus { get; set; } = true;
 
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1_BookStore.DTO
 {
-    internal class OrderDTO
+    public class OrderDTO
     {
         public string ordersID { get; set; }
         public string cusPhoneNumber { get; set; }

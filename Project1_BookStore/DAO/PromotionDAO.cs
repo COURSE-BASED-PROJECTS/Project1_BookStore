@@ -105,7 +105,7 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = $"UPDATE PROMOTION SET promoName = '{promo.promoName}', promoDiscount = {promo.promoDiscount}, promoDescription = '{promo.promoDesciption}', " +
+            var sql = $"UPDATE PROMOTION SET promoName = N'{promo.promoName}', promoDiscount = {promo.promoDiscount}, promoDescription = N'{promo.promoDesciption}', " +
                 $"promoStartTime = '{promo.promoStartTime}', promoEndTime = '{promo.promoEndTime}', promoStatus = '{promo.promoStatus}'" +
                 $"WHERE promoID = '{promo.promoID}'";
 

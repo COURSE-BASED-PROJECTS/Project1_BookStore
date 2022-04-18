@@ -460,3 +460,4 @@ D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.g.cs
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.baml
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\search.png

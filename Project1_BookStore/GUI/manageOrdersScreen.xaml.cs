@@ -355,10 +355,22 @@ namespace Project1_BookStore.GUI
 
             var order = orderList.SelectedItem as OrderDTO;
             var screen = new DetailOrderScreen();
+            screen._detail = order;
 
-            if(screen.ShowDialog() == true)
+            if (screen.ShowDialog() == true)
             {
+                OrderDTO item = (OrderDTO)orderList.SelectedItem;
 
+                listOrders.Remove(item);
+
+                Context.countOrder = listOrders.Count;
+                _totalPages = _totalItems / _rowsPerPage +
+                    (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+                orderList.ItemsSource = listOrders.Skip((_currentPage - 1) * _rowsPerPage)
+                                    .Take(_rowsPerPage)
+                                    .ToList();
             }
         }
     }
