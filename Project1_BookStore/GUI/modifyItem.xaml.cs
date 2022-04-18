@@ -2,6 +2,7 @@
 using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,16 +22,23 @@ namespace Project1_BookStore
     /// </summary>
     public partial class modifyItem : Window
     {
-        public TypeOfBookDTO editedType { get; set; }
-        public string id { get; set; } = "Binding";
-        public modifyItem(TypeOfBookDTO type)
+        public TypeOfBookDTO _editedType { get; set; }
+        public modifyItem()
         {
             InitializeComponent();
             
             reDownButton.Visibility = Visibility.Collapsed;
-
-            editedType = (TypeOfBookDTO)type.Clone();
         }
+
+        class modifyItemContext : INotifyPropertyChanged
+        {
+            public Icons _icons { get; set; } = new Icons();
+            public TypeOfBookDTO _tobDTO { get; set; }
+
+            public event PropertyChangedEventHandler? PropertyChanged;
+        }
+
+        modifyItemContext context = new modifyItemContext();
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -61,30 +69,34 @@ namespace Project1_BookStore
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = editedType;
-            DataContext = id;
-            DataContext = new Icons();  
+            context._tobDTO = this._editedType;
+            this.DataContext = context;
+            //this.WindowState = WindowState.Maximized; 
         }
 
-        private void add_Click(object sender, RoutedEventArgs e)
+        private void save_Click(object sender, RoutedEventArgs e)
         {
-            if (!TypeOfBookBUS.UpdateTypeOfBook(editedType))
+            var newType = new TypeOfBookDTO()
+            {
+                tobID = _editedType.tobID,
+                tobName = nameType.Text
+            };
+
+            if (!TypeOfBookBUS.UpdateTypeOfBook(newType))
             {
                 MessageBox.Show("Cập nhật không thành công!",
                                 "Cập nhập thể loại sách",
                                 MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+            
+            _editedType = newType;
+
             //MessageBox.Show("Cập nhật thành công!",
             //                "Cập nhật thể loại sách",
             //                MessageBoxButton.OK, MessageBoxImage.Information);
 
             DialogResult = true;
-        }
-
-        private void nameType_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

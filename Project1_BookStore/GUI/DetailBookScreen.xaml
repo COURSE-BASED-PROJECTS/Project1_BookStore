@@ -12,7 +12,7 @@
         <!--converter-->
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
         <utils:NumberToCurrencyConverter x:Key="currencyConverter"/>
-        
+
         <!--styte control buttons: maximize, minimize, close, restore-->
         <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
@@ -197,7 +197,7 @@
 
                 <!--Row - 2-->
                 <Grid Grid.Row="1">
-                    <Grid Height="617" Width="1000"
+                    <Grid Margin="114 24 114 24"
                           Background="#F9FAFB">
 
                         <!--using border element above for child-->
@@ -212,45 +212,19 @@
                               Direction="0" />
                         </Grid.Effect>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="181*"/>
+                            <ColumnDefinition Width="319*"/>
                         </Grid.ColumnDefinitions>
 
                         <!--Column - 1-->
                         <Grid Grid.Column="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="4.5*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
 
                             <!--Row - 1-->
-                            <Grid Grid.Row="0" Width="308"
+                            <Grid Margin="10 0 0 0"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
-                                  Height="400"
                                   DataContext="{Binding _book}">
-                                <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}" Margin="0,7,0,0"></Image>
-                            </Grid>
-
-                            <Grid Grid.Row="1" DataContext="{Binding _book}">
-                                <StackPanel Orientation="Horizontal"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center">
-                                    <Grid Width="64" Height="72" 
-                                          Margin="5,0,5,0">
-                                        <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
-                                    </Grid>
-
-                                    <Grid Width="64" Height="72"
-                                           Margin="5,0,5,0">
-                                        <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
-                                    </Grid>
-
-                                    <Grid Width="64" Height="72"
-                                           Margin="5,0,5,0">
-                                        <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
-                                    </Grid>
-                                </StackPanel>
+                                <Image Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                             </Grid>
                         </Grid>
 
@@ -269,19 +243,23 @@
                                        FontSize="25"
                                        FontWeight="Medium"
                                        Foreground="#6B34C3"
-                                       HorizontalAlignment="Left"
-                                       VerticalAlignment="Top"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"
                                        TextAlignment="Center"
                                        TextWrapping="Wrap"
-                                       Margin="109,60,0,0" Height="60"
-                                           Width="450"></TextBox>
+                                       Padding="0 10 0 10"
+                                       Margin="0,30,0,0" Width="550"
+                                       BorderThickness="0" BorderBrush="AliceBlue">
+                                    <TextBox.Effect>
+                                        <DropShadowEffect BlurRadius="10"/>
+                                    </TextBox.Effect>
+                                </TextBox>
                             </Grid>
 
                             <!--Row - 2-->
                             <Grid Grid.Row="1">
-                                <Grid Width="442" Height="334"
+                                <Grid
                                       Background="#FFFFFF"
-                                      Margin="0,15,0,0">
+                                      Margin="102,0,88,0">
                                     <Grid.Effect>
                                         <DropShadowEffect BlurRadius="20"
                                           Color="#877b77"
@@ -298,52 +276,77 @@
                                     <!--Column - 1-->
                                     <Grid Grid.Column="0">
                                         <StackPanel>
-                                            <TextBlock Margin="15">
-                                                <Label Content="Mã sách:"
-                                                       FontSize="14"/>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Margin="15">
+                                                <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                       Content="Mã sách:"
+                                                       FontSize="14"
+                                                       Padding="0 0 60 0"/>
                                                 <TextBox Text="{Binding bookID}"
                                                        Name="bookIDText"
                                                        IsReadOnly="True"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></TextBox>
-                                            </TextBlock>
+                                                       FontWeight="Medium"
+                                                       Height="40" Width="250"
+                                                       Padding="5 8 0 0"></TextBox>
+                                            </StackPanel>
 
-                                            <TextBlock Margin="15">
-                                                <Label Content="Tác giả:"
-                                                       FontSize="14"/>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Margin="15">
+                                                <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                       Content="Tác giả:"
+                                                       FontSize="14"
+                                                       Padding="0 0 69 0"/>
                                                 <TextBox Text="{Binding bookAuthor}"
                                                        Name="bookAuthorText"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></TextBox>
-                                            </TextBlock>
+                                                       FontWeight="Medium" 
+                                                       Height="40" Width="250"
+                                                       Padding="5 8 0 0"></TextBox>
+                                            </StackPanel>
 
-                                            <TextBlock Margin="15">
-                                                <Label Content="Năm phát hành:"
-                                                       FontSize="14"/>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Margin="15">
+                                                <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                       Content="Năm phát hành:"
+                                                       FontSize="14"
+                                                       Padding="0 0 14 0"/>
                                                 <TextBox Text="{Binding bookPublishedYear}"
                                                        Name="bookPublishedYearText"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></TextBox>
-                                            </TextBlock>
+                                                       FontWeight="Medium" 
+                                                       Height="40" Width="250"
+                                                       Padding="5 8 0 0"></TextBox>
+                                            </StackPanel>
 
-                                            <TextBlock Margin="15">
-                                                <Label Content="Giá tiền:"
-                                                       FontSize="14"/>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Margin="15">
+                                                <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                       Content="Giá tiền:"
+                                                       FontSize="14"
+                                                       Padding="0 0 63 0"/>
                                                 <TextBox
                                                        Text="{Binding bookPrice}"
                                                        Name="bookPriceText"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></TextBox>
-                                            </TextBlock>
+                                                       FontWeight="Medium" 
+                                                       Height="40" Width="250"
+                                                       Padding="5 8 0 0"></TextBox>
+                                            </StackPanel>
 
-                                            <TextBlock Margin="15">
-                                                <Label Content="Số lượng:"
-                                                       FontSize="14"/>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Margin="15">
+                                                <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                       Content="Số lượng:"
+                                                       FontSize="14"
+                                                       Padding="0 0 55 0"/>
                                                 <TextBox Text="{Binding bookQuantity}"
                                                        Name="bookQuantityText"
                                                        FontSize="16"
-                                                       FontWeight="Medium" Height="29"></TextBox>
-                                            </TextBlock>
+                                                       FontWeight="Medium"
+                                                       Height="40" Width="250"
+                                                       Padding="5 8 0 0"></TextBox>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Grid>
 
@@ -356,7 +359,7 @@
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            
+
                             <!--Row - 3-->
                             <Grid Grid.Row="2">
                                 <StackPanel Orientation="Horizontal"
@@ -365,7 +368,7 @@
                                             Margin="110,0,0,0">
                                     <Border CornerRadius="20">
                                         <Button Width="100" Height="35"  Background="Green"
-                                                Click="SaveBtn_Click">                                           
+                                                Click="SaveBtn_Click">
                                             <Label Foreground="White">Lưu</Label>
                                             <Button.Resources>
                                                 <Style TargetType="{x:Type Border}">

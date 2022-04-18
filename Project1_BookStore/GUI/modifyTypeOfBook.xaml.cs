@@ -2,6 +2,7 @@
 using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,6 @@ namespace Project1_BookStore.GUI
     public partial class modifyTypeOfBook : Window
     {
         public TypeOfBookDTO _tob { get; set; }
-
         public modifyTypeOfBook()
         {
             InitializeComponent();
@@ -55,24 +55,24 @@ namespace Project1_BookStore.GUI
         {
             this.Close();
         }
+        
+        Icons _icons = new Icons();
+        BindingList<TypeOfBookDTO> listTypeOfBook = new BindingList<TypeOfBookDTO>(TypeOfBookBUS.findAllTypeOfBook());
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Icons();
-            typeOfBook.ItemsSource = TypeOfBookBUS.findAllTypeOfBook();
+            this.DataContext = _icons;
+            typeOfBook.ItemsSource = listTypeOfBook;
         }
 
         private void modify(object sender, RoutedEventArgs e)
         {
-            var selectedItem = (TypeOfBookDTO)typeOfBook.SelectedItem;
-
-            var screen = new modifyItem(selectedItem);
+            var screen = new modifyItem();
+            screen._editedType = (TypeOfBookDTO)typeOfBook.SelectedItem;
 
             if (screen.ShowDialog() == true)
             {
-                var info = screen.editedType;
-
-                selectedItem.tobName = info.tobName;
+                listTypeOfBook[typeOfBook.SelectedIndex] = screen._editedType;
             }
         }
 
@@ -80,7 +80,7 @@ namespace Project1_BookStore.GUI
         {
             var selectedItem = (TypeOfBookDTO)typeOfBook.SelectedItem;
 
-            var result = MessageBox.Show($"Bạn chắc chắn muốn xóa thể loại {selectedItem.tobID}-{selectedItem.tobName}?",
+            var result = MessageBox.Show($"Bạn chắc chắn muốn xóa thể loại {selectedItem.tobID}- {selectedItem.tobName}?",
                                 "Xác nhận xóa",
                                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
@@ -95,6 +95,8 @@ namespace Project1_BookStore.GUI
                 MessageBox.Show("Đã xóa thành công!",
                                 "Xóa thể loại sách",
                                 MessageBoxButton.OK, MessageBoxImage.Information);
+                
+                typeOfBook.ItemsSource = TypeOfBookBUS.findAllTypeOfBook();
             }
         }
 
@@ -118,6 +120,8 @@ namespace Project1_BookStore.GUI
             MessageBox.Show("Thêm mới thành công!",
                             "Thêm thể loại sách",
                             MessageBoxButton.OK, MessageBoxImage.Information);
+
+            typeOfBook.ItemsSource = TypeOfBookBUS.findAllTypeOfBook();
         }
     }
 }

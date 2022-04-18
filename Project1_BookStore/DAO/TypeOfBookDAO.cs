@@ -84,8 +84,8 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = $"UPDATE TYPEOFBOOK SET tobName = '{tob.tobName}'" +
-                $" WHERE tobID = {tob.tobID}";
+            var sql = $"UPDATE TYPEOFBOOK SET tobName = N'{tob.tobName}'" +
+                $" WHERE tobID = '{tob.tobID}'";
 
             var command = new SqlCommand(sql, con);
             try
