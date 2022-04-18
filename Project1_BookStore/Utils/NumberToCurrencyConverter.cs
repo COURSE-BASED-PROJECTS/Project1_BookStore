@@ -12,7 +12,7 @@ namespace Project1_BookStore.Utils
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            int number = (int)value;
+            decimal number = (decimal)value;
             var info = CultureInfo.GetCultureInfo("vi-VN");
             var result = String.Format(info, "{0:c}", number);
             return result;

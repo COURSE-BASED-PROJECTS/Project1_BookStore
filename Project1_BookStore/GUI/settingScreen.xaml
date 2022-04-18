@@ -246,7 +246,7 @@
                     </Grid>
 
                     <!--row-5-->
-                    <Grid Grid.Column="0" Grid.Row="4">
+                    <Grid Grid.Column="0" Grid.Row="4" MouseDown="Grid_MouseDown_AnalysicRevenue">
                         <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
                             <Image Height="25" Width="25" 
                                RenderOptions.BitmapScalingMode="HighQuality"
@@ -290,8 +290,10 @@
                         <Image  Height="35" Width="35" Margin="0,0,124,0"
                                 Source="{Binding avatar, Converter={StaticResource absoluteConverter}}"/>
 
-                        <Label FontFamily="Inter" Content="{Binding username}"
-                               FontSize="15" Margin="35,0,24,0"/>
+                        <Label x:Name="user" Content="{Binding username}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontSize="15" FontWeight="Medium"
+                               Margin="35,0,24,0"/>
 
                         <Image  Height="24" Width="24" Margin="135,5,0,6" 
                                 Cursor="Hand"
@@ -391,29 +393,26 @@
                             </Label>
 
                             <Label Content="Số lượng sản phẩm:"
-                                           FontSize="16"
-                                           FontWeight="Medium"
+                                           
                                            Margin="56,63,16,249">
                             </Label>
 
-                            <ComboBox Margin="234,63,610,465"
+                            <ComboBox x:Name="numOfBook" Margin="234,63,610,465"
                                               Background="#FFFFFF"/>
 
                             <Label Content="Số lượng đơn hàng:"
-                                           FontSize="16"
-                                           FontWeight="Medium"
+                                           
                                            Margin="56,95,16,249">
                             </Label>
 
-                            <ComboBox Margin="234,95,610,433"
+                            <ComboBox x:Name="numOfOrder" Margin="234,95,610,433"
                                               Background="#FFFFFF"/>
 
                             <Label Content="Số lượng khuyến mãi:"
-                                           FontSize="16"
-                                           FontWeight="Medium"
+                                           
                                            Margin="56,127,16,249">
                             </Label>
-                            <ComboBox Margin="234,127,610,401"
+                            <ComboBox x:Name="numOfPromotion" Margin="234,127,610,401"
                                               Background="#FFFFFF"/>
 
                             <Label Content="Khi khởi động"

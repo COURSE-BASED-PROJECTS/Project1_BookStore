@@ -119,85 +119,83 @@
                                 HorizontalAlignment="Right"
                                 Margin="0,10,20,0"
                                 VerticalAlignment="Top">
-                <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
-                    <Border.Background>
-                        <SolidColorBrush Color="White" Opacity="0.6"/>
-                    </Border.Background>
-                    <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
+            <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                </Border.Background>
+                <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
                              Click="minButton_Click">
-                        <Button.Background>
-                            <ImageBrush ImageSource="{Binding minimize, Converter={StaticResource absoluteConverter}}"/>
+                    <Button.Background>
+                        <ImageBrush ImageSource="{Binding minimize, Converter={StaticResource absoluteConverter}}"/>
 
-                        </Button.Background>
-                    </Button>
-                </Border>
+                    </Button.Background>
+                </Button>
+            </Border>
 
-                <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
-                    <Border.Background>
-                        <SolidColorBrush Color="White" Opacity="0.6"/>
-                    </Border.Background>
-                    <Canvas>
-                        <Button Style="{DynamicResource MaxButton}" x:Name="maxButton" BorderThickness="0" Height="18" Width="18"
+            <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                </Border.Background>
+                <Canvas>
+                    <Button Style="{DynamicResource MaxButton}" x:Name="maxButton" BorderThickness="0" Height="18" Width="18"
                              Click="maxButton_Click" Canvas.Left="9" Canvas.Top="9">
-                            <Button.Background>
-                                <ImageBrush ImageSource="{Binding maximize, Converter={StaticResource absoluteConverter}}"/>
-                            </Button.Background>
-                        </Button>
-                        <Button Style="{DynamicResource ReDownButton}" x:Name="reDownButton" BorderThickness="0" Height="24" Width="24"
-                             Click="maxButton_Click" Canvas.Left="6" Canvas.Top="6"/>
-                    </Canvas>
-                </Border>
-
-                <Border CornerRadius="50" Width="36">
-                    <Border.Background>
-                        <SolidColorBrush Color="White" Opacity="0.6"/>
-                    </Border.Background>
-                    <Button Style="{DynamicResource CloseButton}" x:Name="closeButton" BorderThickness="0" Height="24" Width="24"
-                             Click="closeButton_Click">
                         <Button.Background>
-                            <ImageBrush ImageSource="{Binding close, Converter={StaticResource absoluteConverter}}"/>
+                            <ImageBrush ImageSource="{Binding maximize, Converter={StaticResource absoluteConverter}}"/>
                         </Button.Background>
                     </Button>
-                </Border>
+                    <Button Style="{DynamicResource ReDownButton}" x:Name="reDownButton" BorderThickness="0" Height="24" Width="24"
+                             Click="maxButton_Click" Canvas.Left="6" Canvas.Top="6"/>
+                </Canvas>
+            </Border>
 
-            </StackPanel>
+            <Border CornerRadius="50" Width="36">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                </Border.Background>
+                <Button Style="{DynamicResource CloseButton}" x:Name="closeButton" BorderThickness="0" Height="24" Width="24"
+                             Click="closeButton_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{Binding close, Converter={StaticResource absoluteConverter}}"/>
+                    </Button.Background>
+                </Button>
+            </Border>
 
-        <StackPanel Orientation="Horizontal">
-            <Label FontSize="16" FontWeight="Medium" Width="31" Height="30"
-                   VerticalAlignment="Top" Margin="50,100,5,0">ID:</Label>
-            <TextBox Width="234" Height="30" VerticalAlignment="Top" 
-                     FontSize="14" VerticalContentAlignment="Center"
-                     Margin="40,100,5,0" Background="LightGray"
-                     IsEnabled="False"></TextBox>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
-            <Label FontSize="16" FontWeight="Medium" Width="73" Height="30"
-                   VerticalAlignment="Top" Margin="50,180,5,0">Thể loại:</Label>
-            <TextBox Width="234" Height="30" VerticalAlignment="Top"
+        <StackPanel Orientation="Horizontal" Margin="37,85,0,185" HorizontalAlignment="Center" Width="269" Height="30">
+            <Label FontSize="16" FontWeight="Medium" Height="30"
+                   VerticalAlignment="Top" Margin="0,0,5,0">ID:</Label>
+            <TextBox x:Name="idType"
+                     Text="{Binding tobID}"
+                     Width="234" Height="30" 
                      FontSize="14" VerticalContentAlignment="Center"
-                     Margin="0,180,5,0"></TextBox>
+                     Background="LightGray"
+                     IsEnabled="False"/>
         </StackPanel>
 
-        <Button Width="100" Height="35" 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Height="30" Margin="0,145,0,125" Width="312">
+            <Label FontSize="16" FontWeight="Medium" Height="30"
+                   VerticalAlignment="Top" Margin="0,0,5,0" Content="Thể loại:"></Label>
+            <TextBox x:Name="nameType"
+                     Text="{Binding tobName}" 
+                     Width="234" Height="30" VerticalAlignment="Top"
+                     FontSize="14" VerticalContentAlignment="Center"
+                     Margin="0,0,5,0" TextChanged="nameType_TextChanged"></TextBox>
+        </StackPanel>
+
+        <Button x:Name="add" Width="100" Height="35" Click="add_Click"
                 Cursor="Hand" Background="Green"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Margin="25">
+                Margin="25"
+                IsDefault="True">
             <Label Foreground="White">Lưu</Label>
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
-
-            <Button.Effect>
-                <DropShadowEffect BlurRadius="20"
-                                Color="#877b77"
-                                Opacity="100"
-                                ShadowDepth="5"
-                                Direction="0" />
-            </Button.Effect>
         </Button>
 
     </Grid>

@@ -1,4 +1,5 @@
-﻿using Project1_BookStore.DTO;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,15 @@ namespace Project1_BookStore
     /// </summary>
     public partial class modifyItem : Window
     {
-        public modifyItem()
+        public TypeOfBookDTO editedType { get; set; }
+        public string id { get; set; } = "Binding";
+        public modifyItem(TypeOfBookDTO type)
         {
             InitializeComponent();
+            
+            reDownButton.Visibility = Visibility.Collapsed;
+
+            editedType = (TypeOfBookDTO)type.Clone();
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -54,7 +61,30 @@ namespace Project1_BookStore
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = new Icons();
+            DataContext = editedType;
+            DataContext = id;
+            DataContext = new Icons();  
+        }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            if (!TypeOfBookBUS.UpdateTypeOfBook(editedType))
+            {
+                MessageBox.Show("Cập nhật không thành công!",
+                                "Cập nhập thể loại sách",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            //MessageBox.Show("Cập nhật thành công!",
+            //                "Cập nhật thể loại sách",
+            //                MessageBoxButton.OK, MessageBoxImage.Information);
+
+            DialogResult = true;
+        }
+
+        private void nameType_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -9,7 +9,11 @@
         Title="NewBook" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
+        <!--converter-->
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+        <utils:NumberToCurrencyConverter x:Key="currencyConverter"/>
+        
+        <!--styte control buttons: maximize, minimize, close, restore-->
         <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding restore, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
@@ -287,7 +291,7 @@
                                         <Label Content="Giá tiền"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="250,5,0,0"></Label>
+                                               Margin="230,5,0,0"></Label>
 
                                         <Label Content="Số lượng"
                                                FontSize="14"
@@ -297,7 +301,7 @@
                                         <Label Content="Mã giảm giá"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="50,5,0,0" ></Label>
+                                               Margin="70,5,0,0" ></Label>
 
                                         <Label Content="Tạm tính"
                                                FontSize="14"
@@ -318,6 +322,18 @@
                                         <ScrollViewer  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                                                     ScrollViewer.VerticalScrollBarVisibility="Visible" 
                                                     ScrollViewer.CanContentScroll="True">
+
+                                            <ScrollViewer.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Xóa" Click="deleteItem">
+                                                        <MenuItem.Icon>
+                                                            <Image  RenderOptions.BitmapScalingMode="HighQuality"
+                                                                    Source="{Binding delete,Converter={StaticResource absoluteConverter}}"></Image>
+                                                        </MenuItem.Icon>
+                                                    </MenuItem>
+                                                </ContextMenu>
+                                            </ScrollViewer.ContextMenu>
+
                                             <StackPanel Height="250">
                                                 <!--Item - 1-->
                                                 <Grid Height="62" Margin="5">
@@ -332,62 +348,50 @@
                                                     <!--Column - 1-->
                                                     <Grid Grid.Column="0">
                                                         <StackPanel Orientation="Horizontal"
-                                                            Margin="15,0,0,0"
-                                                            Width="300">
-                                                            <Grid Width="50" Height="50">
-                                                                <Image RenderOptions.BitmapScalingMode="HighQuality" Height="50" Width="50"
-                                                                        Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            Margin="20,0,0,0">
+                                                            <Grid Width="50" Height="50" Margin="0,0,20,0">
+                                                                <Image RenderOptions.BitmapScalingMode="HighQuality"
+                                                                       Height="50" Width="50"
+                                                                       Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                                                             </Grid>
 
-                                                            <StackPanel Orientation="Vertical" Width="245">
-                                                                <TextBlock Text="{Binding bookName}" VerticalAlignment="Top"
-                                                                           Width="245" Height="40"
-                                                                           FontSize="13" FontWeight="Medium"
+                                                            <StackPanel Orientation="Vertical" Width="271">
+                                                                <TextBlock Text="Rừng Na Uy (Tái Bản Lần 4) Rừng Na Uy (Tái Bản Lần 4)"
+                                                                           Width="271" Height="40"
+                                                                           FontSize="14" FontWeight="Medium"
                                                                            TextWrapping="Wrap"/>
                                                                 <!--<Label Content="Tác giả: " FontSize="10" Width="45" HorizontalAlignment="Left"/>-->
-                                                                <Label Content="{Binding bookAuthor}" FontSize="10" Width="200" Height="22"/>
+                                                                <Label Content="Haruki Murakami" FontSize="10" Width="246" Height="22"/>
                                                             </StackPanel>
-
-
                                                         </StackPanel>
                                                     </Grid>
 
                                                     <!--Column - 2-->
                                                     <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                        <Label Content="{Binding bookPrice}"
-                                                               FontSize="13" Width="115" Height="30"/>
+                                                        <Label Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}" 
+                                                               FontSize="13" Height="30" Margin ="0 0 0 0 "/>
                                                     </Grid>
 
                                                     <!--Column - 3-->
                                                     <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">
-                                                        <StackPanel Orientation="Horizontal">
-                                                            <Grid Width="17" Height="17"
-                                                          Margin="10,0,10,35"
-                                                          Cursor="Hand">
-                                                                <Image Source="{Binding plus,Converter={StaticResource absoluteConverter}}"></Image>
-                                                            </Grid>
-
-                                                            <TextBox Text="{Binding number}"
-                                                                     FontSize="12" Height="25"
-                                                                     FontWeight="SemiBold"/>
-
-                                                            <Grid   Width="17" Height="17" Margin="10,0,10,35"
-                                                                    Cursor="Hand">
-                                                                <Image Source="{Binding minus, Converter={StaticResource absoluteConverter}}"></Image>
-                                                            </Grid>
-                                                        </StackPanel>
+                                                        <TextBox Text="2" FontSize="12" 
+                                                                 Width="50" Height="25" 
+                                                                 HorizontalAlignment="Center" Padding="1 5 5 5"
+                                                                 TextChanged="TextBox_TextChanged"
+                                                                 FontWeight="SemiBold"/>
                                                     </Grid>
 
                                                     <!--Column - 4-->
                                                     <Grid Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">
-                                                        <Label Content="{Binding promoID}"
-                                                        FontSize="12"></Label>
+                                                        <Label Content="KM-GIAM30%"
+                                                               FontSize="12" FontWeight="Medium"/>
                                                     </Grid>
 
                                                     <!--Column - 5-->
                                                     <Grid Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">
-                                                        <Label Content="{Binding currPrice}"
-                                                       FontSize="12"></Label>
+                                                        <Label Content="101,110 đ"
+                                                               FontSize="12" FontWeight="Medium"/>
+                                                        <!--{Binding price, Converter={StaticResource currencyConverter}}-->
                                                     </Grid>
 
                                                 </Grid>
@@ -410,7 +414,7 @@
                                         <Label Content="Tổng tiền: "
                                                FontSize="16"
                                                FontWeight="SemiBold" Height="30"></Label>
-                                        <Label Content="{Binding totalPrice}"
+                                        <Label Content="145,000 đ"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                                FontSize="16" 
                                                FontWeight="SemiBold"

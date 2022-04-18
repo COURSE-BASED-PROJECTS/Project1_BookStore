@@ -1,4 +1,5 @@
 ﻿using Project1_BookStore.DTO;
+using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,9 +55,23 @@ namespace Project1_BookStore.GUI
         }
 
         Icons _icons = new Icons();
+        List<int> numOfBookList = new List<int>(new int[] { 5, 10, 15, 25, 50, 100 });
+        List<int> numOfList = new List<int>(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 50, 100 });
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = _icons;
+            user.Content = AppConfig.GetValue(AppConfig.Username);
+
+            numOfBook.ItemsSource = numOfBookList;
+            numOfBook.SelectedIndex = 0;
+
+            numOfOrder.ItemsSource = numOfList;
+            numOfOrder.SelectedIndex = 3;
+
+            numOfPromotion.ItemsSource = numOfList;
+            numOfPromotion.SelectedIndex = 3;
+
             //this.WindowState = WindowState.Maximized;
         }
 
@@ -72,6 +87,13 @@ namespace Project1_BookStore.GUI
                 screen.Show();
                 this.Close();
             }
+        }
+
+        private void Grid_MouseDown_AnalysicRevenue(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new analysicRevenue();
+            screen.Show();
+            this.Close();
         }
 
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)

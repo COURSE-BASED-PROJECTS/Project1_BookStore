@@ -82,6 +82,9 @@ namespace Project1_BookStore.GUI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            userName.Content = AppConfig.GetValue(AppConfig.Username);
+            user.Content = AppConfig.GetValue(AppConfig.Username);
+
             this.DataContext = Context;
 
             _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageOrderScreen));
@@ -109,6 +112,13 @@ namespace Project1_BookStore.GUI
                 screen.Show();
                 this.Close();
             }
+        }
+
+        private void Grid_MouseDown_AnalysicRevenue(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new analysicRevenue();
+            screen.Show();
+            this.Close();
         }
 
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)

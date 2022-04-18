@@ -76,5 +76,15 @@ namespace Project1_BookStore.GUI
         {
 
         }
+
+        private void deleteItem(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

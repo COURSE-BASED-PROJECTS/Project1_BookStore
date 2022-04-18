@@ -45,6 +45,7 @@ namespace Project1_BookStore.DTO
         public string settingPressed { get; set; } = "/Resource/Images/Icons/setting-pressed.png";
         public string statistics { get; set; } = "/Resource/Images/Icons/statistics.png";
         public string statisticsPressed { get; set; } = "/Resource/Images/Icons/statistics-pressed.png";
+        public string search { get; set; } = "/Resource/Images/Icons/search.png";
 
         public string test { get; set; } = "";
 

@@ -251,7 +251,8 @@
                     </Grid>
 
                     <!--row-5-->
-                    <Grid Grid.Column="0" Grid.Row="4">
+                    <Grid Grid.Column="0" Grid.Row="4" 
+                          MouseDown="Grid_MouseDown_AnalysicRevenue" Cursor="Hand">
                         <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
                             <Image Height="25" Width="25" 
                                RenderOptions.BitmapScalingMode="HighQuality"
@@ -296,8 +297,10 @@
                         <Image  Height="35" Width="35" Margin="0,0,124,0"
                                 Source="{Binding avatar, Converter={StaticResource absoluteConverter}}"/>
 
-                        <Label FontFamily="Inter" Content="{Binding username}"
-                               FontSize="15" Margin="35,0,24,0"/>
+                        <Label x:Name="user" Content="{Binding username}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontSize="15" FontWeight="Medium"
+                               Margin="35,0,24,0"/>
 
                         <Image  Height="24" Width="24" Margin="135,5,0,6" 
                                 Cursor="Hand"
@@ -332,10 +335,16 @@
                         <Label Content="Quản lý khuyến mãi"
                                    FontSize="25"
                                    FontWeight="DemiBold"
-                               Margin="60,60,0,0"></Label>
-                        <Label Content="Quản lý DA, Chào mừng bạn quay lại!"
-                                   FontSize="15"
-                               Margin="60,95,31,0" Grid.ColumnSpan="2"/>
+                               Margin="25,34,567,52"/>
+                        <StackPanel Margin="54,71,475,22" Orientation="Horizontal">
+                            <Label x:Name="userName" Content="{Binding username}"
+                               FontSize="15" FontWeight="Medium"
+                               Height="30"
+                               HorizontalAlignment="Right" VerticalAlignment="Center">
+                            </Label>
+                            <Label Content=", Chào mừng bạn quay lại!" 
+                               FontSize="15" Height="30"/>
+                        </StackPanel>
 
                     </Grid>
 
@@ -581,7 +590,7 @@
                                             </Grid>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
-                                    
+
                                     <ListView.Resources>
                                         <ContextMenu x:Key="typeOfBooksContextMenu">
                                             <MenuItem Header="Sửa" Click="modifyItem">
@@ -604,7 +613,7 @@
                                     </ListView.ItemContainerStyle>
 
                                 </ListView>
-                                
+
                             </Grid>
 
                             <!--Row - 4-->
@@ -643,30 +652,21 @@
                                     </Grid>
                                 </StackPanel>
 
-                                <StackPanel Width="360" HorizontalAlignment="Right"
-                                            Margin="0,0,15,0"
+                                <StackPanel Width="157" HorizontalAlignment="Left"
+                                            Margin="722,0,0,0"
                                             Orientation="Horizontal"
                                             DataContext="{Binding _icons}">
                                     <Grid Width="16" Height="16"
-                                          Cursor="Hand">
+                                          Cursor="Hand" MouseDown="exportData_MouseDown">
                                         <Image Width="16" Height="16"
                                            HorizontalAlignment="Left"
                                            Source="{Binding upload, Converter={StaticResource absoluteConverter}}">
                                         </Image>
                                     </Grid>
 
-
                                     <Label Content="Xuất dữ liệu bảng"
                                            FontSize="14"
                                            VerticalContentAlignment="Center"></Label>
-                                    <Label Content="Số dòng mỗi trang"
-                                           FontSize="14"
-                                           VerticalContentAlignment="Center"
-                                           Margin="5,0,0,0"></Label>
-
-                                    <ComboBox Width="36" Height="20">
-
-                                    </ComboBox>
                                 </StackPanel>
                             </Grid>
                         </Grid>

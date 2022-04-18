@@ -23,6 +23,7 @@ namespace Project1_BookStore.GUI
         public analysicRevenue()
         {
             InitializeComponent();
+            reDownButton.Visibility = Visibility.Collapsed;
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)

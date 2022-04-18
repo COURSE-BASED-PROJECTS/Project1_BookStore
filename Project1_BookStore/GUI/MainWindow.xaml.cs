@@ -35,7 +35,7 @@ namespace Project1_BookStore
             public int ongoingBooks { get; set; } = 0;
             public int newOrders { get; set; } = 0;
 
-            public string username { get; set; } = "QuanLyDA";
+            public string username { get; set; }
             public Icons _icons { get; set; } = new Icons();
 
             public event PropertyChangedEventHandler? PropertyChanged;
@@ -83,8 +83,9 @@ namespace Project1_BookStore
             itemMainWindow.newOrders = OrderBUS.findAllOrder().Count;
 
             //itemMainWindow.username = AppConfig.GetValue(AppConfig.Username);
-
             this.DataContext = itemMainWindow;
+            userName.Content = AppConfig.GetValue(AppConfig.Username);
+            user.Content = AppConfig.GetValue(AppConfig.Username);
         }
 
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
@@ -129,6 +130,8 @@ namespace Project1_BookStore
                     MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
             {
+                AppConfig.SetValue(AppConfig.Username, "null");
+
                 var screen = new LoginWindow();
                 screen.Show();
                 this.Close();

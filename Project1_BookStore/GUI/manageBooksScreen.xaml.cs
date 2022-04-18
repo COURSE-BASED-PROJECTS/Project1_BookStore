@@ -35,7 +35,7 @@ namespace Project1_BookStore.GUI
             public Icons _icons { get; set; } = new Icons();
             public int countBook { get; set; } =  0;
 
-            public int maxPrice { get; set; } = 10000000;
+            public decimal maxPrice { get; set; } = 10000000;
 
             public event PropertyChangedEventHandler? PropertyChanged;
         }
@@ -99,6 +99,8 @@ namespace Project1_BookStore.GUI
             Context.countBook = BookBUS.findAllBook().Count;
 
             this.DataContext = Context;
+            userName.Content = AppConfig.GetValue(AppConfig.Username);
+            user.Content = AppConfig.GetValue(AppConfig.Username);
         }
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
@@ -131,6 +133,13 @@ namespace Project1_BookStore.GUI
         private void Grid_MouseDown_MainWindow(object sender, MouseButtonEventArgs e)
         {
             var screen = new MainWindow();
+            screen.Show();
+            this.Close();
+        }
+
+        private void Grid_MouseDown_AnalysicRevenue(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new analysicRevenue();
             screen.Show();
             this.Close();
         }

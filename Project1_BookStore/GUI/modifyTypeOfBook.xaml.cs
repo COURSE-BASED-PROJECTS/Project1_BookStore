@@ -21,9 +21,12 @@ namespace Project1_BookStore.GUI
     /// </summary>
     public partial class modifyTypeOfBook : Window
     {
+        public TypeOfBookDTO _tob { get; set; }
+
         public modifyTypeOfBook()
         {
             InitializeComponent();
+            reDownButton.Visibility = Visibility.Collapsed;
         }
 
         private void maxButton_Click(object sender, RoutedEventArgs e)
@@ -61,13 +64,60 @@ namespace Project1_BookStore.GUI
 
         private void modify(object sender, RoutedEventArgs e)
         {
-            var screen = new modifyItem();
-            screen.ShowDialog();
+            var selectedItem = (TypeOfBookDTO)typeOfBook.SelectedItem;
+
+            var screen = new modifyItem(selectedItem);
+
+            if (screen.ShowDialog() == true)
+            {
+                var info = screen.editedType;
+
+                selectedItem.tobName = info.tobName;
+            }
         }
 
         private void delete(object sender, RoutedEventArgs e)
         {
+            var selectedItem = (TypeOfBookDTO)typeOfBook.SelectedItem;
 
+            var result = MessageBox.Show($"Bạn chắc chắn muốn xóa thể loại {selectedItem.tobID}-{selectedItem.tobName}?",
+                                "Xác nhận xóa",
+                                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                if (!TypeOfBookBUS.DeleteTypeOfBook(selectedItem.tobID))
+                {
+                    MessageBox.Show("Xóa không thành công!",
+                                    "Xóa thể loại sách",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                MessageBox.Show("Đã xóa thành công!",
+                                "Xóa thể loại sách",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            var newType = new TypeOfBookDTO()
+            {
+                tobID = idType.Text,
+                tobName = nameType.Text
+            };
+
+            _tob = newType;
+
+            if (!TypeOfBookBUS.InsertTypeOfBook(newType))
+            {
+                MessageBox.Show("Vui lòng nhập kỹ thông tin, mã thể loại không được trùng!!!",
+                                "Thêm thể loại sách",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            MessageBox.Show("Thêm mới thành công!",
+                            "Thêm thể loại sách",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

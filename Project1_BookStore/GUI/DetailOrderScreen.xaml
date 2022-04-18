@@ -9,7 +9,11 @@
         Title="NewBook" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
+        <!--converter-->
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+        <utils:NumberToCurrencyConverter x:Key="currencyConverter"/>
+
+        <!--styte control buttons: maximize, minimize, close, restore-->
         <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding restore, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>

@@ -66,7 +66,7 @@ namespace Project1_BookStore.DAO
             var con = ConnectDB.openConnection();
 
             var sql = "INSERT INTO TYPEOFBOOK(tobID, tobName) " +
-                $"VALUES('{tob.tobID}', N'{tob.tobName}')";
+                $" VALUES('{tob.tobID}', N'{tob.tobName}')";
             var command = new SqlCommand(sql, con);
             try
             {
@@ -85,7 +85,7 @@ namespace Project1_BookStore.DAO
             var con = ConnectDB.openConnection();
 
             var sql = $"UPDATE TYPEOFBOOK SET tobName = '{tob.tobName}'" +
-                $"WHERE tobID = {tob.tobID}";
+                $" WHERE tobID = {tob.tobID}";
 
             var command = new SqlCommand(sql, con);
             try

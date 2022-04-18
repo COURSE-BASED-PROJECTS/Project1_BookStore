@@ -23,75 +23,6 @@ D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\ref\Project1_BookStore.dll
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.pdb
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.genruntimeconfig.cache
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\close-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\close.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\maximize-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\maximize.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\minimize-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\minimize.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.exe
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.dll.config
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.deps.json
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.runtimeconfig.json
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.pdb
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.AssemblyReference.cache
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\LoginWindow.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\MainWindow.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\App.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore_MarkupCompile.cache
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore_MarkupCompile.lref
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\LoginWindow.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\MainWindow.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.g.resources
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.GeneratedMSBuildEditorConfig.editorconfig
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.AssemblyInfoInputs.cache
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.AssemblyInfo.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.CoreCompileInputs.cache
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.Fody.CopyLocal.cache
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\refint\Project1_BookStore.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.pdb
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.genruntimeconfig.cache
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\ref\Project1_BookStore.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\logo.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore_Content.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewBookScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewCouponScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewOrderScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailBookScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailOrderScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageBooksScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageCouponScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageOrdersScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyCouponScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\settingScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\uploadDataScreen.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\info.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\left-arrow.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\minus.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\plus-square.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\right-arrow.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\upload.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewBookScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewCouponScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewOrderScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailBookScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailOrderScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageBooksScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageCouponScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageOrdersScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyCouponScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\settingScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\uploadDataScreen.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.CopyComplete
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\close-pressed.png
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\close.png
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\info.png
@@ -161,47 +92,6 @@ D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.pdb
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.genruntimeconfig.cache
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\ref\Project1_BookStore.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0001.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0002.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0003.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0004.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0005.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0006.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0007.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0008.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0009.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0010.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0011.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0012.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0013.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0014.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0015.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0016.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0017.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0018.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0019.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0020.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0021.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0022.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0023.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0024.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0025.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0026.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0027.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0028.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0029.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0030.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0031.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0032.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0033.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0034.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0035.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0036.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0037.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0038.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0039.jpg
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\bell.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\sign-out.png
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0001.jpg
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0002.jpg
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0003.jpg
@@ -357,19 +247,11 @@ D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\reDown.png
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyTypeOfBook.g.cs
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyTypeOfBook.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyTypeOfBook.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyTypeOfBook.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\export.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\itextsharp.dll
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\export.png
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\itextsharp.dll
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyTypeOfBook.g.cs
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyTypeOfBook.baml
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\avatar.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\logo_v2.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify.png
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\avatar.png
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\export.png
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\logo_v2.png
@@ -379,9 +261,6 @@ E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_Boo
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.g.cs
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.baml
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Aspose.Cells.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Aspose.Cells.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.g.cs
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.baml
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\avatar.png
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\logo_v2.png
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify.png
@@ -389,26 +268,6 @@ D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.g.cs
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.baml
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\BCrypt.Net-Next.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\BCrypt.Net-Next.dll
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\restore-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\restore.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\delete-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\delete.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\order-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\order.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\plus.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\promotion-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\promotion.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\setting-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\setting.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\statistics-pressed.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\statistics.png
-D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\upload-pressed.png
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes-pressed.png
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes.png
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard-pressed.png
@@ -433,3 +292,149 @@ E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_Boo
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.dll
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0001.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0002.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0003.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0004.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0005.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0006.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0007.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0008.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0009.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0010.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0011.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0012.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0013.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0014.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0015.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0016.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0017.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0018.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0019.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0020.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0021.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0022.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0023.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0024.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0025.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0026.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0027.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0028.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0029.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0030.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0031.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0032.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0033.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0034.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0035.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0036.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0037.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0038.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0039.jpg
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\avatar.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\bell.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\close-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\close.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\delete-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\delete.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\export.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\info.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\left-arrow.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\logo.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\logo_v2.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\maximize-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\maximize.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\minimize-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\minimize.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\minus.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\order-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\order.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\plus-square.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\plus.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\promotion-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\promotion.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\restore-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\restore.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\right-arrow.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\search.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\setting-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\setting.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\sign-out.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\statistics-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\statistics.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\upload-pressed.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\upload.png
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.exe
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.dll.config
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.deps.json
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.runtimeconfig.json
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Project1_BookStore.pdb
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\BCrypt.Net-Next.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\itextsharp.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Aspose.Cells.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.AssemblyReference.cache
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewBookScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewCouponScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewOrderScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailBookScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailOrderScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\LoginWindow.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\MainWindow.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageBooksScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageCouponScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageOrdersScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyCouponScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyTypeOfBook.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\settingScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\uploadDataScreen.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\App.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore_Content.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore_MarkupCompile.cache
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore_MarkupCompile.lref
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewBookScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewCouponScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\addNewOrderScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailBookScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\DetailOrderScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\LoginWindow.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\MainWindow.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageBooksScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageCouponScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\manageOrdersScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyCouponScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyItem.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\modifyTypeOfBook.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\settingScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\uploadDataScreen.baml
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.g.resources
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.AssemblyInfoInputs.cache
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.AssemblyInfo.cs
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.CoreCompileInputs.cache
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.Fody.CopyLocal.cache
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.csproj.CopyComplete
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\refint\Project1_BookStore.dll
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.pdb
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.genruntimeconfig.cache
+D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\ref\Project1_BookStore.dll
