@@ -290,6 +290,31 @@ E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_Boo
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.dll
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
 E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.baml
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\delete-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\delete.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\order-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\order.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\plus.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\promotion-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\promotion.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\restore-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\restore.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\search.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\setting-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\setting.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\statistics-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\statistics.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\upload-pressed.png
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.dll
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.g.cs
+D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.baml
+E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\search.png
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0001.jpg
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0002.jpg
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\BookCovers\A0003.jpg
@@ -436,28 +461,3 @@ D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.pdb
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\Project1_BookStore.genruntimeconfig.cache
 D:\Sources\GitHub\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\ref\Project1_BookStore.dll
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\boxes.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\dashboard.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\delete-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\delete.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\modify-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\order-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\order.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\plus.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\promotion-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\promotion.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\restore-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\restore.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\search.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\setting-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\setting.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\statistics-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\statistics.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\upload-pressed.png
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.dll
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.g.cs
-D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Debug\net6.0-windows\GUI\analysicRevenue.baml
-E:\University\Junior-year\term 2\Windows\Project\Project1_BookStore\Project1_BookStore\bin\Debug\net6.0-windows\Resource\Images\Icons\search.png

@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:Project1_BookStore.GUI"
        xmlns:utils="clr-namespace:Project1_BookStore.Utils"
         mc:Ignorable="d"
-        Title="NewBook" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
+        Title="Chi tiết đơn hàng" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
         <utils:NumberToCurrencyConverter x:Key="currencyConverter"/>
+
         <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding restore, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
@@ -221,11 +222,11 @@
 
                             </Label>
 
-                            <Label Height="30"
-                                    Margin="158,15,594,24"
-                                     Background="#EBECF0"
-                                     FontSize="20"
-                                     VerticalContentAlignment="Center"
+                            <Label  Height="40"
+                                    Margin="158,15,559,20"
+                                    Background="#EBECF0"
+                                    FontSize="20"
+                                    VerticalContentAlignment="Center"
                                    Content="{Binding ordersID}">
                                 <Label.Effect>
                                     <DropShadowEffect BlurRadius="5"
@@ -266,38 +267,43 @@
 
                             <StackPanel Orientation="Horizontal">
                                 <!--Item - 1-->
-                                <Grid Width="198" Height="110"
-                                      Margin="0,0,50,0" x:Name="customer">
+                                <Grid Width="209" Height="110"
+                                      Margin="20,0,50,0" x:Name="customer">
                                     <Label Content="Khách hàng"
-                                       FontSize="14">
+                                           FontWeight="DemiBold"
+                                           FontSize="16">
                                     </Label>
-                                    <Grid Width="198" Margin="0,25,0,0"
+                                    <Grid Width="198" Margin="0,35,0,0"
                                           Background="White">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20*"/>
+                                            <ColumnDefinition Width="79*"/>
+                                        </Grid.ColumnDefinitions>
                                         <Grid.Effect>
                                             <DropShadowEffect 
-                                                 BlurRadius="15"
+                                                 BlurRadius="8"
                                                   Color="#877b77"
                                                   Opacity="100"
-                                                  ShadowDepth="5"
+                                                  ShadowDepth="1"
                                                   Direction="0" />
                                         </Grid.Effect>
 
-                                        <StackPanel Orientation="Vertical">
-                                            <Label Content="{Binding cusName}"
-                                                   FontSize="14"
-                                                   FontWeight="Bold"
-                                                   Margin="5"></Label>
+                                        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
+                                            <Label x:Name="cusNameLabel"
+                                                   Content="{Binding cusName}"
+                                                   FontSize="15"
+                                                   FontWeight="Medium"
+                                                   Margin="0 5 0 5"></Label>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="Điện thoại: "
                                                    FontSize="14"
-                                                   FontWeight="Light"
+                                                   FontWeight="Normal"
                                                    Margin="5,0,0,5" Width="72"></Label>
                                                 <Label Content="{Binding cusPhoneNumber}"
                                                    FontSize="14"
-                                                   FontWeight="Light"
+                                                   FontWeight="Medium"
                                                    Margin="0,0,5,5"></Label>
                                             </StackPanel>
-
                                         </StackPanel>
                                     </Grid>
                                 </Grid>
@@ -306,44 +312,47 @@
                                 <Grid Width="309" Height="110"
                                       Margin="0,0,50,0" Name="infoOrderBasic">
                                     <Label Content="Thông tin đơn hàng"
-                                       FontSize="14">
+                                            FontSize="16"
+                                           FontWeight="DemiBold">
                                     </Label>
-                                    <Grid Margin="0,25,59,0"
+                                    <Grid Margin="0,25,36,0"
                                           Background="White">
                                         <Grid.Effect>
                                             <DropShadowEffect 
-                                                  BlurRadius="15"
+                                                  BlurRadius="8"
                                                   Color="#877b77"
                                                   Opacity="100"
-                                                  ShadowDepth="5"
+                                                  ShadowDepth="1"
                                                   Direction="0" />
                                         </Grid.Effect>
 
                                         <StackPanel Orientation="Vertical">
-                                            <Label Content="220404QWM"
+                                            <Label x:Name="orderIDLabel"
+                                                   Content="220404QWM"
+                                                   HorizontalAlignment="Left"
                                                    FontSize="14"
-                                                   FontWeight="Bold"
-                                                   Margin="5,0,0,0"></Label>
+                                                   FontWeight="Medium"
+                                                   Margin="25,5,0,0"></Label>
 
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="Ngày mua hàng:"
                                                    FontSize="14"
-                                                   FontWeight="Light"
-                                                   Margin="5,0,0,5" Width="107"></Label>
-                                                <Label Content="{Binding ordersTime, StringFormat=d}"
-                                                   FontSize="14"
-                                                   FontWeight="Light"
-                                                   Margin="0,0,0,5"></Label>
+                                                   FontWeight="Normal"
+                                                   Width="113"></Label>
+                                                <Label  x:Name="orderTimeLabel"
+                                                        Content="{Binding ordersTime, StringFormat=d}"
+                                                        FontSize="14"
+                                                        FontWeight="Medium"></Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="Người tạo:"
                                                    FontSize="14"
-                                                   FontWeight="Light"
-                                                   Margin="5,0,0,5"></Label>
-                                                <Label Content="{Binding accUsername}"
-                                                   FontSize="14"
-                                                   FontWeight="Light"
-                                                   Margin="0,0,0,5"></Label>
+                                                   FontWeight="Normal"
+                                                   Margin="0,0,37,5"></Label>
+                                                <Label  x:Name="creatorLabel"
+                                                        Content="{Binding accUsername}"
+                                                        FontSize="14"
+                                                        FontWeight="Medium"></Label>
                                             </StackPanel>
 
 
@@ -425,22 +434,31 @@
                                                     <!--Column - 1-->
                                                     <Grid Grid.Column="0">
                                                         <StackPanel Orientation="Horizontal"
-                                                            Margin="15,0,0,0"
-                                                            Width="300">
+                                                                    Margin="15,0,0,0"
+                                                                    Width="300">
                                                             <Grid Width="55" Height="48">
-                                                                <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                                <Image  x:Name="coverImg"
+                                                                        Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                                                             </Grid>
 
                                                             <StackPanel Orientation="Vertical"
                                                                 Width="330">
-                                                                <TextBlock Text="Giết con chim nhại (Bìa cứng)"
-                                                               FontSize="12"
-                                                               FontWeight="Medium"
-                                                               TextWrapping="Wrap"></TextBlock>
-                                                                <Label Content="Tác giả: Harper Lee"
-                                                               FontSize="10">
+                                                                <TextBlock  x:Name="nameBook" 
+                                                                        Text="Giết con chim nhại (Bìa cứng)"
+                                                                        FontSize="12"
+                                                                        FontWeight="Medium"
+                                                                        TextWrapping="Wrap"></TextBlock>
 
-                                                                </Label>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label  Content="Tác giả:"
+                                                                            FontSize="10"
+                                                                            Margin="5 0 10 0"/>
+                                                                    <Label  x:Name="authorLabel"
+                                                                            Content="Harper Lee"
+                                                                            FontSize="10"
+                                                                            FontWeight="Medium"/>
+                                                                </StackPanel>
+                                                                
                                                             </StackPanel>
 
 
@@ -449,42 +467,37 @@
 
                                                     <!--Column - 2-->
                                                     <Grid Grid.Column="1">
-                                                        <Label Content="{Binding odCurrentPrice, Converter={StaticResource currencyConverter}}"
-                                                       FontSize="12"></Label>
+                                                        <Label  x:Name="currentPriceLabel"
+                                                                Content="{Binding odCurrentPrice, Converter={StaticResource currencyConverter}}"
+                                                                FontSize="12" 
+                                                                FontWeight="Medium"></Label>
                                                     </Grid>
 
                                                     <!--Column - 3-->
                                                     <Grid Grid.Column="2">
                                                         <StackPanel Orientation="Horizontal">
-                                                            <!--<Grid Width="17" Height="17"
-                                                          Margin="10,0,10,35"
-                                                          Cursor="Hand">
-                                                                <Image Source="{Binding plus,Converter={StaticResource absoluteConverter}}"></Image>
-                                                            </Grid>-->
-
-                                                            <Label Content="{Binding odQuantity}"
+                                                            <Label x:Name="quantityLabel"
+                                                                   Content="{Binding odQuantity}"
                                                                    FontSize="12"
-                                                                   FontWeight="SemiBold"
+                                                                   FontWeight="Medium"
                                                                    Margin="30,0,0,0"></Label>
-
-                                                            <!--<Grid Width="17" Height="17"
-                                                          Margin="10,0,10,35"
-                                                          Cursor="Hand">
-                                                                <Image Source="{Binding minus, Converter={StaticResource absoluteConverter}}"></Image>
-                                                            </Grid>-->
                                                         </StackPanel>
                                                     </Grid>
 
                                                     <!--Column - 4-->
                                                     <Grid Grid.Column="3">
-                                                        <Label Content="0đ"
-                                                       FontSize="12"></Label>
+                                                        <Label x:Name="couponLabel"
+                                                                Content="0đ"
+                                                                FontSize="12"
+                                                                FontWeight="Medium"></Label>
                                                     </Grid>
 
                                                     <!--Column - 5-->
                                                     <Grid Grid.Column="4">
-                                                        <Label Content="127,000đ"
-                                                       FontSize="12"></Label>
+                                                        <Label  x:Name="tempPriceLabel"
+                                                                Content="127,000đ"
+                                                                FontSize="12"
+                                                                FontWeight="Medium"></Label>
                                                     </Grid>
 
 
@@ -502,6 +515,22 @@
 
                                 <!--Row - 3-->
                                 <Grid Grid.Row="2" x:Name="total">
+                                    <StackPanel Width="156" HorizontalAlignment="Left"
+                                            Margin="73,0,0,0"
+                                            Orientation="Horizontal">
+                                        <Grid x:Name="exportData" Width="24" Height="24"
+                                          MouseDown="exportData_MouseDown"
+                                          Cursor="Hand">
+                                            <Grid.Background>
+                                                <ImageBrush ImageSource="{Binding export, Converter={StaticResource absoluteConverter}}"/>
+                                            </Grid.Background>
+                                        </Grid>
+
+                                        <Label Content="Xuất đơn hàng" FontSize="14"
+                                           Margin="0,0,10,0"
+                                           VerticalContentAlignment="Center"></Label>
+                                    </StackPanel>
+
                                     <TextBlock HorizontalAlignment="Right"
                                                Margin="0,5,130,0">
                                         <Label Content="Tổng tiền: "
@@ -512,6 +541,7 @@
                                                FontWeight="SemiBold"
                                                Foreground="Red"></Label>
                                     </TextBlock>
+
                                 </Grid>
                             </Grid>
                         </Grid>
