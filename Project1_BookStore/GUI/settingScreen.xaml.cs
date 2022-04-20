@@ -29,6 +29,7 @@ namespace Project1_BookStore.GUI
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
+            AppConfig.SetValue("LastScreen", "GUI/settingScreen.xaml");
             this.Close();
         }
 
@@ -131,8 +132,13 @@ namespace Project1_BookStore.GUI
             this.Close();
         }
 
-        private void save (object sender, RoutedEventArgs e)
+        private void save_Click(object sender, RoutedEventArgs e)
         {
+            if(StartAtLogin.IsChecked == true)
+                AppConfig.SetValue("OnStart", "1");
+
+            if(StartAtLastScreen.IsChecked == true)
+                AppConfig.SetValue("OnStart", "0");
 
         }
     }

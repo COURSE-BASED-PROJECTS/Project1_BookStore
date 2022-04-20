@@ -2,6 +2,7 @@
 using LiveCharts.Wpf;
 using Project1_BookStore.BUS;
 using Project1_BookStore.DTO;
+using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,10 +29,12 @@ namespace Project1_BookStore.GUI
         public analysicRevenue()
         {
             InitializeComponent();
+            reDownButton.Visibility = Visibility.Collapsed;
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
+            AppConfig.SetValue("LastScreen", "GUI/analysicRevenue.xaml");
             this.Close();
         }
 

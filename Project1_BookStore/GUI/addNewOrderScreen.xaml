@@ -12,7 +12,7 @@
         <!--converter-->
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
         <utils:NumberToCurrencyConverter x:Key="currencyConverter"/>
-        
+
         <!--styte control buttons: maximize, minimize, close, restore-->
         <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
         <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
@@ -120,22 +120,21 @@
                     CornerRadius="20" x:Name="border"/>
 
         <Border Background="#EBECF0" BorderBrush="#EBECF0"
-        BorderThickness="3"
-        CornerRadius="35">
+                BorderThickness="3"
+                CornerRadius="35">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="38*"/>
-                    <RowDefinition Height="450*"/>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="671*"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock Text="Quản lý sản phầm > Thêm đơn hàng mới"
+                    <TextBlock Text="Quản lý sản phẩm > Thêm đơn hàng mới"
                                FontSize="15"
                                FontWeight="Medium"
-                               Margin="20,25,0,0"
+                               Margin="25,18,0,10"
                                HorizontalAlignment="Left">
                     </TextBlock>
-
 
                     <StackPanel Orientation="Horizontal"
                                 Width="117" Height="36"
@@ -186,9 +185,8 @@
 
                 </Grid>
 
-                <Grid Grid.Row="1">
-                    <Grid Margin="114 10 114 23"
-                          Background="#F9FAFB">
+                <Grid Grid.Row="1" Margin="0 1 0 0">
+                    <Grid Background="#F9FAFB">
 
                         <!--using border element above for child-->
                         <Grid.OpacityMask>
@@ -203,25 +201,29 @@
                         </Grid.Effect>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="6*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="73*"/>
+                            <RowDefinition Height="77*"/>
+                            <RowDefinition Height="446*"/>
+                            <RowDefinition Height="75*"/>
                         </Grid.RowDefinitions>
 
                         <!--Row - 1-->
-                        <Grid Grid.Row="0">
-                            <Label  Content="Mã đơn hàng: "
-                                    FontSize="20"
+                        <Grid Grid.Row="0" Margin="0,0,0,6">
+                            <StackPanel Orientation="Horizontal" Height="50">
+                                <Label  Content="Mã đơn hàng: "
+                                    FontSize="16"
                                     FontWeight="Medium" 
-                                    Margin="5,20,857,15"/>
+                                    Margin="5,0,25,0"
+                                    VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
-                            <TextBox Margin="148,15,388,15"
+                                <TextBox Margin="0,0,0,0"
                                      Background="#EBECF0" BorderThickness="0"
                                      TextWrapping="Wrap"
-                                     FontSize="20"
-                                     VerticalContentAlignment="Center" IsEnabled="False">
-                            </TextBox>
+                                     FontSize="16"
+                                     Width="531"
+                                     VerticalContentAlignment="Center"
+                                     IsEnabled="False"/>
+                            </StackPanel>
                             <!--<Line  
                                 X1="20" Y1="60"  
                                 X2="970" Y2="60"  
@@ -230,50 +232,99 @@
                         </Grid>
 
                         <!--Row - 2-->
-                        <Grid Grid.Row="1" 
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center">
-                            <Label Content="Thêm sản phẩm:"
+
+                        <Grid Grid.Row="1">
+                            <StackPanel Orientation="Horizontal"
+                                    Grid.Row="1" 
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Width="675" Height="60">
+                                <Label Content="Thêm sản phẩm:"
                                        FontSize="16"
                                        FontWeight="Medium"
-                                       Margin="0,10,758,6"></Label>
+                                       VerticalContentAlignment="Center"
+                                       Margin="5,0,10,0"></Label>
 
-                            <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Margin="133,0,100,0">
-                                <ComboBox x:Name="listOfBook" 
-                                      IsEnabled="True"
-                                      Background="Transparent"
-                                      FontSize="12"
-                                      VerticalContentAlignment="Center"
-                                      IsSynchronizedWithCurrentItem="True">
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Border Background="GhostWhite" 
+                                    BorderBrush="Gainsboro" 
+                                    BorderThickness="0" Width="470">
+
+                                    <ComboBox x:Name="listOfBook" 
+                                              HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                                              IsEnabled="True"
+                                              Background="Transparent"
+                                              FontSize="12"
+                                              IsSynchronizedWithCurrentItem="True">
+
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
                                                 <Run Text="{Binding bookID}"/>
                                                 <Run Text=" - "/>
                                                 <Run Text="{Binding bookName}"/>
-                                                </TextBlock>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                </ComboBox>
-                            </Border>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                </Border>
 
-                            <Button x:Name="addButton" Click="addButton_Click"
-                                    Margin="786,0,0,0" Background="#CCCDD0" BorderThickness="0"
-                                    Content="Thêm" FontSize="16" FontWeight="Medium" IsDefault="True">
-                                <Button.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="0 7 7 0"/>
-                                    </Style>
-                                </Button.Resources>
-                            </Button>
-                            
+                                <Button x:Name="addButton" Click="addButton_Click"
+                                    Background="#CCCDD0" BorderThickness="0"
+                                    Content="Thêm" FontSize="16" FontWeight="Medium"
+                                    Width="60"
+                                    IsDefault="True">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="0 7 7 0"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Width="400" Height="60"
+                                        Margin="0 0 85 0">
+                                <Label Content="Khách hàng:"
+                                       FontSize="16"
+                                       FontWeight="Medium"
+                                       VerticalContentAlignment="Center"
+                                       Margin="5,0,5,0"></Label>
+
+                                <Border Background="GhostWhite" 
+                                    BorderBrush="Gainsboro" 
+                                    BorderThickness="0" Width="291">
+
+                                    <ComboBox x:Name="listOfCus" 
+                                          IsEnabled="True"
+                                          Background="Transparent"
+                                          FontSize="12"
+                                          VerticalContentAlignment="Center"
+                                          IsSynchronizedWithCurrentItem="True">
+
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                <Run Text="{Binding cusPhoneNumber}"/>
+                                                <Run Text=" - "/>
+                                                <Run Text="{Binding cusName}"/>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                </Border>
+                            </StackPanel>
                         </Grid>
 
                         <!--Row - 3-->
-                        <Grid Grid.Row="2">
-                            <Grid Width="992" Height="358">
+                        <Grid Grid.Row="2" Margin="0,0,0,70" Grid.RowSpan="2">
+                            <Grid Margin="50 30 50 0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="8*"/>
@@ -281,40 +332,42 @@
                                 </Grid.RowDefinitions>
 
                                 <!--Row - 1-->
-                                <Grid Grid.Row="0" Margin="20 0 35 0">
-                                    <StackPanel Orientation="Horizontal">
+                                <Grid Grid.Row="0" Margin="50 0 35 0">
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
                                         <Label Content="Sản phẩm"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="100,5,0,0"></Label>
+                                               Margin="100,0,0,0"></Label>
 
                                         <Label Content="Giá tiền"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="230,5,0,0"></Label>
+                                               Margin="180,0,0,0"></Label>
 
                                         <Label Content="Số lượng"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="80,5,0,0"></Label>
+                                               Margin="80,0,0,0"></Label>
 
                                         <Label Content="Mã giảm giá"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="70,5,0,0" ></Label>
+                                               Margin="80,0,0,0" ></Label>
 
                                         <Label Content="Tạm tính"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="50,5,0,0"></Label>
+                                               Margin="100,0,0,0"></Label>
                                     </StackPanel>
                                 </Grid>
 
                                 <!--Row - 2-->
-                                <Grid Grid.Row="1">
+                                <Grid Grid.Row="1" Margin="50 0 35 0">
                                     <Line  
-                                        X1="20" Y1="10"  
-                                        X2="960" Y2="10"  
+                                        X1="50" Y1="10"  
+                                        X2="1050" Y2="10"  
                                         Stroke="Gray"  
                                         StrokeThickness="1" />
 
@@ -334,61 +387,67 @@
                                                 </ContextMenu>
                                             </ScrollViewer.ContextMenu>
 
-                                            <StackPanel Height="250">
+                                            <StackPanel>
                                                 <!--Item - 1-->
-                                                <Grid Height="62" Margin="5">
+                                                <Grid Height="60" Margin="5">
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="408*"/>
-                                                        <ColumnDefinition Width="117*"/>
-                                                        <ColumnDefinition Width="159*"/>
-                                                        <ColumnDefinition Width="120*"/>
-                                                        <ColumnDefinition Width="188*"/>
+                                                        <ColumnDefinition Width="376*"/>
+                                                        <ColumnDefinition Width="163*"/>
+                                                        <ColumnDefinition Width="100*"/>
+                                                        <ColumnDefinition Width="224*"/>
+                                                        <ColumnDefinition Width="153*"/>
                                                     </Grid.ColumnDefinitions>
 
                                                     <!--Column - 1-->
-                                                    <Grid Grid.Column="0">
+                                                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,120,0">
                                                         <StackPanel Orientation="Horizontal"
-                                                            Margin="20,0,0,0">
-                                                            <Grid Width="50" Height="50" Margin="0,0,20,0">
+                                                            Margin="0,0,0,0">
+                                                            <Grid Margin="0,0,15,0">
                                                                 <Image RenderOptions.BitmapScalingMode="HighQuality"
                                                                        Height="50" Width="50"
                                                                        Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                                                             </Grid>
 
-                                                            <StackPanel Orientation="Vertical" Width="271">
+                                                            <StackPanel Orientation="Vertical" 
+                                                                        Width="290"
+                                                                        Margin="0 0 0 0">
                                                                 <TextBlock Text="Rừng Na Uy (Tái Bản Lần 4) Rừng Na Uy (Tái Bản Lần 4)"
-                                                                           Width="271" Height="40"
+                                                                           Width="290" Height="40"
                                                                            FontSize="14" FontWeight="Medium"
                                                                            TextWrapping="Wrap"/>
-                                                                <!--<Label Content="Tác giả: " FontSize="10" Width="45" HorizontalAlignment="Left"/>-->
-                                                                <Label Content="Haruki Murakami" FontSize="10" Width="246" Height="22"/>
+                                                                <Label Content="Haruki Murakami" 
+                                                                       FontSize="10" 
+                                                                       Width="246"
+                                                                       VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
                                                             </StackPanel>
                                                         </StackPanel>
                                                     </Grid>
 
                                                     <!--Column - 2-->
-                                                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="10">
                                                         <Label Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}" 
                                                                FontSize="13" Height="30" Margin ="0 0 0 0 "/>
                                                     </Grid>
 
                                                     <!--Column - 3-->
-                                                    <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">
-                                                        <TextBox Text="2" FontSize="12" 
-                                                                 Width="50" Height="25" 
-                                                                 HorizontalAlignment="Center" Padding="1 5 5 5"
+                                                    <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <TextBox Text="22" FontSize="12" 
+                                                                 Width="50" Height="30" Padding="0 7 0 0"
+                                                                 HorizontalAlignment="Center"
+                                                                 VerticalAlignment="Center"
                                                                  TextChanged="TextBox_TextChanged"
-                                                                 FontWeight="SemiBold"/>
+                                                                 FontWeight="SemiBold"
+                                                                 BorderThickness="1"/>
                                                     </Grid>
 
                                                     <!--Column - 4-->
-                                                    <Grid Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">
+                                                    <Grid Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="88">
                                                         <Label Content="KM-GIAM30%"
                                                                FontSize="12" FontWeight="Medium"/>
                                                     </Grid>
 
                                                     <!--Column - 5-->
-                                                    <Grid Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">
+                                                    <Grid Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="56">
                                                         <Label Content="101,110 đ"
                                                                FontSize="12" FontWeight="Medium"/>
                                                         <!--{Binding price, Converter={StaticResource currencyConverter}}-->
@@ -401,14 +460,14 @@
                                     </Grid>
 
                                     <Line  
-                                        X1="20" Y1="280"  
-                                        X2="960" Y2="280"  
+                                        X1="50" Y1="335"  
+                                        X2="1050" Y2="335"  
                                         Stroke="Gray"  
                                         StrokeThickness="1" />
                                 </Grid>
 
                                 <!--Row - 3-->
-                                <Grid Grid.Row="2">
+                                <Grid Grid.Row="2" Margin="50 0 35 0">
                                     <TextBlock HorizontalAlignment="Right"
                                                Margin="0,5,47,0" Width="174">
                                         <Label Content="Tổng tiền: "

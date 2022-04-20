@@ -73,6 +73,7 @@ namespace Project1_BookStore.GUI
         }
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
+            AppConfig.SetValue("LastScreen", "GUI/manageCouponScreen.xaml");
             this.Close();
         }
 

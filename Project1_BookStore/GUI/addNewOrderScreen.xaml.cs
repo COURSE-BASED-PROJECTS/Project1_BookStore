@@ -58,6 +58,7 @@ namespace Project1_BookStore.GUI
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             listOfBook.ItemsSource = BookBUS.findAllBook();
+            listOfCus.ItemsSource = CustomerBUS.findAllCustomer();
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
         }

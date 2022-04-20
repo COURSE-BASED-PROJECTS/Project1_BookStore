@@ -35,6 +35,7 @@ namespace Project1_BookStore
         }
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
+            AppConfig.SetValue("LastScreen", "GUI/loginWindow.xaml");
             this.Close();
         }
 
@@ -148,7 +149,7 @@ namespace Project1_BookStore
                 else
                 {
                     this.countWrongPass = 0;
-                    AppConfig.SetValue(AppConfig.Username, username);
+                    AppConfig.SetValue("Username", username);
                     
                     var screen = new MainWindow();
                     screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;

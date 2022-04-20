@@ -48,6 +48,7 @@ namespace Project1_BookStore
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
+            AppConfig.SetValue("LastScreen", "GUI/mainwindow.xaml");
             this.Close();
         }
 

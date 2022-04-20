@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project1_BookStore.GUI"
         xmlns:utils="clr-namespace:Project1_BookStore.Utils"
         mc:Ignorable="d"
-        Title="Setting" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
+        Title="Cấu hình hệ thống" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
@@ -424,12 +424,15 @@
 
                             <TextBlock Width="220" Height="100" Margin="64,208,610,242">
                                 <StackPanel Orientation="Vertical">
-                                    <RadioButton Height="18" Margin="0,5,0,5" Content="Mở trang tổng quan hệ thống" IsChecked="True"/>
-		                            <RadioButton Height="18" Margin="0,5,0,5" Content="Tiếp tục ở nơi bạn dừng lại"/> 
+                                    <RadioButton x:Name="StartAtLogin" 
+                                                Height="18" Margin="0,5,0,5" Content="Mở trang tổng quan hệ thống"/>
+		                            <RadioButton x:Name="StartAtLastScreen"  
+                                                Height="18" Margin="0,5,0,5" Content="Tiếp tục ở nơi bạn dừng lại"/> 
                                 </StackPanel>
                             </TextBlock>
 
-                            <Button Content="Lưu" Click="save"
+                            <Button x:Name="save"
+                                    Content="Lưu" Click="save_Click"
                                     Height="35" Background="Green" Margin="382,505,362,10"
                                     Foreground="White" FontWeight="Medium" FontSize="18">
                                 <Button.Resources>

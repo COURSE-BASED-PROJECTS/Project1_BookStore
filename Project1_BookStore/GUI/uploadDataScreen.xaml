@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project1_BookStore.GUI"
         xmlns:utils="clr-namespace:Project1_BookStore.Utils"
         mc:Ignorable="d"
-        Title="NewBook" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
+        Title="Nhập dữ liệu sản phẩm" FontFamily="Inter" Height="727" Width="1234" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
         <utils:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
