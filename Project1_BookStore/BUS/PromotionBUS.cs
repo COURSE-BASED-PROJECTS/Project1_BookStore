@@ -39,5 +39,10 @@ namespace Project1_BookStore.BUS
             }
             return PromotionDAO.UpdatePromotion(promo);
         }
+
+        internal static PromotionDTO findBestPromotion(string tobID)
+        {
+            return PromotionDAO.findBestPromotion(tobID);
+        }
     }
 }

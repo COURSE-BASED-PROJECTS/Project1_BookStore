@@ -507,94 +507,94 @@
                                     </ListView.ItemsPanel>
 
                                     <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <!--Item - 1-->
-                                            <Grid Height="62" Margin="5" Width="850">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="36*"/>
-                                                    <ColumnDefinition Width="225*"/>
-                                                    <ColumnDefinition Width="100*"/>
-                                                    <ColumnDefinition Width="131*"/>
-                                                    <ColumnDefinition Width="72*"/>
-                                                    <ColumnDefinition Width="180*"/>
-                                                    <ColumnDefinition Width="123*"/>
-                                                </Grid.ColumnDefinitions>
+                                            <DataTemplate>
+                                                <!--Item - 1-->
+                                                <Grid Height="62" Margin="5" Width="850">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="36*"/>
+                                                        <ColumnDefinition Width="225*"/>
+                                                        <ColumnDefinition Width="100*"/>
+                                                        <ColumnDefinition Width="131*"/>
+                                                        <ColumnDefinition Width="72*"/>
+                                                        <ColumnDefinition Width="180*"/>
+                                                        <ColumnDefinition Width="123*"/>
+                                                    </Grid.ColumnDefinitions>
 
-                                                <!--Column - 1-->
-                                                <Grid Grid.Column="0">
-                                                    <CheckBox Width="16" Height="16"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Center"
-                                                    Margin="20,10,0,0">
-                                                    </CheckBox>
-                                                </Grid>
+                                                    <!--Column - 1-->
+                                                    <Grid Grid.Column="0">
+                                                        <CheckBox Width="16" Height="16"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Margin="20,10,0,0">
+                                                        </CheckBox>
+                                                    </Grid>
 
-                                                <!--Column - 2-->
-                                                <Grid Grid.Column="1">
-                                                    <StackPanel Orientation="Horizontal"
-                                                    Margin="15,0,0,0"
-                                                    Width="300">
-                                                        <Grid Width="48" Height="57">
-                                                            <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
-                                                        </Grid>
+                                                    <!--Column - 2-->
+                                                    <Grid Grid.Column="1">
+                                                        <StackPanel Orientation="Horizontal"
+                                                        Margin="15,0,0,0"
+                                                        Width="300">
+                                                            <Grid Width="48" Height="57">
+                                                                <Image Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                            </Grid>
 
 
-                                                        <Label Content="{Binding ordersID}"
-                                                    FontSize="12"
-                                                    FontWeight="Medium"
+                                                            <Label Content="{Binding ordersID}"
+                                                        FontSize="12"
+                                                        FontWeight="Medium"
+                                                        VerticalContentAlignment="Center"></Label>
+
+
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <!--Column - 3-->
+                                                    <Grid Grid.Column="2" Margin="77,0,0,0">
+                                                        <Label Content="12"
+                                                    HorizontalContentAlignment="Center"
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="12" Margin="-29,1,0,-1"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 4-->
+                                                    <Grid Grid.Column="3" Margin="3,0,0,0">
+                                                        <Label Content="{Binding cusPhoneNumber}"
+                                                    HorizontalContentAlignment="Center"
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="12" Margin="28,0,0,0"></Label>
+                                                    </Grid>
+
+                                                    <!--Column - 5-->
+                                                    <Grid Grid.Column="4" Grid.ColumnSpan="2" Margin="76,0,0,0">
+                                                        <Label Content="{Binding ordersPrices, Converter={StaticResource currencyConverter}}"
+                                                    FontSize="12" Margin="-35,0,88,0"
+                                                    HorizontalAlignment="Left"
+                                                    HorizontalContentAlignment="Center"
                                                     VerticalContentAlignment="Center"></Label>
+                                                    </Grid>
 
+                                                    <!--Column - 6-->
+                                                    <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
+                                                        <Label Content="{Binding accUsername}"
+                                                    FontSize="12" Margin="-3,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    HorizontalContentAlignment="Center"
+                                                    VerticalContentAlignment="Center"></Label>
+                                                    </Grid>
 
-                                                    </StackPanel>
-                                                </Grid>
+                                                    <!--Column - 7-->
+                                                    <Grid Grid.Column="6" Margin="80,0,0,0">
+                                                        <Image Width="24" Height="24"
+                                                                Cursor="Hand" MouseDown="infoOrder"
+                                                                Source="{Binding setting, Converter={StaticResource absoluteConverter}}" RenderTransformOrigin="-0.13,0.627" Margin="-2,19,19,19">
+                                                        </Image>
+                                                    </Grid>
 
-                                                <!--Column - 3-->
-                                                <Grid Grid.Column="2" Margin="77,0,0,0">
-                                                    <Label Content="12"
-                                                HorizontalContentAlignment="Center"
-                                                VerticalContentAlignment="Center"
-                                                HorizontalAlignment="Left"
-                                                FontSize="12" Margin="-29,1,0,-1"></Label>
-                                                </Grid>
+                                                </Grid >
 
-                                                <!--Column - 4-->
-                                                <Grid Grid.Column="3" Margin="3,0,0,0">
-                                                    <Label Content="{Binding cusPhoneNumber}"
-                                                HorizontalContentAlignment="Center"
-                                                VerticalContentAlignment="Center"
-                                                HorizontalAlignment="Left"
-                                                FontSize="12" Margin="28,0,0,0"></Label>
-                                                </Grid>
-
-                                                <!--Column - 5-->
-                                                <Grid Grid.Column="4" Grid.ColumnSpan="2" Margin="76,0,0,0">
-                                                    <Label Content="{Binding ordersPrices, Converter={StaticResource currencyConverter}}"
-                                                FontSize="12" Margin="-35,0,88,0"
-                                                HorizontalAlignment="Left"
-                                                HorizontalContentAlignment="Center"
-                                                VerticalContentAlignment="Center"></Label>
-                                                </Grid>
-
-                                                <!--Column - 6-->
-                                                <Grid Grid.Column="5" Margin="130,0,61,0" Grid.ColumnSpan="2">
-                                                    <Label Content="{Binding accUsername}"
-                                                FontSize="12" Margin="-3,0,0,0"
-                                                HorizontalAlignment="Left"
-                                                HorizontalContentAlignment="Center"
-                                                VerticalContentAlignment="Center"></Label>
-                                                </Grid>
-
-                                                <!--Column - 7-->
-                                                <Grid Grid.Column="6" Margin="80,0,0,0">
-                                                    <Image Width="24" Height="24"
-                                                            Cursor="Hand" MouseDown="infoOrder"
-                                                            Source="{Binding setting, Converter={StaticResource absoluteConverter}}" RenderTransformOrigin="-0.13,0.627" Margin="-2,19,19,19">
-                                                    </Image>
-                                                </Grid>
-
-                                            </Grid >
-
-                                        </DataTemplate>
+                                            </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
 

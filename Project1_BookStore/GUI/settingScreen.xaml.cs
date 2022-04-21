@@ -65,13 +65,13 @@ namespace Project1_BookStore.GUI
             user.Content = AppConfig.GetValue(AppConfig.Username);
 
             numOfBook.ItemsSource = numOfBookList;
-            numOfBook.SelectedIndex = 0;
+            numOfBook.SelectedItem = settingScreen.getRowPerPageManageBookScreen();
 
             numOfOrder.ItemsSource = numOfList;
-            numOfOrder.SelectedIndex = 3;
+            numOfOrder.SelectedItem = settingScreen.getRowPerPageManageOrderScreen();
 
             numOfPromotion.ItemsSource = numOfList;
-            numOfPromotion.SelectedIndex = 3;
+            numOfPromotion.SelectedItem = settingScreen.getRowPerPageManageCouponScreen();
 
             //this.WindowState = WindowState.Maximized;
         }
@@ -132,6 +132,23 @@ namespace Project1_BookStore.GUI
             this.Close();
         }
 
+        private static int RowPerPageManageBookScreen = Int32.Parse(AppConfig.GetValue("RowPerPageManageBookScreen"));
+        private static int RowPerPageManageCouponScreen = Int32.Parse(AppConfig.GetValue("RowPerPageManageCouponScreen"));
+        private static int RowPerPageManageOrderScreen = Int32.Parse(AppConfig.GetValue("RowPerPageManageOrderScreen"));
+
+        public static int getRowPerPageManageBookScreen()
+        {
+            return RowPerPageManageBookScreen;
+        }
+        public static int getRowPerPageManageCouponScreen()
+        {
+            return RowPerPageManageCouponScreen;
+        }
+        public static int getRowPerPageManageOrderScreen()
+        {
+            return RowPerPageManageOrderScreen;
+        }
+
         private void save_Click(object sender, RoutedEventArgs e)
         {
             if(StartAtLogin.IsChecked == true)
@@ -140,6 +157,17 @@ namespace Project1_BookStore.GUI
             if(StartAtLastScreen.IsChecked == true)
                 AppConfig.SetValue("OnStart", "0");
 
+            RowPerPageManageBookScreen = (int)numOfBook.SelectedItem;
+            AppConfig.SetValue("RowPerPageManageBookScreen", $"{RowPerPageManageBookScreen}");
+
+            RowPerPageManageOrderScreen = (int)numOfOrder.SelectedItem;
+            AppConfig.SetValue("RowPerPageManageOrderScreen", $"{RowPerPageManageOrderScreen}");
+            
+            RowPerPageManageCouponScreen = (int)numOfPromotion.SelectedItem;
+            AppConfig.SetValue("RowPerPageManageCouponScreen", $"{RowPerPageManageCouponScreen}");
+
+            MessageBox.Show("Cấu hình thành công!!!", "Thông báo", 
+                MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

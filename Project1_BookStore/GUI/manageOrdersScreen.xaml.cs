@@ -79,7 +79,7 @@ namespace Project1_BookStore.GUI
         int _totalItems = 0;
         int _currentPage = 1;
         int _totalPages = 0;
-        int _rowsPerPage = 3;
+        int _rowsPerPage = 0;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -88,7 +88,7 @@ namespace Project1_BookStore.GUI
 
             this.DataContext = Context;
 
-            _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageOrderScreen));
+            _rowsPerPage = settingScreen.getRowPerPageManageOrderScreen();
             _totalItems = listOrders.Count;
             Context.countOrder = _totalItems;
             _totalPages = _totalItems / _rowsPerPage +

@@ -226,7 +226,7 @@ namespace Project1_BookStore.GUI
                 // Thay đổi view model
                 _vm.Books = tabs[i].Books;
 
-                _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageBookScreen));
+                _rowsPerPage = settingScreen.getRowPerPageManageBookScreen();
                 _currentPage = 1; // Quay lại trang đầu tiên
 
                 _vm.SelectedBooks = new BindingList<BookDTO> (_vm.Books
@@ -401,7 +401,7 @@ namespace Project1_BookStore.GUI
 
             
 
-            _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageBookScreen));
+            _rowsPerPage = settingScreen.getRowPerPageManageBookScreen();
 
             _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
                 .Skip((_currentPage - 1) * _rowsPerPage)

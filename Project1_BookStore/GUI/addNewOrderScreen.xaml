@@ -217,6 +217,7 @@
                                     VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
                                 <TextBox Margin="0,0,0,0"
+                                     Name="orderIDText"
                                      Background="#EBECF0" BorderThickness="0"
                                      TextWrapping="Wrap"
                                      FontSize="16"
@@ -339,19 +340,24 @@
                                         <Label Content="Sản phẩm"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="100,0,0,0"></Label>
+                                               Margin="60,0,0,0"></Label>
 
                                         <Label Content="Giá tiền"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="180,0,0,0"></Label>
+                                               Margin="160,0,0,0"></Label>
 
                                         <Label Content="Số lượng"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="80,0,0,0"></Label>
+                                               Margin="70,0,0,0"></Label>
 
                                         <Label Content="Mã giảm giá"
+                                               FontSize="14"
+                                               FontWeight="SemiBold"
+                                               Margin="80,0,0,0" ></Label>
+
+                                        <Label Content="Đã giảm"
                                                FontSize="14"
                                                FontWeight="SemiBold"
                                                Margin="80,0,0,0" ></Label>
@@ -359,7 +365,7 @@
                                         <Label Content="Tạm tính"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="100,0,0,0"></Label>
+                                               Margin="80,0,0,0"></Label>
                                     </StackPanel>
                                 </Grid>
 
@@ -372,12 +378,17 @@
                                         StrokeThickness="1" />
 
                                     <Grid Name="GridContent" Margin="0 18 0 18">
-                                        <ScrollViewer  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                                                    ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                                                    ScrollViewer.CanContentScroll="True">
-
-                                            <ScrollViewer.ContextMenu>
-                                                <ContextMenu>
+                                        <ListView  
+                                            x:Name="listBookOrder"
+                                            ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                                    >
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                            <ListView.Resources>
+                                                <ContextMenu x:Key="orderContextMenu">
                                                     <MenuItem Header="Xóa" Click="deleteItem">
                                                         <MenuItem.Icon>
                                                             <Image  RenderOptions.BitmapScalingMode="HighQuality"
@@ -385,21 +396,23 @@
                                                         </MenuItem.Icon>
                                                     </MenuItem>
                                                 </ContextMenu>
-                                            </ScrollViewer.ContextMenu>
-
-                                            <StackPanel>
+                                            </ListView.Resources>
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>                                                    
+                                                   
                                                 <!--Item - 1-->
-                                                <Grid Height="60" Margin="5">
+                                                <Grid Height="60" Margin="5" Width="1008">
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="376*"/>
-                                                        <ColumnDefinition Width="163*"/>
-                                                        <ColumnDefinition Width="100*"/>
-                                                        <ColumnDefinition Width="224*"/>
-                                                        <ColumnDefinition Width="153*"/>
+                                                        <ColumnDefinition Width="289*"/>
+                                                        <ColumnDefinition Width="123*"/>
+                                                        <ColumnDefinition Width="149*"/>
+                                                        <ColumnDefinition Width="181*"/>
+                                                        <ColumnDefinition Width="140*"/>
+                                                        <ColumnDefinition Width="125*"/>
                                                     </Grid.ColumnDefinitions>
 
                                                     <!--Column - 1-->
-                                                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,120,0">
+                                                    <Grid Grid.Column="0" Margin="0,0,2,0">
                                                         <StackPanel Orientation="Horizontal"
                                                             Margin="0,0,0,0">
                                                             <Grid Margin="0,0,15,0">
@@ -409,54 +422,61 @@
                                                             </Grid>
 
                                                             <StackPanel Orientation="Vertical" 
-                                                                        Width="290"
-                                                                        Margin="0 0 0 0">
-                                                                <TextBlock Text="Rừng Na Uy (Tái Bản Lần 4) Rừng Na Uy (Tái Bản Lần 4)"
-                                                                           Width="290" Height="40"
+                                                                        Width="285"
+                                                                        Margin="-70 0 0 0">
+                                                                <TextBlock Text="{Binding bookName}"
+                                                                           Width="249" Height="40"
                                                                            FontSize="14" FontWeight="Medium"
                                                                            TextWrapping="Wrap"/>
-                                                                <Label Content="Haruki Murakami" 
+                                                                <Label Content="{Binding bookAuthor}" 
                                                                        FontSize="10" 
-                                                                       Width="246"
-                                                                       VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                                                                       Width="263" VerticalContentAlignment="Center"/>
                                                             </StackPanel>
                                                         </StackPanel>
                                                     </Grid>
 
                                                     <!--Column - 2-->
                                                     <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="10">
-                                                        <Label Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}" 
+                                                               <Label Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}" 
                                                                FontSize="13" Height="30" Margin ="0 0 0 0 "/>
                                                     </Grid>
 
                                                     <!--Column - 3-->
-                                                    <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                        <TextBox Text="22" FontSize="12" 
+                                                    <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="50">
+                                                        <TextBox Text="{Binding amount}" FontSize="12" 
                                                                  Width="50" Height="30" Padding="0 7 0 0"
                                                                  HorizontalAlignment="Center"
                                                                  VerticalAlignment="Center"
-                                                                 TextChanged="TextBox_TextChanged"
+                                                                 
                                                                  FontWeight="SemiBold"
                                                                  BorderThickness="1"/>
                                                     </Grid>
 
                                                     <!--Column - 4-->
                                                     <Grid Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="88">
-                                                        <Label Content="KM-GIAM30%"
+                                                        <Label Content="{Binding promoName}"
                                                                FontSize="12" FontWeight="Medium"/>
                                                     </Grid>
 
                                                     <!--Column - 5-->
                                                     <Grid Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="56">
-                                                        <Label Content="101,110 đ"
+                                                        <Label Content="{Binding priceDiscount, Converter={StaticResource currencyConverter}}"
+                                                               FontSize="12" FontWeight="Medium" Margin="-15,0,0,0"/>                                                        
+                                                    </Grid>
+
+                                                    <!--Column - 6-->
+                                                    <Grid Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="56">
+                                                        <Label Content="{Binding priceCurrent, Converter={StaticResource currencyConverter}}"
                                                                FontSize="12" FontWeight="Medium"/>
-                                                        <!--{Binding price, Converter={StaticResource currencyConverter}}-->
+                                                        
                                                     </Grid>
 
                                                 </Grid>
 
-                                            </StackPanel>
-                                        </ScrollViewer>
+                                            
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
                                     </Grid>
 
                                     <Line  

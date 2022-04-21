@@ -59,7 +59,7 @@ namespace Project1_BookStore.GUI
             Context.countCoupon = listPromotions.Count;
             this.DataContext = Context;
 
-            _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageCouponScreen)); 
+            _rowsPerPage = settingScreen.getRowPerPageManageCouponScreen(); 
             _totalItems = listPromotions.Count;
             _totalPages = _totalItems / _rowsPerPage +
                     (_totalItems % _rowsPerPage == 0 ? 0 : 1);

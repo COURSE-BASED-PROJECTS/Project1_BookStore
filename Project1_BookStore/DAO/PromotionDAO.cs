@@ -45,6 +45,49 @@ namespace Project1_BookStore.DAO
             return null;
         }
 
+        internal static PromotionDTO findBestPromotion(string tobID)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "Select p.* from Promotion p, Promotiondetail pd " +
+                "where p.promoID = pd.promoID " +
+                "and p.promoStatus = 1 " +
+                $"and pd.tobID = '{tobID}' " +
+                "and p.promoDiscount = " +
+                "(Select Max(p.promoDiscount) from Promotion p, Promotiondetail pd " +
+                "where p.promoID = pd.promoID " +
+                "and p.promoStatus = 1 " +
+                $"and pd.tobID = '{tobID}')";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string promoID = (string)reader["promoID"];
+                string promoName = (string)reader["promoName"];
+                float promoDiscount = (float)reader["promoDiscount"];
+                string promoDesciption = (string)reader["promoDescription"];
+                var promoStartTime = (DateTime)reader["promoStartTime"];
+                var promoEndTime = (DateTime)reader["promoEndTime"];
+                bool promoStatus = (bool)reader["promoStatus"];
+
+                var promo = new PromotionDTO()
+                {
+                    promoID = promoID,
+                    promoName = promoName,
+                    promoDiscount = promoDiscount,
+                    promoDesciption = promoDesciption,
+                    promoStartTime = promoStartTime,
+                    promoEndTime = promoEndTime,
+                    promoStatus = promoStatus,
+                };
+                return promo;
+            }
+            reader.Close();
+            return null;
+        }
+
         internal static List<PromotionDTO> findAllPromotion()
         {
             var con = ConnectDB.openConnection();

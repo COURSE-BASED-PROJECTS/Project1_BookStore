@@ -1,7 +1,9 @@
 ﻿using Project1_BookStore.BUS;
 using Project1_BookStore.DTO;
+using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,7 @@ namespace Project1_BookStore.GUI
     /// </summary>
     public partial class addNewOrderScreen : Window
     {
+        
         public addNewOrderScreen()
         {
             InitializeComponent();
@@ -55,10 +58,20 @@ namespace Project1_BookStore.GUI
         }
 
         Icons _icons = new Icons();
+
+        private string orderID { get; set; }
+        private List<BookDTO> allBooks = new List<BookDTO>();
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            listOfBook.ItemsSource = BookBUS.findAllBook();
+            allBooks = BookBUS.findAllBook();
+            listOfBook.ItemsSource = allBooks;
+
             listOfCus.ItemsSource = CustomerBUS.findAllCustomer();
+
+            orderID = CreateOrderID.generatedID();
+            orderIDText.Text = orderID;
+            
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
         }
@@ -72,10 +85,56 @@ namespace Project1_BookStore.GUI
         {
             this.Close();
         }
+        class Order 
+        {
+            public string bookName { get; set; }
+            public string bookAuthor { get; set; }
+            public decimal bookPrice { get; set; }
+            public int amount { get; set; }
+            public string promoName { get; set; }
+            public decimal priceDiscount { get; set; }
+            public decimal priceCurrent { get; set; }
+        }
+
+        List<Order> orders = new List<Order>();
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            int index = listOfBook.SelectedIndex;
 
+            var book = allBooks[index];
+
+            var promoForBook = PromotionBUS.findBestPromotion(book.tobID);
+            var order = new Order();
+            if (promoForBook != null)
+            {
+                order = new Order()
+                {
+                    bookName = book.bookName,
+                    bookAuthor = book.bookAuthor,
+                    bookPrice = book.bookPrice,
+                    amount = 1,
+                    promoName = promoForBook.promoName,
+                    priceDiscount = -(decimal)promoForBook.promoDiscount/100 * book.bookPrice,
+                    priceCurrent = book.bookPrice - (decimal)promoForBook.promoDiscount/100 * book.bookPrice
+                };
+            } else
+            {
+                order = new Order()
+                {
+                    bookName = book.bookName,
+                    bookAuthor = book.bookAuthor,
+                    bookPrice = book.bookPrice,
+                    amount = 1,
+                    promoName = "",
+                    priceDiscount = 0,
+                    priceCurrent = book.bookPrice
+                };
+            }
+            orders.Add(order);
+            listBookOrder.ItemsSource = orders;
         }
 
         private void deleteItem(object sender, RoutedEventArgs e)
@@ -83,9 +142,6 @@ namespace Project1_BookStore.GUI
 
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
     }
 }
