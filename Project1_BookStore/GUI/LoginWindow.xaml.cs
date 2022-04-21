@@ -28,13 +28,6 @@ namespace Project1_BookStore
     public partial class LoginWindow : Window
     {
         public int countWrongPass { get; set; } = 0;
-        private static string Username { get; set; } = AppConfig.GetValue(AppConfig.Username);
-
-        public static string getUsername()
-        {
-            return Username;
-        }
-
 
         public LoginWindow()
         {
@@ -73,18 +66,6 @@ namespace Project1_BookStore
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = _icons;
-            // Check username password trong Appconfig với DB
-            // AppConfig lưu password đã hash. 
-            // kiểm tra password trong AppConfig có bằng với password lấy lên từ DB
-            // Gọi hàm getHashedPasswordByUsername trong UserBUS
-            // Nếu đúng mới làm tiếp, sai thì ở lại màn hình Login
-
-            //var lastsScreen = AppConfig.GetValue(AppConfig.LastScreen);
-            //// Lấy dữ liệu trongAppConfig xem ngta chọn gì -> xử lí
-            //if (!lastsScreen.Equals("LoginScreen"))
-            //{
-            //    //xử lí màn hình
-            //}
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
@@ -116,8 +97,10 @@ namespace Project1_BookStore
             else
             {
                 this.countWrongPass = 0;
+
+                App.Username = username;
                 AppConfig.SetValue(AppConfig.Username, username);
-                Username = username;
+                
                 var screen = new MainWindow();
                 screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 screen.Show();
@@ -157,9 +140,9 @@ namespace Project1_BookStore
                 else
                 {
                     this.countWrongPass = 0;
+
+                    App.Username = username;
                     AppConfig.SetValue("Username", username);
-                    
-                    Username = username;
 
                     var screen = new MainWindow();
                     screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;

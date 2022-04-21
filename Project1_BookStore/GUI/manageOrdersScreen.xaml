@@ -331,7 +331,7 @@
                                    FontSize="25"
                                    FontWeight="DemiBold"
                                Margin="10,34,70,52"></Label>
-                        <StackPanel Margin="54,71,475,22" Orientation="Horizontal">
+                        <StackPanel Margin="40,71,475,22" Orientation="Horizontal">
                             <Label x:Name="userName" Content="{Binding username}"
                                FontSize="15" FontWeight="Medium"
                                Height="30"

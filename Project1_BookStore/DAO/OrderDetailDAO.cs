@@ -26,13 +26,17 @@ namespace Project1_BookStore.DAO
                 string bookID = (string)reader["bookID"];
                 decimal odCurrentPrice = (decimal)reader["odCurrentPrice"];
                 int odQuantity = (int)reader["odQuantity"];
-            
+                decimal odDiscountedPrice = (decimal)reader["odDiscountedPrice"];
+                decimal odTempPrice = (decimal)reader["odTempPrice"];
+
                 var odDetail = new OrderDetailDTO()
                 {
                     ordersID = orderID,
                     bookID = bookID,
                     odCurrentPrice = odCurrentPrice,
-                    odQuantity = odQuantity                    
+                    odQuantity = odQuantity,
+                    odDiscountedPrice = odDiscountedPrice,
+                    odTempPrice = odTempPrice
                 };
                 list.Add(odDetail);
             }

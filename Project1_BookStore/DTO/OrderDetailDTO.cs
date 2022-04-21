@@ -12,6 +12,7 @@ namespace Project1_BookStore.DTO
         public string bookID { get; set; }
         public decimal odCurrentPrice { get; set; }
         public int odQuantity { get; set; }
-
+        public decimal odDiscountedPrice { get; set; }
+        public decimal odTempPrice { get; set; }
     }
 }

@@ -61,7 +61,6 @@ namespace Project1_BookStore.GUI
         }
 
         Icons _icons = new Icons();
-        List<OrderDetailDTO> _odsList;
         CustomerDTO _customer;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -127,42 +126,42 @@ namespace Project1_BookStore.GUI
                         //define base font for PDF document
                         string vifontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\times.ttf";
                         BaseFont viFont = BaseFont.CreateFont(vifontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-                        
-                        Font title = new Font(viFont, 25f, Font.BOLDITALIC, BaseColor.BLUE);
+
+                        Font title = new Font(viFont, 25f, Font.BOLD, BaseColor.BLUE);
                         Font header = new Font(viFont, 12f, Font.BOLD, BaseColor.BLACK);
                         Font normal = new Font(viFont, 10f, Font.NORMAL, BaseColor.BLACK);
                         Font underline = new Font(viFont, 10f, Font.UNDERLINE, BaseColor.BLACK);
-                        
+
                         //creating iTextSharp Table from the DataTable data
                         PdfPTable pdfPTable = new PdfPTable(6);
                         int[] intTblWidth = { 7, 25, 8, 20, 20, 20 };
-                        
+
                         pdfPTable.SetWidths(intTblWidth);
                         pdfPTable.WidthPercentage = 100;
                         pdfPTable.DefaultCell.BorderWidth = 1;
                         pdfPTable.HorizontalAlignment = Element.ALIGN_CENTER;
-                        
+
                         //adding header columns
                         PdfPCell pdfPCell = new PdfPCell(new Phrase("STT", header));
                         pdfPCell.HorizontalAlignment = Element.ALIGN_CENTER;
                         pdfPTable.AddCell(pdfPCell);
-                        
+
                         PdfPCell pdfPCell2 = new PdfPCell(new Phrase("Sản phẩm", header));
                         pdfPCell2.HorizontalAlignment = Element.ALIGN_CENTER;
                         pdfPTable.AddCell(pdfPCell2);
-                        
+
                         PdfPCell pdfPCell3 = new PdfPCell(new Phrase("Số lượng", header));
                         pdfPCell3.HorizontalAlignment = Element.ALIGN_CENTER;
                         pdfPTable.AddCell(pdfPCell3);
-                        
+
                         PdfPCell pdfPCell4 = new PdfPCell(new Phrase("Giá tiền", header));
                         pdfPCell4.HorizontalAlignment = Element.ALIGN_CENTER;
                         pdfPTable.AddCell(pdfPCell4);
-                        
+
                         PdfPCell pdfPCell5 = new PdfPCell(new Phrase("Giảm giá", header));
                         pdfPCell5.HorizontalAlignment = Element.ALIGN_CENTER;
                         pdfPTable.AddCell(pdfPCell5);
-                        
+
                         PdfPCell pdfPCell6 = new PdfPCell(new Phrase("Tạm tính", header));
                         pdfPCell6.HorizontalAlignment = Element.ALIGN_CENTER;
                         pdfPTable.AddCell(pdfPCell6);
@@ -190,15 +189,15 @@ namespace Project1_BookStore.GUI
                             pdfPCell10.HorizontalAlignment = Element.ALIGN_CENTER;
                             pdfPTable.AddCell(pdfPCell10);
 
-                            PdfPCell pdfPCell11 = new PdfPCell(new Phrase("0 đ", normal));
+                            PdfPCell pdfPCell11 = new PdfPCell(new Phrase(order.odDiscountedPrice.ToString(), normal));
                             pdfPCell11.HorizontalAlignment = Element.ALIGN_CENTER;
                             pdfPTable.AddCell(pdfPCell11);
 
-                            PdfPCell pdfPCell12 = new PdfPCell(new Phrase(order.odCurrentPrice.ToString(), normal));
+                            PdfPCell pdfPCell12 = new PdfPCell(new Phrase(order.odTempPrice.ToString(), normal));
                             pdfPCell12.HorizontalAlignment = Element.ALIGN_CENTER;
                             pdfPTable.AddCell(pdfPCell12);
                         }
-                        
+
                         //Exporting to PDF
                         using (FileStream fileStream = new FileStream(save.FileName, FileMode.Create))
                         {
@@ -218,21 +217,21 @@ namespace Project1_BookStore.GUI
 
                             document.Add(new Phrase($"Chi tiết đơn hàng {_detail.ordersID}", title));
                             document.Add(Chunk.NEWLINE);
-                            document.Add(Chunk.NEWLINE); 
+                            document.Add(Chunk.NEWLINE);
 
                             // write Customer Info
-                            document.Add(new Phrase($"Khách hàng:    {_customer.cusName}", normal));
+                            document.Add(new Phrase($"Khách hàng:  {_customer.cusName}", normal));
                             document.Add(Chunk.NEWLINE);
-                            document.Add(new Phrase($"Số điện thoại: {_customer.cusPhoneNumber}", normal));
-                            document.Add(Chunk.NEWLINE);
-
-                            document.Add(new Phrase($"Ngày mua hàng: {_detail.ordersTime}", normal));
-                            document.Add(Chunk.NEWLINE);
-                            document.Add(new Phrase($"Nhân viên:     {_detail.accUsername}", normal));
-                            document.Add(Chunk.NEWLINE);
+                            document.Add(new Phrase($"Số điện thoại:  {_customer.cusPhoneNumber}", normal));
                             document.Add(Chunk.NEWLINE);
 
-                            document.Add(new Phrase($"Chi tiết sản phẩm" , header));
+                            document.Add(new Phrase($"Ngày mua hàng:  {_detail.ordersTime}", normal));
+                            document.Add(Chunk.NEWLINE);
+                            document.Add(new Phrase($"Nhân viên:  {_detail.accUsername}", normal));
+                            document.Add(Chunk.NEWLINE);
+                            document.Add(Chunk.NEWLINE);
+
+                            document.Add(new Phrase($"Chi tiết sản phẩm", header));
                             document.Add(Chunk.NEWLINE);
 
 
@@ -251,6 +250,7 @@ namespace Project1_BookStore.GUI
                             document.Close();
                             fileStream.Close();
                         }
+                        
                         MessageBox.Show("Xuất dữ liệu thành công!",
                                         "Xuất dữ liệu",
                                         MessageBoxButton.OK, MessageBoxImage.Information);

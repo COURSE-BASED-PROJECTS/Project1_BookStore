@@ -152,6 +152,8 @@ namespace Project1_BookStore.GUI
         PointShapeLine quantity = new PointShapeLine();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            user.Content = App.Username;
+
             today.Content = DateTime.Now.ToString("dd/MM/yyyy");
             this.DataContext = _icons;
             getDaysAgo(5);

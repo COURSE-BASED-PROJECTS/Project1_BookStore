@@ -73,7 +73,7 @@ namespace Project1_BookStore.GUI
             numOfPromotion.ItemsSource = numOfList;
             numOfPromotion.SelectedItem = settingScreen.getRowPerPageManageCouponScreen();
 
-            StartAtLogin.IsChecked = true;
+            user.Content = App.Username;
             //this.WindowState = WindowState.Maximized;
         }
 

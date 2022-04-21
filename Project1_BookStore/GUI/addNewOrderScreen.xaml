@@ -333,55 +333,54 @@
                                 </Grid.RowDefinitions>
 
                                 <!--Row - 1-->
-                                <Grid Grid.Row="0" Margin="50 0 35 0">
+                                <Grid Grid.Row="0" Margin="0 0 35 0">
                                     <StackPanel Orientation="Horizontal"
-                                                HorizontalAlignment="Center"
                                                 VerticalAlignment="Center">
                                         <Label Content="Sản phẩm"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="60,0,0,0"></Label>
+                                               Margin="150,0,0,0"></Label>
 
                                         <Label Content="Giá tiền"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="160,0,0,0"></Label>
+                                               Margin="180,0,0,0"></Label>
 
                                         <Label Content="Số lượng"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="70,0,0,0"></Label>
+                                               Margin="60,0,0,0"></Label>
 
-                                        <Label Content="Mã giảm giá"
+                                        <Label Content="Mã khuyến mãi"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="80,0,0,0" ></Label>
-
-                                        <Label Content="Đã giảm"
+                                               Margin="50,0,0,0" ></Label>
+                                        
+                                        <Label Content="Giảm giá"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="80,0,0,0" ></Label>
+                                               Margin="50,0,0,0" ></Label>
 
                                         <Label Content="Tạm tính"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="80,0,0,0"></Label>
+                                               Margin="60,0,0,0"></Label>
                                     </StackPanel>
+
+                                    <Line VerticalAlignment="Bottom"
+                                        X1="50" Y1="0"
+                                        X2="1050" Y2="0"
+                                        Stroke="Gray"  
+                                        StrokeThickness="1" />
                                 </Grid>
 
                                 <!--Row - 2-->
-                                <Grid Grid.Row="1" Margin="50 0 35 0">
-                                    <Line  
-                                        X1="50" Y1="10"  
-                                        X2="1050" Y2="10"  
-                                        Stroke="Gray"  
-                                        StrokeThickness="1" />
+                                <Grid Grid.Row="1">
 
-                                    <Grid Name="GridContent" Margin="0 18 0 18">
-                                        <ListView  
-                                            x:Name="listBookOrder"
-                                            ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                                                    >
+                                    <Grid Name="GridContent" Margin="0,0,0,5">
+                                        <ListView x:Name="listBookOrder"
+                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                                  BorderThickness="0">
                                             <ListView.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel/>
@@ -401,29 +400,30 @@
                                                 <DataTemplate>                                                    
                                                    
                                                 <!--Item - 1-->
-                                                <Grid Height="60" Margin="5" Width="1008">
+                                                <Grid Height="60" Margin="5" Width="1010">
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="289*"/>
-                                                        <ColumnDefinition Width="123*"/>
-                                                        <ColumnDefinition Width="149*"/>
-                                                        <ColumnDefinition Width="181*"/>
+                                                        <ColumnDefinition Width="350*"/>
                                                         <ColumnDefinition Width="140*"/>
+                                                        <ColumnDefinition Width="115*"/>
+                                                        <ColumnDefinition Width="150*"/>
+                                                        <ColumnDefinition Width="130*"/>
                                                         <ColumnDefinition Width="125*"/>
                                                     </Grid.ColumnDefinitions>
 
                                                     <!--Column - 1-->
                                                     <Grid Grid.Column="0" Margin="0,0,2,0">
                                                         <StackPanel Orientation="Horizontal"
-                                                            Margin="0,0,0,0">
+                                                                    VerticalAlignment="Center"
+                                                                    Margin="0,0,0,0">
                                                             <Grid Margin="0,0,15,0">
                                                                 <Image RenderOptions.BitmapScalingMode="HighQuality"
                                                                        Height="50" Width="50"
                                                                        Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
                                                             </Grid>
 
-                                                            <StackPanel Orientation="Vertical" 
-                                                                        Width="285"
-                                                                        Margin="-70 0 0 0">
+                                                            <StackPanel Orientation="Vertical"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center">
                                                                 <TextBlock Text="{Binding bookName}"
                                                                            Width="249" Height="40"
                                                                            FontSize="14" FontWeight="Medium"
@@ -436,15 +436,18 @@
                                                     </Grid>
 
                                                     <!--Column - 2-->
-                                                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="56">
+                                                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                                <Label Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}" 
-                                                               FontSize="13" Height="30" Margin ="0 0 0 0 "/>
+                                                               FontSize="13"/>
                                                     </Grid>
 
                                                     <!--Column - 3-->
-                                                    <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="50">
+                                                    <Grid Grid.Column="2" 
+                                                          HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center" 
+                                                          Height="30" Width="50">
                                                         <TextBox x:Name="amountText" Text="{Binding Path=amount}" FontSize="12" 
-                                                                 Width="50" Height="30" Padding="0 7 0 0"
+                                                                 Padding="0, 7, 0, 0" Width="50"
                                                                  HorizontalAlignment="Center"
                                                                  VerticalAlignment="Center"
                                                                  TextWrapping="Wrap"
@@ -453,19 +456,19 @@
                                                     </Grid>
 
                                                     <!--Column - 4-->
-                                                    <Grid Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="88">
+                                                    <Grid Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <Label Content="{Binding promoName}"
                                                                FontSize="12" FontWeight="Medium"/>
                                                     </Grid>
 
                                                     <!--Column - 5-->
-                                                    <Grid Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="56">
+                                                    <Grid Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <Label Content="{Binding priceDiscount, Converter={StaticResource currencyConverter}}"
-                                                               FontSize="12" FontWeight="Medium" Margin="-15,0,0,0"/>                                                        
+                                                               FontSize="12" FontWeight="Medium"/>                                                        
                                                     </Grid>
 
                                                     <!--Column - 6-->
-                                                    <Grid Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="56">
+                                                    <Grid Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <Label Content="{Binding priceCurrent, Converter={StaticResource currencyConverter}}"
                                                                FontSize="12" FontWeight="Medium"/>
                                                         
@@ -479,8 +482,8 @@
                                         </ListView>
                                     </Grid>
 
-                                    <Line  
-                                        X1="50" Y1="335"  
+                                    <Line  VerticalAlignment="Bottom"
+                                        X1="0" Y1="335"  
                                         X2="1050" Y2="335"  
                                         Stroke="Gray"  
                                         StrokeThickness="1" />
@@ -489,16 +492,15 @@
                                 <!--Row - 3-->
                                 <Grid Grid.Row="2" Margin="50 0 35 0">
                                     <TextBlock HorizontalAlignment="Right"
-                                               Margin="0,5,47,0" Width="174">
+                                               VerticalAlignment="Top"
+                                               Margin="0,0,150,0">
                                         <Label Content="Tổng tiền: "
-                                               FontSize="16"
-                                               FontWeight="SemiBold" Height="30"></Label>
-                                        <Label  
-                                               Content="{Binding totalPrice, Converter={StaticResource currencyConverter}}"
-                                               HorizontalAlignment="Center" VerticalAlignment="Center"
-                                               FontSize="16" 
+                                               FontSize="14"
+                                               FontWeight="SemiBold"></Label>
+                                        <Label Content="{Binding ordersPrices, Converter={StaticResource currencyConverter}}"
+                                               FontSize="14"
                                                FontWeight="SemiBold"
-                                               Foreground="Red" Height="30" Width="56"/>
+                                               Foreground="Red"></Label>
                                     </TextBlock>
                                 </Grid>
                             </Grid>

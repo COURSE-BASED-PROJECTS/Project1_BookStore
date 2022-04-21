@@ -441,8 +441,6 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
 
-
-
                             </ListView>
                         </StackPanel>
 

@@ -14,6 +14,7 @@ namespace Project1_BookStore
     /// </summary>
     public partial class App : Application
     {
+        public static string Username { get; set; }
         public static string OnStart { get; set; } = AppConfig.GetValue("OnStart");
         public static string LastScreen { get; set; } = AppConfig.GetValue("LastScreen");
         protected override void OnStartup(StartupEventArgs e)
@@ -22,6 +23,7 @@ namespace Project1_BookStore
             if (OnStart.Equals("0"))
             {
                 this.StartupUri = new System.Uri(LastScreen, System.UriKind.Relative);
+                Username = AppConfig.GetValue(AppConfig.Username);
             }
             else
             {

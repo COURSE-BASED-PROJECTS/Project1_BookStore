@@ -85,8 +85,8 @@ namespace Project1_BookStore
 
             //itemMainWindow.username = AppConfig.GetValue(AppConfig.Username);
             this.DataContext = itemMainWindow;
-            userName.Content = LoginWindow.getUsername();
-            user.Content = LoginWindow.getUsername();
+            userName.Content = App.Username;
+            user.Content = App.Username;
         }
 
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)

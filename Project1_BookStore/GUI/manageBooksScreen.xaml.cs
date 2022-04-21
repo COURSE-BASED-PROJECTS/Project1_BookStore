@@ -104,8 +104,8 @@ namespace Project1_BookStore.GUI
             Context.countBook = BookBUS.findAllBook().Count;
 
             this.DataContext = Context;
-            userName.Content = LoginWindow.getUsername();
-            user.Content = LoginWindow.getUsername();
+            userName.Content = App.Username;
+            user.Content = App.Username;
         }
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
