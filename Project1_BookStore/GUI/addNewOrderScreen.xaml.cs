@@ -23,13 +23,22 @@ namespace Project1_BookStore.GUI
     /// </summary>
     public partial class addNewOrderScreen : Window
     {
+
         
         public addNewOrderScreen()
         {
             InitializeComponent();
             reDownButton.Visibility = Visibility.Collapsed;
         }
+        public class addOrderContext : INotifyPropertyChanged
+        {
+            public Icons _icons { get; set; } = new Icons();
+            public decimal totalPrice { get; set; } = 0;
 
+            public event PropertyChangedEventHandler? PropertyChanged;
+        }
+
+        addOrderContext Context = new addOrderContext();
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -57,7 +66,7 @@ namespace Project1_BookStore.GUI
             this.WindowState = WindowState.Minimized;
         }
 
-        Icons _icons = new Icons();
+        
 
         private string orderID { get; set; }
         private List<BookDTO> allBooks = new List<BookDTO>();
@@ -72,7 +81,7 @@ namespace Project1_BookStore.GUI
             orderID = CreateOrderID.generatedID();
             orderIDText.Text = orderID;
             
-            this.DataContext = _icons;
+            this.DataContext = Context;
             //this.WindowState = WindowState.Maximized;
         }
 
@@ -85,7 +94,7 @@ namespace Project1_BookStore.GUI
         {
             this.Close();
         }
-        class Order 
+        class Order : INotifyPropertyChanged
         {
             public string bookName { get; set; }
             public string bookAuthor { get; set; }
@@ -94,11 +103,13 @@ namespace Project1_BookStore.GUI
             public string promoName { get; set; }
             public decimal priceDiscount { get; set; }
             public decimal priceCurrent { get; set; }
+
+            public event PropertyChangedEventHandler? PropertyChanged;
         }
 
-        List<Order> orders = new List<Order>();
+        BindingList<Order> orders = new BindingList<Order>();
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
@@ -133,7 +144,21 @@ namespace Project1_BookStore.GUI
                     priceCurrent = book.bookPrice
                 };
             }
-            orders.Add(order);
+            int indexOfOrder = orders.ToList().FindIndex(item => order.bookName == item.bookName);
+            if (indexOfOrder != -1)
+            {
+                orders[indexOfOrder].amount += 1;
+                orders[indexOfOrder].priceDiscount = ((decimal)promoForBook.promoDiscount / 100 * book.bookPrice) * orders[indexOfOrder].amount;
+
+                orders[indexOfOrder].priceCurrent = (book.bookPrice - (decimal)promoForBook.promoDiscount / 100 * book.bookPrice) * orders[indexOfOrder].amount;
+            }
+            else
+            {
+                orders.Add(order);
+            }
+
+            Context.totalPrice += order.priceCurrent;
+            
             listBookOrder.ItemsSource = orders;
         }
 
@@ -142,6 +167,10 @@ namespace Project1_BookStore.GUI
 
         }
 
-        
+        private void QuantityNumericHandler(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+    
     }
 }

@@ -136,7 +136,7 @@
                                HorizontalAlignment="Left">
                     </TextBlock>
 
-                    <StackPanel Orientation="Horizontal"
+                    <StackPanel DataContext="{Binding _icons}" Orientation="Horizontal"
                                 Width="117" Height="36"
                                 HorizontalAlignment="Right"
                                 Margin="0,10,20,0">
@@ -436,20 +436,20 @@
                                                     </Grid>
 
                                                     <!--Column - 2-->
-                                                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="10">
+                                                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="56">
                                                                <Label Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}" 
                                                                FontSize="13" Height="30" Margin ="0 0 0 0 "/>
                                                     </Grid>
 
                                                     <!--Column - 3-->
                                                     <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="50">
-                                                        <TextBox Text="{Binding amount}" FontSize="12" 
+                                                        <TextBox x:Name="amountText" Text="{Binding Path=amount}" FontSize="12" 
                                                                  Width="50" Height="30" Padding="0 7 0 0"
                                                                  HorizontalAlignment="Center"
                                                                  VerticalAlignment="Center"
-                                                                 
+                                                                 TextWrapping="Wrap"
                                                                  FontWeight="SemiBold"
-                                                                 BorderThickness="1"/>
+                                                                 BorderThickness="1"                                                                 />
                                                     </Grid>
 
                                                     <!--Column - 4-->
@@ -493,11 +493,12 @@
                                         <Label Content="Tổng tiền: "
                                                FontSize="16"
                                                FontWeight="SemiBold" Height="30"></Label>
-                                        <Label Content="145,000 đ"
+                                        <Label  
+                                               Content="{Binding totalPrice, Converter={StaticResource currencyConverter}}"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                                FontSize="16" 
                                                FontWeight="SemiBold"
-                                               Foreground="Red" Height="30"/>
+                                               Foreground="Red" Height="30" Width="56"/>
                                     </TextBlock>
                                 </Grid>
                             </Grid>
