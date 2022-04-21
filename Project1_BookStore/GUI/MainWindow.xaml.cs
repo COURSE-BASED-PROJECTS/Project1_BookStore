@@ -80,13 +80,13 @@ namespace Project1_BookStore
             listDataDated.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findTop5()); 
 
             itemMainWindow.soldBooks = BookBUS.countBookSold();
-            itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count - itemMainWindow.soldBooks;
+            itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count;
             itemMainWindow.newOrders = OrderBUS.findAllOrder().Count;
 
             //itemMainWindow.username = AppConfig.GetValue(AppConfig.Username);
             this.DataContext = itemMainWindow;
-            userName.Content = AppConfig.GetValue(AppConfig.Username);
-            user.Content = AppConfig.GetValue(AppConfig.Username);
+            userName.Content = LoginWindow.getUsername();
+            user.Content = LoginWindow.getUsername();
         }
 
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)

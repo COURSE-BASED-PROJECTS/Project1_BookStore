@@ -28,6 +28,14 @@ namespace Project1_BookStore
     public partial class LoginWindow : Window
     {
         public int countWrongPass { get; set; } = 0;
+        private static string Username { get; set; } = AppConfig.GetValue(AppConfig.Username);
+
+        public static string getUsername()
+        {
+            return Username;
+        }
+
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -90,7 +98,7 @@ namespace Project1_BookStore
             if (check == false)
             {
                 this.countWrongPass += 1;
-                if (this.countWrongPass <= 2)
+                if (this.countWrongPass < 3)
                 {
                     MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
                         "Lỗi đăng nhập",
@@ -109,7 +117,7 @@ namespace Project1_BookStore
             {
                 this.countWrongPass = 0;
                 AppConfig.SetValue(AppConfig.Username, username);
-                
+                Username = username;
                 var screen = new MainWindow();
                 screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 screen.Show();
@@ -131,7 +139,7 @@ namespace Project1_BookStore
                 if (check == false)
                 {
                     this.countWrongPass += 1;
-                    if (this.countWrongPass <= 2)
+                    if (this.countWrongPass < 3)
                     {
                         MessageBox.Show("Tài khoản hoặc mật khẩu sai!",
                             "Lỗi đăng nhập",
@@ -151,6 +159,8 @@ namespace Project1_BookStore
                     this.countWrongPass = 0;
                     AppConfig.SetValue("Username", username);
                     
+                    Username = username;
+
                     var screen = new MainWindow();
                     screen.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     screen.Show();

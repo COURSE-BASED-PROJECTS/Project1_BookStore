@@ -69,6 +69,8 @@ namespace Project1_BookStore.GUI
             couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
                                     .Take(_rowsPerPage)
                                     .ToList();
+            userName.Content = LoginWindow.getUsername();
+            user.Content = LoginWindow.getUsername();
             //couponList.ItemsSource = listPromotions;
         }
         private void closeButton_Click(object sender, RoutedEventArgs e)

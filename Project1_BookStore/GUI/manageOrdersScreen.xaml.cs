@@ -83,8 +83,8 @@ namespace Project1_BookStore.GUI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            userName.Content = AppConfig.GetValue(AppConfig.Username);
-            user.Content = AppConfig.GetValue(AppConfig.Username);
+            userName.Content = LoginWindow.getUsername();
+            user.Content = LoginWindow.getUsername();
 
             this.DataContext = Context;
 
