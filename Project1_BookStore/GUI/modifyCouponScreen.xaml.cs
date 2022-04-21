@@ -71,7 +71,7 @@ namespace Project1_BookStore.GUI
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             context._promotionDTO = (PromotionDTO)this._promotion.Clone();
-            context._promotionDTO.promoDiscount *= 100;
+            context._promotionDTO.promoDiscount = (float)Math.Round(context._promotionDTO.promoDiscount*100,2) ;
             this.DataContext = context;
             //this.WindowState = WindowState.Maximized;
         }

@@ -236,7 +236,7 @@ namespace Project1_BookStore.GUI
                 PromotionDTO item = (PromotionDTO)couponList.SelectedItem;
 
                 item.promoStatus = false;
-                listPromotions.Remove(item);
+                //listPromotions.Remove(item);
                 PromotionBUS.UpdatePromotion(item);
 
                 MessageBox.Show($"Tắt khuyến mãi {item.promoID}: {item.promoName} thành công!!!");

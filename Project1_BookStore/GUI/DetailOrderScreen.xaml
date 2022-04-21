@@ -463,13 +463,13 @@
                                                                     Width="300">
                                                             <Grid Width="55" Height="48">
                                                                 <Image  x:Name="coverImg"
-                                                                        Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                                        Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                                             </Grid>
 
                                                             <StackPanel Orientation="Vertical"
                                                                 Width="330">
                                                                 <TextBlock  x:Name="nameBook" 
-                                                                        Text="Giết con chim nhại (Bìa cứng)"
+                                                                        Text="{Binding bookName}"
                                                                         FontSize="12"
                                                                         FontWeight="Medium"
                                                                         TextWrapping="Wrap"></TextBlock>
@@ -479,7 +479,7 @@
                                                                             FontSize="10"
                                                                             Margin="5 0 10 0"/>
                                                                     <Label  x:Name="authorLabel"
-                                                                            Content="{Binding bookID}"
+                                                                            Content="{Binding bookAuthor}"
                                                                             FontSize="10"
                                                                             FontWeight="Medium"/>
                                                                 </StackPanel>

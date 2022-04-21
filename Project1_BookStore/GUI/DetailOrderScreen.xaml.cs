@@ -60,6 +60,19 @@ namespace Project1_BookStore.GUI
             this.WindowState = WindowState.Minimized;
         }
 
+        public class OrderDetail
+        {
+            public string linkImg { get; set; }
+            public string bookID { get; set; }
+            public string bookName { get; set; }
+            public string bookAuthor { get; set; }
+            public decimal odCurrentPrice { get; set; }
+            public int odQuantity { get; set; }
+            public decimal odDiscountedPrice { get; set; }
+            public decimal odTempPrice { get; set; }
+        }
+
+
         Icons _icons = new Icons();
         CustomerDTO _customer;
 
@@ -74,7 +87,26 @@ namespace Project1_BookStore.GUI
 
             infoOrderBasic.DataContext = _detail;
 
-            GridContent.ItemsSource = OrderDetailBUS.findOrderDetailByOrderID(_detail.ordersID);
+            var ordersDetail = OrderDetailBUS.findOrderDetailByOrderID(_detail.ordersID);
+            var viewModel = new List<OrderDetail>();
+
+            foreach (var order in ordersDetail)
+            {
+                var temp = new OrderDetail()
+                {
+                    linkImg = $"/Resource/Images/BookCovers/{order.bookID}.jpg",
+                    odCurrentPrice = order.odCurrentPrice,
+                    odDiscountedPrice = order.odDiscountedPrice,
+                    odQuantity = order.odQuantity,
+                    odTempPrice = order.odTempPrice,
+                    bookName = BookBUS.findBookByID(order.bookID).bookName,
+                    bookAuthor = BookBUS.findBookByID(order.bookID).bookAuthor
+                };
+
+                viewModel.Add(temp);
+            }
+
+            GridContent.ItemsSource = viewModel;
 
             this.DataContext = _icons;
             //this.WindowState = WindowState.Maximized;
