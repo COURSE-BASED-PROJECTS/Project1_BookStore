@@ -558,7 +558,7 @@
                                         <Label Content="Tổng tiền: "
                                                FontSize="15"
                                                FontWeight="SemiBold"></Label>
-                                        <Label Content="{Binding ordersPrices, Converter={StaticResource currencyConverter}}"
+                                        <Label Content="{Binding totalPrice, Converter={StaticResource currencyConverter}}"
                                                FontSize="15"
                                                FontWeight="SemiBold"
                                                Foreground="Red"></Label>
