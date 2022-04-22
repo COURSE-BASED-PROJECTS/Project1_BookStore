@@ -11,7 +11,7 @@ namespace Project1_BookStore.DAO
 {
     internal class CustomerDAO
     {
-        internal static CustomerDTO findCustomerByID(string cusPhoneNumber)
+        internal static CustomerDTO findCustomerByPhoneNumber(string cusPhoneNumber)
         {
             var con = ConnectDB.openConnection();
 

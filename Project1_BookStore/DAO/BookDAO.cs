@@ -80,15 +80,81 @@ namespace Project1_BookStore.DAO
             return books;
         }
 
+        internal static List<BookDTO> findNearOutOfBook()
+        {
+            var con = ConnectDB.openConnection();
 
+            var sql = "SELECT * FROM BOOK WHERE bookQuantity < 5 ";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteReader();
+            List<BookDTO> books = new List<BookDTO>();
+            while (reader.Read())
+            {
+                string bookID = (string)reader["bookID"];
+                string bookName = (string)reader["bookName"];
+                string bookAuthor = (string)reader["bookAuthor"];
+                string tobId = (string)reader["tobID"];
+                decimal bookPrice = (decimal)reader["bookPrice"];
+                //int bookPrice = 0;
+                int bookQuantity = (int)reader["bookQuantity"];
+                int bookPublishedYear = (int)reader["bookPublishedYear"];
+                var book = new BookDTO()
+                {
+                    bookID = bookID,
+                    bookName = bookName,
+                    tobID = tobId,
+                    bookAuthor = bookAuthor,
+                    bookPrice = bookPrice,
+                    bookQuantity = bookQuantity,
+                    bookPublishedYear = bookPublishedYear
+                };
+                books.Add(book);
+            }
+            reader.Close();
+            return books;
+        }
+        internal static List<BookDTO> findNearOutOfBookByTOB(string tobID)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = $"SELECT * FROM BOOK WHERE bookQuantity < 5 AND tobID = '{tobID}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteReader();
+            List<BookDTO> books = new List<BookDTO>();
+            while (reader.Read())
+            {
+                string bookID = (string)reader["bookID"];
+                string bookName = (string)reader["bookName"];
+                string bookAuthor = (string)reader["bookAuthor"];
+                string tobId = (string)reader["tobID"];
+                decimal bookPrice = (decimal)reader["bookPrice"];
+                //int bookPrice = 0;
+                int bookQuantity = (int)reader["bookQuantity"];
+                int bookPublishedYear = (int)reader["bookPublishedYear"];
+                var book = new BookDTO()
+                {
+                    bookID = bookID,
+                    bookName = bookName,
+                    tobID = tobId,
+                    bookAuthor = bookAuthor,
+                    bookPrice = bookPrice,
+                    bookQuantity = bookQuantity,
+                    bookPublishedYear = bookPublishedYear
+                };
+                books.Add(book);
+            }
+            reader.Close();
+            return books;
+        }
         internal static List<BookDTO> findBestSellerBook()
         {
             var con = ConnectDB.openConnection();
 
-            var sql = "SELECT * FROM BOOK WHERE bookID = (" +
-                "SELECT bookID FROM ORDERSDETAIL " +
-                "GROUP BY bookID " +
-                "HAVING SUM(odQuantity) > 5)";
+            var sql = "SELECT * FROM BOOK b," +
+                " (SELECT bookID FROM ORDERSDETAIL GROUP BY bookID HAVING SUM(odQuantity) > 5) bsb" +
+                " WHERE b.bookID = bsb.bookID";
 
             var command = new SqlCommand(sql, con);
             var reader = command.ExecuteReader();
@@ -118,6 +184,44 @@ namespace Project1_BookStore.DAO
             reader.Close();
             return books;
         }
+
+        internal static List<BookDTO> findBestSellerBookByTOB(string tobID)
+        {
+            var con = ConnectDB.openConnection();
+
+            var sql = "SELECT * FROM BOOK b," +
+                " (SELECT bookID FROM ORDERSDETAIL GROUP BY bookID HAVING SUM(odQuantity) > 5) bsb" +
+                $" WHERE b.bookID = bsb.bookID AND tobID = '{tobID}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteReader();
+            List<BookDTO> books = new List<BookDTO>();
+            while (reader.Read())
+            {
+                string bookID = (string)reader["bookID"];
+                string name = (string)reader["bookName"];
+                string bookAuthor = (string)reader["bookAuthor"];
+                string tobId = (string)reader["tobID"];
+                decimal bookPrice = (decimal)reader["bookPrice"];
+                //int bookPrice = 0;
+                int bookQuantity = (int)reader["bookQuantity"];
+                int bookPublishedYear = (int)reader["bookPublishedYear"];
+                var book = new BookDTO()
+                {
+                    bookID = bookID,
+                    bookName = name,
+                    tobID = tobID,
+                    bookAuthor = bookAuthor,
+                    bookPrice = bookPrice,
+                    bookQuantity = bookQuantity,
+                    bookPublishedYear = bookPublishedYear
+                };
+                books.Add(book);
+            }
+            reader.Close();
+            return books;
+        }
+
         internal static int countBookOnSell()
         {
             var con = ConnectDB.openConnection();
@@ -301,7 +405,40 @@ namespace Project1_BookStore.DAO
             reader.Close();
             return books;
         }
+        internal static List<BookDTO> findAllBookByTOB(string tobID)
+        {
+            var con = ConnectDB.openConnection();
 
+            var sql = $"SELECT * FROM BOOK WHERE tobID = '{tobID}'";
+
+            var command = new SqlCommand(sql, con);
+            var reader = command.ExecuteReader();
+            List<BookDTO> books = new List<BookDTO>();
+            while (reader.Read())
+            {
+                string bookID = (string)reader["bookID"];
+                string bookName = (string)reader["bookName"];
+                string bookAuthor = (string)reader["bookAuthor"];
+                string tobId = (string)reader["tobID"];
+                decimal bookPrice = (decimal)reader["bookPrice"];
+                //int bookPrice = 0;
+                int bookQuantity = (int)reader["bookQuantity"];
+                int bookPublishedYear = (int)reader["bookPublishedYear"];
+                var book = new BookDTO()
+                {
+                    bookID = bookID,
+                    bookName = bookName,
+                    tobID = tobID,
+                    bookAuthor = bookAuthor,
+                    bookPrice = bookPrice,
+                    bookQuantity = bookQuantity,
+                    bookPublishedYear = bookPublishedYear
+                };
+                books.Add(book);
+            }
+            reader.Close();
+            return books;
+        }
         public static bool InsertBook(BookDTO book)
         {
             var con = ConnectDB.openConnection();

@@ -4,6 +4,7 @@ using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,11 @@ namespace Project1_BookStore.DAO
 
             while (reader.Read())
             {
-                string cusPhoneNumber = (string)reader["cusPhoneNumber"];
+                string cusPhoneNumber = "";
+                if (!reader.IsDBNull(1))
+                {
+                    cusPhoneNumber = (string)reader["cusPhoneNumber"];
+                }
                 string accUsername = (string)reader["accUsername"];
                 //string tobID = (string)reader["tobID"];
                 decimal ordersPrice = (decimal)reader["ordersPrice"];
@@ -107,7 +112,11 @@ namespace Project1_BookStore.DAO
             while (reader.Read())
             {
                 string ordersID = (string)reader["ordersID"];
-                string cusPhoneNumber = (string)reader["cusPhoneNumber"];
+                string cusPhoneNumber = "";
+                if (!reader.IsDBNull(1))
+                {
+                    cusPhoneNumber = (string)reader["cusPhoneNumber"];
+                }
                 string accUsername = (string)reader["accUsername"];
                 string tobID = (string)reader["tobID"];
                 int ordersPrice = (int)reader["ordersPrice"];
@@ -131,7 +140,7 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = "SELECT * FROM ORDERS";
+            var sql = "SELECT * FROM ORDERS ORDER BY ORDERS.ordersTime DESC";
 
             var command = new SqlCommand(sql, con);
             var reader = command.ExecuteReader();
@@ -140,7 +149,11 @@ namespace Project1_BookStore.DAO
             while (reader.Read())
             {
                 string ordersID = (string)reader["ordersID"];
-                string cusPhoneNumber = (string)reader["cusPhoneNumber"];
+                string cusPhoneNumber = "";
+                if (!reader.IsDBNull(1))
+                {
+                    cusPhoneNumber = (string)reader["cusPhoneNumber"];
+                }
                 string accUsername = (string)reader["accUsername"];
                 //string tobID = (string)reader["tobID"];
 
@@ -169,8 +182,11 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
+            var price = order.ordersPrices.ToString(CultureInfo.CreateSpecificCulture("en-GB"));
+            var time = order.ordersTime.ToString("yyyy-MM-dd hh:mm:ss");
+            var cusPhone = order.cusPhoneNumber.Equals("null") ?  "null" : $"'{order.cusPhoneNumber}'";
             var sql = "INSERT INTO ORDERS(ordersID, cusPhoneNumber, accUsername, ordersPrice, ordersTime)" +
-                $"VALUES('{order.ordersID}', '{order.cusPhoneNumber}', '{order.accUsername}', {order.ordersPrices}, '{order.ordersTime}')";
+                $" VALUES('{order.ordersID}', {cusPhone}, '{order.accUsername}', {price}, '{time}')";
             var command = new SqlCommand(sql, con);
             try
             {

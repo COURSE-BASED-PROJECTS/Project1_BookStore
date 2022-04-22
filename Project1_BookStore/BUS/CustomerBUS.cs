@@ -10,13 +10,13 @@ namespace Project1_BookStore.BUS
 {
     internal class CustomerBUS
     {
-        public static CustomerDTO findCustomerByID(string cusPhoneNumber)
+        public static CustomerDTO findCustomerByPhoneNumber(string cusPhoneNumber)
         {
             if (cusPhoneNumber == null || cusPhoneNumber.Equals(""))
             {
                 return null;
             }
-            return CustomerDAO.findCustomerByID(cusPhoneNumber);
+            return CustomerDAO.findCustomerByPhoneNumber(cusPhoneNumber);
         }
         public static List<CustomerDTO> findAllCustomer()
         {
@@ -24,7 +24,7 @@ namespace Project1_BookStore.BUS
         }
         public static bool InsertCustomer(CustomerDTO cus)
         {
-            if (CustomerBUS.findCustomerByID(cus.cusPhoneNumber) != null)
+            if (CustomerBUS.findCustomerByPhoneNumber(cus.cusPhoneNumber) != null)
             {
                 return false;
             }

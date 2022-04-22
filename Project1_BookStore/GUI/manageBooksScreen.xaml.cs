@@ -25,6 +25,8 @@ namespace Project1_BookStore.GUI
     public partial class manageBooksScreen : Window, INotifyPropertyChanged
     {
         public int tabIndex { get; set; } = -1;
+
+        public List<TypeOfBookDTO> tob = TypeOfBookBUS.findAllTypeOfBook();
         public manageBooksScreen()
         {
             InitializeComponent();
@@ -43,8 +45,8 @@ namespace Project1_BookStore.GUI
 
         manageBooksContext Context = new manageBooksContext();
         BindingList<BookDTO> allBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findAllBook()));
-        BindingList<BookDTO> nearOutOfBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findTop5()));
         BindingList<BookDTO> bestSellerBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBook()));
+        BindingList<BookDTO> nearOutOfBookContext = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findNearOutOfBook()));
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -106,8 +108,10 @@ namespace Project1_BookStore.GUI
             this.DataContext = Context;
             userName.Content = App.Username;
             user.Content = App.Username;
-
-            listOfTypes.ItemsSource = TypeOfBookBUS.findAllTypeOfBook();
+            
+            this.tob.Insert(0, new TypeOfBookDTO() { tobName = "Tất cả danh mục", tobID = "All" });
+            listOfTypes.ItemsSource = tob;
+                
         }
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
@@ -222,8 +226,16 @@ namespace Project1_BookStore.GUI
             tabs.Add(Tab3);
             tabs.Add(Tab4);
             int i = tabControl.SelectedIndex;
+            if (i == 3)
+            {
+                categoryBook.Visibility = Visibility.Collapsed;
+            } else
+            {
+                categoryBook.Visibility = Visibility.Visible;
+            }
             if (i >= 0 && i != this.tabIndex)
             {
+                listOfTypes.SelectedIndex = 0;
                 this.tabIndex = tabControl.SelectedIndex;
                 // Thay đổi view model
                 _vm.Books = tabs[i].Books;
@@ -241,7 +253,8 @@ namespace Project1_BookStore.GUI
                 _totalItems = _vm.Books.Count;
                 _totalPages = _totalItems / _rowsPerPage +
                     (_totalItems % _rowsPerPage == 0 ? 0 : 1);
-
+                if (_totalPages == 0) _totalPages = 1;
+               
                 currentPagingText.Content = $"{_currentPage}/{_totalPages}";
 
 
@@ -365,7 +378,7 @@ namespace Project1_BookStore.GUI
                 _totalItems = _vm.Books.Count;
                 _totalPages = _totalItems / _rowsPerPage +
                     (_totalItems % _rowsPerPage == 0 ? 0 : 1);
-
+                if (_totalPages == 0) _totalPages = 1;
                 currentPagingText.Content = $"{_currentPage}/{_totalPages}";
 
 
@@ -415,7 +428,7 @@ namespace Project1_BookStore.GUI
             _totalItems = _vm.Books.Count;
             _totalPages = _totalItems / _rowsPerPage +
                 (_totalItems % _rowsPerPage == 0 ? 0 : 1);
-
+            if (_totalPages == 0) _totalPages = 1;
             if (_currentPage > _totalPages)
             {
                 _currentPage--;
@@ -450,7 +463,90 @@ namespace Project1_BookStore.GUI
 
         private void listOfTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // xu ly sau khi user chon item trong combo box
+            var tob = this.tob[listOfTypes.SelectedIndex];
+
+            if (tob.tobID.Equals("All"))
+            {
+                int i = tabControl.SelectedIndex;
+                if (i >= 0 && i == this.tabIndex)
+                {
+                    this.tabIndex = tabControl.SelectedIndex;
+                    // Thay đổi view model
+                    _vm.Books = tabs[i].Books;
+
+                    _rowsPerPage = settingScreen.getRowPerPageManageBookScreen();
+                    _currentPage = 1; // Quay lại trang đầu tiên
+
+                    _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
+                        .Skip((_currentPage - 1) * _rowsPerPage)
+                        .Take(_rowsPerPage)
+                        .ToList());
+
+
+                    // Tính toán lại thông số phân trang
+                    _totalItems = _vm.Books.Count;
+                    _totalPages = _totalItems / _rowsPerPage +
+                        (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+                    if (_totalPages == 0) _totalPages = 1;
+                    currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+
+                    // ép cập nhật giao diện
+                    tabs[i].Name.ItemsSource = _vm.SelectedBooks;
+
+                    // cập nhật tổng sản phẩm từng tab
+                    Context.countBook = _totalItems;
+                }
+            } else
+            {
+                int i = tabControl.SelectedIndex;
+                if (i >= 0 && i == this.tabIndex)
+                {
+                    this.tabIndex = tabControl.SelectedIndex;
+                    var listBooks = new BindingList<BookDTO>();
+                    // Thay đổi view model
+                    switch (i)
+                    {
+                        case 0:
+                            listBooks = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findAllBookByTOB(tob.tobID)));
+                            break;
+                        case 1:
+                            listBooks = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBestSellerBookByTOB(tob.tobID)));
+                            break;
+                        case 2:
+                            listBooks = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findNearOutOfBookByTOB(tob.tobID)));
+                            break;
+                        default:
+                            break;
+                    }
+
+                    _vm.Books = listBooks;
+
+                    _rowsPerPage = settingScreen.getRowPerPageManageBookScreen();
+                    _currentPage = 1; // Quay lại trang đầu tiên
+
+                    _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
+                        .Skip((_currentPage - 1) * _rowsPerPage)
+                        .Take(_rowsPerPage)
+                        .ToList());
+
+
+                    // Tính toán lại thông số phân trang
+                    _totalItems = _vm.Books.Count;
+                    _totalPages = _totalItems / _rowsPerPage +
+                        (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+                    if (_totalPages == 0) _totalPages = 1;
+                    currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+
+                    // ép cập nhật giao diện
+                    tabs[i].Name.ItemsSource = _vm.SelectedBooks;
+
+                    // cập nhật tổng sản phẩm từng tab
+                    Context.countBook = _totalItems;
+                }
+            }
         }
     }
 }

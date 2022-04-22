@@ -257,7 +257,7 @@
                                               IsEnabled="True"
                                               Background="Transparent"
                                               FontSize="12"
-                                              IsSynchronizedWithCurrentItem="True" Margin="0,0,10,0">
+                                              IsSynchronizedWithCurrentItem="True" Margin="0,0,10,0" SelectionChanged="listOfBook_SelectionChanged">
 
                                             <ComboBox.ItemTemplate>
                                                 <DataTemplate>
@@ -331,33 +331,7 @@
                                           IsSynchronizedWithCurrentItem="True"
                                           SelectionChanged="listOfCus_SelectionChanged">
                                         </ComboBox>
-                                    </Border>
-                                    <Button x:Name="addCustomer" Cursor="Hand"
-                                    HorizontalAlignment="Right"
-                                    Background="#F9FAFB" BorderThickness="0"
-                                    Content="Thêm" FontSize="16" FontWeight="Medium" Foreground="#39D353"
-                                    Width="67"
-                                    IsDefault="True">
-                                    </Button>
-                                </StackPanel>
-
-                                <StackPanel x:Name="phone_StackPanel"
-                                            Orientation="Horizontal" Margin="50,20,0,0">
-
-                                    <Label Content="Số điện thoại:"
-                                       FontSize="14"
-                                       FontWeight="Medium"
-                                       VerticalContentAlignment="Center"
-                                       Margin="5,0,10,0"></Label>
-
-                                    <TextBox Margin="17,0,0,0"
-                                             Width="222"  Height="30"
-                                             Background="#EBECF0"
-                                             TextWrapping="Wrap"
-                                             FontSize="14"
-                                             VerticalContentAlignment="Center"
-                                             x:Name="phoneCustomer"
-                                             BorderThickness="0"/>
+                                    </Border>                                    
                                 </StackPanel>
 
                                 <StackPanel x:Name="nameCus_StackPanel"
@@ -378,6 +352,27 @@
                                              x:Name="nameCustomer"
                                              BorderThickness="0"/>
                                 </StackPanel>
+                                
+                                <StackPanel x:Name="phone_StackPanel"
+                                            Orientation="Horizontal" Margin="50,20,0,0">
+
+                                    <Label Content="Số điện thoại:"
+                                       FontSize="14"
+                                       FontWeight="Medium"
+                                       VerticalContentAlignment="Center"
+                                       Margin="5,0,10,0"></Label>
+
+                                    <TextBox Margin="17,0,0,0"
+                                             Width="222"  Height="30"
+                                             Background="#EBECF0"
+                                             TextWrapping="Wrap"
+                                             FontSize="14"
+                                             VerticalContentAlignment="Center"
+                                             TextChanged="QuantityNumericHandlerPhoneNumber"
+                                             x:Name="phoneCustomer"
+                                             BorderThickness="0"/>
+                                </StackPanel>
+
 
 
                             </StackPanel>
@@ -532,7 +527,7 @@
 
                                                     <!--Column - 6-->
                                                     <Grid Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                        <Label Content="{Binding priceCurrent, Converter={StaticResource currencyConverter}}"
+                                                        <Label Content="{Binding priceTemp, Converter={StaticResource currencyConverter}}"
                                                                FontSize="12" FontWeight="Medium"/>
 
                                                     </Grid>
@@ -540,6 +535,16 @@
                                                 </Grid>
                                             </DataTemplate>
                                         </ListView.ItemTemplate>
+
+                                        <ListView.Resources>
+                                            <ContextMenu x:Key="typeOfBooksContextMenu">
+                                                <MenuItem Header="Xóa" Click="deleteItem">
+                                                    <MenuItem.Icon>
+                                                        <Image Source="https://cdn-icons-png.flaticon.com/512/3597/3597075.png"></Image>
+                                                    </MenuItem.Icon>
+                                                </MenuItem>
+                                            </ContextMenu>
+                                        </ListView.Resources>
                                     </ListView>
 
                                 </Grid>

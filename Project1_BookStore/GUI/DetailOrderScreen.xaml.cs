@@ -82,7 +82,7 @@ namespace Project1_BookStore.GUI
             total.DataContext = _detail;
             id.DataContext = _detail;
 
-            _customer = CustomerBUS.findCustomerByID(_detail.cusPhoneNumber);
+            _customer = CustomerBUS.findCustomerByPhoneNumber(_detail.cusPhoneNumber);
             customer.DataContext = _customer;
 
             infoOrderBasic.DataContext = _detail;

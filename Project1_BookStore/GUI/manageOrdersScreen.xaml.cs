@@ -160,7 +160,22 @@ namespace Project1_BookStore.GUI
         private void addNewOrder(object sender, RoutedEventArgs e)
         {
             var screen = new addNewOrderScreen();
-            screen.Show();
+            
+            if (screen.ShowDialog() == true)
+            {
+                listOrders = OrderBUS.findAllOrder();
+                _rowsPerPage = settingScreen.getRowPerPageManageOrderScreen();
+                _totalItems = listOrders.Count;
+                Context.countOrder = _totalItems;
+                _totalPages = _totalItems / _rowsPerPage +
+                        (_totalItems % _rowsPerPage == 0 ? 0 : 1);
+
+                currentPagingText.Content = $"{_currentPage}/{_totalPages}";
+
+                orderList.ItemsSource = listOrders.Skip((_currentPage - 1) * _rowsPerPage)
+                                        .Take(_rowsPerPage)
+                                        .ToList();
+            }
         }
 
         private void exportData_MouseDown(object sender, MouseButtonEventArgs e)

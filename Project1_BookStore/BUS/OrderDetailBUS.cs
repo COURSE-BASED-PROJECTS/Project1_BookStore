@@ -26,5 +26,10 @@ namespace Project1_BookStore.BUS
             }
             return OrderDetailDAO.findTotalBookByOrderID(orderID);
         }
+
+        internal static bool InsertOrderDetail(OrderDetailDTO od)
+        {
+            return OrderDetailDAO.InsertOrderDetail(od);
+        }
     }
 }

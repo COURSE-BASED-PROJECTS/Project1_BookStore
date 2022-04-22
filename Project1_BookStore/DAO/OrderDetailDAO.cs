@@ -3,6 +3,7 @@ using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,30 @@ namespace Project1_BookStore.DAO
             }
             reader.Close();
             return list;
+        }
+
+        internal static bool InsertOrderDetail(OrderDetailDTO od)
+        {
+            var con = ConnectDB.openConnection();
+
+            var currentPrice = od.odCurrentPrice.ToString(CultureInfo.CreateSpecificCulture("en-GB"));
+            var discountPrice = od.odDiscountedPrice.ToString(CultureInfo.CreateSpecificCulture("en-GB"));
+            var tempPrice = od.odTempPrice.ToString(CultureInfo.CreateSpecificCulture("en-GB"));
+
+            var sql = "INSERT INTO ORDERSDETAIL(ordersID, bookID, odCurrentPrice, odDiscountedPrice, odQuantity, odTempPrice)" +
+                      $" VALUES('{od.ordersID}', '{od.bookID}', {currentPrice}, {discountPrice}, {od.odQuantity}, {tempPrice})";
+            
+            var command = new SqlCommand(sql, con);
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         internal static int findTotalBookByOrderID(string orderID)

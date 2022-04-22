@@ -64,6 +64,8 @@ namespace Project1_BookStore.BUS
         {
             return BookDAO.findBookByName(bookName);
         }
+
+
         public static List<BookDTO> findBookByRangePrice(int min, int max)
         {
             return BookDAO.findBookByRangePrice(min, max);
@@ -107,6 +109,26 @@ namespace Project1_BookStore.BUS
         {
             return BookDAO.findBestSellerBook();
         }
-        
+
+        public static List<BookDTO> findAllBookByTOB(string tobID)
+        {
+            return BookDAO.findAllBookByTOB(tobID);
+        }
+
+       
+        public static List<BookDTO> findBestSellerBookByTOB(string tobID)
+        {
+            return BookDAO.findBestSellerBookByTOB(tobID);
+        }
+
+        public static List<BookDTO> findNearOutOfBookByTOB(string tobID)
+        {
+            return BookDAO.findNearOutOfBookByTOB(tobID);
+        }
+
+        internal static List<BookDTO> findNearOutOfBook()
+        {
+            return BookDAO.findNearOutOfBook();
+        }
     }
 }
