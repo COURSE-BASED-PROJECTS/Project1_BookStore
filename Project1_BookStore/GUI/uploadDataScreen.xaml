@@ -231,9 +231,10 @@
                                        FontWeight="Medium"
                                        Margin="0,10,804,6"></Label>
                             <Button Width="182" Margin="87,2,617,-2"
-                                    Height="40" Background="DarkBlue"
+                                    Height="40" Background="#FF8C32"
                                     Cursor="Hand" Click="uploadData">
-                                <TextBlock>
+                            </Button>
+                            <TextBlock>
                                      <Grid Width="20" Height="20" Margin="0,0,0,5">
                                            <Image Source="{Binding upload,Converter={StaticResource absoluteConverter}}" />
                                      </Grid>

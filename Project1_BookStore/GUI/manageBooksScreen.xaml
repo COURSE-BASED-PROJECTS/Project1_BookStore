@@ -342,11 +342,11 @@
                     </Grid>
                     <StackPanel Orientation="Horizontal"  Margin="500,89,0,0" 
                               DataContext="{Binding _icons}"
-                              HorizontalAlignment="Left" Width="443">
+                              HorizontalAlignment="Left" Width="385">
                         <Image RenderOptions.BitmapScalingMode="HighQuality"
-                                        Height="40" Width="40"
-                                    Source="{Binding search, Converter={StaticResource absoluteConverter}}" />
-                        <TextBox Width="403" BorderThickness="0"
+                               Height="32" Width="32"
+                               Source="{Binding search, Converter={StaticResource absoluteConverter}}" />
+                        <TextBox Width="353" BorderThickness="0"
                                  x:Name="searchBox"
                                  VerticalContentAlignment="Center"
                                  ToolTip="Tìm kiếm theo tên sản phẩm"
@@ -360,6 +360,7 @@
                         <StackPanel Orientation="Horizontal"
                                 Width="117" Height="36"
                                 HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Margin="0,12,0,82">
                             <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                                 <Border.Background>
@@ -414,98 +415,99 @@
 
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="61*"/>
                                 <RowDefinition Height="383*"/>
                                 <RowDefinition Height="61*"/>
                             </Grid.RowDefinitions>
 
                             <!--Row - 1-->
-                            <Grid Grid.Row="0">
-
-                                <StackPanel Orientation="Horizontal"
-                                            HorizontalAlignment="Right">
-                                    <Button Width="120" Height="35"  Background="White"
-                                            Cursor="Hand" Click="modifyTypeOfBook"
+                            <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Right"
-                                            Margin="15"
-                                            Content="Quản lý thể loại" Foreground="#6B34C3" FontWeight="Medium">
-                                        <Button.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="5"/>
-                                            </Style>
-                                        </Button.Resources>
+                                            VerticalAlignment="Top"
+                                            Margin="0,0,30,0" Height="49">
 
-                                        <Button.Effect>
-                                            <DropShadowEffect BlurRadius="20"
+                                <Button Width="120" Height="35"
+                                        Background="White"
+                                        Cursor="Hand" Click="modifyTypeOfBook"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Margin="0,10,0,0"
+                                        Content="Quản lý thể loại" Foreground="#6B34C3" FontWeight="Medium">
+
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+
+                                    <Button.Effect>
+                                        <DropShadowEffect BlurRadius="8"
                                                   Color="#877b77"
                                                   Opacity="100"
-                                                  ShadowDepth="5"
-                                                  Direction="0" />
-                                        </Button.Effect>
-                                    </Button>
+                                                  ShadowDepth="1"
+                                                  Direction="0"/>
+                                    </Button.Effect>
+                                </Button>
 
 
-                                    <Button Width="100" Height="35"  Background="White"
-                                            Cursor="Hand" Click="addNewBook"
-                                HorizontalAlignment="Right"
-                                            Margin="15">
-                                        <Label Foreground="Blue">Thêm sản phẩm</Label>
-                                        <Button.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="5"/>
-                                            </Style>
-                                        </Button.Resources>
+                                <Button Width="120" Height="35"  Background="White"
+                                        Cursor="Hand" Click="addNewBook"
+                                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        Margin="20,10,0,0">
+                                    <Label Foreground="Blue">Thêm sản phẩm</Label>
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
 
-                                        <Button.Effect>
-                                            <DropShadowEffect BlurRadius="20"
+                                    <Button.Effect>
+                                        <DropShadowEffect BlurRadius="10"
                                                   Color="#877b77"
                                                   Opacity="100"
-                                                  ShadowDepth="5"
+                                                  ShadowDepth="1"
                                                   Direction="0" />
-                                        </Button.Effect>
-                                    </Button>
+                                    </Button.Effect>
+                                </Button>
 
-                                    <Button Width="120" Height="35"  Background="Blue"
-                                            HorizontalAlignment="Right" Cursor="Hand" Click="uploadDataScreen"
-                                            Margin="15">
-                                        <Grid DataContext="{Binding _icons}">
-                                            <Image Width="16" Height="16"
+                                <Button Width="120" Height="35" Background="White"
+                                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        Cursor="Hand" Click="uploadDataScreen"
+                                        Margin="20,10,0,0">
+
+                                    <Grid DataContext="{Binding _icons}">
+                                        <Image Width="16" Height="16"
                                                    HorizontalAlignment="Left"
                                                    Margin="0,0,15,0"
                                                    Source="{Binding upload, Converter={StaticResource absoluteConverter}}">
 
-                                            </Image>
-                                            <Label Foreground="White"
-                                                   HorizontalAlignment="Right"
-                                                   Margin="25,0,0,0">Tải dữ liệu</Label>
-                                        </Grid>
+                                        </Image>
+                                        <Label Foreground="#FF8C32"
+                                               HorizontalAlignment="Right"
+                                               Margin="25,0,0,0"
+                                               FontWeight="Medium">Tải dữ liệu</Label>
+                                    </Grid>
 
-                                        <Button.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="5"/>
-                                            </Style>
-                                        </Button.Resources>
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
 
-                                        <Button.Effect>
-                                            <DropShadowEffect BlurRadius="20"
+                                    <Button.Effect>
+                                        <DropShadowEffect BlurRadius="10"
                                                   Color="#877b77"
                                                   Opacity="100"
-                                                  ShadowDepth="5"
+                                                  ShadowDepth="3"
                                                   Direction="0" />
-                                        </Button.Effect>
-                                    </Button>
-
-
-
-                                </StackPanel>
-
-                            </Grid>
+                                    </Button.Effect>
+                                </Button>
+                            </StackPanel>
 
                             <!--Row - 2-->
-                            <Grid Grid.Row="1">
-                                <TabControl  Height="450"
+                            <Grid Grid.Row="0">
+                                <TabControl
                                              Name="tabControl"
-                                             SelectionChanged ="TabControl_SelectionChanged" Margin="25 0 25 0"
+                                             SelectionChanged ="TabControl_SelectionChanged" Margin="25,25,25,0"
                                              >
                                     <TabItem Header="Tất cả"
                                              FontSize="14"
@@ -581,7 +583,7 @@
                                     <TabItem Header="Bán chạy"
                                              FontSize="14"
                                              Foreground="#6B34C3">
-                                        <ListView Height="380" 
+                                        <ListView Height="423" 
                                                   x:Name="bestSellerBooks">
                                             <ListView.ItemsPanel>
                                                 <ItemsPanelTemplate>
@@ -808,7 +810,8 @@
                                 </StackPanel>
 
                                 <Grid HorizontalAlignment="Right"
-                                      Margin="15">
+                                      Margin="0,0,30,0"
+                                      VerticalAlignment="Center">
                                     <Label Content="Tổng sản phẩm: "
                                            FontSize="18"
                                            FontWeight="Medium" Margin="0,0,0,0">
@@ -823,6 +826,35 @@
 
                                     </Label>
                                 </Grid>
+
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left"
+                                            Margin="30,0,0,0"
+                                            VerticalAlignment="Center" Width="289">
+                                    <Label Content="Danh mục: "
+                                           FontSize="16"
+                                           FontWeight="Medium">
+                                    </Label>
+                                    <ComboBox x:Name="listOfTypes" 
+                                          IsEnabled="True"
+                                          Background="Transparent"
+                                          FontSize="12"
+                                          VerticalContentAlignment="Center"
+                                          IsSynchronizedWithCurrentItem="True"
+                                          Width="210"
+                                          SelectionChanged="listOfTypes_SelectionChanged">
+
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                <Run Text="{Binding tobName}"/>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                </StackPanel>
                             </Grid>
 
                         </Grid>

@@ -1,4 +1,5 @@
-﻿using Project1_BookStore.DTO;
+﻿using Project1_BookStore.BUS;
+using Project1_BookStore.DTO;
 using Project1_BookStore.Utils;
 using System;
 using System.Collections.Generic;
@@ -155,7 +156,8 @@ namespace Project1_BookStore.DAO
                     cusPhoneNumber = cusPhoneNumber,
                     accUsername = accUsername,
                     ordersPrices = ordersPrice,
-                    ordersTime = ordersTime
+                    ordersTime = ordersTime,
+                    ordersTotal = OrderDetailBUS.findTotalBookByOrderID(ordersID)
                 };
                 orders.Add(order);
             }

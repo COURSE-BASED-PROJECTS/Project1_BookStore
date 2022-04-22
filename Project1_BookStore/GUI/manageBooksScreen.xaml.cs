@@ -106,6 +106,8 @@ namespace Project1_BookStore.GUI
             this.DataContext = Context;
             userName.Content = App.Username;
             user.Content = App.Username;
+
+            listOfTypes.ItemsSource = TypeOfBookBUS.findAllTypeOfBook();
         }
         private void Grid_MouseDown_ManageProduct(object sender, MouseButtonEventArgs e)
         {
@@ -339,7 +341,6 @@ namespace Project1_BookStore.GUI
             
         }
         
-
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             string keyword = searchBox.Text;
@@ -445,6 +446,11 @@ namespace Project1_BookStore.GUI
                 }
             }
             return result;
+        }
+
+        private void listOfTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // xu ly sau khi user chon item trong combo box
         }
     }
 }

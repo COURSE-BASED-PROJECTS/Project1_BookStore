@@ -5,6 +5,7 @@ using Project1_BookStore.BUS;
 using Project1_BookStore.DTO;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -71,7 +72,6 @@ namespace Project1_BookStore.GUI
             public decimal odDiscountedPrice { get; set; }
             public decimal odTempPrice { get; set; }
         }
-
 
         Icons _icons = new Icons();
         CustomerDTO _customer;
@@ -203,29 +203,31 @@ namespace Project1_BookStore.GUI
                         int i = 1;
                         foreach (var item in GridContent.Items)
                         {
-                            OrderDetailDTO order = (OrderDetailDTO)item;
+                            OrderDetail order = (OrderDetail)item;
 
                             PdfPCell pdfPCell7 = new PdfPCell(new Phrase((i++).ToString(), normal));
                             pdfPCell7.HorizontalAlignment = Element.ALIGN_CENTER;
                             pdfPTable.AddCell(pdfPCell7);
 
-                            PdfPCell pdfPCell8 = new PdfPCell(new Phrase(order.bookID, normal));
-                            pdfPCell8.HorizontalAlignment = Element.ALIGN_CENTER;
+                            var pdfPCell8 = new iTextSharp.text.Paragraph($"{order.bookName}\n - \t{order.bookAuthor}", normal);
                             pdfPTable.AddCell(pdfPCell8);
 
                             PdfPCell pdfPCell9 = new PdfPCell(new Phrase(order.odQuantity.ToString(), normal));
                             pdfPCell9.HorizontalAlignment = Element.ALIGN_CENTER;
                             pdfPTable.AddCell(pdfPCell9);
 
-                            PdfPCell pdfPCell10 = new PdfPCell(new Phrase(order.odCurrentPrice.ToString(), normal));
+                            var currPrice = String.Format(CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", (decimal)order.odCurrentPrice);
+                            PdfPCell pdfPCell10 = new PdfPCell(new Phrase(currPrice, normal));
                             pdfPCell10.HorizontalAlignment = Element.ALIGN_CENTER;
                             pdfPTable.AddCell(pdfPCell10);
 
-                            PdfPCell pdfPCell11 = new PdfPCell(new Phrase(order.odDiscountedPrice.ToString(), normal));
+                            var disPrice = String.Format(CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", (decimal)order.odDiscountedPrice);
+                            PdfPCell pdfPCell11 = new PdfPCell(new Phrase(disPrice, normal));
                             pdfPCell11.HorizontalAlignment = Element.ALIGN_CENTER;
                             pdfPTable.AddCell(pdfPCell11);
 
-                            PdfPCell pdfPCell12 = new PdfPCell(new Phrase(order.odTempPrice.ToString(), normal));
+                            var tempPrice = String.Format(CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", (decimal)order.odTempPrice);
+                            PdfPCell pdfPCell12 = new PdfPCell(new Phrase(tempPrice, normal));
                             pdfPCell12.HorizontalAlignment = Element.ALIGN_CENTER;
                             pdfPTable.AddCell(pdfPCell12);
                         }
@@ -252,17 +254,19 @@ namespace Project1_BookStore.GUI
                             document.Add(Chunk.NEWLINE);
 
                             // write Customer Info
-                            document.Add(new Phrase($"Khách hàng:  {_customer.cusName}", normal));
-                            document.Add(Chunk.NEWLINE);
-                            document.Add(new Phrase($"Số điện thoại:  {_customer.cusPhoneNumber}", normal));
-                            document.Add(Chunk.NEWLINE);
+                            document.Add(new iTextSharp.text.Paragraph("Khách hàng:  " +
+                                                                       $"{_customer.cusName}", normal));
 
-                            document.Add(new Phrase($"Ngày mua hàng:  {_detail.ordersTime}", normal));
-                            document.Add(Chunk.NEWLINE);
-                            document.Add(new Phrase($"Nhân viên:  {_detail.accUsername}", normal));
-                            document.Add(Chunk.NEWLINE);
-                            document.Add(Chunk.NEWLINE);
+                            document.Add(new iTextSharp.text.Paragraph("Số điện thoại:  " + 
+                                                                      $"{_customer.cusPhoneNumber}", normal));
 
+                            document.Add(new iTextSharp.text.Paragraph("Ngày mua hàng:  " +
+                                                                      $"{_detail.ordersTime}", normal));
+
+                            document.Add(new iTextSharp.text.Paragraph("Nhân viên:  " + 
+                                                                      $"{_detail.accUsername}", normal));
+
+                            document.Add(Chunk.NEWLINE);
                             document.Add(new Phrase($"Chi tiết sản phẩm", header));
                             document.Add(Chunk.NEWLINE);
 
@@ -300,6 +304,5 @@ namespace Project1_BookStore.GUI
                 //do nothing
             }
         }
-
     }
 }

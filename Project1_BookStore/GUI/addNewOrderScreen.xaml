@@ -202,9 +202,9 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="73*"/>
-                            <RowDefinition Height="77*"/>
-                            <RowDefinition Height="446*"/>
-                            <RowDefinition Height="75*"/>
+                            <RowDefinition Height="135*"/>
+                            <RowDefinition Height="413*"/>
+                            <RowDefinition Height="49*"/>
                         </Grid.RowDefinitions>
 
                         <!--Row - 1-->
@@ -225,115 +225,175 @@
                                      VerticalContentAlignment="Center"
                                      IsEnabled="False"/>
                             </StackPanel>
-                            <!--<Line  
-                                X1="20" Y1="60"  
-                                X2="970" Y2="60"  
+                            <Line VerticalAlignment="Bottom" 
+                                X1="20" Y1="0"  
+                                X2="1200" Y2="0"  
                                 Stroke="#9D9D9D"  
-                                StrokeThickness="0.5" />-->
+                                StrokeThickness="0.5" />
                         </Grid>
 
                         <!--Row - 2-->
 
                         <Grid Grid.Row="1">
-                            <StackPanel Orientation="Horizontal"
+                            <StackPanel  Orientation="Vertical"
+                                        HorizontalAlignment="Left"
+                                        Margin="10,0,0,0">
+                                <StackPanel Orientation="Horizontal"
                                     Grid.Row="1" 
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
-                                    Width="675" Height="60">
-                                <Label Content="Thêm sản phẩm:"
+                                    Width="675" Height="50">
+                                    <Label Content="Thêm sản phẩm:"
                                        FontSize="16"
+                                       FontWeight="Medium"
+                                       VerticalContentAlignment="Center"
+                                       Margin="5,0,0,10"></Label>
+
+                                    <Border Background="GhostWhite" 
+                                    BorderBrush="Gainsboro" 
+                                    BorderThickness="0" Width="542" Margin="0,0,0,10">
+
+                                        <ComboBox x:Name="listOfBook"
+                                              IsEnabled="True"
+                                              Background="Transparent"
+                                              FontSize="12"
+                                              IsSynchronizedWithCurrentItem="True" Margin="0,0,10,0">
+
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                <Run Text="{Binding bookID}"/>
+                                                <Run Text=" - "/>
+                                                <Run Text="{Binding bookName}"/>
+                                                        </TextBlock>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal"
+                                    Width="675" Margin="0,10,0,0">
+                                    <Label Content="Số lượng:"
+                                       FontSize="14"
                                        FontWeight="Medium"
                                        VerticalContentAlignment="Center"
                                        Margin="5,0,10,0"></Label>
 
-                                <Border Background="GhostWhite" 
-                                    BorderBrush="Gainsboro" 
-                                    BorderThickness="0" Width="470">
+                                    <TextBox Margin="50,0,0,0"
+                                             Width="285"
+                                             Background="#EBECF0"
+                                             TextWrapping="Wrap"
+                                             FontSize="16"
+                                             VerticalContentAlignment="Center"
+                                             HorizontalAlignment="Left"
+                                             TextChanged="QuantityNumericHandler"
+                                             x:Name="quantityBook"
+                                             BorderThickness="0">
+                                    </TextBox>
 
-                                    <ComboBox x:Name="listOfBook" 
-                                              HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
-                                              IsEnabled="True"
-                                              Background="Transparent"
-                                              FontSize="12"
-                                              IsSynchronizedWithCurrentItem="True">
-
-                                        <ComboBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
-                                                <Run Text="{Binding bookID}"/>
-                                                <Run Text=" - "/>
-                                                <Run Text="{Binding bookName}"/>
-                                                    </TextBlock>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ComboBox.ItemTemplate>
-                                    </ComboBox>
-                                </Border>
-
-                                <Button x:Name="addButton" Click="addButton_Click"
-                                    Background="#CCCDD0" BorderThickness="0"
-                                    Content="Thêm" FontSize="16" FontWeight="Medium"
-                                    Width="60"
+                                    <Button x:Name="addButton" Click="addButton_Click" Cursor="Hand"
+                                            Margin="0,10,10,10"
+                                    Background="#F9FAFB" BorderThickness="0"
+                                    Content="Thêm" FontSize="16" FontWeight="Medium" Foreground="#39D353"
+                                    Width="67"
                                     IsDefault="True">
-                                    <Button.Resources>
-                                        <Style TargetType="{x:Type Border}">
-                                            <Setter Property="CornerRadius" Value="0 7 7 0"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
+                                    </Button>
+
+                                </StackPanel>
 
                             </StackPanel>
 
-                            <StackPanel Orientation="Horizontal"
+                            <StackPanel Orientation="Vertical"
                                         HorizontalAlignment="Right"
-                                        VerticalAlignment="Center"
-                                        Width="400" Height="60"
-                                        Margin="0 0 85 0">
-                                <Label Content="Khách hàng:"
+                                        Margin="0,0,20,0" Width="497">
+                                <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center" 
+                                        Height="40">
+                                    <Label Content="Khách hàng:"
                                        FontSize="16"
                                        FontWeight="Medium"
                                        VerticalContentAlignment="Center"
                                        Margin="5,0,5,0"></Label>
 
-                                <Border Background="GhostWhite" 
+                                    <Border Background="GhostWhite" 
                                     BorderBrush="Gainsboro" 
                                     BorderThickness="0" Width="291">
 
-                                    <ComboBox x:Name="listOfCus" 
+                                        <ComboBox x:Name="listOfCus" 
                                           IsEnabled="True"
                                           Background="Transparent"
                                           FontSize="12"
                                           VerticalContentAlignment="Center"
-                                          IsSynchronizedWithCurrentItem="True">
+                                          IsSynchronizedWithCurrentItem="True"
+                                          SelectionChanged="listOfCus_SelectionChanged">
+                                        </ComboBox>
+                                    </Border>
+                                    <Button x:Name="addCustomer" Cursor="Hand"
+                                    HorizontalAlignment="Right"
+                                    Background="#F9FAFB" BorderThickness="0"
+                                    Content="Thêm" FontSize="16" FontWeight="Medium" Foreground="#39D353"
+                                    Width="67"
+                                    IsDefault="True">
+                                    </Button>
+                                </StackPanel>
 
-                                        <ComboBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
-                                                <Run Text="{Binding cusPhoneNumber}"/>
-                                                <Run Text=" - "/>
-                                                <Run Text="{Binding cusName}"/>
-                                                    </TextBlock>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ComboBox.ItemTemplate>
-                                    </ComboBox>
-                                </Border>
+                                <StackPanel x:Name="phone_StackPanel"
+                                            Orientation="Horizontal" Margin="50,20,0,0">
+
+                                    <Label Content="Số điện thoại:"
+                                       FontSize="14"
+                                       FontWeight="Medium"
+                                       VerticalContentAlignment="Center"
+                                       Margin="5,0,10,0"></Label>
+
+                                    <TextBox Margin="17,0,0,0"
+                                             Width="222"  Height="30"
+                                             Background="#EBECF0"
+                                             TextWrapping="Wrap"
+                                             FontSize="14"
+                                             VerticalContentAlignment="Center"
+                                             x:Name="phoneCustomer"
+                                             BorderThickness="0"/>
+                                </StackPanel>
+
+                                <StackPanel x:Name="nameCus_StackPanel"
+                                            Orientation="Horizontal" Margin="50,10,0,0">
+
+                                    <Label Content="Tên khách hàng:"
+                                       FontSize="14"
+                                       FontWeight="Medium"
+                                       VerticalContentAlignment="Center"
+                                       Margin="5,0,10,0"></Label>
+
+                                    <TextBox Margin="0,0,0,0"
+                                             Width="222" Height="30"
+                                             Background="#EBECF0"
+                                             TextWrapping="Wrap"
+                                             FontSize="14"
+                                             VerticalContentAlignment="Center"
+                                             x:Name="nameCustomer"
+                                             BorderThickness="0"/>
+                                </StackPanel>
+
+
                             </StackPanel>
                         </Grid>
 
                         <!--Row - 3-->
-                        <Grid Grid.Row="2" Margin="0,0,0,70" Grid.RowSpan="2">
-                            <Grid Margin="50 30 50 0">
+                        <Grid Grid.Row="2" Margin="0,0,0,4">
+                            <Grid Margin="50 0 50 0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
-                                    <RowDefinition Height="8*"/>
+                                    <RowDefinition Height="10*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
                                 <!--Row - 1-->
-                                <Grid Grid.Row="0" Margin="0 0 35 0">
+                                <Grid Grid.Row="0" Margin="0 0 0 0">
                                     <StackPanel Orientation="Horizontal"
                                                 VerticalAlignment="Center">
                                         <Label Content="Sản phẩm"
@@ -355,7 +415,7 @@
                                                FontSize="14"
                                                FontWeight="SemiBold"
                                                Margin="50,0,0,0" ></Label>
-                                        
+
                                         <Label Content="Giảm giá"
                                                FontSize="14"
                                                FontWeight="SemiBold"
@@ -368,7 +428,7 @@
                                     </StackPanel>
 
                                     <Line VerticalAlignment="Bottom"
-                                        X1="50" Y1="0"
+                                        X1="70" Y1="0"
                                         X2="1050" Y2="0"
                                         Stroke="Gray"  
                                         StrokeThickness="1" />
@@ -376,129 +436,125 @@
 
                                 <!--Row - 2-->
                                 <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="73*"/>
+                                        <ColumnDefinition Width="927*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <Grid Name="GridContent" Margin="0,0,0,5">
-                                        <ListView x:Name="listBookOrder"
-                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                                                  BorderThickness="0">
-                                            <ListView.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <WrapPanel/>
-                                                </ItemsPanelTemplate>
-                                            </ListView.ItemsPanel>
-                                            <ListView.Resources>
-                                                <ContextMenu x:Key="orderContextMenu">
-                                                    <MenuItem Header="Xóa" Click="deleteItem">
-                                                        <MenuItem.Icon>
-                                                            <Image  RenderOptions.BitmapScalingMode="HighQuality"
-                                                                    Source="{Binding delete,Converter={StaticResource absoluteConverter}}"></Image>
-                                                        </MenuItem.Icon>
-                                                    </MenuItem>
-                                                </ContextMenu>
-                                            </ListView.Resources>
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>                                                    
-                                                   
+                                    <ListView x:Name="listBookOrder"
+                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,5,0,0"
+                                          BorderThickness="0" Grid.ColumnSpan="2">
+                                        <ListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ListView.ItemsPanel>
+
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
                                                 <!--Item - 1-->
-                                                <Grid Height="60" Margin="5" Width="1010">
+                                                <Grid Width="942" Margin="5">
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="350*"/>
-                                                        <ColumnDefinition Width="140*"/>
-                                                        <ColumnDefinition Width="115*"/>
-                                                        <ColumnDefinition Width="150*"/>
-                                                        <ColumnDefinition Width="130*"/>
-                                                        <ColumnDefinition Width="125*"/>
+                                                        <ColumnDefinition Width="408*"/>
+                                                        <ColumnDefinition Width="117*"/>
+                                                        <ColumnDefinition Width="159*"/>
+                                                        <ColumnDefinition Width="120*"/>
+                                                        <ColumnDefinition Width="188*"/>
                                                     </Grid.ColumnDefinitions>
 
                                                     <!--Column - 1-->
-                                                    <Grid Grid.Column="0" Margin="0,0,2,0">
+                                                    <Grid Grid.Column="0">
                                                         <StackPanel Orientation="Horizontal"
-                                                                    VerticalAlignment="Center"
-                                                                    Margin="0,0,0,0">
-                                                            <Grid Margin="0,0,15,0">
-                                                                <Image RenderOptions.BitmapScalingMode="HighQuality"
-                                                                       Height="50" Width="50"
-                                                                       Source="{Binding logo, Converter={StaticResource absoluteConverter}}"></Image>
+                                                                    Margin="15,0,0,0"
+                                                                    Width="300">
+                                                            <Grid Width="55" Height="48">
+                                                                <Image  x:Name="coverImg"
+                                                                        Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                                             </Grid>
 
                                                             <StackPanel Orientation="Vertical"
-                                                                        HorizontalAlignment="Center"
-                                                                        VerticalAlignment="Center">
-                                                                <TextBlock Text="{Binding bookName}"
-                                                                           Width="249" Height="40"
-                                                                           FontSize="14" FontWeight="Medium"
-                                                                           TextWrapping="Wrap"/>
-                                                                <Label Content="{Binding bookAuthor}" 
-                                                                       FontSize="10" 
-                                                                       Width="263" VerticalContentAlignment="Center"/>
+                                                                Width="330">
+                                                                <TextBlock  x:Name="nameBook" 
+                                                                        Text="{Binding bookName}"
+                                                                        FontSize="12"
+                                                                        FontWeight="Medium"
+                                                                        TextWrapping="Wrap"></TextBlock>
+
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label  Content="Tác giả:"
+                                                                            FontSize="10"
+                                                                            Margin="5 0 10 0"/>
+                                                                    <Label  x:Name="authorLabel"
+                                                                            Content="{Binding bookAuthor}"
+                                                                            FontSize="10"
+                                                                            FontWeight="Medium"/>
+                                                                </StackPanel>
+
                                                             </StackPanel>
+
+
                                                         </StackPanel>
                                                     </Grid>
 
                                                     <!--Column - 2-->
-                                                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                               <Label Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}" 
-                                                               FontSize="13"/>
+                                                    <Grid Grid.Column="1">
+                                                        <Label  x:Name="currentPriceLabel"
+                                                                Content="{Binding odCurrentPrice, Converter={StaticResource currencyConverter}}"
+                                                                FontSize="12" 
+                                                                FontWeight="Medium"></Label>
                                                     </Grid>
 
                                                     <!--Column - 3-->
-                                                    <Grid Grid.Column="2" 
-                                                          HorizontalAlignment="Center" 
-                                                          VerticalAlignment="Center" 
-                                                          Height="30" Width="50">
-                                                        <TextBox x:Name="amountText" Text="{Binding Path=amount}" FontSize="12" 
-                                                                 Padding="0, 7, 0, 0" Width="50"
-                                                                 HorizontalAlignment="Center"
-                                                                 VerticalAlignment="Center"
-                                                                 TextWrapping="Wrap"
-                                                                 FontWeight="SemiBold"
-                                                                 BorderThickness="1"                                                                 />
+                                                    <Grid Grid.Column="2">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Label x:Name="quantityLabel"
+                                                                   Content="{Binding odQuantity}"
+                                                                   FontSize="12"
+                                                                   FontWeight="Medium"
+                                                                   Margin="30,0,0,0"></Label>
+                                                        </StackPanel>
                                                     </Grid>
 
                                                     <!--Column - 4-->
-                                                    <Grid Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                        <Label Content="{Binding promoName}"
-                                                               FontSize="12" FontWeight="Medium"/>
+                                                    <Grid Grid.Column="3">
+                                                        <Label x:Name="couponLabel"
+                                                                Content="{Binding odDiscountedPrice, Converter={StaticResource currencyConverter}}"
+                                                                FontSize="12"
+                                                                FontWeight="Medium"></Label>
                                                     </Grid>
 
                                                     <!--Column - 5-->
-                                                    <Grid Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                        <Label Content="{Binding priceDiscount, Converter={StaticResource currencyConverter}}"
-                                                               FontSize="12" FontWeight="Medium"/>                                                        
+                                                    <Grid Grid.Column="4">
+                                                        <Label  x:Name="tempPriceLabel"
+                                                                Content="{Binding odTempPrice, Converter={StaticResource currencyConverter}}"
+                                                                FontSize="12"
+                                                                FontWeight="Medium"></Label>
                                                     </Grid>
 
-                                                    <!--Column - 6-->
-                                                    <Grid Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                        <Label Content="{Binding priceCurrent, Converter={StaticResource currencyConverter}}"
-                                                               FontSize="12" FontWeight="Medium"/>
-                                                        
-                                                    </Grid>
 
                                                 </Grid>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
 
-                                            
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>
-                                    </Grid>
-
-                                    <Line  VerticalAlignment="Bottom"
-                                        X1="0" Y1="335"  
-                                        X2="1050" Y2="335"  
-                                        Stroke="Gray"  
-                                        StrokeThickness="1" />
                                 </Grid>
 
                                 <!--Row - 3-->
                                 <Grid Grid.Row="2" Margin="50 0 35 0">
+                                    <Line  VerticalAlignment="Top"
+                                        X1="0" Y1="0"  
+                                        X2="1050" Y2="0"  
+                                        Stroke="Gray"  
+                                        StrokeThickness="1" />
+
                                     <TextBlock HorizontalAlignment="Right"
-                                               VerticalAlignment="Top"
+                                               VerticalAlignment="Center"
                                                Margin="0,0,150,0">
                                         <Label Content="Tổng tiền: "
-                                               FontSize="14"
+                                               FontSize="15"
                                                FontWeight="SemiBold"></Label>
                                         <Label Content="{Binding ordersPrices, Converter={StaticResource currencyConverter}}"
-                                               FontSize="14"
+                                               FontSize="15"
                                                FontWeight="SemiBold"
                                                Foreground="Red"></Label>
                                     </TextBlock>
@@ -510,10 +566,12 @@
                         <Grid Grid.Row="3">
                             <StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center"
-                                        VerticalAlignment="Center">
+                                        VerticalAlignment="Center"
+                                        >
                                 <Border CornerRadius="20">
-                                    <Button Width="100" Height="35"  Background="Green" Click="save">
-                                        <Label Foreground="White">Lưu</Label>
+                                    <Button Width="100" Height="30"  Background="Green" Click="save">
+                                        <Label Foreground="White"
+                                               FontWeight="Medium">Lưu</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">
                                                 <Setter Property="CornerRadius" Value="5"/>
@@ -524,7 +582,7 @@
                                 </Border>
 
                                 <Border CornerRadius="20" Margin="20,0,0,0">
-                                    <Button Width="100" Height="35" Background="#F5C038" Click="cancel">
+                                    <Button Width="100" Height="30" Background="#F5C038" Click="cancel">
                                         <Label Foreground="White">Hủy bỏ</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">

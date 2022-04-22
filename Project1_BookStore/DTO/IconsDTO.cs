@@ -19,7 +19,6 @@ namespace Project1_BookStore.DTO
         public string restorePressed { get; set; } = "/Resource/Images/Icons/restore-pressed.png";
         public string logo { get; set; } = "/Resource/Images/Icons/logo_v2.png";
         public string upload { get; set; } = "/Resource/Images/Icons/upload.png";
-        public string uploadPressed { get; set; } = "/Resource/Images/Icons/upload-pressed.png";
         public string modify { get; set; } = "/Resource/Images/Icons/modify.png";
         public string modifyPressed { get; set; } = "/Resource/Images/Icons/modify-pressed.png";
         public string plus { get; set; } = "/Resource/Images/Icons/plus.png";

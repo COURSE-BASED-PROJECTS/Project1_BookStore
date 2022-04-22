@@ -29,6 +29,10 @@ namespace Project1_BookStore.GUI
         {
             InitializeComponent();
             reDownButton.Visibility = Visibility.Collapsed;
+
+            nameCus_StackPanel.Visibility = Visibility.Collapsed;
+            phone_StackPanel.Visibility = Visibility.Collapsed;
+            addCustomer.Visibility = Visibility.Collapsed;
         }
         public class addOrderContext : INotifyPropertyChanged
         {
@@ -66,21 +70,26 @@ namespace Project1_BookStore.GUI
             this.WindowState = WindowState.Minimized;
         }
 
-        
-
         private string orderID { get; set; }
         private List<BookDTO> allBooks = new List<BookDTO>();
+        private List<CustomerDTO> allCustomers = CustomerBUS.findAllCustomer();
+
+        public List<string> options { get; set; } = new List<string>() { "Khách", "Khách hàng mới" };
+        
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             allBooks = BookBUS.findAllBook();
             listOfBook.ItemsSource = allBooks;
 
-            listOfCus.ItemsSource = CustomerBUS.findAllCustomer();
-
             orderID = CreateOrderID.generatedID();
             orderIDText.Text = orderID;
-            
+
+            foreach (var customer in allCustomers)
+                options.Add(customer.cusName);
+
+            listOfCus.ItemsSource = options;
+
             this.DataContext = Context;
             //this.WindowState = WindowState.Maximized;
         }
@@ -108,8 +117,6 @@ namespace Project1_BookStore.GUI
         }
 
         BindingList<Order> orders = new BindingList<Order>();
-
-        
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
@@ -169,8 +176,47 @@ namespace Project1_BookStore.GUI
 
         private void QuantityNumericHandler(object sender, TextChangedEventArgs e)
         {
-            
+            bool enteredLetter = false;
+            Queue<char> text = new Queue<char>();
+            foreach (var ch in this.quantityBook.Text)
+            {
+                if (char.IsDigit(ch))
+                {
+                    text.Enqueue(ch);
+                }
+                else
+                {
+                    enteredLetter = true;
+                }
+            }
+
+            if (enteredLetter)
+            {
+                StringBuilder sb = new StringBuilder();
+                while (text.Count > 0)
+                {
+                    sb.Append(text.Dequeue());
+                }
+
+                this.quantityBook.Text = sb.ToString();
+                this.quantityBook.SelectionStart = this.quantityBook.Text.Length;
+            }
         }
-    
+
+        private void listOfCus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(listOfCus.SelectedIndex == 1)
+            {
+                nameCus_StackPanel.Visibility = Visibility.Visible;
+                phone_StackPanel.Visibility = Visibility.Visible;
+                addCustomer.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                nameCus_StackPanel.Visibility = Visibility.Collapsed;
+                phone_StackPanel.Visibility = Visibility.Collapsed;
+                addCustomer.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

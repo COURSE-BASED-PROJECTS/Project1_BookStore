@@ -46,6 +46,8 @@ namespace Project1_BookStore.GUI
 
         manageCouponContext Context = new manageCouponContext();
         BindingList<PromotionDTO> listPromotions = new BindingList<PromotionDTO>(PromotionBUS.findAllPromotion());
+        List<PromotionDTO> SelectedItems = new List<PromotionDTO>();
+        
 
         int _totalItems = 0;
         int _currentPage = 1;
@@ -69,9 +71,9 @@ namespace Project1_BookStore.GUI
             couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
                                     .Take(_rowsPerPage)
                                     .ToList();
+
             userName.Content = App.Username;
             user.Content = App.Username;
-            //couponList.ItemsSource = listPromotions;
         }
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -245,10 +247,7 @@ namespace Project1_BookStore.GUI
             {
                 // do nothing
             }
-
-            
         }
-
 
         private void exportData_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -384,9 +383,15 @@ namespace Project1_BookStore.GUI
                                 document.AddTitle("Danh sách khuyến mãi");
                                 document.AddCreationDate();
 
-                                var titleDoc = new Phrase("DANH SÁCH KHUYẾN MÃI", title);
+                                // write Title
+                                document.Add(Chunk.TABBING);
+                                document.Add(Chunk.TABBING);
+                                document.Add(Chunk.TABBING);
+                                document.Add(Chunk.TABBING);
 
-                                document.Add(titleDoc);
+                                document.Add(new Phrase("DANH SÁCH CÁC CHƯƠNG TRÌNH KHUYẾN MÃI", title));
+                                document.Add(Chunk.NEWLINE);
+                                document.Add(Chunk.NEWLINE);
 
                                 document.Add(pdfPTable);
                                 document.Close();
@@ -418,6 +423,5 @@ namespace Project1_BookStore.GUI
 
             }
         }
-
     }
 }
