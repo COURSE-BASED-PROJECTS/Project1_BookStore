@@ -393,7 +393,7 @@
                                 </Grid.RowDefinitions>
 
                                 <!--Row - 1-->
-                                <Grid Grid.Row="0" Margin="0 0 0 0">
+                                <Grid Grid.Row="0" Margin="0 0 0 0" >
                                     <StackPanel Orientation="Horizontal"
                                                 VerticalAlignment="Center">
                                         <Label Content="Sản phẩm"
@@ -414,17 +414,17 @@
                                         <Label Content="Mã khuyến mãi"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="50,0,0,0" ></Label>
+                                               Margin="70,0,0,0" ></Label>
 
                                         <Label Content="Giảm giá"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="50,0,0,0" ></Label>
+                                               Margin="70,0,0,0" ></Label>
 
                                         <Label Content="Tạm tính"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="60,0,0,0"></Label>
+                                               Margin="80,0,0,0"></Label>
                                     </StackPanel>
 
                                     <Line VerticalAlignment="Bottom"
@@ -453,13 +453,14 @@
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
                                                 <!--Item - 1-->
-                                                <Grid Width="942" Margin="5">
+                                                <Grid Width="1084" Margin="5">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="408*"/>
                                                         <ColumnDefinition Width="117*"/>
-                                                        <ColumnDefinition Width="159*"/>
                                                         <ColumnDefinition Width="120*"/>
-                                                        <ColumnDefinition Width="188*"/>
+                                                        <ColumnDefinition Width="120*"/>
+                                                        <ColumnDefinition Width="150*"/>
+                                                        <ColumnDefinition Width="150*"/>
                                                     </Grid.ColumnDefinitions>
 
                                                     <!--Column - 1-->
@@ -499,7 +500,7 @@
                                                     <!--Column - 2-->
                                                     <Grid Grid.Column="1">
                                                         <Label  x:Name="currentPriceLabel"
-                                                                Content="{Binding odCurrentPrice, Converter={StaticResource currencyConverter}}"
+                                                                Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}"
                                                                 FontSize="12" 
                                                                 FontWeight="Medium"></Label>
                                                     </Grid>
@@ -508,29 +509,33 @@
                                                     <Grid Grid.Column="2">
                                                         <StackPanel Orientation="Horizontal">
                                                             <Label x:Name="quantityLabel"
-                                                                   Content="{Binding odQuantity}"
+                                                                   Content="{Binding amount}"
                                                                    FontSize="12"
                                                                    FontWeight="Medium"
-                                                                   Margin="30,0,0,0"></Label>
+                                                                   Margin="0,0,0,0"></Label>
                                                         </StackPanel>
                                                     </Grid>
 
                                                     <!--Column - 4-->
                                                     <Grid Grid.Column="3">
                                                         <Label x:Name="couponLabel"
-                                                                Content="{Binding odDiscountedPrice, Converter={StaticResource currencyConverter}}"
+                                                                Content="{Binding promoName}"
                                                                 FontSize="12"
                                                                 FontWeight="Medium"></Label>
                                                     </Grid>
 
                                                     <!--Column - 5-->
-                                                    <Grid Grid.Column="4">
-                                                        <Label  x:Name="tempPriceLabel"
-                                                                Content="{Binding odTempPrice, Converter={StaticResource currencyConverter}}"
-                                                                FontSize="12"
-                                                                FontWeight="Medium"></Label>
+                                                    <Grid Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <Label Content="{Binding priceDiscount, Converter={StaticResource currencyConverter}}"
+                                                               FontSize="12" FontWeight="Medium" Margin="0,0,0,0"/>
                                                     </Grid>
 
+                                                    <!--Column - 6-->
+                                                    <Grid Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <Label Content="{Binding priceCurrent, Converter={StaticResource currencyConverter}}"
+                                                               FontSize="12" FontWeight="Medium"/>
+
+                                                    </Grid>
 
                                                 </Grid>
                                             </DataTemplate>
