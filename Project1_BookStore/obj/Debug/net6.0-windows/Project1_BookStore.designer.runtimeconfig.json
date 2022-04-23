@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\LEGION\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\LEGION\\.nuget\\packages",
+      "C:\\Users\\btram\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\btram\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {

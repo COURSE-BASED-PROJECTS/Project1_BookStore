@@ -461,7 +461,7 @@ namespace Project1_BookStore.DAO
         {
             var con = ConnectDB.openConnection();
 
-            var sql = $"UPDATE BOOK SET tobID = '{book.tobID}', bookName = N'{book.bookName}', bookAuthor = '{book.bookAuthor}', " +
+            var sql = $"UPDATE BOOK SET tobID = '{book.tobID}', bookName = N'{book.bookName}', bookAuthor = N'{book.bookAuthor}', " +
                 $"bookPrice = {(int)book.bookPrice}, bookPublishedYear = {book.bookPublishedYear}, bookQuantity = {book.bookQuantity} " +
                 $"WHERE bookID = '{book.bookID}'";
 

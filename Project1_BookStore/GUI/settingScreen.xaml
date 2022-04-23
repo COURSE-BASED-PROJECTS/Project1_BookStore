@@ -309,8 +309,8 @@
             <!--comlumn 2-->
             <Grid Grid.Column="1" Grid.Row="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="131*"/>
-                    <RowDefinition Height="596*"/>
+                    <RowDefinition Height="11*"/>
+                    <RowDefinition Height="92*"/>
                 </Grid.RowDefinitions>
 
                 <!--Row-1-->
@@ -323,27 +323,32 @@
                     <!--Column-1-->
                     <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
                         <Label Content="Cấu hình hệ thống"
-                                   FontSize="25"
-                                   FontWeight="DemiBold"
-                               Margin="60,80,0,0"></Label>
+                               FontSize="25" FontWeight="DemiBold"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Margin="25,30,0,0"></Label>
                     </Grid>
 
 
                     <!--Column-2-->
                     <Grid Grid.Row="0" Grid.Column="1">
                         <StackPanel Orientation="Horizontal"
-                                Width="117" Height="36"
-                                HorizontalAlignment="Center"
-                                Margin="0,22,0,65">
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Height="36" Width="117"
+                                Margin="0,25,40,0">
                             <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                                 <Border.Background>
                                     <SolidColorBrush Color="White" Opacity="0.6"/>
                                 </Border.Background>
-                                <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
-                             Click="minButton_Click">
+                                <Button Style="{DynamicResource MinButton}" 
+                                        x:Name="minButton" 
+                                        BorderThickness="0" 
+                                        Height="24" Width="24"
+                                        Click="minButton_Click"
+                                        Cursor="Hand">
                                     <Button.Background>
                                         <ImageBrush ImageSource="{Binding minimize, Converter={StaticResource absoluteConverter}}"/>
-
                                     </Button.Background>
                                 </Button>
                             </Border>
@@ -382,50 +387,78 @@
 
                 <!--Row-2-->
                 <Grid Grid.Row="1" >
-                    <Border Width="894" Height="550"
+                    <Border
                             Background="#F9FAFB" 
-                            CornerRadius="25" Margin="65,10,64,31">
+                            CornerRadius="25" Margin="10,36,10,10">
 
                         <Grid>
                             <Label Content="Hiển thị số lượng dòng ở mỗi bảng"
                                            FontSize="18"
                                            FontWeight="Medium"
-                                           Margin="30,25,10,262">
-                            </Label>
+                                           Margin="30,25,10,534"/>
 
-                            <Label Content="Số lượng sản phẩm:"
-                                           
-                                           Margin="56,63,16,249">
-                            </Label>
+                            <StackPanel Orientation="Horizontal" 
+                                        HorizontalAlignment="Left"
+                                        Margin="40,5,20,445" 
+                                        Height="30">
 
-                            <ComboBox x:Name="numOfBook" Margin="234,63,610,465"
+                                <Label Content="Số lượng sản phẩm:"
+                                       Margin="30,0,0,0"
+                                        VerticalAlignment="Center"/>
+                                <ComboBox x:Name="numOfBook" 
+                                          Margin="0" Width="100" Height="30"
+                                          Background="#FFFFFF"/>
+                            </StackPanel>
+
+
+                            <StackPanel Orientation="Horizontal" 
+                                        HorizontalAlignment="Left"
+                                        Margin="70,100,0,466">
+
+                                <Label Content="Số lượng đơn hàng:"
+                                       Margin="0"
+                                       VerticalAlignment="Center">
+                                </Label>
+
+                                <ComboBox x:Name="numOfOrder" Margin="0"
+                                          Width="100"
+                                          Background="#FFFFFF"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        Margin="60,138,0,430" Width="353">
+
+                                <Label Content="Số lượng khuyến mãi:"
+                                       Margin="0">
+                                </Label>
+                                <ComboBox x:Name="numOfPromotion" Width="100"
                                               Background="#FFFFFF"/>
+                            </StackPanel>
 
-                            <Label Content="Số lượng đơn hàng:"
-                                           
-                                           Margin="56,95,16,249">
-                            </Label>
-
-                            <ComboBox x:Name="numOfOrder" Margin="234,95,610,433"
-                                              Background="#FFFFFF"/>
-
-                            <Label Content="Số lượng khuyến mãi:"
-                                           
-                                           Margin="56,127,16,249">
-                            </Label>
-                            <ComboBox x:Name="numOfPromotion" Margin="234,127,610,401"
-                                              Background="#FFFFFF"/>
 
                             <Label Content="Khi khởi động"
                                            FontSize="18"
                                            FontWeight="Medium"
-                                           Margin="30,168,10,242">
+                                           Margin="40,185,795,384">
                             </Label>
 
-                            <TextBlock Width="220" Height="100" Margin="64,208,610,242">
+                            <CheckBox x:Name="dontRememberMe" Cursor="Hand"
+                                      Margin="67,233,0,0"  Height="25"
+                                      FontSize="14" FontWeight="Medium"
+                                      Content="Không lưu thông tin đăng nhập"
+                                      HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                            <CheckBox IsEnabled="False"
+                                      Margin="67,263,0,0"  Height="25"
+                                      FontSize="14" FontWeight="Medium"
+                                      Content="Ghi nhớ đăng nhập"
+                                      HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                            <TextBlock Margin="92,293,601,205">
                                 <StackPanel Orientation="Vertical">
-                                    <RadioButton x:Name="StartAtLogin" 
-                                                Height="18" Margin="0,5,0,5" Content="Mở trang tổng quan hệ thống"/>
+		                            <RadioButton x:Name="StartAtDashboard" 
+                                                Height="18" Content="Mở trang tổng quan hệ thống"/>
 		                            <RadioButton x:Name="StartAtLastScreen"  
                                                 Height="18" Margin="0,5,0,5" Content="Tiếp tục ở nơi bạn dừng lại"/> 
                                 </StackPanel>
@@ -441,8 +474,8 @@
                                     </Style>
                                 </Button.Resources>
                             </Button>
-
                         </Grid>
+
                     </Border>
                 </Grid>
             </Grid>

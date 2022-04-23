@@ -17,7 +17,7 @@ namespace Project1_BookStore.Utils
         public static string Password = "Password";
 
         public static string LastScreen = "GUI/mainwindow.xaml";
-        public static string OnStart = "1";
+        public static string OnStart = "login";
 
         public static string RowPerPageManageCouponScreen = "RowPerPageManageCouponScreen";
         public static string RowPerPageManageBookScreen = "RowPerPageManageBookScreen";

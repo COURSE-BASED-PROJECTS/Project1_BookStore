@@ -136,10 +136,12 @@
                                HorizontalAlignment="Left">
                     </TextBlock>
 
-                    <StackPanel DataContext="{Binding _icons}" Orientation="Horizontal"
-                                Width="117" Height="36"
+                    <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Right"
-                                Margin="0,10,20,0">
+                                VerticalAlignment="Top"
+                                Height="36" Width="117"
+                                Margin="0,10,40,0"
+                                DataContext="{Binding _icons}">
                         <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                             <Border.Background>
                                 <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -218,12 +220,15 @@
 
                                 <TextBox Margin="0,0,0,0"
                                      Name="orderIDText"
-                                     Background="#EBECF0" BorderThickness="0"
+                                     Background="#F9F5FF" BorderThickness="0"
                                      TextWrapping="Wrap"
                                      FontSize="16"
                                      Width="531"
                                      VerticalContentAlignment="Center"
-                                     IsEnabled="False"/>
+                                     IsEnabled="False">
+                                    
+                                </TextBox>
+
                             </StackPanel>
                             <Line VerticalAlignment="Bottom" 
                                 X1="20" Y1="0"  
@@ -283,8 +288,8 @@
                                        Margin="5,0,10,0"></Label>
 
                                     <TextBox Margin="50,0,0,0"
-                                             Width="285"
-                                             Background="#EBECF0"
+                                             Width="285" Height="40"
+                                             Background="White"
                                              TextWrapping="Wrap"
                                              FontSize="16"
                                              VerticalContentAlignment="Center"
@@ -292,13 +297,20 @@
                                              TextChanged="QuantityNumericHandler"
                                              x:Name="quantityBook"
                                              BorderThickness="0">
+                                        <TextBox.Effect>
+                                            <DropShadowEffect BlurRadius="5"
+                                                  Color="#F5DEC1"
+                                                  Opacity="100"
+                                                  ShadowDepth="1"
+                                                  Direction="-90" />
+                                        </TextBox.Effect>
                                     </TextBox>
 
                                     <Button x:Name="addButton" Click="addButton_Click" Cursor="Hand"
-                                            Margin="0,10,10,10"
+                                            Margin="0,0,10,0"
                                     Background="#F9FAFB" BorderThickness="0"
                                     Content="Thêm" FontSize="16" FontWeight="Medium" Foreground="#39D353"
-                                    Width="67"
+                                    Width="67" Height="40"
                                     IsDefault="True">
                                     </Button>
 
@@ -345,12 +357,21 @@
 
                                     <TextBox Margin="0,0,0,0"
                                              Width="222" Height="30"
-                                             Background="#EBECF0"
+                                             Background="White"
                                              TextWrapping="Wrap"
                                              FontSize="14"
                                              VerticalContentAlignment="Center"
                                              x:Name="nameCustomer"
-                                             BorderThickness="0"/>
+                                             BorderThickness="0">
+                                        <TextBox.Effect>
+                                            <DropShadowEffect BlurRadius="5"
+                                                  Color="#F5DEC1"
+                                                  Opacity="100"
+                                                  ShadowDepth="1"
+                                                  Direction="-90" />
+                                        </TextBox.Effect>
+                                    </TextBox>
+
                                 </StackPanel>
                                 
                                 <StackPanel x:Name="phone_StackPanel"
@@ -364,13 +385,21 @@
 
                                     <TextBox Margin="17,0,0,0"
                                              Width="222"  Height="30"
-                                             Background="#EBECF0"
+                                             Background="White"
                                              TextWrapping="Wrap"
                                              FontSize="14"
                                              VerticalContentAlignment="Center"
                                              TextChanged="QuantityNumericHandlerPhoneNumber"
                                              x:Name="phoneCustomer"
-                                             BorderThickness="0"/>
+                                             BorderThickness="0">
+                                        <TextBox.Effect>
+                                            <DropShadowEffect BlurRadius="5"
+                                                  Color="#F5DEC1"
+                                                  Opacity="100"
+                                                  ShadowDepth="1"
+                                                  Direction="-90" />
+                                        </TextBox.Effect>
+                                    </TextBox>
                                 </StackPanel>
 
 
@@ -399,7 +428,7 @@
                                         <Label Content="Giá tiền"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Margin="180,0,0,0"></Label>
+                                               Margin="200,0,0,0"></Label>
 
                                         <Label Content="Số lượng"
                                                FontSize="14"
@@ -468,9 +497,8 @@
                                                                         Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
                                                             </Grid>
 
-                                                            <StackPanel Orientation="Vertical"
-                                                                Width="330">
-                                                                <TextBlock  x:Name="nameBook" 
+                                                            <StackPanel Orientation="Vertical">
+                                                                <TextBlock  x:Name="nameBook"
                                                                         Text="{Binding bookName}"
                                                                         FontSize="12"
                                                                         FontWeight="Medium"
@@ -497,7 +525,8 @@
                                                         <Label  x:Name="currentPriceLabel"
                                                                 Content="{Binding bookPrice, Converter={StaticResource currencyConverter}}"
                                                                 FontSize="12" 
-                                                                FontWeight="Medium"></Label>
+                                                                FontWeight="Medium"
+                                                                VerticalAlignment="Center"></Label>
                                                     </Grid>
 
                                                     <!--Column - 3-->
@@ -507,7 +536,8 @@
                                                                    Content="{Binding amount}"
                                                                    FontSize="12"
                                                                    FontWeight="Medium"
-                                                                   Margin="0,0,0,0"></Label>
+                                                                   Margin="0,0,0,0"
+                                                                   VerticalAlignment="Center"></Label>
                                                         </StackPanel>
                                                     </Grid>
 
@@ -516,7 +546,8 @@
                                                         <Label x:Name="couponLabel"
                                                                 Content="{Binding promoName}"
                                                                 FontSize="12"
-                                                                FontWeight="Medium"></Label>
+                                                                FontWeight="Medium"
+                                                               VerticalAlignment="Center"></Label>
                                                     </Grid>
 
                                                     <!--Column - 5-->
@@ -537,7 +568,7 @@
                                         </ListView.ItemTemplate>
 
                                         <ListView.Resources>
-                                            <ContextMenu x:Key="typeOfBooksContextMenu">
+                                            <ContextMenu x:Key="ordersContextMenu">
                                                 <MenuItem Header="Xóa" Click="deleteItem">
                                                     <MenuItem.Icon>
                                                         <Image Source="https://cdn-icons-png.flaticon.com/512/3597/3597075.png"></Image>
@@ -545,6 +576,11 @@
                                                 </MenuItem>
                                             </ContextMenu>
                                         </ListView.Resources>
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ListViewItem}">
+                                                <Setter Property="ContextMenu" Value="{StaticResource ordersContextMenu}"/>
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
                                     </ListView>
 
                                 </Grid>
@@ -579,7 +615,7 @@
                                         VerticalAlignment="Center"
                                         >
                                 <Border CornerRadius="20">
-                                    <Button Width="100" Height="30"  Background="Green" Click="save">
+                                    <Button Width="100" Height="30"  Background="Green" Click="save"  BorderThickness="0">
                                         <Label Foreground="White"
                                                FontWeight="Medium">Lưu</Label>
                                         <Button.Resources>
@@ -592,7 +628,7 @@
                                 </Border>
 
                                 <Border CornerRadius="20" Margin="20,0,0,0">
-                                    <Button Width="100" Height="30" Background="#F5C038" Click="cancel">
+                                    <Button Width="100" Height="30" Background="#F5C038" Click="cancel"  BorderThickness="0">
                                         <Label Foreground="White">Hủy bỏ</Label>
                                         <Button.Resources>
                                             <Style TargetType="{x:Type Border}">

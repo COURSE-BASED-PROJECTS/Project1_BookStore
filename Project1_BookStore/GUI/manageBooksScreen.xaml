@@ -320,16 +320,16 @@
                 <!--Row-1-->
                 <Grid Grid.Column="0" Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="886*"/>
-                        <ColumnDefinition Width="137*"/>
+                        <ColumnDefinition Width="856*"/>
+                        <ColumnDefinition Width="167*"/>
                     </Grid.ColumnDefinitions>
 
                     <!--Column-1-->
                     <Grid Grid.Column="0" Grid.Row="0">
-                        <Label Content="Quản lý đơn hàng"
+                        <Label Content="Quản lý sản phẩm"
                                    FontSize="25"
                                    FontWeight="DemiBold"
-                               Margin="25,35,626,59"></Label>
+                               Margin="25,30,538,59"></Label>
                         <StackPanel Margin="54,71,475,22" Orientation="Horizontal">
                             <Label x:Name="userName" Content="{Binding username}"
                                FontSize="15" FontWeight="Medium"
@@ -340,9 +340,9 @@
                                FontSize="15" Height="30"/>
                         </StackPanel>
                     </Grid>
-                    <StackPanel Orientation="Horizontal"  Margin="500,89,0,0" 
+                    <StackPanel Orientation="Horizontal"  Margin="465,89,0,0" 
                               DataContext="{Binding _icons}"
-                              HorizontalAlignment="Left" Width="385">
+                              HorizontalAlignment="Left" Width="387">
                         <Image RenderOptions.BitmapScalingMode="HighQuality"
                                Height="32" Width="32"
                                Source="{Binding search, Converter={StaticResource absoluteConverter}}" />
@@ -356,12 +356,12 @@
 
                     <!--Column-2-->
                     <Grid Grid.Row="0" Grid.Column="1"
-                          DataContext="{Binding _icons}">
+                          DataContext="{Binding _icons}" Margin="6,0,0,0">
                         <StackPanel Orientation="Horizontal"
-                                Width="117" Height="36"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Margin="0,12,0,82">
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Height="36" Width="117"
+                                Margin="0,25,40,0">
                             <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                                 <Border.Background>
                                     <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -505,15 +505,18 @@
 
                             <!--Row - 2-->
                             <Grid Grid.Row="0">
-                                <TabControl
+                                <TabControl  BorderThickness="1"
+                                             BorderBrush="#F5DEC1"
                                              Name="tabControl"
-                                             SelectionChanged ="TabControl_SelectionChanged" Margin="25,25,25,0"
-                                             >
+                                             SelectionChanged ="TabControl_SelectionChanged" Margin="25,25,25,0">
                                     <TabItem Header="Tất cả"
                                              FontSize="14"
-                                             Foreground="#6B34C3">
-                                        <ListView Margin="0 10 0 0" x:Name="allBooks"
-                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                             Foreground="#FF8C32"
+                                             Background="#F9F5FF"
+                                             BorderBrush="#F5DEC1">
+                                        <ListView Margin="0,10,0,0" x:Name="allBooks"
+                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                  BorderThickness="0">
                                             <ListView.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel/>
@@ -522,28 +525,29 @@
 
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
-                                                    <Grid Width="143" Height="207" 
+                                                    <Grid Width="143" Height="215" 
                                                           HorizontalAlignment="Left"
                                                           VerticalAlignment="Top"
                                                           Background="White"
-                                                          Margin="5">
+                                                          Margin="10">
                                                         <Grid.Effect>
-                                                            <DropShadowEffect BlurRadius="20"
-                                                                  Color="#877b77"
-                                                                  Opacity="100"
-                                                                  ShadowDepth="5"
+                                                            <DropShadowEffect BlurRadius="10"
+                                                                  Color="#F5DEC1"
+                                                                  Opacity="50"
+                                                                  ShadowDepth="1"
                                                                   Direction="0" />
                                                         </Grid.Effect>
                                                         <StackPanel Orientation="Vertical">
                                                             <Image Width="70" Height="116"
                                                                    Source="{Binding linkImg, Converter={StaticResource absoluteConverter}}"></Image>
-                                                            <TextBlock Height="49" Text="{Binding bookName}"
+                                                            <TextBlock Text="{Binding bookName}"
                                                                     TextWrapping="Wrap" TextAlignment="Center"
                                                                     FontWeight="Medium"
-                                                                    FontSize="13">
+                                                                    FontSize="12">
                                                             </TextBlock>
 
-                                                            <TextBlock Margin="5,0,0,0">
+                                                            <TextBlock Margin="5,0,0,5"
+                                                                       TextWrapping="Wrap">
                                                     <Label Content="Tác giả:"
                                                            FontSize="10">
                                                     </Label>
@@ -552,7 +556,8 @@
                                                     </Label>
                                                             </TextBlock>
 
-                                                            <TextBlock Margin="5,0,0,0">
+                                                            <TextBlock Margin="5,0,0,5"
+                                                                       TextWrapping="Wrap">
                                                     <Label Content="Số lượng:"
                                                            FontSize="10"></Label>
                                                     <Label Content="{Binding bookQuantity}"
@@ -582,9 +587,12 @@
                                     </TabItem>
                                     <TabItem Header="Bán chạy"
                                              FontSize="14"
-                                             Foreground="#6B34C3">
-                                        <ListView Height="423" 
-                                                  x:Name="bestSellerBooks">
+                                             Foreground="#FF8C32"
+                                             Background="#F9F5FF"
+                                             BorderBrush="#F5DEC1">
+                                        <ListView Margin="0,10,0,0"
+                                                  x:Name="bestSellerBooks"
+                                                  BorderThickness="0">
                                             <ListView.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel/>
@@ -593,16 +601,16 @@
 
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
-                                                    <Grid Width="143" Height="207" 
+                                                    <Grid Width="143" Height="215" 
                                                           HorizontalAlignment="Left"
                                                           VerticalAlignment="Top"
                                                           Background="White"
-                                                          Margin="5">
+                                                          Margin="10">
                                                         <Grid.Effect>
-                                                            <DropShadowEffect BlurRadius="20"
-                                                                  Color="#877b77"
-                                                                  Opacity="100"
-                                                                  ShadowDepth="5"
+                                                            <DropShadowEffect BlurRadius="10"
+                                                                  Color="#F5DEC1"
+                                                                  Opacity="50"
+                                                                  ShadowDepth="1"
                                                                   Direction="0" />
                                                         </Grid.Effect>
                                                         <StackPanel Orientation="Vertical">
@@ -611,10 +619,12 @@
                                                             <TextBlock Height="49" Text="{Binding bookName}"
                                                                     TextWrapping="Wrap" TextAlignment="Center"
                                                                     FontWeight="Medium"
-                                                                    FontSize="13">
+                                                                    FontSize="12"
+                                                                       Margin="5,0,0,5">
                                                             </TextBlock>
 
-                                                            <TextBlock Margin="5,0,0,0">
+                                                            <TextBlock Margin="5,0,0,5"
+                                                                       TextWrapping="Wrap">
                                                     <Label Content="Tác giả:"
                                                            FontSize="10">
                                                     </Label>
@@ -623,7 +633,8 @@
                                                     </Label>
                                                             </TextBlock>
 
-                                                            <TextBlock Margin="5,0,0,0">
+                                                            <TextBlock Margin="5,0,0,5"
+                                                                       TextWrapping="Wrap">
                                                     <Label Content="Số lượng:"
                                                            FontSize="10"></Label>
                                                     <Label Content="{Binding bookQuantity}"
@@ -637,9 +648,12 @@
                                     </TabItem>
 
                                     <TabItem Header="Sắp hết hàng"
-                                              FontSize="14"
-                                             Foreground="#6B34C3">
-                                        <ListView Height="380" 
+                                             FontSize="14"
+                                             Foreground="#FF8C32"
+                                             Background="#F9F5FF"
+                                             BorderBrush="#F5DEC1">
+                                        <ListView Margin="0,10,0,0"
+                                                  BorderThickness="0"
                                                   x:Name="nearOutOfBooks"
                                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                             <ListView.ItemsPanel>
@@ -650,16 +664,16 @@
 
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
-                                                    <Grid Width="143" Height="207" 
+                                                    <Grid Width="143" Height="215" 
                                                           HorizontalAlignment="Left"
                                                           VerticalAlignment="Top"
                                                           Background="White"
-                                                          Margin="5">
+                                                          Margin="10">
                                                         <Grid.Effect>
-                                                            <DropShadowEffect BlurRadius="20"
-                                                                  Color="#877b77"
-                                                                  Opacity="100"
-                                                                  ShadowDepth="5"
+                                                            <DropShadowEffect BlurRadius="10"
+                                                                  Color="#F5DEC1"
+                                                                  Opacity="50"
+                                                                  ShadowDepth="1"
                                                                   Direction="0" />
                                                         </Grid.Effect>
                                                         <StackPanel Orientation="Vertical">
@@ -668,10 +682,12 @@
                                                             <TextBlock Height="49" Text="{Binding bookName}"
                                                                     TextWrapping="Wrap" TextAlignment="Center"
                                                                     FontWeight="Medium"
-                                                                    FontSize="13">
+                                                                    FontSize="12"
+                                                                       Margin="5,0,0,5">
                                                             </TextBlock>
 
-                                                            <TextBlock Margin="5,0,0,0">
+                                                            <TextBlock Margin="5,0,0,5"
+                                                                       TextWrapping="Wrap">
                                                     <Label Content="Tác giả:"
                                                            FontSize="10">
                                                     </Label>
@@ -680,7 +696,8 @@
                                                     </Label>
                                                             </TextBlock>
 
-                                                            <TextBlock Margin="5,0,0,0">
+                                                            <TextBlock Margin="5,0,0,5"
+                                                                       TextWrapping="Wrap">
                                                     <Label Content="Số lượng:"
                                                            FontSize="10"></Label>
                                                     <Label Content="{Binding bookQuantity}"
@@ -694,12 +711,14 @@
                                     </TabItem>
 
                                     <TabItem Header="Kết quả lọc"
-                                              FontSize="14"
-                                             Foreground="#6B34C3">
+                                             FontSize="14"
+                                             Foreground="#FF8C32"
+                                             Background="#F9F5FF"
+                                             BorderBrush="#F5DEC1">
                                         <Grid>
-                                            <ListView 
-                                                  x:Name="searchResult"
-                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,10,0,60">
+                                            <ListView x:Name="searchResult"
+                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                                 Margin="0,10,0,40">
                                                 <ListView.ItemsPanel>
                                                     <ItemsPanelTemplate>
                                                         <WrapPanel/>
@@ -708,16 +727,16 @@
 
                                                 <ListView.ItemTemplate>
                                                     <DataTemplate>
-                                                        <Grid Width="143" Height="207" 
+                                                        <Grid Width="143" Height="215" 
                                                           HorizontalAlignment="Left"
                                                           VerticalAlignment="Top"
                                                           Background="White"
-                                                          Margin="5">
+                                                          Margin="10">
                                                             <Grid.Effect>
-                                                                <DropShadowEffect BlurRadius="20"
-                                                                  Color="#877b77"
-                                                                  Opacity="100"
-                                                                  ShadowDepth="5"
+                                                                <DropShadowEffect BlurRadius="10"
+                                                                  Color="#F5DEC1"
+                                                                  Opacity="50"
+                                                                  ShadowDepth="1"
                                                                   Direction="0" />
                                                             </Grid.Effect>
                                                             <StackPanel Orientation="Vertical">
@@ -726,10 +745,11 @@
                                                                 <TextBlock Height="49" Text="{Binding bookName}"
                                                                     TextWrapping="Wrap" TextAlignment="Center"
                                                                     FontWeight="Medium"
-                                                                    FontSize="13">
+                                                                    FontSize="12"
+                                                                           Margin="5,0,0,5">
                                                                 </TextBlock>
 
-                                                                <TextBlock Margin="5,0,0,0">
+                                                                <TextBlock Margin="5,0,0,5" TextWrapping="Wrap">
                                                     <Label Content="Tác giả:"
                                                            FontSize="10">
                                                     </Label>
@@ -738,7 +758,7 @@
                                                     </Label>
                                                                 </TextBlock>
 
-                                                                <TextBlock Margin="5,0,0,0">
+                                                                <TextBlock Margin="5,0,0,5" TextWrapping="Wrap">
                                                     <Label Content="Số lượng:"
                                                            FontSize="10"></Label>
                                                     <Label Content="{Binding bookQuantity}"
@@ -750,20 +770,32 @@
                                                 </ListView.ItemTemplate>
                                             </ListView>
 
-                                            <Label Content="0 đ" Margin="603,369,317,30"
-                                                   FontSize="12" FontWeight="Medium" RenderTransformOrigin="1.322,0.563"/>
-                                            <Label Name="maxPriceText" Content="{Binding maxPrice, Converter={StaticResource currencyConverter}}" Margin="796,369,24,30"
-                                                   FontSize="12" FontWeight="Medium"/>
+                                            <StackPanel Orientation="Horizontal"
+                                                        VerticalAlignment="Bottom"
+                                                        HorizontalAlignment="Right"
+                                                        Margin="0,0,0,0"
+                                                        Height="40">
+                                                <Label  VerticalAlignment="Bottom"
+                                                        Content="0 đ"
+                                                        FontSize="13" FontWeight="Medium"/>
 
-                                            <Slider Width="161" Height="20"
+                                                <Slider Width="180" Height="20"
                                                     Name="slider"
                                                     ValueChanged="slider_ValueChanged"
                                                     Maximum="{Binding maxPrice}"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Bottom"
-                                                    Margin="0,0,151,30" AutoToolTipPlacement="BottomRight">
+                                                    AutoToolTipPlacement="BottomRight"
+                                                    Margin="0,0,0,0">
 
-                                            </Slider>
+                                                </Slider>
+
+                                                <Label VerticalAlignment="Bottom"
+                                                       Name="maxPriceText" 
+                                                       Content="{Binding maxPrice, Converter={StaticResource currencyConverter}}"
+                                                       FontSize="13" FontWeight="Medium"/>
+
+                                            </StackPanel>
                                         </Grid>
                                     </TabItem>
 

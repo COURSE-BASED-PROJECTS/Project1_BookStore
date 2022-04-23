@@ -330,7 +330,7 @@
                         <Label Content="Quản lý đơn hàng"
                                    FontSize="25"
                                    FontWeight="DemiBold"
-                               Margin="10,34,70,52"></Label>
+                               Margin="25,30,70,52"></Label>
                         <StackPanel Margin="40,71,475,22" Orientation="Horizontal">
                             <Label x:Name="userName" Content="{Binding username}"
                                FontSize="15" FontWeight="Medium"
@@ -347,9 +347,10 @@
                     <!--Column-2-->
                     <Grid Grid.Row="0" Grid.Column="1" DataContext="{Binding _icons}">
                         <StackPanel Orientation="Horizontal"
-                                Width="117" Height="36"
-                                HorizontalAlignment="Center"
-                                Margin="10,23,0,71">
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Height="36" Width="117"
+                                Margin="0,25,40,0">
                             <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                                 <Border.Background>
                                     <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -420,7 +421,7 @@
                 <Grid Grid.Row="1" >
                     <Border 
                             Background="#F9FAFB" 
-                            CornerRadius="25" Margin="64,10,64,31">
+                            CornerRadius="25" Margin="46,10,46,31">
 
                         <Grid>
                             <Grid.RowDefinitions>

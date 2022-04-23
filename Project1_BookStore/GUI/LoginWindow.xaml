@@ -109,7 +109,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
- 
+
     </Window.Resources>
 
     <Border Background="#EBECF0" BorderBrush="#EBECF0"
@@ -118,20 +118,18 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="16*"/>
-                <RowDefinition Height="36*"/>
-                <RowDefinition Height="671*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="645*"/>
             </Grid.RowDefinitions>
 
             <!--row 2-->
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1087*"/>
-                    <ColumnDefinition Width="117*"/>
-                    <ColumnDefinition Width="24*"/>
-                </Grid.ColumnDefinitions>
-
-                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Width="117" Height="36">
+            <Grid Grid.Row="0">
+                <StackPanel
+                        Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Height="36" Width="117"
+                                Margin="0,25,40,0">
                     <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
                         <Border.Background>
                             <SolidColorBrush Color="White" Opacity="0.6"/>
@@ -177,10 +175,10 @@
             </Grid>
 
             <!--comlumn 1-->
-            <Grid Grid.Row="2" Height="50" Width="190" Margin="60,10,978,609">
+            <Grid Grid.Row="1" Margin="60,12,978,573">
                 <Image Height="50" Margin="0,0,140,0"
                     Source="{Binding logo, Converter={StaticResource absoluteConverter}}" />
-                <TextBlock Height="36" Margin="60,14,0,0" 
+                <TextBlock Height="36" Margin="60,12,0,12" 
                        Text="Book Up" FontSize="30" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
                     <TextBlock.Foreground>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
@@ -192,9 +190,9 @@
                 </TextBlock>
             </Grid>
 
-            <Border Grid.Row="2" Height="390" Width="456"
+            <Border Grid.Row="1"
                             Background="#FFFFFF" 
-                            CornerRadius="20">
+                            CornerRadius="20" Margin="386,128,386,155">
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label Content="Đăng nhập"  
@@ -263,7 +261,7 @@
                 </StackPanel>
             </Border>
 
-            <Ellipse Grid.Row="2" Height="115" Width="115" Margin="556,82,556,472">
+            <Ellipse Grid.Row="1" Margin="569,83,569,472">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="{Binding avatar, Converter={StaticResource absoluteConverter}}"/>
                 </Ellipse.Fill>

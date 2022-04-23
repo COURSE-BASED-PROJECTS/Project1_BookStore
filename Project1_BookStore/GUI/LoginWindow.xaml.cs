@@ -65,7 +65,9 @@ namespace Project1_BookStore
         Icons _icons = new Icons();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //var enhancedHashPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(myPassword);
+            //var enhancedHashPassword = BCrypt.Net.BCrypt.EnhancedHashPassword("nvNguyenHa");
+            //Debug.WriteLine(enhancedHashPassword);
+
             this.DataContext = _icons;
         }
 

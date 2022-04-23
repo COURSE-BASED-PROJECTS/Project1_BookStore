@@ -20,9 +20,14 @@ namespace Project1_BookStore
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            if (OnStart.Equals("0"))
+            if (OnStart.Equals("last"))
             {
                 this.StartupUri = new System.Uri(LastScreen, System.UriKind.Relative);
+                Username = AppConfig.GetValue(AppConfig.Username);
+            }
+            else if (OnStart.Equals("main"))
+            {
+                this.StartupUri = new System.Uri("GUI/mainwindow.xaml", System.UriKind.Relative);
                 Username = AppConfig.GetValue(AppConfig.Username);
             }
             else

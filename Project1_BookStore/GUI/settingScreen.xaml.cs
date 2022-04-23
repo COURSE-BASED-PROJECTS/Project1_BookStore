@@ -152,11 +152,14 @@ namespace Project1_BookStore.GUI
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            if(StartAtLogin.IsChecked == true)
-                AppConfig.SetValue("OnStart", "1");
+            if(dontRememberMe.IsChecked == true)
+                AppConfig.SetValue("OnStart", "login");
+
+            if (StartAtDashboard.IsChecked == true)
+                AppConfig.SetValue("OnStart", "main");
 
             if(StartAtLastScreen.IsChecked == true)
-                AppConfig.SetValue("OnStart", "0");
+                AppConfig.SetValue("OnStart", "last");
 
             RowPerPageManageBookScreen = (int)numOfBook.SelectedItem;
             AppConfig.SetValue("RowPerPageManageBookScreen", $"{RowPerPageManageBookScreen}");

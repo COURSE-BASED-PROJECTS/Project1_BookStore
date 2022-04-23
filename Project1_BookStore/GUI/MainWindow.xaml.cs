@@ -80,10 +80,9 @@ namespace Project1_BookStore
             listDataDated.ItemsSource = AddLinkImg.addLinkstoBook(BookBUS.findTop5()); 
 
             itemMainWindow.soldBooks = BookBUS.countBookSold();
-            itemMainWindow.ongoingBooks = BookBUS.findAllBook().Count;
+            itemMainWindow.ongoingBooks = BookBUS.countBookOnSell();
             itemMainWindow.newOrders = OrderBUS.findAllOrder().Count;
 
-            //itemMainWindow.username = AppConfig.GetValue(AppConfig.Username);
             this.DataContext = itemMainWindow;
             userName.Content = App.Username;
             user.Content = App.Username;
@@ -151,6 +150,7 @@ namespace Project1_BookStore
             itemMainWindow.soldBooks = BookBUS.countBookSoldInDate(formatted);
             itemMainWindow.newOrders = OrderBUS.countOrderInDate(formatted);
 
+            selected.Content = selectedDate.Value.ToString("dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
         }
 
     }
