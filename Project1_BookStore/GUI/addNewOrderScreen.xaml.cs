@@ -340,16 +340,31 @@ namespace Project1_BookStore.GUI
             if (indexOfOrder != -1)
             {
                 orders[indexOfOrder].amount += Int32.Parse(quantityBook.Text);
-                orders[indexOfOrder].priceDiscount = ((decimal)promoForBook.promoDiscount / 100 * book.bookPrice) * orders[indexOfOrder].amount;
-
-                orders[indexOfOrder].priceCurrent = (book.bookPrice - (decimal)promoForBook.promoDiscount / 100 * book.bookPrice) * orders[indexOfOrder].amount;
+                if(promoForBook != null)
+                {
+                    orders[indexOfOrder].priceDiscount = ((decimal)promoForBook.promoDiscount / 100 * book.bookPrice) * orders[indexOfOrder].amount;
+                    orders[indexOfOrder].priceCurrent = (book.bookPrice - (decimal)promoForBook.promoDiscount / 100 * book.bookPrice) * orders[indexOfOrder].amount;
+                }
+                else
+                {
+                    orders[indexOfOrder].priceTemp = book.bookPrice * orders[indexOfOrder].amount;
+                }
             }
             else
             {
+                if (promoForBook != null)
+                {
+                    order.priceDiscount = ((decimal)promoForBook.promoDiscount / 100 * book.bookPrice) * order.amount;
+                    order.priceTemp = (book.bookPrice - (decimal)promoForBook.promoDiscount / 100 * book.bookPrice) * order.amount;
+                }
+                else
+                {
+                    order.priceTemp = book.bookPrice * order.amount;
+                }
                 orders.Add(order);
             }
 
-            Context.totalPrice += order.priceCurrent;
+            Context.totalPrice += order.priceTemp;
             
             listBookOrder.ItemsSource = orders;
         }

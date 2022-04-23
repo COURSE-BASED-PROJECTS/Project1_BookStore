@@ -353,52 +353,47 @@
                                 VerticalAlignment="Top"
                                 Height="36" Width="117"
                                 Margin="0,25,40,0">
-                            <StackPanel Orientation="Horizontal"
-                                Width="117"
-                                HorizontalAlignment="Center"
-                                Margin="0,22,0,48">
-                                <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
-                                    <Border.Background>
-                                        <SolidColorBrush Color="White" Opacity="0.6"/>
-                                    </Border.Background>
-                                    <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
-                             Click="minButton_Click">
-                                        <Button.Background>
-                                            <ImageBrush ImageSource="{Binding minimize, Converter={StaticResource absoluteConverter}}"/>
+                            <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
+                                <Border.Background>
+                                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                                </Border.Background>
+                                <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
+                                        Click="minButton_Click">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="{Binding minimize, Converter={StaticResource absoluteConverter}}"/>
 
+                                    </Button.Background>
+                                </Button>
+                            </Border>
+
+                            <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
+                                <Border.Background>
+                                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                                </Border.Background>
+                                <Canvas>
+                                    <Button Style="{DynamicResource MaxButton}" x:Name="maxButton" BorderThickness="0" Height="18" Width="18"
+                                            Click="maxButton_Click" Canvas.Left="9" Canvas.Top="9">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="{Binding maximize, Converter={StaticResource absoluteConverter}}"/>
                                         </Button.Background>
                                     </Button>
-                                </Border>
+                                    <Button Style="{DynamicResource ReDownButton}" x:Name="reDownButton" BorderThickness="0" Height="24" Width="24"
+                                            Click="maxButton_Click" Canvas.Left="6" Canvas.Top="6"/>
+                                </Canvas>
+                            </Border>
 
-                                <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
-                                    <Border.Background>
-                                        <SolidColorBrush Color="White" Opacity="0.6"/>
-                                    </Border.Background>
-                                    <Canvas>
-                                        <Button Style="{DynamicResource MaxButton}" x:Name="maxButton" BorderThickness="0" Height="18" Width="18"
-                             Click="maxButton_Click" Canvas.Left="9" Canvas.Top="9">
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="{Binding maximize, Converter={StaticResource absoluteConverter}}"/>
-                                            </Button.Background>
-                                        </Button>
-                                        <Button Style="{DynamicResource ReDownButton}" x:Name="reDownButton" BorderThickness="0" Height="24" Width="24"
-                             Click="maxButton_Click" Canvas.Left="6" Canvas.Top="6"/>
-                                    </Canvas>
-                                </Border>
+                            <Border CornerRadius="50" Width="36">
+                                <Border.Background>
+                                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                                </Border.Background>
+                                <Button Style="{DynamicResource CloseButton}" x:Name="closeButton" BorderThickness="0" Height="24" Width="24"
+                                        Click="closeButton_Click">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="{Binding close, Converter={StaticResource absoluteConverter}}"/>
+                                    </Button.Background>
+                                </Button>
+                            </Border>
 
-                                <Border CornerRadius="50" Width="36">
-                                    <Border.Background>
-                                        <SolidColorBrush Color="White" Opacity="0.6"/>
-                                    </Border.Background>
-                                    <Button Style="{DynamicResource CloseButton}" x:Name="closeButton" BorderThickness="0" Height="24" Width="24"
-                             Click="closeButton_Click">
-                                        <Button.Background>
-                                            <ImageBrush ImageSource="{Binding close, Converter={StaticResource absoluteConverter}}"/>
-                                        </Button.Background>
-                                    </Button>
-                                </Border>
-
-                            </StackPanel>
                         </StackPanel>
                     </Grid>
                 </Grid>

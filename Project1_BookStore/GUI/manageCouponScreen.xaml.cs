@@ -242,6 +242,37 @@ namespace Project1_BookStore.GUI
                 PromotionBUS.UpdatePromotion(item);
 
                 MessageBox.Show($"Tắt khuyến mãi {item.promoID}: {item.promoName} thành công!!!");
+
+                listPromotions = new BindingList<PromotionDTO>(PromotionBUS.findAllPromotion());
+
+                couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
+                                    .Take(_rowsPerPage)
+                                    .ToList();
+            }
+            else
+            {
+                // do nothing
+            }
+        }
+
+        private void activeItem(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Bạn thật sự có muốn bật khuyến mãi", "Xác nhận", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                // Do not close the window    
+                PromotionDTO item = (PromotionDTO)couponList.SelectedItem;
+
+                item.promoStatus = true;
+                //listPromotions.Remove(item);
+                PromotionBUS.UpdatePromotion(item);
+
+                MessageBox.Show($"Bật khuyến mãi {item.promoID}: {item.promoName} thành công!!!");
+
+                listPromotions = new BindingList<PromotionDTO>(PromotionBUS.findAllPromotion());
+
+                couponList.ItemsSource = listPromotions.Skip((_currentPage - 1) * _rowsPerPage)
+                                    .Take(_rowsPerPage)
+                                    .ToList();
             }
             else
             {
@@ -384,8 +415,6 @@ namespace Project1_BookStore.GUI
                                 document.AddCreationDate();
 
                                 // write Title
-                                document.Add(Chunk.TABBING);
-                                document.Add(Chunk.TABBING);
                                 document.Add(Chunk.TABBING);
                                 document.Add(Chunk.TABBING);
 

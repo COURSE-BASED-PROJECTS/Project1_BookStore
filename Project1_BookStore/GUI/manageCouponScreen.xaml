@@ -315,26 +315,32 @@
             <!--comlumn 2-->
             <Grid Grid.Column="1" Grid.Row="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="131*"/>
-                    <RowDefinition Height="596*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
 
                 <!--Row-1-->
                 <Grid Grid.Column="0" Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="290*"/>
-                        <ColumnDefinition Width="51*"/>
+                        <ColumnDefinition Width="857*"/>
+                        <ColumnDefinition Width="166*"/>
                     </Grid.ColumnDefinitions>
 
                     <!--Column-1-->
                     <Grid Grid.Column="0" Grid.Row="0">
-                        
+
                         <Label Content="Quản lý khuyến mãi"
                                    FontSize="25"
                                    FontWeight="DemiBold"
-                               Margin="25,30,567,59"/>
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Margin="25,30,0,0"/>
 
-                        <StackPanel Margin="54,71,475,22" Orientation="Horizontal">
+                        <StackPanel Margin="40,71,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+
                             <Label x:Name="userName" Content="{Binding username}"
                                FontSize="15" FontWeight="Medium"
                                Height="30"
@@ -349,8 +355,7 @@
 
                     <!--Column-2-->
                     <Grid Grid.Row="0" Grid.Column="1" 
-                          HorizontalAlignment="Left"
-                          Margin="0,0,0,0" Width="157">
+                          HorizontalAlignment="Right">
                         <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Top"
@@ -406,7 +411,7 @@
                 <Grid Grid.Row="1" >
                     <Border
                             Background="#F9FAFB" 
-                            CornerRadius="25" Margin="64,10,64,31">
+                            CornerRadius="25" Margin="46,10,46,31">
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -433,7 +438,9 @@
                                 <Button Width="113" Height="35"  Background="White"
                                         HorizontalAlignment="Right"
                                         Margin="0,10,20,0" 
-                                        Cursor="Hand" Click="addNewCoupon">
+                                        Cursor="Hand" Click="addNewCoupon"
+                                               BorderBrush="#F9F5FF"
+                                               BorderThickness="1">
                                     <Label Foreground="Blue">Thêm khuyến mãi</Label>
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
@@ -442,76 +449,69 @@
                                     </Button.Resources>
 
                                     <Button.Effect>
-                                        <DropShadowEffect BlurRadius="8"
-                                                  Color="#877b77"
+                                        <DropShadowEffect BlurRadius="5"
+                                                  Color="Blue"
                                                   Opacity="100"
                                                   ShadowDepth="1"
-                                                  Direction="0" />
+                                                  Direction="-90" />
                                     </Button.Effect>
                                 </Button>
                             </Grid>
 
                             <!--Row - 2-->
-                            <Grid Grid.Row="1" Margin="10,0,10,0"
-                                  HorizontalAlignment="Left">
+                            <Grid Grid.Row="1">
 
                                 <StackPanel Orientation="Horizontal"
                                             VerticalAlignment="Center"
-                                            HorizontalAlignment="Left"
-                                            Margin="0,5,5,0">
+                                            Margin="0,0,10,0">
 
-                                    <Label Content="Mã khuyến mãi"
-                                               FontSize="14"
+                                    <Label Content="Mã khuyến mãi"
+                                               FontSize="13"
                                                FontWeight="SemiBold"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left"
-                                               Margin="30,0,0,0"></Label>
+                                               Margin="50,5,0,0"></Label>
 
-                                    <Label Content="Tên khuyến mãi"
-                                               FontSize="14"
+                                    <Label Content="Tên khuyến mãi"
+                                               FontSize="13"
                                                FontWeight="SemiBold"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left"
-                                               Margin="80,0,0,0"></Label>
+                                               Margin="70,5,0,0"></Label>
 
-                                    <Label Content="Ngày bắt đầu"
-                                               FontSize="14"
+                                    <Label Content="Ngày bắt đầu"
+                                               FontSize="13"
                                                FontWeight="SemiBold"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left"
-                                               Margin="100,0,0,0"></Label>
+                                               Margin="70,5,0,0"></Label>
 
-                                    <Label Content="Ngày kết thúc"
-                                               FontSize="14"
+                                    <Label Content="Ngày kết thúc"
+                                               FontSize="13"
                                                FontWeight="SemiBold"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left"
-                                               Margin="50,0,0,0"></Label>
+                                               Margin="70,5,0,0"></Label>
 
-                                    <Label Content="Chiết khấu (%)"
-                                               FontSize="14"
+                                    <Label Content="Chiết khấu"
+                                               FontSize="13"
                                                FontWeight="SemiBold"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left"
-                                               Margin="60,0,0,0"></Label>
+                                               Margin="40,5,0,0"></Label>
 
+                                    <Label Content="Trạng thái"
+                                               FontSize="13"
+                                               FontWeight="SemiBold"
+                                               Margin="40,5,0,0"></Label>
                                 </StackPanel>
+
+
                                 <Line   X1="20" Y1="0"  
-                                        X2="830" Y2="0"
+                                        X2="930" Y2="0"
                                         Stroke="Gray"  
                                         StrokeThickness="1"
                                         VerticalAlignment="Bottom"/>
                             </Grid>
 
-
                             <!--Row - 3-->
-                            <Grid Grid.Row="2" Margin="0,0,0,0"
-                                  HorizontalAlignment="Left">
-                                <ListView BorderThickness="0"
-                                          x:Name="couponList"                                          
+                            <Grid Grid.Row="2">
+
+                                <ListView x:Name="couponList"                                          
                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                          Margin="20,16,0,0"
-                                          HorizontalAlignment="Left">
+                                          BorderThickness="0"
+                                          HorizontalContentAlignment="Left"
+                                          Margin="5,0,5,0">
 
                                     <ListView.ItemsPanel>
                                         <ItemsPanelTemplate>
@@ -522,37 +522,38 @@
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <!--Item - 1-->
-                                            <Grid Height="50">
+                                            <Grid Height="50" Width="866">
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="250*"/>
-                                                    <ColumnDefinition Width="300*"/>
-                                                    <ColumnDefinition Width="250*"/>
-                                                    <ColumnDefinition Width="250*"/>
-                                                    <ColumnDefinition Width="200*"/>
+                                                    <ColumnDefinition Width="156*"/>
+                                                    <ColumnDefinition Width="185*"/>
+                                                    <ColumnDefinition Width="150*"/>
+                                                    <ColumnDefinition Width="150*"/>
+                                                    <ColumnDefinition Width="115*"/>
+                                                    <ColumnDefinition Width="110*"/>
                                                 </Grid.ColumnDefinitions>
 
                                                 <!--Column - 1-->
                                                 <Grid Grid.Column="0"
                                                       VerticalAlignment="Center"
-                                                      HorizontalAlignment="Left"
+                                                      HorizontalAlignment="Center"
                                                       Margin="20,0,0,0">
-                                                    <Label Content="{Binding promoID}"
+                                                    <TextBlock Text="{Binding promoID}"
                                                             FontSize="12"
-                                                           Width="100"
                                                             FontWeight="Medium"
-                                                            VerticalContentAlignment="Center"/>
+                                                            TextWrapping="Wrap"/>
                                                 </Grid>
 
                                                 <!--Column - 2-->
                                                 <Grid Grid.Column="1"
                                                       VerticalAlignment="Center"
                                                       HorizontalAlignment="Left"
-                                                      Margin="80,0,0,0">
+                                                      Margin="40,0,0,0">
 
                                                     <Button Height="35" Width="120" Background="Transparent"
                                                         Foreground="Red"
                                                         BorderThickness="1">
-                                                        <Label Foreground="Red" Content="{Binding promoName}"></Label>
+                                                        <TextBlock Foreground="Red" Text="{Binding promoName}"
+                                                                   TextWrapping="Wrap"></TextBlock>
 
                                                         <Button.Resources>
                                                             <Style TargetType="{x:Type Border}">
@@ -566,7 +567,7 @@
                                                 <Grid Grid.Column="2" 
                                                       VerticalAlignment="Center"
                                                       HorizontalAlignment="Left"
-                                                      Margin="100,0,0,0">
+                                                      Margin="50,0,0,0">
 
                                                     <Label Content="{Binding promoStartTime}"
                                                            FontSize="12"
@@ -577,7 +578,7 @@
                                                 <Grid Grid.Column="3"
                                                       VerticalAlignment="Center"
                                                       HorizontalAlignment="Left"
-                                                      Margin="80,0,0,0">
+                                                      Margin="50,0,0,0">
 
                                                     <Label Content="{Binding promoEndTime}"
                                                            FontSize="12"
@@ -588,12 +589,21 @@
                                                 <Grid Grid.Column="4"
                                                       VerticalAlignment="Center"
                                                       HorizontalAlignment="Left"
-                                                      Margin="80,0,0,0">
+                                                      Margin="50,0,0,0">
                                                     <Label Content="{Binding promoDiscount}"
                                                             FontSize="12"
                                                             Width="200"/>
                                                 </Grid>
-
+                                                
+                                                <!--Column - 6-->
+                                                <Grid Grid.Column="5"
+                                                      VerticalAlignment="Center"
+                                                      HorizontalAlignment="Left"
+                                                      Margin="40,0,0,0">
+                                                    <Label Content="{Binding promoStatus}"
+                                                            FontSize="12"
+                                                            Width="200"/>
+                                                </Grid>
                                             </Grid>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
@@ -609,6 +619,13 @@
                                             <MenuItem Header="Tắt khuyến mãi" Click="deleteItem">
                                                 <MenuItem.Icon>
                                                     <Image Source="https://cdn-icons-png.flaticon.com/512/3221/3221897.png"></Image>
+                                                </MenuItem.Icon>
+                                            </MenuItem>
+
+                                            <MenuItem Header="Bật khuyến mãi" Click="activeItem">
+                                                <MenuItem.Icon>
+                                                    <Image RenderOptions.BitmapScalingMode="HighQuality"
+                                                        Source="https://cdn-icons-png.flaticon.com/512/3597/3597075.png"></Image>
                                                 </MenuItem.Icon>
                                             </MenuItem>
                                         </ContextMenu>
