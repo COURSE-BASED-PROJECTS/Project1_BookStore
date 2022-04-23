@@ -364,7 +364,7 @@ namespace Project1_BookStore.GUI
                 tabs[3].Books = new BindingList<BookDTO>(AddLinkImg.addLinkstoBook(BookBUS.findBookByName(keyword)));
                 _vm.Books = tabs[3].Books;
 
-                _rowsPerPage = Int32.Parse(AppConfig.GetValue(AppConfig.RowPerPageManageBookScreen));
+                _rowsPerPage = settingScreen.getRowPerPageManageBookScreen();
                 _currentPage = 1; // Quay lại trang đầu tiên
 
                 _vm.SelectedBooks = new BindingList<BookDTO>(_vm.Books
@@ -396,6 +396,7 @@ namespace Project1_BookStore.GUI
 
         private decimal findMaxPrice(BindingList<BookDTO> books)
         {
+            if (books.Count == 0) return 0;
             var max = books[0].bookPrice;
             for (int i = 1; i < books.Count; i++)
             {

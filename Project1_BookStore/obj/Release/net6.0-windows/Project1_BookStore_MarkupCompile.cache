@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\App.xaml
-14-1238126335
+16265791202
 1-1606303973
-46-563006591
-196-502664831
-GUI\addNewBookScreen.xaml;GUI\addNewCouponScreen.xaml;GUI\addNewOrderScreen.xaml;GUI\DetailBookScreen.xaml;GUI\DetailOrderScreen.xaml;GUI\LoginWindow.xaml;GUI\MainWindow.xaml;GUI\manageBooksScreen.xaml;GUI\manageCouponScreen.xaml;GUI\manageOrdersScreen.xaml;GUI\modifyCouponScreen.xaml;GUI\settingScreen.xaml;GUI\uploadDataScreen.xaml;Styles.xaml;
+51-54471929
+202-188543963
+GUI\addNewBookScreen.xaml;GUI\addNewCouponScreen.xaml;GUI\addNewOrderScreen.xaml;GUI\analysicRevenue.xaml;GUI\DetailBookScreen.xaml;GUI\DetailOrderScreen.xaml;GUI\LoginWindow.xaml;GUI\MainWindow.xaml;GUI\manageBooksScreen.xaml;GUI\manageCouponScreen.xaml;GUI\manageOrdersScreen.xaml;GUI\modifyCouponScreen.xaml;GUI\modifyItem.xaml;GUI\modifyTypeOfBook.xaml;GUI\settingScreen.xaml;GUI\uploadDataScreen.xaml;
 
 False
 

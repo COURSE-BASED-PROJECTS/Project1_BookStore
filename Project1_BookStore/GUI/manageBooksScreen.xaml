@@ -862,7 +862,7 @@
                                 <StackPanel x:Name="categoryBook" Orientation="Horizontal"
                                             HorizontalAlignment="Left"
                                             Margin="30,0,0,0"
-                                            VerticalAlignment="Center" Width="289">
+                                            VerticalAlignment="Center" Width="308">
                                     <Label Content="Danh mục: "
                                            FontSize="16"
                                            FontWeight="Medium">
@@ -873,7 +873,7 @@
                                           FontSize="12"
                                           VerticalContentAlignment="Center"
                                           IsSynchronizedWithCurrentItem="True"
-                                          Width="210"
+                                          Width="190"
                                           SelectionChanged="listOfTypes_SelectionChanged">
 
                                         <ComboBox.ItemTemplate>

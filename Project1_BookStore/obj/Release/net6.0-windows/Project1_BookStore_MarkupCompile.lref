@@ -1,8 +1,9 @@
-﻿
+﻿D:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\obj\Release\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\addNewBookScreen.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\addNewCouponScreen.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\addNewOrderScreen.xaml;;
+FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\analysicRevenue.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\DetailBookScreen.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\DetailOrderScreen.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\LoginWindow.xaml;;
@@ -11,6 +12,8 @@ FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Projec
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\manageCouponScreen.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\manageOrdersScreen.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\modifyCouponScreen.xaml;;
+FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\modifyItem.xaml;;
+FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\modifyTypeOfBook.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\settingScreen.xaml;;
 FD:\UNIVERSITY\3.THE THIRD YEAR\HK2\Windows Programing\Project1_BookStore\Project1_BookStore\GUI\uploadDataScreen.xaml;;
 
